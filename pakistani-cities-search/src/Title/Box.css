@@ -1,0 +1,14 @@
+.box{
+    width: 400px;
+    height: 100px;
+    background-color: #142c78;
+    margin: auto;
+    text-align: center;
+    padding: 40px;
+    border: 10px solid white;
+    margin-top: 40px;
+    border-radius: 25px;
+    padding-top: 20px;
+    color: whitesmoke;
+    font-size: 18px;
+}

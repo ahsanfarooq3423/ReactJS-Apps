@@ -1,0 +1,12 @@
+.cities {
+    width: 300px;
+    margin: auto;
+    text-align: left;
+    border: 2px solid white;
+    background-color: cornflowerblue;
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 21px;
+    font-weight: bold;
+
+}
