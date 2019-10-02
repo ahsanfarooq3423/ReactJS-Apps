@@ -1,0 +1,89 @@
+.leftbox {
+    
+    margin-top: -25px;
+    float: left;
+    width: 24%;
+    border-right: 5px solid rgb(41, 33, 33);
+    height: 100%;
+    background-color: tan;
+    border-bottom: 5px solid rgb(41, 33, 33);
+
+  }
+
+ .leftbox .heading {
+   margin-left: 0px;
+   font-size: 40px;
+   margin-top: 30px;
+
+ }
+
+ .float {
+   float: left;
+   margin-left: 15px;
+   margin-top: 12px;
+ }
+
+ .cup {
+   margin-top: 25px;
+ }
+
+ .GreenBox{
+   margin: auto;
+   margin-bottom: 10px;
+   align-content: center;
+   width: 270px;
+   height: 60px;
+   color: black;
+   font-size: 20px;
+   border: 1px solid black;
+   background-color: rgb(76, 197, 76);
+ }
+
+ .RedBox {
+  margin: auto;
+  margin-bottom: 10px;
+  align-content: center;
+  width: 270px;
+  height: 60px;
+  color: black;
+  font-size: 20px;
+  border: 1px solid black;
+   background-color: red;
+ }
+
+ .YellowBox {
+  margin: auto;
+  margin-bottom: 10px;
+
+  align-content: center;
+  width: 270px;
+  height: 60px;
+  color: black;
+  font-size: 20px;
+  border: 1px solid black;
+  background-color: yellow;
+ }
+
+ .GreenBox:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+ }
+
+ .RedBox:hover {
+  background-color: rgb(226, 97, 97);
+  cursor:pointer;
+ }
+
+ .YellowBox:hover {
+  background-color: lime;
+  cursor:pointer;
+ }
+
+
+
+ h6{
+   font-size: 20px;
+   margin-top: 5px;
+   margin-bottom: 6px;
+ }
+  

@@ -7,7 +7,7 @@ const cities = ( props ) => {
         
         <div className = 'cities'>
             <ul>
-                
+                //searching if the input word is empty
                 { (props.search.length == 0) ?
                     //if empty render all the cities
                     props.names.map( cityObject => {return   <li>{cityObject.name}</li>}) 
