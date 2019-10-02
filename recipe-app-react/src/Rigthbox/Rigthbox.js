@@ -1,10 +1,26 @@
 import React from 'react';
 import styles from './Rigthbox.module.css';
 import Intro from '../Intro/Intro';
+import Recipe from './Recipe';
 
-const rightbox = () => {
+
+
+const rightbox = (props) => {
+    let show = <Intro/>
+    
+    if (props.show){
+        show = props.recipes.map((recipe) =>
+        <li>{recipe.name}</li>)
+    }
+
     return(
-        <Intro/>
+       //show
+       <div>
+
+       
+       <Recipe/>
+       
+       </div>
     )
 }
 
