@@ -3,12 +3,20 @@ import styles from './Leftbox.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
-const GreenBox = (props) => {
+const AddNew = (props) => {
     return(
-        <div className = {styles.GreenBox}> 
+        <div onClick = {props.addNew} className = {styles.GreenBox}> 
             <p>{props.boxName}</p>
         </div>
     )
+}
+
+const ShowAll = (props) => {
+    return(
+        <div onClick = {props.showRecipes} className = {styles.GreenBox}> 
+            <p>{props.boxName}</p>
+        </div>
+    ) 
 }
 
 const RedBox = (props) => {
@@ -22,7 +30,7 @@ const RedBox = (props) => {
 const YellowBox = (props) => {
     return(
         <div className = {styles.YellowBox}> 
-            <p>{props.boxName}</p>
+            <p>{props.recipe.name}</p>
         </div>
     )
 }
@@ -34,17 +42,16 @@ const leftbox = (props) => {
         <div className = {styles.leftbox}>
             <div className = {styles.heading}>
             <FontAwesomeIcon icon= {faCoffee} size="lg" className = {styles.float}  />
-            <h2 className = {styles.heading}>Recipe Box Application</h2> 
+            <h2 onClick ={props.homePage} className = {styles.heading}>Recipe Box Application</h2> 
             
-            <GreenBox boxName = "Add a New Recipe" />
-            <GreenBox boxName = "Show All Recipes" />
+            <AddNew addNew = {props.addNew} boxName = 'Add New Recipe' />
+            <ShowAll showRecipes = {props.showRecipes} boxName = "Show All Recipes"/>
             <RedBox boxName = "Remove All Recipes"/>
 
             <h6> The list of Recipes:</h6>
 
-            <YellowBox boxName = "Burger"/>
-            <YellowBox boxName = "Pizza"/>
-            <YellowBox boxName = "Chinese"/>
+            {props.recipes.map((recipe) =>
+            <YellowBox recipe = {recipe} key = {recipe.id} show = {props.show}/>)}
             
             </div>
             

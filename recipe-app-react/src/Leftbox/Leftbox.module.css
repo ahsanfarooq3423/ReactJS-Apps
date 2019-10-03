@@ -17,6 +17,10 @@
 
  }
 
+ .leftbox .heading:hover{
+   cursor: pointer;
+ }
+
  .float {
    float: left;
    margin-left: 15px;

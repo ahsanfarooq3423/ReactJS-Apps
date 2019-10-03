@@ -9,18 +9,52 @@ import Rigthbox from './Rigthbox/Rigthbox';
 class App extends Component {
   state = {
     recipes: [
-      {name: 'Burger', ingredients: 'Lorem impus'},
-      {name: 'Chinese', ingredients: 'Lorem impus'},
-      {name: 'Pizza', ingredients: 'Lorem kia impus'}
+      {name: 'Burger', ingredients: 'Lorem impus', id : '1jsa'},
+      {name: 'Chinese', ingredients: 'Lorem impus', id : 'sdw'},
+      {name: 'Pizza', ingredients: 'Lorem kia impus', id : 'swesdf'}
             ],
-      showAll : true
+      showRecipes : false,
+      recipeStatus : 'addnew'
+  }
+
+  showHomePageHandler = () => {
+    this.setState({showRecipes : false})
+    this.setState({recipeStatus : ''})
+  }
+
+  addNewRecipeHandler = () => {
+    this.setState({recipeStatus : 'addnew'})
+    
+  }
+
+  showRecipesHandler = () => {
+    this.setState({recipeStatus : 'showall'})
+     
+  }
+
+  getNameHandler = (event) => {
+    console.log(event.target.value)
+  }
+
+  getIngredientsHandler = (event) => {
+    console.log(event.target.value)
   }
 
   render(){
     return (
       <div className={styles.App}>
-          <Leftbox/>
-          <Rigthbox recipes = {this.state.recipes} show = {this.state.showAll}/>
+          <Leftbox 
+                  recipes = {this.state.recipes}
+                  addNew = {this.addNewRecipeHandler} 
+                  homePage = {this.showHomePageHandler}
+                  showRecipes = {this.showRecipesHandler} />
+          
+          <Rigthbox 
+                    recipes = {this.state.recipes} 
+                    recipeStatus = {this.state.recipeStatus} 
+                    addNew_show = {this.state.addNewRecipe}
+                    getname = {this.getNameHandler}
+                    getingredient = {this.getIngredientsHandler} />
        
       </div>
     );

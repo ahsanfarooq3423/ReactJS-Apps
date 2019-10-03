@@ -1,26 +1,24 @@
 import React from 'react';
-import styles from './Rigthbox.module.css';
 import Intro from '../Intro/Intro';
 import Recipe from './Recipe';
+import Addnew from './Addnew';
 
 
 
 const rightbox = (props) => {
     let show = <Intro/>
     
-    if (props.show){
+    if (props.recipeStatus === 'showall'){
         show = props.recipes.map((recipe) =>
-        <li>{recipe.name}</li>)
+        <Recipe recipe = {recipe} key = {recipe.id} show = {props.show}/>)
+    }
+    if (props.recipeStatus === 'addnew') {
+        show = <Addnew getname = {props.getname} getingredient = {props.getingredient}/>
     }
 
     return(
-       //show
-       <div>
-
+       show
        
-       <Recipe/>
-       
-       </div>
     )
 }
 
