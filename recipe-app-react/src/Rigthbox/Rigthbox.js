@@ -13,7 +13,15 @@ const rightbox = (props) => {
         <Recipe recipe = {recipe} key = {recipe.id} show = {props.show}/>)
     }
     if (props.recipeStatus === 'addnew') {
-        show = <Addnew getname = {props.getname} getingredient = {props.getingredient}/>
+        show = <Addnew 
+                    getname = {props.getname}  
+                    getingredient = {props.getingredient}
+                    submit = {props.submit}/>
+    }
+    if (props.recipeStatus === 'showone'){
+        console.log(props.oneRecipe)
+        show = <Recipe recipe = {props.oneRecipe}  show = {props.show}/>
+        
     }
 
     return(

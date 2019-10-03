@@ -3,8 +3,8 @@ import styles from './Rigthbox.module.css';
 
 const Submit = (props) => {
     return(
-        <div className = {styles.GreenBox}> 
-            <p>Submit Recipe"</p>
+        <div onClick = {props.submit} className = {styles.GreenBox}> 
+            <p>Submit Recipe</p>
         </div>
     )
 }
@@ -29,7 +29,7 @@ const addNew = (props) => {
                     type="text" placeholder = "Ingredients" 
                     cols = "50" rows = "10" ></textarea>
             <br></br>
-            <Submit/>
+            <Submit submit = {props.submit}/>
             <Cancel/>
         </div>
     )

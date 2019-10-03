@@ -29,11 +29,12 @@ const RedBox = (props) => {
 
 const YellowBox = (props) => {
     return(
-        <div className = {styles.YellowBox}> 
+        <div onClick = {(event) => props.showone(event)} className = {styles.YellowBox} key = {props.key}> 
             <p>{props.recipe.name}</p>
         </div>
     )
 }
+
 
 
 
@@ -51,7 +52,7 @@ const leftbox = (props) => {
             <h6> The list of Recipes:</h6>
 
             {props.recipes.map((recipe) =>
-            <YellowBox recipe = {recipe} key = {recipe.id} show = {props.show}/>)}
+            <YellowBox showone = {props.showone} recipe = {recipe} key = {recipe.id} show = {props.show}/>)}
             
             </div>
             
