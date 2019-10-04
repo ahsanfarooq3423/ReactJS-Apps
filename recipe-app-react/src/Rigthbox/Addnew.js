@@ -11,7 +11,7 @@ const Submit = (props) => {
 
 const Cancel = (props) => {
     return(
-        <div className = {styles.RedBox}> 
+        <div onClick = {props.homePage} className = {styles.RedBox}> 
             <p>Cancel</p>
         </div>
     )
@@ -30,7 +30,7 @@ const addNew = (props) => {
                     cols = "50" rows = "10" ></textarea>
             <br></br>
             <Submit submit = {props.submit}/>
-            <Cancel/>
+            <Cancel homePage = {props.homePage}/>
         </div>
     )
 }

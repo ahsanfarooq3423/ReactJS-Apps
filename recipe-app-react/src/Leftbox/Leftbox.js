@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Leftbox.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import SweetAlert from 'sweetalert-react';
 
 const AddNew = (props) => {
     return(
@@ -20,10 +21,17 @@ const ShowAll = (props) => {
 }
 
 const RedBox = (props) => {
+  
     return(
-        <div className = {styles.RedBox}> 
+        <div>
+
+        
+        <div onClick = {props.removeAll} className = {styles.RedBox}> 
             <p>{props.boxName}</p>
         </div>
+        
+        
+      </div>
     )
 }
 
@@ -47,7 +55,7 @@ const leftbox = (props) => {
             
             <AddNew addNew = {props.addNew} boxName = 'Add New Recipe' />
             <ShowAll showRecipes = {props.showRecipes} boxName = "Show All Recipes"/>
-            <RedBox boxName = "Remove All Recipes"/>
+            <RedBox removeAll = {props.removeAll} boxName = "Remove All Recipes"/>
 
             <h6> The list of Recipes:</h6>
 

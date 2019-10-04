@@ -138,9 +138,10 @@
    background-color: rgb(19, 2, 2);
    color: white;
    font-size: 30px;
-   margin-left: 20px;
+   margin-left: 4px;
    padding: 10px;
    overflow: auto;
+   border-radius: 10px;
 
  }
 

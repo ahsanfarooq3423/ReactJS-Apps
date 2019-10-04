@@ -6,6 +6,7 @@ import Rigthbox from './Rigthbox/Rigthbox';
 
 
 
+
 class App extends Component {
   state = {
     recipes: [
@@ -14,10 +15,14 @@ class App extends Component {
       {name: 'Pizza', ingredients: 'Lorem kia impus', id : 'swesdf'}
             ],
       showOne : 0,
+      editIndex : undefined,
       showRecipes : false,
-      recipeStatus : 'showone',
+      recipeStatus : '',
       name : '',
       ingredient : '',
+      editFlag : false,
+      editName : null,
+      editIngredient : null
       
   }
 
@@ -32,7 +37,13 @@ class App extends Component {
   }
 
   showRecipesHandler = () => {
-    this.setState({recipeStatus : 'showall'})
+    if (this.state.recipes.length == 0){
+      this.setState({recipeStatus : ''})
+    }
+    else{
+      this.setState({recipeStatus : 'showall'})
+    }
+    
      
   }
 
@@ -49,17 +60,24 @@ class App extends Component {
   submitRecipeHandler = () => {
     let recipes = [...this.state.recipes];
     if (this.state.name.length !== 0 && this.state.ingredient.length !==  0){
-      recipes.push({name: this.state.name, ingredients: this.state.ingredient, id : Math.random().toString()+ 'asw'})
+      recipes.push(
+        {name: this.state.name, 
+        ingredients: this.state.ingredient, 
+        id : Math.random().toString()+ 'asw'})
       
     }
     else {
       alert("Recipe Cannot be Empty")
+      this.setState({recipeStatus : ''})
+    }
+    if (this.state.name.length !== 0 && this.state.ingredient.length !==  0){
+      this.setState({recipes : recipes, name : ''
+      , ingredient : ''
+      , recipeStatus: 'showall'
+      })
     }
     
-    this.setState({recipes : recipes, name : ''
-                            , ingredient : ''
-                            , recipeStatus: 'showall'
-                            })
+    
 
   }
 
@@ -70,17 +88,72 @@ class App extends Component {
     
     for (var i = 0; i < recipes.length; i++) {
       if (recipes[i].name === recipe_name){
-        this.setState({showOne : i})
+        this.setState({showOne : i, editFlag : false})
       }
 
     }
 
   }
 
+  editFlagHandler = (event) => {
+    const flag = this.state.editFlag;
+    this.setState({editFlag : !flag})
+    const recipe_name = event.target.value
+    const recipes = [...this.state.recipes]
+    for (var i = 0; i < recipes.length; i++) {
+      if (recipes[i].name === recipe_name){
+        this.setState({editIndex : i,recipeStatus : 'showone'})
+        break
+      }
+
+
+    }
+    console.log(this.state.editIndex)
+    
+
+    
+  }
+
+  editNameHandler = (event) => {
+      const editName = event.target.value;
+      this.setState({editName : editName})   
+  }
+
+  editIngredientHandler = (event) => {
+      const editIngredient = event.target.value;
+      this.setState({editIngredient : editIngredient}) 
+  }
+
+
+  submitEditRecipeHandler = () => {
+    let recipes = [...this.state.recipes]
+    if (this.state.editName.length != 0 && this.state.editIngredient.length != 0){
+      recipes[this.state.editIndex].name = this.state.editName
+      recipes[this.state.editIndex].ingredients = this.state.editIngredient
+    }
+    else {
+      this.setState({editFlag : true})
+    }
+    this.setState({recipes : recipes, recipeStatus : 'showone', editFlag : false})
+  
+  }
+
+  removeAllRecipes = () => {
+    this.setState({recipes: [], recipeStatus : '' })
+  }
+
+  deleteRecipeHandler = (event) => {
+    const recipe_name = event.target.value
+    console.log(recipe_name)
+  }
+  
+  
+
   render(){
     return (
       <div className={styles.App}>
           <Leftbox 
+                  removeAll = {this.removeAllRecipes}
                   recipes = {this.state.recipes}
                   addNew = {this.addNewRecipeHandler} 
                   homePage = {this.showHomePageHandler}
@@ -88,6 +161,13 @@ class App extends Component {
                   showone = {this.showOneRecipeHandler}/>
           
           <Rigthbox
+                    deleteRecipe = {this.deleteRecipeHandler}
+                    homePage = {this.showHomePageHandler}
+                    submitEdit = {this.submitEditRecipeHandler}
+                    editIngredient = {this.editIngredientHandler}
+                    editName = {this.editNameHandler}
+                    editRecipe = {this.editFlagHandler}
+                    editFlag = {this.state.editFlag}
                     oneRecipe = {this.state.recipes[this.state.showOne]}
                     submit = {this.submitRecipeHandler} 
                     recipes = {this.state.recipes} 

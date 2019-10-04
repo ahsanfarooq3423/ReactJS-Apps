@@ -10,17 +10,32 @@ const rightbox = (props) => {
     
     if (props.recipeStatus === 'showall'){
         show = props.recipes.map((recipe) =>
-        <Recipe recipe = {recipe} key = {recipe.id} show = {props.show}/>)
+        <Recipe
+            editRecipe = {props.editRecipe}
+            edit = {props.editFlag}  
+            recipe = {recipe} 
+            key = {recipe.id} 
+            show = {props.show}
+            />)
     }
     if (props.recipeStatus === 'addnew') {
-        show = <Addnew 
+        show = <Addnew
+                    homePage = {props.homePage} 
                     getname = {props.getname}  
                     getingredient = {props.getingredient}
                     submit = {props.submit}/>
     }
     if (props.recipeStatus === 'showone'){
-        console.log(props.oneRecipe)
-        show = <Recipe recipe = {props.oneRecipe}  show = {props.show}/>
+        
+        show = <Recipe
+                    deleteRecipe = {props.deleteRecipe}
+                    submitEdit = {props.submitEdit}
+                    editIngredient = {props.editIngredient}
+                    editName ={props.editName}
+                    editRecipe = {props.editRecipe}
+                    edit = {props.editFlag}
+                    recipe = {props.oneRecipe}  
+                    show = {props.show}/>
         
     }
 
