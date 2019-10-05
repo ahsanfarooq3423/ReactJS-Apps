@@ -167,7 +167,7 @@ class App extends Component {
   
 
   render(){
-    //splitting the container into two sub containers i.e Leftbox and the Rigthbox
+    //splitting the container into two sub containers i.e Leftbox and the 
     return (
       <div className={styles.App}>
           <Leftbox 
