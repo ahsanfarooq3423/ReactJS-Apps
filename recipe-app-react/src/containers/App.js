@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styles from './App.module.css';
-import Leftbox from './Leftbox/Leftbox';
-import Rigthbox from './Rigthbox/Rigthbox';
+import Leftbox from '../components/Leftbox/Leftbox';
+import Rigthbox from '../components/Rigthbox/Rigthbox';
 
 
 
@@ -105,12 +105,7 @@ class App extends Component {
         this.setState({editIndex : i,recipeStatus : 'showone'})
         break
       }
-
-
     }
-    console.log(this.state.editIndex)
-    
-
     
   }
 
@@ -143,8 +138,18 @@ class App extends Component {
   }
 
   deleteRecipeHandler = (event) => {
+    let recipes = [...this.state.recipes]
     const recipe_name = event.target.value
-    console.log(recipe_name)
+    for (var i = 0; i < recipes.length; i++) {
+      if (recipes[i].name === recipe_name){
+        
+        if (i > -1) {
+        recipes.splice(i, 1);}
+        this.setState({recipes : recipes,recipeStatus : 'showall'})
+        break
+      }
+    }
+    
   }
   
   

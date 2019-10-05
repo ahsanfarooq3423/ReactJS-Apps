@@ -11,6 +11,7 @@ const rightbox = (props) => {
     if (props.recipeStatus === 'showall'){
         show = props.recipes.map((recipe) =>
         <Recipe
+            deleteRecipe = {props.deleteRecipe}
             editRecipe = {props.editRecipe}
             edit = {props.editFlag}  
             recipe = {recipe} 

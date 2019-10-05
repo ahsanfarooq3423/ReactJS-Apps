@@ -32,7 +32,8 @@ const recipe = (props) => {
         <div className = {styles.recipe}>
                 <h3>{props.recipe.name}</h3>
                 <button
-                    
+                    onClick = {(event) =>props.deleteRecipe(event, "value")} 
+
                     value = {props.recipe.name} className = {styles.red} >Delete this Page</button>
                 <button 
                     onClick = {(event) =>props.editRecipe(event, "value")} 
