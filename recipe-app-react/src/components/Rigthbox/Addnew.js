@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Rigthbox.module.css';
 
+//addnew form sub components
 const Submit = (props) => {
     return(
         <div onClick = {props.submit} className = {styles.GreenBox}> 

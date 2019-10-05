@@ -1,7 +1,9 @@
 import React from 'react';
 import styles from './Rigthbox.module.css';
 
+//the recipe box component render in the right box
 
+//edit component nested inside the recipe compoent to edit the recipe
 const Edit = (props) => {
     return(
         <div className = {styles.edit}>
@@ -26,6 +28,7 @@ const Edit = (props) => {
     )
 }
 
+//the recipe box component
 const recipe = (props) => {
     return(
         

@@ -6,8 +6,12 @@ import Addnew from './Addnew';
 
 
 const rightbox = (props) => {
+    //putting all the components to the show variable 
     let show = <Intro/>
-    
+    //showing the content in the rigth box on the basis of recipeStatus state:
+    // showall -> showall recipes
+    // addnew -> Add new Recipe Form
+    // showone -> show a particular recipe
     if (props.recipeStatus === 'showall'){
         show = props.recipes.map((recipe) =>
         <Recipe

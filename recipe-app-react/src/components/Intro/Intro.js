@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Intro.module.css';
 
-
+//basic into component at the starter page of the app
 const intro = () => {
     return(
         <div className = {styles.intro}>

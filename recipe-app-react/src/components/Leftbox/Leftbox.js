@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './Leftbox.module.css';
+//font-awesome imports
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import SweetAlert from 'sweetalert-react';
 
+//add new component button
 const AddNew = (props) => {
     return(
         <div onClick = {props.addNew} className = {styles.GreenBox}> 
@@ -19,13 +20,10 @@ const ShowAll = (props) => {
         </div>
     ) 
 }
-
+//red genering box component
 const RedBox = (props) => {
-  
     return(
         <div>
-
-        
         <div onClick = {props.removeAll} className = {styles.RedBox}> 
             <p>{props.boxName}</p>
         </div>
@@ -35,6 +33,7 @@ const RedBox = (props) => {
     )
 }
 
+//yellow generic box component for the recipes showing
 const YellowBox = (props) => {
     return(
         <div onClick = {(event) => props.showone(event)} className = {styles.YellowBox} key = {props.key}> 
@@ -45,7 +44,7 @@ const YellowBox = (props) => {
 
 
 
-
+//complete left box component
 const leftbox = (props) => {
     return(
         <div className = {styles.leftbox}>
