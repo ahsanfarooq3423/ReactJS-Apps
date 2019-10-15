@@ -1,9 +1,10 @@
 import React from 'react';
+import classes from './GroceryTypes.module.css';
 
 
 const grocerytypes = (props) => {
     return(
-        <div>
+        <div className = {classes.Categories}>
             <ul>
                 <li>All Categories</li>
                 {props.types.map(type => {
