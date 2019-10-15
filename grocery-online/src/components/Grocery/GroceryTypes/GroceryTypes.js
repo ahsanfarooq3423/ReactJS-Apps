@@ -6,9 +6,9 @@ const grocerytypes = (props) => {
     return(
         <div className = {classes.Categories}>
             <ul>
-                <li>All Categories</li>
+                <li className = {classes.title}>All Categories</li>
                 {props.types.map(type => {
-                    return <li> {type} </li>
+                    return <li className ={classes.types}> {type} </li>
                 })}
             </ul>
         </div>

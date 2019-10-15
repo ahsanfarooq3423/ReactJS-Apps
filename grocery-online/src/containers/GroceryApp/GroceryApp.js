@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import GroceryTypes from '../../components/Grocery/GroceryTypes/GroceryTypes';
+import GroceryItems from '../../components/Grocery/GroceryItems/GroceryItems';
+
 
 class GroceryApp extends Component {
     state = {
@@ -36,6 +38,7 @@ class GroceryApp extends Component {
         return(
             <div>
                 <GroceryTypes types = {this.getCategoriesNames()} />
+                <GroceryItems/>
             </div>
         );
     }

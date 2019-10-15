@@ -1,0 +1,19 @@
+.card {
+    width: 300px;
+    border : 1px solid gray;
+    height: 380px;
+}
+
+
+.card button {
+    background-color: gray;
+    color: white;
+}
+
+img {
+    display: block;
+    max-width:200px;
+    max-height:200px;
+    width: auto;
+    height: auto;
+}
