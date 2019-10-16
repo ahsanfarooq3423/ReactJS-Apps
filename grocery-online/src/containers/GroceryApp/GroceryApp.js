@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import GroceryTypes from '../../components/Grocery/GroceryTypes/GroceryTypes';
 import GroceryItems from '../../components/Grocery/GroceryItems/GroceryItems';
+import classes from './GroceryApp.module.css';
 
 
 class GroceryApp extends Component {
@@ -36,7 +37,7 @@ class GroceryApp extends Component {
 
     render(){
         return(
-            <div>
+            <div className = {classes.container}> 
                 <GroceryTypes types = {this.getCategoriesNames()} />
                 <GroceryItems/>
             </div>

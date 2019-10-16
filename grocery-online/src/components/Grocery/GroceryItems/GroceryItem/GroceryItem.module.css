@@ -1,19 +1,40 @@
 .card {
-    width: 300px;
-    border : 1px solid gray;
-    height: 380px;
+    width: 370px;
+    height: 370px;
+    border: 2px solid rgb(231, 222, 222);
+    margin: 20px;
+    border-radius: 5px;
+    margin-left: 50px;
+}
+
+.name {
+    margin-top: 5px;
+    font-size: 23px;
+    font-weight: 450;
+}
+
+.price {
+    margin-top: -15px;
 }
 
 
-.card button {
-    background-color: gray;
-    color: white;
-}
 
-img {
-    display: block;
-    max-width:200px;
-    max-height:200px;
-    width: auto;
+.card img {
+    border-radius: 5px;
+    max-width: 100%;
     height: auto;
+    margin-bottom: 0px;
+}
+
+.info {
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+
+@media (max-width: 700) {
+    .card{
+        width: 200px;
+        height: 200px;
+    }
 }
