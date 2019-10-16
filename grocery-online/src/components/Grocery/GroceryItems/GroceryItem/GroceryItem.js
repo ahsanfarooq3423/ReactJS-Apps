@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './GroceryItem.module.css';
+import Button from './Button/Button';
 
 
 const item = () => {
@@ -10,7 +11,7 @@ const item = () => {
                <div className = {classes.info}>
                     <p className = {classes.name}>Spinach</p>
                     <p className = {classes.price}>$ 2.50</p>
-                    <button>ADD TO CART</button>
+                    <Button/>
                </div>
                
            

@@ -9,7 +9,12 @@
         overflow: visible;
         font-weight: bolder;
         max-height: 320px;
+        margin-top: 15px;
+        
+        
     }
+
+
 
 
 .Categories ul {
@@ -47,21 +52,10 @@
 .types:hover {
     background-color: rgb(241, 235, 235);
 }
-
-
-
-
  
-@media (max-width : 780px) {
-    .Categories {
-        width: 250px;
-    }
-}    
 
 
-
-
-@media (max-width : 500px){
+@media (max-width : 550px){
     .Categories{
         display: none;
     }

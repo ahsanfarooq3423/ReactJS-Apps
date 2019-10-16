@@ -3,3 +3,33 @@
     flex-wrap: wrap;
     
 }
+
+@media (max-width: 1175px) {
+    .list div {
+       height: 300px;
+       width: 300px;
+    }
+}
+
+@media (max-width : 1029px) {
+    .list div {
+        height: 250px;
+        width: 250px;
+     }
+}
+
+
+@media (max-width : 925px) {
+    .list div {
+        height: 400px;
+        width: 400px;
+     }
+}
+
+@media (max-width: 700) {
+    .list div {
+        height: 250px;
+        width: 250px;
+     }
+}
+
