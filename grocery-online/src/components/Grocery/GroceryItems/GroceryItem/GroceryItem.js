@@ -11,8 +11,9 @@ const item = () => {
                <div className = {classes.info}>
                     <p className = {classes.name}>Spinach</p>
                     <p className = {classes.price}>$ 2.50</p>
-                    <Button/>
+                    
                </div>
+               <Button/>
                
            
        </div>

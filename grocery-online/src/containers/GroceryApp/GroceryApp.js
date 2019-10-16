@@ -18,7 +18,7 @@ class GroceryApp extends Component {
                 'banana' : {} , 'apple' : {} , 'grapes' : {}
             } },
             seasons_spices : { name : 'Seasonings and Spices' , items : {
-                'clove' : {}, 'chili' : {} , 'oregano' : {}
+                'clove' : {}, 'chilli' : {} , 'oregano' : {}
             } },
             vegetables : { name : 'Vegetables', items : {
                 'tomato' : {}, 'potato': {} , 'spincah' : {}

@@ -1,10 +1,12 @@
 .card {
     width: 370px;
-    height: 370px;
+    height: auto;
     border: 2px solid rgb(231, 222, 222);
     margin: 20px;
     border-radius: 5px;
     margin-left: 50px;
+    
+  
 }
 
 .name {
@@ -29,10 +31,11 @@
 .info {
     margin-left: 10px;
     margin-top: 0px;
+    margin-bottom: 26px;
 }
 
 
 .card:hover {
     box-shadow: 3px 4px 20px -2px rgba(128,109,128,0.82);
-    
+
 }
