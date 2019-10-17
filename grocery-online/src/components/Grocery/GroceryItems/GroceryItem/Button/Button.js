@@ -2,8 +2,8 @@ import React from 'react';
 import classes from './Button.module.css';
 
 
-const button = () => {
-    let items = true;
+const button = (props) => {
+    let items = false;
 
     
 
@@ -15,7 +15,7 @@ const button = () => {
                 <p>3</p>
            
             <button className = {classes.small}>-</button>
-        </div>) : (<button className ={classes.cart}>
+        </div>) : (<button className ={classes.cart} onClick = {props.getItem} >
             ADD TO CART
         </button>)
         

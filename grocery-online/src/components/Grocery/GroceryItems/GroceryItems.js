@@ -15,8 +15,9 @@ const GroceryItems = (props) => {
     <div className = {classes.list}>
         {keys.map(type => {
             return <Item name = {type} 
+                        getItem = {() =>props.getItem(type,currentPage)}
                         price = {"$ " + items[type].price} 
-                        type = {currentPage} />
+                        type = {currentPage}/>
         })}
             
             

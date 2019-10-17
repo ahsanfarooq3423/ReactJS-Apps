@@ -10,6 +10,7 @@ const grocerytypes = (props) => {
                 <li className = {classes.title}>All Categories</li>
                 {props.types.map(type => {
                     return <li 
+                            
                             className ={classes.types}  
                             onClick = {() => props.getPage(type)} > {type.name} </li>
                 })}

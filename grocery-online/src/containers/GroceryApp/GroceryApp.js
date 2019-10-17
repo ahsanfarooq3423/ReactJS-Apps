@@ -25,7 +25,11 @@ class GroceryApp extends Component {
             }}
 
         },
-        currentPage : 'bread'
+        currentPage : 'bread',
+        cart : {
+            totalPrice : 0,
+            items : []
+        }
 
     }
 
@@ -40,6 +44,18 @@ class GroceryApp extends Component {
     getPageNameHandler = (category) => {
         this.setState({currentPage : category.type})
     }
+
+    getItemHandler = (item,page) => {
+        let newItem = {}
+        newItem.number_Items = 0
+        newItem.itemName = item;
+        newItem.type = page;
+        newItem.price = this.state.categories[page].items[item].price;
+        let cart = this.state.cart;
+        cart.items.push(newItem);
+        this.setState({cart : cart});
+ 
+    }
     
 
 
@@ -50,7 +66,10 @@ class GroceryApp extends Component {
                     types = {this.getCategoriesNames()}  
                     getPage = {this.getPageNameHandler}
                     currentPage = {this.state.currentPage}  />
-                <GroceryItems data = {this.state.categories} currentPage = {this.state.currentPage}/>
+                <GroceryItems 
+                    data = {this.state.categories} 
+                    currentPage = {this.state.currentPage}
+                    getItem = {this.getItemHandler}/>
             </div>
         );
     }
