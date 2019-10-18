@@ -11,12 +11,17 @@
     border-radius: 60%;
     max-width: 110px;
     max-height: 110px;
-    margin: 0px;
+    margin-top: 1.1%;
+    margin-left: 1.2%;
+    margin-right: -70px;
+
     
 }
 
 .cartItem p {
     margin: auto;
+    margin-left: 15%;
+    
 }
 
 .cartItem div {

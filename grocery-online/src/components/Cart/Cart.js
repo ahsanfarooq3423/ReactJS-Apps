@@ -15,16 +15,25 @@ const cart = () => {
                 
 
                 <div className = {classes.menu}>
-                    <p>Product</p>
-                    <p>Quantity</p>
-                    <p>Price</p>
+                    <div>Product</div>
+                    <div>Quantity</div>
+                    <div className = {classes.price}>Price</div>
+                   
+                   
                 </div>
-               
-               <CartItem/>
-               <CartItem/>
-               <CartItem/>
-               
 
+                <hr/>
+               
+               <CartItem/>
+               <CartItem/>
+               <CartItem/>
+
+               <div className = {classes.total}>
+                   <p>Total:</p>
+                   <p className = {classes.totalprice}> $ 15.25</p>
+               </div>
+               
+                <button className = {classes.check}>Check Out</button>
             </div>
         </Aux>
     )
