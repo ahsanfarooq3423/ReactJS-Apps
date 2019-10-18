@@ -8,9 +8,9 @@ const grocerytypes = (props) => {
         <div className = {classes.Categories}>
             <ul>
                 <li className = {classes.title}>All Categories</li>
-                {props.types.map(type => {
+                {props.types.map((type,index) => {
                     return <li 
-                            
+                            key = {index}
                             className ={classes.types}  
                             onClick = {() => props.getPage(type)} > {type.name} </li>
                 })}

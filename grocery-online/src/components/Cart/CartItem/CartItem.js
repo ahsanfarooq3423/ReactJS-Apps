@@ -9,21 +9,17 @@ const cartitem = (props) => {
     let unitPrice = props.grocery[type].items[name].price;
     let totalUnits = price / unitPrice;
     
-    console.log(unitPrice);
-    console.log(totalUnits);
-
-    
     return (
         <div className  = {classes.cartItem}>
 
-            <img src = {require('../../../assets/images/bread/toast.jpeg')}/>
+            <img src = {require('../../../assets/images/bread/toast.jpeg')} alt = {name}/>
             <p>{props.item.itemName}</p>
 
             <div className = {classes.button}>
                 <Button/>
             </div>
 
-            <p> $ 0.50 </p>
+            <p>$  {unitPrice * totalUnits}</p>
 
 
         </div>
