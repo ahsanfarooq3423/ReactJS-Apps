@@ -29,6 +29,7 @@ class GroceryApp extends Component {
         currentPage : 'bread',
         cart : {
             totalPrice : 0,
+            totalItems : 0,
             items : {}
         }
 
@@ -54,13 +55,13 @@ class GroceryApp extends Component {
         
         let cart = {...this.state.cart};
         cart.totalPrice += newItem.price;
+        cart.totalItems += 1;
         
         
         let itemPrice = this.state.categories[page].items[item].price
 
         
         if (item in cart.items){
-            console.log('item already in the cart')
             cart.items[item].price += itemPrice
             
         }
@@ -69,15 +70,23 @@ class GroceryApp extends Component {
         }
 
         this.setState({cart : cart});
-        console.log(cart)
+        //console.log(cart);
 
+    }
+
+    clearCartHandler = () => {
+        const emptyCart  = {
+            totalPrice : 0,
+            totalItems : 0,
+            items : {}
+        }
+        this.setState({cart : emptyCart})
     }
     
 
 
     render(){
-        let show = ( 
-        <div className = {classes.container}> 
+        let show = ( <div className = {classes.container}> 
             <GroceryTypes 
                 types = {this.getCategoriesNames()}  
                 getPage = {this.getPageNameHandler}
@@ -86,9 +95,22 @@ class GroceryApp extends Component {
                 data = {this.state.categories} 
                 currentPage = {this.state.currentPage}
                 getItem = {this.getItemToCartHandler}/>
-        </div>)
+                </div>)
+
         return(
-           <Cart/>
+         <div>
+             {show}
+             <Cart
+            clear = {this.clearCartHandler}
+            cart = {this.state.cart} 
+            grocery = {this.state.categories}/>
+
+         </div>  
+        
+           
+        
+           
+           
         );
     }
 }

@@ -3,14 +3,19 @@ import Aux from '../../containers/hoc/Aux';
 import classes from './Cart.module.css';
 import CartItem from './CartItem/CartItem';
 
-const cart = () => {
+const cart = (props) => {
+    let number_items = props.cart.totalItems;
+    let totalPrice = props.cart.totalPrice;
+    let items = Object.keys(props.cart.items);
+    
+    
     return(
         <Aux>
             <h1 className = {classes.h1}>Shopping Cart</h1>
             <div className = {classes.summary}>
                 <div className = {classes.heading}>
-                    <p> You have 3 items in the shopping cart.</p>
-                    <button>Clear Shopping Cart</button>
+                    <p> You have {number_items} items in the shopping cart.</p>
+                    <button onClick = {props.clear}>Clear Shopping Cart</button>
                 </div>
                 
 
@@ -23,14 +28,20 @@ const cart = () => {
                 </div>
 
                 <hr/>
+              
+
+               {items.map(item => {
+                   return <CartItem 
+                        item = {props.cart.items[item]}
+                        grocery = {props.grocery}
+                   />
+               })}
+              
                
-               <CartItem/>
-               <CartItem/>
-               <CartItem/>
 
                <div className = {classes.total}>
                    <p>Total:</p>
-                   <p className = {classes.totalprice}> $ 15.25</p>
+                   <p className = {classes.totalprice}> $ {totalPrice}</p>
                </div>
                
                 <button className = {classes.check}>Check Out</button>
