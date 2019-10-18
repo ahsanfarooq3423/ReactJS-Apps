@@ -1,0 +1,53 @@
+.h1 { 
+    font-size: 40px;
+    margin-left: 20px;
+
+}
+
+.summary {
+    width: 80%;
+    height: auto;
+    border: 1.5px solid rgb(233, 223, 223);
+    border-radius: 2px;
+    margin-left: 20px;
+    padding: 20px;
+    
+}
+
+
+
+.heading {
+    display: flex;
+    border-bottom: 1px solid rgb(233, 223, 223);
+    margin-bottom: 20px;
+}
+.heading p {
+    margin-top: 0px;
+}
+
+.heading button{
+    float: right;
+    margin-left: 60%;
+    height: 30px;
+    width: 150px;
+    border-radius: 10px ;
+    background-color: rgb(206, 189, 188);
+    
+
+}   
+
+.menu {
+    
+    display : flex;
+    border-bottom: 1px solid rgb(233, 223, 223);
+    
+}
+
+
+.menu p{
+    padding-bottom: 20px;
+    margin: auto;
+    font-weight: bolder;
+
+}
+

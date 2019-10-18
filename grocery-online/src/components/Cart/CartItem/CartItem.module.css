@@ -1,0 +1,45 @@
+.cartItem {
+    
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    border-bottom: 1px solid rgb(233, 223, 223);
+    
+}
+
+.cartItem img {
+    border-radius: 60%;
+    max-width: 110px;
+    max-height: 110px;
+    margin: 0px;
+    
+}
+
+.cartItem p {
+    margin: auto;
+}
+
+.cartItem div {
+    margin: auto;
+}
+
+.button {
+    width: 22%;
+    
+}
+
+.button p {
+    margin-left: 28%;
+    margin-right: 28%;
+
+}
+
+.button button {
+    width: 50px;
+    height: 35px;
+
+}
+
+
+
+

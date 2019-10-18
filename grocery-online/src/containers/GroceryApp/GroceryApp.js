@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import GroceryTypes from '../../components/Grocery/GroceryTypes/GroceryTypes';
 import GroceryItems from '../../components/Grocery/GroceryItems/GroceryItems';
 import classes from './GroceryApp.module.css';
+import Cart from '../../components/Cart/Cart';
 
 
 class GroceryApp extends Component {
@@ -28,7 +29,7 @@ class GroceryApp extends Component {
         currentPage : 'bread',
         cart : {
             totalPrice : 0,
-            items : []
+            items : {}
         }
 
     }
@@ -45,32 +46,49 @@ class GroceryApp extends Component {
         this.setState({currentPage : category.type})
     }
 
-    getItemHandler = (item,page) => {
+    getItemToCartHandler = (item,page) => {
         let newItem = {}
-        newItem.number_Items = 0
         newItem.itemName = item;
         newItem.type = page;
         newItem.price = this.state.categories[page].items[item].price;
-        let cart = this.state.cart;
-        cart.items.push(newItem);
+        
+        let cart = {...this.state.cart};
+        cart.totalPrice += newItem.price;
+        
+        
+        let itemPrice = this.state.categories[page].items[item].price
+
+        
+        if (item in cart.items){
+            console.log('item already in the cart')
+            cart.items[item].price += itemPrice
+            
+        }
+        else {
+            cart.items[item] = newItem
+        }
+
         this.setState({cart : cart});
- 
+        console.log(cart)
+
     }
     
 
 
     render(){
+        let show = ( 
+        <div className = {classes.container}> 
+            <GroceryTypes 
+                types = {this.getCategoriesNames()}  
+                getPage = {this.getPageNameHandler}
+                currentPage = {this.state.currentPage}  />
+            <GroceryItems 
+                data = {this.state.categories} 
+                currentPage = {this.state.currentPage}
+                getItem = {this.getItemToCartHandler}/>
+        </div>)
         return(
-            <div className = {classes.container}> 
-                <GroceryTypes 
-                    types = {this.getCategoriesNames()}  
-                    getPage = {this.getPageNameHandler}
-                    currentPage = {this.state.currentPage}  />
-                <GroceryItems 
-                    data = {this.state.categories} 
-                    currentPage = {this.state.currentPage}
-                    getItem = {this.getItemHandler}/>
-            </div>
+           <Cart/>
         );
     }
 }
