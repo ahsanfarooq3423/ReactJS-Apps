@@ -83,6 +83,9 @@ class GroceryApp extends Component {
         this.setState({cart : emptyCart})
     }
     
+    dummyFunction = () => {
+        console.log('add on clicked');
+    }
 
 
     render(){
@@ -91,7 +94,9 @@ class GroceryApp extends Component {
                 types = {this.getCategoriesNames()}  
                 getPage = {this.getPageNameHandler}
                 currentPage = {this.state.currentPage}  />
-            <GroceryItems 
+            <GroceryItems
+                cart = {this.state.cart}
+                totalItems = {this.state.cart.totalItems} 
                 data = {this.state.categories} 
                 currentPage = {this.state.currentPage}
                 getItem = {this.getItemToCartHandler}/>
@@ -101,6 +106,8 @@ class GroceryApp extends Component {
          <div>
              {show}
              <Cart
+            
+            getItem = {this.getItemToCartHandler}
             clear = {this.clearCartHandler}
             cart = {this.state.cart} 
             grocery = {this.state.categories}/>

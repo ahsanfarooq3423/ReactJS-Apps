@@ -1,6 +1,7 @@
 import React from 'react';
 import classes from './CartItem.module.css';
-import Button from '../../Grocery/GroceryItems/GroceryItem/Button/Button';
+import Addon from '../../Grocery/GroceryItems/GroceryItem/Button/Addon';
+
 
 const cartitem = (props) => {
     let type = props.item.type;
@@ -12,14 +13,16 @@ const cartitem = (props) => {
     return (
         <div className  = {classes.cartItem}>
 
-            <img src = {require('../../../assets/images/bread/toast.jpeg')} alt = {name}/>
+            <img src = {require('../../../assets/images/'+ type +'/' + name + '.jpeg')} alt = {name}/>
             <p>{props.item.itemName}</p>
 
             <div className = {classes.button}>
-                <Button/>
+                <Addon 
+                getItem = {() =>props.getItem(name,type)}
+                totalItems = {totalUnits}/>
             </div>
 
-            <p>$  {unitPrice * totalUnits}</p>
+            <p>{totalUnits} x ${unitPrice} =  ${unitPrice * totalUnits}</p>
 
 
         </div>

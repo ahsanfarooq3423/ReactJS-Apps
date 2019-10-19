@@ -31,7 +31,8 @@ const cart = (props) => {
               
 
                {items.map(item => {
-                   return <CartItem 
+                   return <CartItem
+                        getItem = {props.getItem} 
                         key = {item + toString(Math.random())}
                         item = {props.cart.items[item]}
                         grocery = {props.grocery}

@@ -14,15 +14,16 @@ const GroceryItems = (props) => {
     return (        
     <div className = {classes.list}>
         {keys.map((type,index) => {
-            return <Item name = {type} 
+            return <Item 
+                        cart = {props.cart}
+                        totalItems = {props.totalItems}
+                        name = {type} 
                         key = {index}
                         getItem = {() =>props.getItem(type,currentPage)}
-                        price = {"$ " + items[type].price} 
+                        price = {items[type].price} 
                         type = {currentPage}/>
         })}
-            
-            
-           
+
         </div>
 
     
