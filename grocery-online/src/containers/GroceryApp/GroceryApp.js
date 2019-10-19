@@ -83,8 +83,31 @@ class GroceryApp extends Component {
         this.setState({cart : emptyCart})
     }
     
-    dummyFunction = () => {
-        console.log('add on clicked');
+    removeItemHandler = (item, page) => {
+        let cart = {...this.state.cart};
+        let unitPrice = this.state.categories[page].items[item].price;
+        //console.log('Unit Price is: ', unitPrice);
+        //console.log('Current Page:', page);
+        //console.log('Page Item:', item);
+        //console.log(this.state.cart.items[item].price)
+        let totalUnits =  this.state.cart.items[item].price/unitPrice -1;
+        console.log('Total Units: ', totalUnits)
+        let totalPrice = this.state.cart.items[item].price;
+        
+        if (totalUnits ===0) {
+            console.log('INSIDE IF STATEMENT')
+        }
+        else {
+            totalPrice = totalPrice - unitPrice;
+            cart.items[item].price = totalPrice;
+            console.log(cart.items[item])
+            console.log('INSIDE ELSE STATEMENT')
+        }
+        
+        
+
+
+
     }
 
 
@@ -99,7 +122,8 @@ class GroceryApp extends Component {
                 totalItems = {this.state.cart.totalItems} 
                 data = {this.state.categories} 
                 currentPage = {this.state.currentPage}
-                getItem = {this.getItemToCartHandler}/>
+                getItem = {this.getItemToCartHandler}
+                removeItem = {this.removeItemHandler}/>
                 </div>)
 
         return(

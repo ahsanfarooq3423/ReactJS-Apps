@@ -20,6 +20,7 @@ const GroceryItems = (props) => {
                         name = {type} 
                         key = {index}
                         getItem = {() =>props.getItem(type,currentPage)}
+                        removeItem = {() => props.removeItem(type,currentPage)}
                         price = {items[type].price} 
                         type = {currentPage}/>
         })}

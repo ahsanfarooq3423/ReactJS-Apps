@@ -57,7 +57,8 @@ const item = (props) => {
                 
                 getItem = {props.getItem} 
                 totalItems = {props.totalItems}/> : 
-                 <Addon 
+                 <Addon
+                 removeItem = {props.removeItem} 
                  getItem = {props.getItem} 
                  totalItems = {totalUnits}/>
                 }
