@@ -8,6 +8,26 @@ const cart = (props) => {
     let totalPrice = props.cart.totalPrice;
     let items = Object.keys(props.cart.items);
     
+    let totalItems = props.cart.totalItems;
+
+    let show;
+    //console.log(totalItems);
+    if (totalItems === 0) {
+        show = (null);
+    }
+    else {
+        show = (
+            items.map(item => {
+                return <CartItem
+                     removeItem = {props.removeItem}
+                     getItem = {props.getItem} 
+                     key = {item + toString(Math.random())}
+                     item = {props.cart.items[item]}
+                     grocery = {props.grocery}
+                />
+            })
+        )
+    }
     
     return(
         <Aux>
@@ -28,16 +48,10 @@ const cart = (props) => {
                 </div>
 
                 <hr/>
-              
+                
+               
 
-               {items.map(item => {
-                   return <CartItem
-                        getItem = {props.getItem} 
-                        key = {item + toString(Math.random())}
-                        item = {props.cart.items[item]}
-                        grocery = {props.grocery}
-                   />
-               })}
+               {show}
               
                
 

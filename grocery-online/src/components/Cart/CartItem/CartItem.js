@@ -9,6 +9,7 @@ const cartitem = (props) => {
     let price = props.item.price;
     let unitPrice = props.grocery[type].items[name].price;
     let totalUnits = price / unitPrice;
+    //console.log(props.cart)
     
     return (
         <div className  = {classes.cartItem}>
@@ -17,7 +18,8 @@ const cartitem = (props) => {
             <p>{props.item.itemName}</p>
 
             <div className = {classes.button}>
-                <Addon 
+                <Addon
+                removeItem = {() => props.removeItem(name,type)} 
                 getItem = {() =>props.getItem(name,type)}
                 totalItems = {totalUnits}/>
             </div>

@@ -22,6 +22,7 @@ const item = (props) => {
     let totalUnits;
     
     
+    
    
     
     //require('../../../../assets/images/' + type + '/' + name + '.jpeg';
@@ -34,8 +35,8 @@ const item = (props) => {
     }
 
     else {
-        totalUnits = totalPrice / unitPrice;
-        //console.log(name,totalUnits)
+        totalUnits = props.cart.items[name].units;
+        //console.log('TOTAl UNIT IN GROCERY ITEM COMPONENT ', totalUnits);
     }
 
     
