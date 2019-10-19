@@ -98,12 +98,6 @@ class GroceryApp extends Component {
     removeItemHandler = (item, page) => {
         let cart = {...this.state.cart};
         let unitPrice = this.state.categories[page].items[item].price;
-        //console.log('Unit Price is: ', unitPrice);
-        //console.log('Current Page:', page);
-        //console.log('Page Item:', item);
-        //console.log(this.state.cart.items[item].price)
-        //let totalUnits =  this.state.cart.items[item].price/unitPrice -1;
-        //console.log('Total Units: ', totalUnits)
         let totalPrice = this.state.cart.items[item].price;
         let totalUnits = this.state.cart.items[item].units;
         
@@ -115,15 +109,17 @@ class GroceryApp extends Component {
             cart.items[item].price = totalPrice;
             totalUnits = totalUnits -1;
             cart.items[item].units = totalUnits;
-            //console.log('cart.items[item].units',totalUnits)
-            //console.log(cart.items[item])
-            //console.log('INSIDE ELSE STATEMENT')
+            
+            
         }
         if (cart.totalItems != 0){
             cart.totalItems -= 1;
         }
-        
+        cart.totalPrice -= unitPrice;
         this.setState({cart : cart});
+
+
+
         
         
 

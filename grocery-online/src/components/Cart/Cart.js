@@ -8,6 +8,8 @@ const cart = (props) => {
     let totalPrice = props.cart.totalPrice;
     let items = Object.keys(props.cart.items);
     
+
+    
     let totalItems = props.cart.totalItems;
 
     let show;
