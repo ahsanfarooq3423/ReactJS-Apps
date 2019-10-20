@@ -31,7 +31,8 @@ class GroceryApp extends Component {
             totalPrice : 0,
             totalItems : 0,
             items : {}
-        }
+        },
+        itemGet : false
 
     }
 
@@ -41,6 +42,8 @@ class GroceryApp extends Component {
         })
         return names;
     }
+
+    
 
 
     getPageNameHandler = (category) => {
@@ -86,6 +89,8 @@ class GroceryApp extends Component {
 
     }
 
+    
+
     clearCartHandler = () => {
         const emptyCart  = {
             totalPrice : 0,
@@ -112,21 +117,16 @@ class GroceryApp extends Component {
             
             
         }
-        if (cart.totalItems != 0){
+        if (cart.totalItems !== 0){
             cart.totalItems -= 1;
         }
         cart.totalPrice -= unitPrice;
         this.setState({cart : cart});
 
 
-
-        
-        
-
-
-
     }
 
+  
 
     render(){
         let show = ( <div className = {classes.container}> 
@@ -135,6 +135,7 @@ class GroceryApp extends Component {
                 getPage = {this.getPageNameHandler}
                 currentPage = {this.state.currentPage}  />
             <GroceryItems
+
                 cart = {this.state.cart}
                 totalItems = {this.state.cart.totalItems} 
                 data = {this.state.categories} 

@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+    height: 60px;
+    border-bottom: 2px solid gainsboro;
+    
+}
+
+.icons {
+    display: flex;
+    margin: 10px;
+    font-size: 35px;
+    float: left;
+    margin-left: 30px;
+}

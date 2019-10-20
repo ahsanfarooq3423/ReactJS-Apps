@@ -8,16 +8,10 @@ const item = (props) => {
     let name = props.name;
     let caps_name = name[0].toUpperCase() + name.slice(1);
     let type = props.type;
-    let unitPrice = props.price;
-    //console.log('Unit Price is',unitPrice);
-    let cartItemName = props.cart.items[name];
-    let totalPrice;
-    try{
-        totalPrice = cartItemName.price;
-    }
-    catch{
-        totalPrice = unitPrice;
-    }
+    //let unitPrice = props.price;
+    
+    //let cartItemName = props.cart.items[name];
+   
 
     let totalUnits;
     
@@ -59,6 +53,7 @@ const item = (props) => {
                 getItem = {props.getItem} 
                 totalItems = {props.totalItems}/> : 
                  <Addon
+                 
                  removeItem = {props.removeItem} 
                  getItem = {props.getItem} 
                  totalItems = {totalUnits}/>
