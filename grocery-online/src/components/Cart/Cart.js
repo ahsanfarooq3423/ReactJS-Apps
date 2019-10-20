@@ -21,6 +21,7 @@ const cart = (props) => {
         show = (
             items.map(item => {
                 return <CartItem
+                    
                      removeItem = {props.removeItem}
                      getItem = {props.getItem} 
                      key = {item + toString(Math.random())}
@@ -62,7 +63,7 @@ const cart = (props) => {
                    <p className = {classes.totalprice}> $ {totalPrice}</p>
                </div>
                
-                <button className = {classes.check}>Check Out</button>
+                <button className = {classes.check} onClick = {props.summary}>Check Out</button>
             </div>
         </Aux>
     )

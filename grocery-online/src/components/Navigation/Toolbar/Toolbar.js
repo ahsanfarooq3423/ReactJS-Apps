@@ -5,21 +5,21 @@ import { IoIosCart } from "react-icons/io";
 
 
 const toolbar = ( props ) => {
-  
     
 
-   
     return (
         <header className = {classes.header}>
 
         
-        <div className = {classes.icons}>
+        <div className = {classes.icons} onClick = {props.home}>
             <FaLeaf />
         </div>
 
-        <div className = {classes.icons}>
-            <IoIosCart/>
-            
+        <div className = {classes.icons} onClick = {props.cart}>
+            <IoIosCart />
+            <div className = {classes.counter}>
+                {props.items}
+            </div>
         </div>
 
         </header>

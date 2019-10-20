@@ -9,7 +9,7 @@ class Layout extends Component {
     render(){
         return(
             <Aux>
-                <Toolbar info = {this.props.children.type}/>
+                
                 <main>
                     {this.props.children}
                 </main>

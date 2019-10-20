@@ -3,7 +3,8 @@ import GroceryTypes from '../../components/Grocery/GroceryTypes/GroceryTypes';
 import GroceryItems from '../../components/Grocery/GroceryItems/GroceryItems';
 import classes from './GroceryApp.module.css';
 import Cart from '../../components/Cart/Cart';
-
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import Modal from '../../components/UI/Modal/Modal';
 
 class GroceryApp extends Component {
     state = {
@@ -32,7 +33,8 @@ class GroceryApp extends Component {
             totalItems : 0,
             items : {}
         },
-        itemGet : false
+        show : 'home',
+        modal : false
 
     }
 
@@ -55,12 +57,6 @@ class GroceryApp extends Component {
         newItem.itemName = item;
         newItem.type = page;
         newItem.price = this.state.categories[page].items[item].price;
-        
-        
-        //let unitPrice = this.state.categories[page].items[item].price;
-        //console.log('The unit price is ' , unitPrice)
-        //let totalPrice = this.state.cart.items[item] + unitPrice;
-        
         
         let cart = {...this.state.cart};
         cart.totalPrice += newItem.price;
@@ -126,6 +122,23 @@ class GroceryApp extends Component {
 
     }
 
+    showCartHandler = () => {
+        this.setState({show : 'cart'})
+    }
+
+    showHomeHandler = () => {
+        this.setState({show : 'home'})
+    }
+
+    purchaseCancelHandler = () => {
+        this.setState({show : 'cart', modal : false})
+
+    }
+
+    showSummaryHandler = () => {
+        this.setState({modal : true})
+    }
+
   
 
     render(){
@@ -143,16 +156,29 @@ class GroceryApp extends Component {
                 getItem = {this.getItemToCartHandler}
                 removeItem = {this.removeItemHandler}/>
                 </div>)
-
-        return(
-         <div>
-             {show}
-             <Cart
+        if (this.state.show === 'cart'){
+            show =  <Cart
+            summary = {this.showSummaryHandler}
             removeItem = {this.removeItemHandler}
             getItem = {this.getItemToCartHandler}
             clear = {this.clearCartHandler}
             cart = {this.state.cart} 
             grocery = {this.state.categories}/>
+        }
+        
+
+        return(
+        
+         <div>
+             <Toolbar 
+                items = {this.state.cart.totalItems} 
+                cart = {this.showCartHandler}
+                home = {this.showHomeHandler}/>
+                <Modal show = {this.state.modal} close = {this.purchaseCancelHandler}>
+                    <h1> hello this is modal</h1>
+                </Modal>
+             {show}
+            
 
          </div>  
         
