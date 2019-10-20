@@ -6,6 +6,7 @@ import Cart from '../../components/Cart/Cart';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Cart/OrderSummary/OrderSummary';
+import Confirmation from '../../components/Cart/Confirmation/Confimation';
 
 
 class GroceryApp extends Component {
@@ -142,6 +143,12 @@ class GroceryApp extends Component {
         this.setState({modal : true})
     }
 
+    checkoutHandler = () => {
+        this.clearCartHandler();
+        this.setState({show : 'confirmation' , modal : false})
+
+    }
+
   
 
     render(){
@@ -168,6 +175,10 @@ class GroceryApp extends Component {
             cart = {this.state.cart} 
             grocery = {this.state.categories}/>
         }
+
+        if (this.state.show === 'confirmation'){
+            show = <Confirmation/>
+        }
         
 
         return(
@@ -178,7 +189,9 @@ class GroceryApp extends Component {
                 cart = {this.showCartHandler}
                 home = {this.showHomeHandler}/>
                 <Modal show = {this.state.modal} close = {this.purchaseCancelHandler}>
-                    <OrderSummary cart  = {this.state.cart}/>
+                    <OrderSummary 
+                    checkout = {this.checkoutHandler}
+                    cart  = {this.state.cart}/>
                 </Modal>
              {show}
             

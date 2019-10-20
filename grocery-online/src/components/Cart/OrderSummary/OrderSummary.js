@@ -45,7 +45,7 @@ const ordersummary = (props) => {
                     <p>City</p>
                     <input type = 'text'></input>
 
-                    <button>Place Order</button>
+                    <button onClick = {props.checkout}>Place Order</button>
                 </div>
 
                 <div className = {classes.summary}>
