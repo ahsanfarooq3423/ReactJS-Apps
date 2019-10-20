@@ -1,0 +1,67 @@
+.container {
+    display: flex;
+    
+    overflow: scroll;
+}
+
+.form {
+    width: 50%;
+}
+
+.form input {
+    width: 80%;
+    border :  1px solid gainsboro;
+    border-radius: 3px;
+    height: 30px;
+    padding: 5px;
+    font-size: 17px;
+    font-weight: normal;
+    margin-top: 10px;
+}
+
+.form button {
+    margin-top: 30px;
+    width: 30%;
+    background-color: royalblue;
+    color: white;
+    font-weight: bold;
+    height: 39px;
+    border-radius: 5px;
+    font-size: medium;
+
+}
+
+.form button:hover {
+    background-color: rgb(88, 121, 230);
+    box-shadow: 3px 3px ;
+}
+
+.summary {
+    border: 2px solid gainsboro;
+    width: 50%;
+    margin-left: 0px;
+    border-radius: 5px;
+    padding: 10px;
+    height: 400px;
+    padding-left: 17px;
+    margin-bottom: 30px;
+    overflow: scroll;
+   
+
+}
+
+.item {
+    display: flex;
+    width: 100%;
+
+}
+
+
+
+.pullright{
+    float: right;
+}
+
+.total {
+    font-weight: bold;
+}

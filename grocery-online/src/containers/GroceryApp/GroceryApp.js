@@ -5,13 +5,16 @@ import classes from './GroceryApp.module.css';
 import Cart from '../../components/Cart/Cart';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Modal from '../../components/UI/Modal/Modal';
+import OrderSummary from '../../components/Cart/OrderSummary/OrderSummary';
+
 
 class GroceryApp extends Component {
     state = {
         
         categories : {
             bread : { name : 'Bread' , type : 'bread' ,items : {
-                'toast' : { price : 4  }, 'pita' : { price : 3 }, 'whole-wheat' : { price : 7 }
+                'toast' : { price : 4  }, 'pita' : { price : 3 }, 'whole-wheat' : { price : 7 },
+                'bagel' : {price : 3.5}
             } },
             dairy : { name : 'Dairy' , type : 'dairy' ,  items : {
                 'milk' : { price : 3 }, 'cheese' : { price : 4.5 } , 'butter' : {price : 2.5}
@@ -175,7 +178,7 @@ class GroceryApp extends Component {
                 cart = {this.showCartHandler}
                 home = {this.showHomeHandler}/>
                 <Modal show = {this.state.modal} close = {this.purchaseCancelHandler}>
-                    <h1> hello this is modal</h1>
+                    <OrderSummary cart  = {this.state.cart}/>
                 </Modal>
              {show}
             
