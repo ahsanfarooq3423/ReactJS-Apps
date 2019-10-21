@@ -1,69 +1,54 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import classes from './GroceryItem.module.css';
 import Button from './Button/Button';
 import Addon from './Button/Addon';
 
 
-const item = (props) => {
-    let name = props.name;
-    let caps_name = name[0].toUpperCase() + name.slice(1);
-    let type = props.type;
-    //let unitPrice = props.price;
-    
-    //let cartItemName = props.cart.items[name];
-   
+class Item extends PureComponent {
 
-    let totalUnits;
-    
-    
-    
-   
-    
-    //require('../../../../assets/images/' + type + '/' + name + '.jpeg';
-
-    //checking whether we have any item in the cart or not for a partucular type ..
-    
-    if (props.cart.items[name] === undefined){
+    render() {
+     let   name = this.props.name;
+     let caps_name = name[0].toUpperCase() + name.slice(1);
+     let type = this.props.type;
+     let totalUnits;
+        if (this.props.cart.items[name] === undefined){
         
-        totalUnits = 0
-    }
-
-    else {
-        totalUnits = props.cart.items[name].units;
-        //console.log('TOTAl UNIT IN GROCERY ITEM COMPONENT ', totalUnits);
-    }
-
+            totalUnits = 0
+        }
     
-    //console.log('Final Total Units are: ', totalUnits);
-   
-
-    return (
-        
-
-       <div className = {classes.card} >
-           
-               <img src = {require('../../../../assets/images/' + type + '/' + name + '.jpeg')} alt = {name}/>
-               <div className = {classes.info} >
-                    <p className = {classes.name}>{caps_name}</p>
-                    <p className = {classes.price}>{"$ " + props.price}</p>
-                    
-               </div>
-               {totalUnits === 0 ? <Button
+        else {
+            totalUnits = this.props.cart.items[name].units;
+         
+        }
+    
+        return(
+            <div className = {classes.card} >
                 
-                getItem = {props.getItem} 
-                totalItems = {props.totalItems}/> : 
-                 <Addon
-                 
-                 removeItem = {props.removeItem} 
-                 getItem = {props.getItem} 
-                 totalItems = {totalUnits}/>
-                }
-               
-               
-           
-       </div>
-    )
+                    <img src = {require('../../../../assets/images/' + type + '/' + name + '.jpeg')} alt = {name}/>
+                    <div className = {classes.info} >
+                         <p className = {classes.name}>{caps_name}</p>
+                         <p className = {classes.price}>{"$ " + this.props.price}</p>
+                         
+                    </div>
+                    {totalUnits === 0 ? <Button
+                     
+                     getItem = {this.props.getItem} 
+                     totalItems = {this.props.totalItems}/> : 
+                      <Addon
+                      
+                      removeItem = {this.props.removeItem} 
+                      getItem = {this.props.getItem} 
+                      totalItems = {totalUnits}/>
+                     }
+                    
+                    
+                
+            </div>
+            
+        )
+    }
 }
 
 
-export default  item;
+
+export default  Item;

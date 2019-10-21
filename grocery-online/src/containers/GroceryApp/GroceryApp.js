@@ -10,8 +10,9 @@ import Confirmation from '../../components/Cart/Confirmation/Confimation';
 
 
 class GroceryApp extends Component {
+    
     state = {
-        
+        //category state for the grocery items and their prices
         categories : {
             bread : { name : 'Bread' , type : 'bread' ,items : {
                 'toast' : { price : 4  }, 'pita' : { price : 3 }, 'whole-wheat' : { price : 7 },
@@ -31,17 +32,22 @@ class GroceryApp extends Component {
             }}
 
         },
+        //router
         currentPage : 'bread',
+        //the shopping cart in which grocery items are added
         cart : {
             totalPrice : 0,
             totalItems : 0,
             items : {}
         },
+        //modal status (i.e. summary of the shopping cart)
         show : 'home',
         modal : false
 
     }
 
+
+    //return the names of the types of groceries i.e. ['Bread' , 'Dairy' ...]
     getCategoriesNames = () => {
         let names =  Object.keys(this.state.categories).map (type => {
             return this.state.categories[type]
@@ -51,12 +57,15 @@ class GroceryApp extends Component {
 
     
 
-
+    //router for the currentPage
     getPageNameHandler = (category) => {
         this.setState({currentPage : category.type})
     }
 
+
+    //main function, add items from categories to the cart
     getItemToCartHandler = (item,page) => {
+        //newItem -> creating the new object of an item to be added in the cart items
         let newItem = {}
         newItem.itemName = item;
         newItem.type = page;
@@ -69,16 +78,17 @@ class GroceryApp extends Component {
         
         let itemPrice = this.state.categories[page].items[item].price
 
-        
+        //checking if the item is already present in the cart
         if (item in cart.items){
             cart.items[item].price += itemPrice
-            //console.log('cart.items[item].price, ', cart.items[item].price)
-            let presentUnits = this.state.cart.items[item].units;
             
+            let presentUnits = this.state.cart.items[item].units;
+            //incrementing the units for the cart item
             cart.items[item].units =+ presentUnits + 1;
-            //console.log('cart.items[item].units, ', cart.items[item].units)
+            
             
         }
+        // the that new item to the cart
         else {
             newItem.units = 1;
             cart.items[item] = newItem
@@ -90,7 +100,7 @@ class GroceryApp extends Component {
     }
 
     
-
+    //removing all the present elements in the cart
     clearCartHandler = () => {
         const emptyCart  = {
             totalPrice : 0,
@@ -100,16 +110,19 @@ class GroceryApp extends Component {
         this.setState({cart : emptyCart})
     }
     
+    //subtract or remove a particular item from the cart
     removeItemHandler = (item, page) => {
         let cart = {...this.state.cart};
         let unitPrice = this.state.categories[page].items[item].price;
         let totalPrice = this.state.cart.items[item].price;
         let totalUnits = this.state.cart.items[item].units;
         
+        
         if (totalUnits ===0) {
             //console.log('INSIDE IF STATEMENT')
         }
         else {
+            //subtracting the properties
             totalPrice = totalPrice - unitPrice;
             cart.items[item].price = totalPrice;
             totalUnits = totalUnits -1;
@@ -126,23 +139,24 @@ class GroceryApp extends Component {
 
     }
 
+    //router
     showCartHandler = () => {
         this.setState({show : 'cart'})
     }
-
+    //router
     showHomeHandler = () => {
         this.setState({show : 'home'})
     }
-
+    //router
     purchaseCancelHandler = () => {
         this.setState({show : 'cart', modal : false})
 
     }
-
+    //modal router
     showSummaryHandler = () => {
         this.setState({modal : true})
     }
-
+    //checkout to place the order
     checkoutHandler = () => {
         this.clearCartHandler();
         this.setState({show : 'confirmation' , modal : false})
@@ -152,6 +166,7 @@ class GroceryApp extends Component {
   
 
     render(){
+        //show contains GroceryPage or Cart or Confimation Page
         let show = ( <div className = {classes.container}> 
             <GroceryTypes 
                 types = {this.getCategoriesNames()}  
@@ -179,7 +194,6 @@ class GroceryApp extends Component {
         if (this.state.show === 'confirmation'){
             show = <Confirmation/>
         }
-        
 
         return(
         
@@ -194,13 +208,7 @@ class GroceryApp extends Component {
                     cart  = {this.state.cart}/>
                 </Modal>
              {show}
-            
-
          </div>  
-        
-           
-        
-           
            
         );
     }

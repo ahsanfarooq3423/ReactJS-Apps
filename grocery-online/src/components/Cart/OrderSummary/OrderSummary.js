@@ -4,28 +4,7 @@ import Aux from '../../../containers/hoc/Aux';
 
 
 const ordersummary = (props) => {
-    console.log(props.cart.items)
-    let show = ( 
-        <Aux>
-                 <hr/>
-        <p>2 x Spinach
-        <span class={classes.pullright}>$ 5.00</span></p>
-     
-        
-        <hr/>
-        <p>2 x Spinach
-        <span class={classes.pullright}>$ 5.00</span></p>
-
-
-        <hr/>
-        <p>2 x Spinach
-        <span class={classes.pullright}>$ 5.00</span></p>
-       
-        <hr/> 
-        <p>2 x Spinach
-        <span class={classes.pullright}>$ 5.00</span></p> 
-        </Aux>
-        )
+    //order summary component to be shown in the modal
 
     return (
         <div>
@@ -53,36 +32,27 @@ const ordersummary = (props) => {
                     <p>You have {props.cart.totalItems} items in your shopping cart.</p>
                     
                     
-                    {Object.keys(props.cart.items).map(item => {
+                    {Object.keys(props.cart.items).map((item,index) => {
                         return (
-                            <Aux>
+                            <Aux key = {index}>
                                     <hr/>
                                      <p> 
                                      {props.cart.items[item].units} x  {props.cart.items[item].itemName}
                                 <span 
-                                    class={classes.pullright}>
+                                    className={classes.pullright}>
                                        $ {props.cart.items[item].price}</span></p>
                             </Aux>
                             
                         )
                             
                     })}
-                   
-                    
-                     
-                   
+
                     <hr/> 
                     <p className = {classes.total}>Total
-                    <span class={classes.pullright}>$ {props.cart.totalPrice}</span></p>  
-                    
-
-
+                    <span className={classes.pullright}>$ {props.cart.totalPrice}</span></p>  
 
                 </div>
-
             </div>
-
-
         </div>
     )
 }

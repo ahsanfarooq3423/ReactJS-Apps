@@ -3,7 +3,7 @@ import classes from './Toolbar.module.css';
 import { FaLeaf } from 'react-icons/fa';
 import { IoIosCart } from "react-icons/io";
 
-
+//the toolbar which contains the nav items
 const toolbar = ( props ) => {
     
 

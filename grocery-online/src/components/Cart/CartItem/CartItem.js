@@ -3,13 +3,14 @@ import classes from './CartItem.module.css';
 import Addon from '../../Grocery/GroceryItems/GroceryItem/Button/Addon';
 
 
+//particular item component in the show cart page
 const cartitem = (props) => {
     let type = props.item.type;
     let name = props.item.itemName;
     let price = props.item.price;
     let unitPrice = props.grocery[type].items[name].price;
     let totalUnits = price / unitPrice;
-    //console.log(props.cart)
+    
     
     return (
         <div className  = {classes.cartItem}>
@@ -31,5 +32,6 @@ const cartitem = (props) => {
     )
     
 }
+
 
 export default cartitem;

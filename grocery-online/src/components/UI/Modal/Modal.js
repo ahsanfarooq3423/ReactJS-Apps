@@ -4,6 +4,7 @@ import Aux from '../../../containers/hoc/Aux';
 import Backdrop from '../Backdrop/Backdrop';
 
 
+//popup modal functional component uses backdrop
 const modal = ( props ) => (
     <Aux>
         <Backdrop show = {props.show} clicked = {props.close}/>

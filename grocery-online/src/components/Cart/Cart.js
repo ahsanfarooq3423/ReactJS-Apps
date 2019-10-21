@@ -13,7 +13,6 @@ const cart = (props) => {
     let totalItems = props.cart.totalItems;
 
     let show;
-    //console.log(totalItems);
     if (totalItems === 0) {
         show = (null);
     }
@@ -60,7 +59,7 @@ const cart = (props) => {
 
                <div className = {classes.total}>
                    <p>Total:</p>
-                   <p className = {classes.totalprice}> $ {totalPrice}</p>
+                   <p className = {classes.totalprice}> $ {totalPrice.toFixed(2)}</p>
                </div>
                
                 <button className = {classes.check} onClick = {props.summary}>Check Out</button>

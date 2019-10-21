@@ -3,7 +3,7 @@ import Item from './GroceryItem/GroceryItem';
 import classes from './GroceryItems.module.css';
 
 
-
+//displaying the grocery item in a grid fashion
 const GroceryItems = (props) => {
     let currentPage = props.currentPage;
     let data = props.data;

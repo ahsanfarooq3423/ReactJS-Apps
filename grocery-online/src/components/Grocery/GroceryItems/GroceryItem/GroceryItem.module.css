@@ -5,7 +5,7 @@
     margin: 20px;
     border-radius: 5px;
     margin-left: 50px;
-    overflow-y: auto;
+    overflow: scroll;
     
   
 }
@@ -44,11 +44,10 @@
 @media (max-width: 650px) {
     .card {
         width: 350px;
-        height: 350px;
+        height: auto;
         border: 2px solid rgb(231, 222, 222);
         margin: 20px;
         border-radius: 5px;
-        margin-left: 50px;
         overflow: visible;
         
       
