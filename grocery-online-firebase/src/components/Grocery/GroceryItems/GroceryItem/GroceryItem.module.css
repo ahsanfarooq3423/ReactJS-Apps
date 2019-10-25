@@ -1,0 +1,55 @@
+.card {
+    width: 370px;
+    height: auto;
+    border: 2px solid rgb(231, 222, 222);
+    margin: 20px;
+    border-radius: 5px;
+    margin-left: 50px;
+    overflow: scroll;
+    
+  
+}
+
+.name {
+    margin-top: 5px;
+    font-size: 23px;
+    font-weight: 450;
+}
+
+.price {
+    margin-top: -15px;
+}
+
+
+
+.card img {
+    border-radius: 5px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0px;
+}
+
+.info {
+    margin-left: 10px;
+    margin-top: 0px;
+    margin-bottom: 26px;
+}
+
+
+.card:hover {
+    box-shadow: 3px 4px 20px -2px rgba(128,109,128,0.82);
+
+}
+
+@media (max-width: 650px) {
+    .card {
+        width: 350px;
+        height: auto;
+        border: 2px solid rgb(231, 222, 222);
+        margin: 20px;
+        border-radius: 5px;
+        overflow: visible;
+        
+      
+    }
+}

@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    height: 60px;
+    border-bottom: 2px solid gainsboro;
+    
+}
+
+.icons {
+    display: flex;
+    margin: 10px;
+    font-size: 35px;
+    float: left;
+    margin-left: 30px;
+    cursor: pointer;
+}
+
+.counter {
+    height: 24px;
+    border-radius: 50px;
+    background-color: gold;
+    color:black;
+    font-size: 20px;
+    width: 30px;
+    text-align: center;
+    margin-top: 6px;
+}

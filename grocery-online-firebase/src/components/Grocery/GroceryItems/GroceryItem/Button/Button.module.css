@@ -1,0 +1,41 @@
+.cart {
+    width: 100%;
+    color: white;
+    background-color: gray;
+    cursor: pointer;
+    height: 35px;
+    border-radius: 3px;
+    font-weight: bolder;
+    font-size: 12px;
+    align-content: center;
+    
+    
+}
+
+
+.button  {
+    display: flex;
+    border : 1px solid gainsboro;
+}
+
+.button p {
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.small {
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    font: bolder;
+    font-size: 19px;
+    
+}
+
+@media (max-width : 650px) {
+    .cart {
+        height: auto;
+    }
+}
+

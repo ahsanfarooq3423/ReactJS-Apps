@@ -1,0 +1,105 @@
+.h1 { 
+    font-size: 40px;
+    margin-left: 20px;
+
+}
+
+.summary {
+    width: 80%;
+    height: auto;
+    border: 1.5px solid rgb(233, 223, 223);
+    border-radius: 2px;
+    margin-left: 20px;
+    padding: 20px;
+    
+    
+}
+
+
+
+.heading {
+    display: flex;
+    border-bottom: 1px solid rgb(233, 223, 223);
+    margin-bottom: 20px;
+    
+}
+.heading p {
+    margin-top: 0px;
+}
+
+.heading button{
+    float: right;
+    margin-left: 60%;
+    height: 30px;
+    width: 150px;
+    border-radius: 10px ;
+    color:white;
+    font-weight: bolder;
+    background-color: rgb(216, 73, 73);
+    cursor: pointer;
+    
+
+}   
+
+.menu {
+    
+    display : flex;
+    margin-bottom: -10px;
+    align-items: center;
+    margin-left: 20%;
+
+}
+
+
+.menu div{
+    align-items: center;
+    padding-bottom: 20px;
+    margin-left: 20%;
+    font-weight: bolder;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%
+
+}
+
+
+.menu .price {
+    margin-right: -23%;
+    margin-left: 10%;
+}
+
+.total {
+    display: flex;
+    margin-left: 1%;
+    font-weight: bolder;
+    font-size: 19px;
+    border-bottom: 1px solid rgb(233, 223, 223);
+}
+
+.total .totalprice {
+    margin-left: 84.5%;
+}
+
+
+@media (max-width: 700px) {
+    .total .totalprice {
+        margin-left: 72.5%;
+    }
+}
+
+
+.check {
+    margin-top: 20px;
+    margin-left: 1.3%;
+    background-color: rgb(117, 94, 201);
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    height: 35px;
+    width: 15%;
+    border-radius: 5px;
+}
+
+.check:hover {
+    box-shadow: 3px 2px 17px -2px rgba(0,0,0,0.75);
+}
