@@ -8,7 +8,7 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Cart/OrderSummary/OrderSummary';
 import Confirmation from '../../components/Cart/Confirmation/Confimation';
 
-import axios from 'axios';
+import axios from '../../axios';
 
 
 class GroceryApp extends Component {
@@ -158,25 +158,57 @@ class GroceryApp extends Component {
     showSummaryHandler = () => {
         this.setState({modal : true})
     }
+
     //checkout to place the order
-    checkoutHandler = () => {
-        this.clearCartHandler();
-        this.setState({show : 'confirmation' , modal : false})
+    checkoutHandler = (customer) => {
+        console.log(customer)
+        let order = {
+            cart : this.state.cart,
+            price : this.state.cart.price,
+
+            customer : {
+                name : customer.name,
+                address : customer.address,
+                city : customer.city
+            }
+
+        }
+
+        if (
+            customer.name === "" || 
+            customer.address === "" || 
+            customer.city === "" ||
+            order.cart.totalItems === 0 ||
+            customer.name === null || 
+            customer.address === null || 
+            customer.city === null){
+            alert('Complete the following details .... Order cannot be proceded')
+            return
+        }
+        else {  
+                    axios.post('/orders.json', order)
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+
+                this.clearCartHandler();
+                this.setState({show : 'confirmation' , modal : false})
+
+        }
+
+        
+
+
+        
+
+
 
     }
 
-    sendRequest = () => {
-        axios.get('https://swapi.co/api/films/1/')
-            .then(response => {
-                console.log(response)
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
-
-  
-
+ 
     render(){
         //show contains GroceryPage or Cart or Confimation Page
         let show = ( <div className = {classes.container}> 
@@ -210,7 +242,6 @@ class GroceryApp extends Component {
         return(
         
          <div>
-             <button onClick = {this.sendRequest}> Temp </button>
              <Toolbar 
                 items = {this.state.cart.totalItems} 
                 cart = {this.showCartHandler}
