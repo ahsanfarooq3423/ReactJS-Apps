@@ -5,32 +5,31 @@ import Aux from '../Aux';
 
 
 const withErrorHandler = ( WrappedComponent, axios ) => {
-    
-
     return class extends Component {
-
-
         state = {
             error : null
         }
     
-        componentDidMount = () => {
+        componentWillMount = () => {
 
-            axios.intercept.request.use(req => {
+            this.reqInterceptor = axios.interceptors.request.use(req => {
                 this.setState({error : null})
+                return req;
             })
-    
-            axios.intercept.response.use(null, error => {
+            this.resInterceptor = axios.interceptors.response.use(null, error => {
                 this.setState({error : error})
             })
-    
-            
+        }
+        
+        componentWillUnmount = () => {
+            axios.interceptors.request.eject(this.reqInterceptor);
+            axios.interceptors.response.eject(this.resInterceptor);
         }
 
         render(){
             return (
                 <Aux>
-                    <Modal show >
+                    <Modal show = {this.state.error} >
                         Something went wrong ...
                     </Modal>
     
@@ -38,7 +37,6 @@ const withErrorHandler = ( WrappedComponent, axios ) => {
                 </Aux>
             )
         }
-        
     }
 }
 

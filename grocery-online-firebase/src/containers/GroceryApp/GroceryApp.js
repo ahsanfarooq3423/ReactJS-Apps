@@ -10,33 +10,12 @@ import Confirmation from '../../components/Cart/Confirmation/Confimation';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from '../../axios';
 import withErrorHandler from '../../containers/hoc/withErrorHandler/withErrorHandler';
-import Aux from '../../containers/hoc/Aux';
+
 
 class GroceryApp extends Component {
    
-    
     state = {
         //category state for the grocery items and their prices
-        // categories : {
-        //     bread : { name : 'Bread' , type : 'bread' ,items : {
-        //         'toast' : { price : 4  }, 'pita' : { price : 3 }, 'whole-wheat' : { price : 7 },
-        //         'bagel' : {price : 3.5}
-        //     } },
-        //     dairy : { name : 'Dairy' , type : 'dairy' ,  items : {
-        //         'milk' : { price : 3 }, 'cheese' : { price : 4.5 } , 'butter' : {price : 2.5}
-        //     } },
-        //     fruits : { name : 'Fruits', type : 'fruits' , items : {
-        //         'banana' : {price : 1.5 } , 'apple' : {price : 2.5} , 'grapes' : { price : 3.4}
-        //     } },
-        //     seasons_spices : { name : 'Seasonings and Spices' , type : 'seasons_spices', items : {
-        //         'clove' : { price : 1.8 }, 'chilli' : {price : 4.9} , 'oregano' : {price : 4.8}
-        //     } },
-        //     vegetables : { name : 'Vegetables', type : 'vegetables', items : {
-        //         'tomato' : {price : 4.1}, 'potato': {price : 1.2} , 'spinach' : {price : 1.7}
-        //     }}
-
-        // },
-
         categories : null,
         
         //router
@@ -50,7 +29,8 @@ class GroceryApp extends Component {
         //modal status (i.e. summary of the shopping cart)
         show : 'home',
         modal : false,
-        loading : false
+        loading : false,
+        error : false
 
     }
 
@@ -58,6 +38,9 @@ class GroceryApp extends Component {
         axios.get('/categories/-Ls7PfSPC6at0qqVqbqb.json')
                     .then(response => {
                         this.setState({categories : response.data})
+                    })
+                    .catch (error => {
+                        this.setState({error : true})
                     })
     }
 
@@ -219,7 +202,7 @@ class GroceryApp extends Component {
  
     render(){
         //show contains GroceryPage or Cart or Confimation Page
-        let show = <Spinner/>
+        let show = this.state.error ? <p>The data can't be loaded</p> : <Spinner/>
         if (this.state.categories){
 
         
@@ -280,4 +263,4 @@ class GroceryApp extends Component {
     }
 }
 
-export default  GroceryApp;
+export default   withErrorHandler(GroceryApp,axios);
