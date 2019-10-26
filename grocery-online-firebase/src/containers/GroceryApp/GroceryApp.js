@@ -7,8 +7,9 @@ import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Cart/OrderSummary/OrderSummary';
 import Confirmation from '../../components/Cart/Confirmation/Confimation';
-
+import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from '../../axios';
+import withErrorHandler from '../../containers/hoc/withErrorHandler/withErrorHandler';
 
 
 class GroceryApp extends Component {
@@ -44,9 +45,12 @@ class GroceryApp extends Component {
         },
         //modal status (i.e. summary of the shopping cart)
         show : 'home',
-        modal : false
+        modal : false,
+        loading : false
 
     }
+
+   
 
 
     //return the names of the types of groceries i.e. ['Bread' , 'Dairy' ...]
@@ -161,7 +165,7 @@ class GroceryApp extends Component {
 
     //checkout to place the order
     checkoutHandler = (customer) => {
-        console.log(customer)
+        this.setState({loading : true})
         let order = {
             cart : this.state.cart,
             price : this.state.cart.price,
@@ -171,7 +175,6 @@ class GroceryApp extends Component {
                 address : customer.address,
                 city : customer.city
             }
-
         }
 
         if (
@@ -182,29 +185,23 @@ class GroceryApp extends Component {
             customer.name === null || 
             customer.address === null || 
             customer.city === null){
+            this.setState({loading : false})
             alert('Complete the following details .... Order cannot be proceded')
             return
         }
         else {  
-                    axios.post('/orders.json', order)
+                axios.post('/orders.json', order)
                 .then(response => {
-                    console.log(response)
+                    this.setState({loading : false})
                 })
                 .catch(error => {
-                    console.log(error)
+                    this.setState({loading : false})
                 })
 
                 this.clearCartHandler();
                 this.setState({show : 'confirmation' , modal : false})
 
         }
-
-        
-
-
-        
-
-
 
     }
 
@@ -239,17 +236,23 @@ class GroceryApp extends Component {
             show = <Confirmation/>
         }
 
+        let orderSummary = ( <OrderSummary 
+            checkout = {this.checkoutHandler}
+            cart  = {this.state.cart}/>)
+
+        if (this.state.loading){
+            orderSummary =  <Spinner/>
+        }
         return(
         
          <div>
+             
              <Toolbar 
                 items = {this.state.cart.totalItems} 
                 cart = {this.showCartHandler}
                 home = {this.showHomeHandler}/>
                 <Modal show = {this.state.modal} close = {this.purchaseCancelHandler}>
-                    <OrderSummary 
-                    checkout = {this.checkoutHandler}
-                    cart  = {this.state.cart}/>
+                   {orderSummary}
                 </Modal>
              {show}
          </div>  
@@ -258,4 +261,4 @@ class GroceryApp extends Component {
     }
 }
 
-export default GroceryApp;
+export default  GroceryApp;
