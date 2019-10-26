@@ -10,31 +10,35 @@ import Confirmation from '../../components/Cart/Confirmation/Confimation';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from '../../axios';
 import withErrorHandler from '../../containers/hoc/withErrorHandler/withErrorHandler';
-
+import Aux from '../../containers/hoc/Aux';
 
 class GroceryApp extends Component {
+   
     
     state = {
         //category state for the grocery items and their prices
-        categories : {
-            bread : { name : 'Bread' , type : 'bread' ,items : {
-                'toast' : { price : 4  }, 'pita' : { price : 3 }, 'whole-wheat' : { price : 7 },
-                'bagel' : {price : 3.5}
-            } },
-            dairy : { name : 'Dairy' , type : 'dairy' ,  items : {
-                'milk' : { price : 3 }, 'cheese' : { price : 4.5 } , 'butter' : {price : 2.5}
-            } },
-            fruits : { name : 'Fruits', type : 'fruits' , items : {
-                'banana' : {price : 1.5 } , 'apple' : {price : 2.5} , 'grapes' : { price : 3.4}
-            } },
-            seasons_spices : { name : 'Seasonings and Spices' , type : 'seasons_spices', items : {
-                'clove' : { price : 1.8 }, 'chilli' : {price : 4.9} , 'oregano' : {price : 4.8}
-            } },
-            vegetables : { name : 'Vegetables', type : 'vegetables', items : {
-                'tomato' : {price : 4.1}, 'potato': {price : 1.2} , 'spinach' : {price : 1.7}
-            }}
+        // categories : {
+        //     bread : { name : 'Bread' , type : 'bread' ,items : {
+        //         'toast' : { price : 4  }, 'pita' : { price : 3 }, 'whole-wheat' : { price : 7 },
+        //         'bagel' : {price : 3.5}
+        //     } },
+        //     dairy : { name : 'Dairy' , type : 'dairy' ,  items : {
+        //         'milk' : { price : 3 }, 'cheese' : { price : 4.5 } , 'butter' : {price : 2.5}
+        //     } },
+        //     fruits : { name : 'Fruits', type : 'fruits' , items : {
+        //         'banana' : {price : 1.5 } , 'apple' : {price : 2.5} , 'grapes' : { price : 3.4}
+        //     } },
+        //     seasons_spices : { name : 'Seasonings and Spices' , type : 'seasons_spices', items : {
+        //         'clove' : { price : 1.8 }, 'chilli' : {price : 4.9} , 'oregano' : {price : 4.8}
+        //     } },
+        //     vegetables : { name : 'Vegetables', type : 'vegetables', items : {
+        //         'tomato' : {price : 4.1}, 'potato': {price : 1.2} , 'spinach' : {price : 1.7}
+        //     }}
 
-        },
+        // },
+
+        categories : null,
+        
         //router
         currentPage : 'bread',
         //the shopping cart in which grocery items are added
@@ -50,7 +54,14 @@ class GroceryApp extends Component {
 
     }
 
-   
+    componentDidMount () {
+        axios.get('/categories/-Ls7PfSPC6at0qqVqbqb.json')
+                    .then(response => {
+                        this.setState({categories : response.data})
+                    })
+    }
+
+    
 
 
     //return the names of the types of groceries i.e. ['Bread' , 'Dairy' ...]
@@ -208,7 +219,11 @@ class GroceryApp extends Component {
  
     render(){
         //show contains GroceryPage or Cart or Confimation Page
-        let show = ( <div className = {classes.container}> 
+        let show = <Spinner/>
+        if (this.state.categories){
+
+        
+        show = ( <div className = {classes.container}> 
             <GroceryTypes 
                 types = {this.getCategoriesNames()}  
                 getPage = {this.getPageNameHandler}
@@ -222,6 +237,8 @@ class GroceryApp extends Component {
                 getItem = {this.getItemToCartHandler}
                 removeItem = {this.removeItemHandler}/>
                 </div>)
+
+        }
         if (this.state.show === 'cart'){
             show =  <Cart
             summary = {this.showSummaryHandler}
@@ -243,18 +260,20 @@ class GroceryApp extends Component {
         if (this.state.loading){
             orderSummary =  <Spinner/>
         }
+
+
         return(
         
          <div>
-             
-             <Toolbar 
-                items = {this.state.cart.totalItems} 
-                cart = {this.showCartHandler}
-                home = {this.showHomeHandler}/>
-                <Modal show = {this.state.modal} close = {this.purchaseCancelHandler}>
-                   {orderSummary}
-                </Modal>
-             {show}
+            <Toolbar 
+                        items = {this.state.cart.totalItems} 
+                        cart = {this.showCartHandler}
+                        home = {this.showHomeHandler}/>
+                        <Modal show = {this.state.modal} close = {this.purchaseCancelHandler}>
+                        {orderSummary}
+                        </Modal>
+                    {show}
+            
          </div>  
            
         );
