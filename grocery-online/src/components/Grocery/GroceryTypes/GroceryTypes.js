@@ -17,7 +17,10 @@ class GroceryTypes extends Component {
                     return <li 
                             key = {index}
                             className ={classes.types}  
-                            onClick = {() => this.props.getPage(type)} > {type.name} </li>
+                            onClick = {() => this.props.getPage(type)}  >
+                            
+                                {type.name}
+                            </li>
                 })}
             </ul>
         </div>

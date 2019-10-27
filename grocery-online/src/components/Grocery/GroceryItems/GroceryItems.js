@@ -11,10 +11,11 @@ const GroceryItems = (props) => {
     let keys = Object.keys(items);
     
     
-    return (        
-    <div className = {classes.list}>
+    return (
+        <div className = {classes.list}>
         {keys.map((type,index) => {
-            return <Item 
+            return (
+                <Item 
                         cart = {props.cart}
                         totalItems = {props.totalItems}
                         name = {type} 
@@ -22,14 +23,12 @@ const GroceryItems = (props) => {
                         getItem = {() =>props.getItem(type,currentPage)}
                         removeItem = {() => props.removeItem(type,currentPage)}
                         price = {items[type].price} 
-                        type = {currentPage}/>
+                        type = {currentPage}/>)
         })}
 
         </div>
-
     
 
-        
     )
 }
 

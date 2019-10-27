@@ -9,6 +9,8 @@ import OrderSummary from '../../components/Cart/OrderSummary/OrderSummary';
 import Confirmation from '../../components/Cart/Confirmation/Confimation';
 
 
+
+
 class GroceryApp extends Component {
     
     state = {
@@ -195,8 +197,9 @@ class GroceryApp extends Component {
             show = <Confirmation/>
         }
 
+  
         return(
-        
+ 
          <div>
              <Toolbar 
                 items = {this.state.cart.totalItems} 
@@ -207,7 +210,7 @@ class GroceryApp extends Component {
                     checkout = {this.checkoutHandler}
                     cart  = {this.state.cart}/>
                 </Modal>
-             {show}
+                {show}
          </div>  
            
         );
