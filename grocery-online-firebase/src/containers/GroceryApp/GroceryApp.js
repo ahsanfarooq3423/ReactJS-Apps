@@ -10,6 +10,8 @@ import Confirmation from '../../components/Cart/Confirmation/Confimation';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import axios from '../../axios';
 import withErrorHandler from '../../containers/hoc/withErrorHandler/withErrorHandler';
+import {Route} from 'react-router-dom';
+
 
 
 class GroceryApp extends Component {
@@ -222,15 +224,15 @@ class GroceryApp extends Component {
                 </div>)
 
         }
-        if (this.state.show === 'cart'){
-            show =  <Cart
+
+        let cart = (<Cart
             summary = {this.showSummaryHandler}
             removeItem = {this.removeItemHandler}
             getItem = {this.getItemToCartHandler}
             clear = {this.clearCartHandler}
             cart = {this.state.cart} 
-            grocery = {this.state.categories}/>
-        }
+            grocery = {this.state.categories}/>)
+       
 
         if (this.state.show === 'confirmation'){
             show = <Confirmation/>
@@ -255,7 +257,11 @@ class GroceryApp extends Component {
                         <Modal show = {this.state.modal} close = {this.purchaseCancelHandler}>
                         {orderSummary}
                         </Modal>
-                    {show}
+                    {/*{show}*/}
+                    
+                    <Route path = '/home'  component = {() => show}/>
+                    <Route path = '/cart' exact component = {() => cart}/>
+                    
             
          </div>  
            
@@ -263,4 +269,4 @@ class GroceryApp extends Component {
     }
 }
 
-export default   withErrorHandler(GroceryApp,axios);
+export default  withErrorHandler(GroceryApp,axios);

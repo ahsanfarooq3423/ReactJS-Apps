@@ -24,3 +24,7 @@
     text-align: center;
     margin-top: 6px;
 }
+
+.active {
+    color: black;
+}
