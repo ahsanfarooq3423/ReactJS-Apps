@@ -1,0 +1,27 @@
+.item{
+    width: 47%;
+    margin-left: auto;
+    font-weight: bold;
+    border-radius: 2px;
+    cursor: pointer;
+    height: 26px;
+    font-size: 13px;
+    vertical-align: middle;
+    line-height: 25px;
+    color: rgb(49, 70, 141);
+}
+
+.active {
+    background-color: rgba(66, 135, 245,0.3);
+    
+}
+
+.item:hover{
+    background-color: rgb(250, 242, 242);
+}
+
+.item:hover.active {
+    background-color: rgba(66, 135, 245,0.3);
+}
+
+
