@@ -1,0 +1,53 @@
+.board {
+    width: 172.05px;
+    height: 88.97px;
+    /*background-color: dodgerblue;*/
+    background-image: url('https://images.unsplash.com/photo-1572510192261-e24ab8f31042?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80');
+    cursor: pointer;
+    background-size: 100% 100%;
+    color: white;
+    font-weight: bolder;
+    border-radius: 3px;
+    margin: 6px;
+    padding-left: 4px;
+    line-height: 3px;
+    font-size: 15.6px;
+    font-weight: bolder;
+    opacity: 0.95;
+    font: outline;
+    text-shadow: 0.1px 0.1px 0.1px rgb(213, 232, 233);
+    
+}
+
+.board:hover {
+    opacity: 0.9;
+    box-shadow: 1px 3px 3px -2px rgba(0,0,0,0.75);
+    cursor: pointer;
+    
+}
+
+.board p{
+    z-index: 100;
+}
+
+@media (max-width : 760px) {
+    .board{
+        width: 150px;
+        display: block;
+    }
+}
+
+
+@media (max-width : 660px) {
+    .board{
+        width: 300px;
+        height: 110px;
+        margin-left:50px;
+        
+    }
+}
+
+
+
+
+
