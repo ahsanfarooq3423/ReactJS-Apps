@@ -51,16 +51,31 @@ class BoardsApp extends Component {
 
             },
 
-        }
+        },
+        createnew : false
+    }
+
+    getNewBoardHandler = () => {
+        this.setState({createnew : true});
+    }
+
+    getBoardInfo = (info) => {
+        //let name = info.name;
+        //let url = info.url;
+        //const boards = {...this.state.boards};
+        //if (info.length > 0) {
+            
+        //}
+        console.log(info);
     }
 
     render(){
         return(
             <div className = {classes.container} >
                 <LeftNavigation/>
-                <Boards boards = {this.state.boards} />
-                <Modal show width = "423px" height = "250px">
-                    <NewBoard/>
+                <Boards boards = {this.state.boards} createnew = {this.getNewBoardHandler} />
+                <Modal show = {this.state.createnew} width = "423px" height = "250px">
+                    <NewBoard getinfo = {this.getBoardInfo}/>
                 </Modal>
             </div>
         )

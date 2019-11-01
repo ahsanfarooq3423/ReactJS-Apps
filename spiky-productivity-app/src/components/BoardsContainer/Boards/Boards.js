@@ -4,7 +4,7 @@ import Board from './Board/Board';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar} from '@fortawesome/free-solid-svg-icons';
 
-const board = (props) => {
+const boards = (props) => {
     
     const boards = [];
 
@@ -22,7 +22,7 @@ const board = (props) => {
             <h4> <FontAwesomeIcon icon = {faStar} /> Your Personal Boards</h4>
             <div className = {classes.boards}>
                {showBoards}
-               <div className = {classes.newboard}>
+               <div className = {classes.newboard} onClick = {props.createnew} >
                    <p>Create new Board</p>
                </div>
             </div>
@@ -32,4 +32,4 @@ const board = (props) => {
 }
 
 
-export default board;
+export default boards;
