@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import classes from './BoardsApp.module.css';
 import LeftNavigation from '../../components/BoardsContainer/LeftNavigation/LeftNavigation';
 import Boards from '../../components/BoardsContainer/Boards/Boards';
+import NewBoard from '../../components/BoardsContainer/Boards/NewBoard/NewBoard';
+import Modal from '../../components/UI/Modal/Modal';
 
 
 class BoardsApp extends Component {
@@ -57,6 +59,9 @@ class BoardsApp extends Component {
             <div className = {classes.container} >
                 <LeftNavigation/>
                 <Boards boards = {this.state.boards} />
+                <Modal show width = "423px" height = "250px">
+                    <NewBoard/>
+                </Modal>
             </div>
         )
     }

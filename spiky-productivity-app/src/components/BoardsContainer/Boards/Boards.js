@@ -22,6 +22,9 @@ const board = (props) => {
             <h4> <FontAwesomeIcon icon = {faStar} /> Your Personal Boards</h4>
             <div className = {classes.boards}>
                {showBoards}
+               <div className = {classes.newboard}>
+                   <p>Create new Board</p>
+               </div>
             </div>
         </div>
         

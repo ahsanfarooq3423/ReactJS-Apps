@@ -16,8 +16,56 @@
 }
 
 @media (max-width : 680px){
-    
+    .boards {
+        margin-left: 50px;
+        width: 100%;}
+
     .boardcontainer h4 {
         margin-left: 100px;}
 }
+
+
+.newboard{
+    width: 170.05px;
+    height: 90px;
+    background-color: rgb(207, 218, 230);
+    border-radius: 3px;
+    margin: 6.5px;
+    padding-left: 4px;
+    line-height: 51px;
+    font-size: 14px;
+    cursor: pointer;    
+    color: rgb(9, 9, 77);
+}
+
+.newboard:hover {
+    background-color: rgb(186, 208, 231);
+}
+
+.newboard p {
+    margin-left: 14%;
+}
+
+@media (max-width : 760px) {
+    .newboard{
+        width: 150px;
+        display: block;
+    }
+}
+
+
+@media (max-width : 660px) {
+    .newboard{
+        width: 300px;
+        height: 110px;
+        margin-left:50px;
+        
+    }
+
+    .newboard p {
+        margin-left: 27%;
+        line-height: 79px;
+    }
+}
+
 

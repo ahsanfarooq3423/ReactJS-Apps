@@ -1,0 +1,48 @@
+.Modal {
+    position: fixed;
+    z-index: 500;
+    padding: 16px;
+    top: 15%;
+    left : 36%;
+    box-sizing: border-box;
+    transition: all 0.3s ease-out;
+    border-radius: 5px;
+}
+
+@media (min-width: 600px) {
+    .Modal {
+        margin-top: -10px;
+        width: 75%;
+        height: 75%;
+
+    }
+}
+
+@media (max-width: 998px ) {
+    .Modal {
+        left : 30%
+    }
+}
+
+@media (max-width: 790px ) {
+    .Modal {
+        left : 20%
+    }
+}
+
+@media (max-width: 700px ) {
+    .Modal {
+        left : 15%
+    }
+}
+
+
+@media (max-width: 600px ) {
+    .Modal {
+        left : 6%;
+        right: 5%;
+    }
+}
+
+
+
