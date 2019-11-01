@@ -3,5 +3,11 @@
     height: 100%;
     text-align: center;
     margin-top: 20px;
-    
+    margin-left: 8%;
+}
+
+@media (max-width: 515px) {
+    .leftnavigation {
+       display: none;
+    } 
 }

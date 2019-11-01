@@ -1,21 +1,21 @@
 .board {
-    width: 172.05px;
-    height: 88.97px;
+    width: 170.05px;
+    height: 90px;
     /*background-color: dodgerblue;*/
-    background-image: url('https://images.unsplash.com/photo-1572510192261-e24ab8f31042?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80');
+    background-image:url('https://images.unsplash.com/photo-1572510192261-e24ab8f31042?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80');
     cursor: pointer;
     background-size: 100% 100%;
     color: white;
     font-weight: bolder;
     border-radius: 3px;
-    margin: 6px;
+    margin: 6.5px;
     padding-left: 4px;
     line-height: 3px;
     font-size: 15.6px;
     font-weight: bolder;
     opacity: 0.95;
     font: outline;
-    text-shadow: 0.1px 0.1px 0.1px rgb(213, 232, 233);
+    text-shadow: 0.5px 0.5px 0.5px rgb(213, 232, 233);
     
 }
 
@@ -27,6 +27,7 @@
 }
 
 .board p{
+    position: relative;
     z-index: 100;
 }
 
@@ -46,6 +47,9 @@
         
     }
 }
+
+
+
 
 
 

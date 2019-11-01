@@ -5,7 +5,19 @@
         margin-left: 5%;
         display: flex;
         flex-wrap: wrap;
+        margin-top: 5px;
 
     }
 
+.boardcontainer h4 {
+    margin-left: 5.5%;
+    margin-bottom: 0px;
+   
+}
+
+@media (max-width : 680px){
+    
+    .boardcontainer h4 {
+        margin-left: 100px;}
+}
 
