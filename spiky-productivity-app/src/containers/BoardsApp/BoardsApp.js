@@ -78,8 +78,10 @@ class BoardsApp extends Component {
             }
         }
 
-        this.setState({boards : boards})
+        let newboard = {...this.state.newboard};
+        newboard.show = false;
 
+        this.setState({boards : boards, newboard : newboard});
     }
 
     inputCheckHandler = (event) => {
@@ -90,9 +92,15 @@ class BoardsApp extends Component {
         else if (event.target.value.length === 0) {
             newboard.button = false;
         }
-        
         this.setState({newboard : newboard});
 
+    }
+
+
+    cancelNewBoard = () => {
+        let newboard = {...this.state.newboard};
+        newboard.show = false;
+        this.setState({newboard : newboard});
     }
 
     render(){
@@ -100,8 +108,12 @@ class BoardsApp extends Component {
             <div className = {classes.container} >
                 <LeftNavigation/>
                 <Boards boards = {this.state.boards} createnew = {this.getNewBoardHandler} />
-                <Modal show = {this.state.newboard.show} width = "423px" height = "250px">
+                <Modal
+                    clicked = {this.cancelNewBoard} 
+                    show = {this.state.newboard.show} 
+                    width = "423px" height = "250px">
                     <NewBoard 
+                        close = {this.cancelNewBoard}
                         getinfo = {this.getBoardInfo} 
                         showbutton = {this.state.newboard.button}
                         inputcheck = {this.inputCheckHandler} />

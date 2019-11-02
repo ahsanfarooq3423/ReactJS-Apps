@@ -4,18 +4,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
+
 class NewBoard extends Component {
     state = {
         name : '',
         url : 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80'
     }
 
+
     getName = (event) => {
         this.setState({name : event.target.value});
         this.props.inputcheck(event)
     }
 
-    
+    clearName = () => {
+        this.props.getinfo(this.state)  
+    }
+
+   
 
     render() {
         let buttonStyles = [];
@@ -32,14 +38,14 @@ class NewBoard extends Component {
                     <div>
                         <div className = {classes.input} > 
                             <input
-                                //onChange = {this.props.inputcheck}
                                 onChange = {this.getName} 
                                 className = {classes.title} 
                                 type = 'text' 
                                 placeholder = 'Add Board Title'/>
-                            <FontAwesomeIcon icon = {faTimes} 
+                            <FontAwesomeIcon onClick = {this.props.close} icon = {faTimes} 
                                 style = {{backgroundColor : 'black',
                                         color: 'white',
+                                        cursor : 'pointer',
                                         fontSize : '14px',
                                         marginTop: '10px',
                                         alignContent: 'right'}}/>
@@ -84,7 +90,7 @@ class NewBoard extends Component {
             
                     
                     <button 
-                        onClick = {() => this.props.getinfo(this.state)} 
+                        onClick = {this.clearName} 
                         className = {buttonStyles.join(' ')}>Create Board</button>
             
                     </div>
