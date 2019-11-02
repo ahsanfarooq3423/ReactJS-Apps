@@ -12,15 +12,27 @@ class NewBoard extends Component {
 
     getName = (event) => {
         this.setState({name : event.target.value});
+        this.props.inputcheck(event)
     }
 
+    
+
     render() {
+        let buttonStyles = [];
+        buttonStyles.push(classes.createbutton)
+        
+        if (!this.props.showbutton) {
+            buttonStyles.push(classes.disablebutton);
+        }
+
+
         return(
             <div>
             <div className = {classes.main}>
                     <div>
                         <div className = {classes.input} > 
                             <input
+                                //onChange = {this.props.inputcheck}
                                 onChange = {this.getName} 
                                 className = {classes.title} 
                                 type = 'text' 
@@ -71,7 +83,9 @@ class NewBoard extends Component {
                     </div>
             
                     
-                    <button onClick = {() => this.props.getinfo(this.state)}>Create Board</button>
+                    <button 
+                        onClick = {() => this.props.getinfo(this.state)} 
+                        className = {buttonStyles.join(' ')}>Create Board</button>
             
                     </div>
     

@@ -75,7 +75,7 @@
 }
 
 
-button {
+.createbutton {
     margin-top: 13px;
     color:white;
     background-color:rgb(50, 168, 50);
@@ -88,7 +88,33 @@ button {
     font-weight: 600;
 }
 
-button:hover {
+.createbutton:hover {
     background-color:rgb(90, 189, 90);
+}
+
+.disablebutton {
+    margin-top: 13px;
+    color:white;
+    background-color:rgb(131, 216, 212);
+    outline: none;
+    cursor: not-allowed;
+    width: 100px;
+    height: 30px;
+    border-radius: 3px;
+    border : 1px solid rgb(50, 168, 50);
+    font-size: 12px;
+}
+
+.disablebutton:hover {
+    margin-top: 13px;
+    color:white;
+    background-color:rgb(131, 216, 212);
+    outline: none;
+    cursor: not-allowed;
+    width: 100px;
+    height: 30px;
+    border-radius: 3px;
+    border : 1px solid rgb(50, 168, 50);
+    font-size: 12px;
 }
 

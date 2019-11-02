@@ -52,21 +52,47 @@ class BoardsApp extends Component {
             },
 
         },
-        createnew : false
+        newboard : {
+            show : false,
+            button : false
+        }
     }
 
     getNewBoardHandler = () => {
-        this.setState({createnew : true});
+        let newboard = {...this.state.newboard};
+        newboard.show = true;
+        this.setState({newboard : newboard});
     }
 
     getBoardInfo = (info) => {
-        //let name = info.name;
-        //let url = info.url;
-        //const boards = {...this.state.boards};
-        //if (info.length > 0) {
+         let board = info.name;
+         let name = board.charAt(0).toUpperCase() + board.slice(1);
+         let url = info.url;
+         let boards = {...this.state.boards};
+       
+        if (info.name.length > 0) {
             
-        //}
-        console.log(info);
+            boards[board] = {
+                name : name,
+                url : url
+            }
+        }
+
+        this.setState({boards : boards})
+
+    }
+
+    inputCheckHandler = (event) => {
+        let newboard = {...this.state.newboard};
+        if ( event.target.value.length > 0) {
+            newboard.button = true;
+        }
+        else if (event.target.value.length === 0) {
+            newboard.button = false;
+        }
+        
+        this.setState({newboard : newboard});
+
     }
 
     render(){
@@ -74,8 +100,11 @@ class BoardsApp extends Component {
             <div className = {classes.container} >
                 <LeftNavigation/>
                 <Boards boards = {this.state.boards} createnew = {this.getNewBoardHandler} />
-                <Modal show = {this.state.createnew} width = "423px" height = "250px">
-                    <NewBoard getinfo = {this.getBoardInfo}/>
+                <Modal show = {this.state.newboard.show} width = "423px" height = "250px">
+                    <NewBoard 
+                        getinfo = {this.getBoardInfo} 
+                        showbutton = {this.state.newboard.button}
+                        inputcheck = {this.inputCheckHandler} />
                 </Modal>
             </div>
         )
