@@ -3,9 +3,12 @@ import classes from './BoardsApp.module.css';
 import LeftNavigation from '../../components/BoardsContainer/LeftNavigation/LeftNavigation';
 import Boards from '../../components/BoardsContainer/Boards/Boards';
 import NewBoard from '../../components/BoardsContainer/Boards/NewBoard/NewBoard';
+import FullBoard from '../../components/BoardsContainer/FullBoard/FullBoard';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Modal from '../../components/UI/Modal/Modal';
 import Aux from '../hoc/Aux/Aux';
 import {Route} from 'react-router-dom';
+
 
 
 class BoardsApp extends Component {
@@ -93,7 +96,12 @@ class BoardsApp extends Component {
             },
 
         },
-        newboard : {
+        selectboard : 
+            //temp setting
+            {name: "Work", 
+             url: "https://images.unsplash.com/photo-1517048676732-d6…cHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"},
+        
+             newboard : {
             show : false,
             button : true //need to update the functionality later
         },
@@ -138,18 +146,19 @@ class BoardsApp extends Component {
     }
 
 
-    tempBoardFunction = (name)  => {
-        console.log(name);
+    currentBoardHandler = (selectboard)  => {
+        this.setState({selectboard : selectboard});
     }
 
     render(){
+        console.log(this.state.selectboard);
         let mainpage = (
-            <Aux>
+            <div className = {classes.container} >
             <LeftNavigation/>
                 <Boards 
                     boards = {this.state.boards} 
                     createnew = {this.getNewBoardHandler}
-                    click = {this.tempBoardFunction} />
+                    click = {this.currentBoardHandler} />
                     {this.state.modal ? <Modal
                     clicked = {this.cancelNewBoard} 
                     show = {this.state.newboard.show} 
@@ -160,14 +169,18 @@ class BoardsApp extends Component {
                         showbutton = {this.state.newboard.button} />
                 </Modal> : null}
                 
-            </Aux>
+                </div>
         )
 
         return(
-            <div className = {classes.container} >
+            <Aux>
+                <Toolbar/>
                 <Route path = "/" exact component = {() => mainpage} />
+                {this.state.selectboard ?
+                    <Route path = "/boards" 
+                        component = {() => <FullBoard current = {this.state.currentboard}  />} /> : null}
                 
-            </div>
+            </Aux>
         )
     }
 }
