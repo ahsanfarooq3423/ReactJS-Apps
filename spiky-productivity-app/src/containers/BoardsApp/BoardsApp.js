@@ -95,20 +95,20 @@ class BoardsApp extends Component {
         },
         newboard : {
             show : false,
-            button : false
+            button : true //need to update the functionality later
         },
         currentboard : 'work',
         modal : false
     }
 
     getNewBoardHandler = () => {
-        console.log('clicked')
         let newboard = {...this.state.newboard};
         newboard.show = true;
         this.setState({newboard : newboard, modal : true});
     }
 
     getBoardInfo = (info) => {
+        console.log(info);
          let board = info.name;
          let name = board.charAt(0).toUpperCase() + board.slice(1);
          let url = info.url;
@@ -126,26 +126,15 @@ class BoardsApp extends Component {
         newboard.show = false;
         
 
-        this.setState({boards : boards, newboard : newboard});
-    }
-
-    inputCheckHandler = (event) => {
-        let newboard = {...this.state.newboard};
-        if ( event.target.value.length > 0) {
-            newboard.button = true;
-        }
-        else if (event.target.value.length === 0) {
-            newboard.button = false;
-        }
-        this.setState({newboard : newboard});
-
+        this.setState({boards : boards, newboard : newboard, modal : false});
+        console.log(this.state.modal)
     }
 
 
     cancelNewBoard = () => {
         let newboard = {...this.state.newboard};
         newboard.show = false;
-        this.setState({newboard : newboard});
+        this.setState({newboard : newboard, modal : false});
     }
 
 
@@ -168,8 +157,7 @@ class BoardsApp extends Component {
                     <NewBoard 
                         close = {this.cancelNewBoard}
                         getinfo = {this.getBoardInfo} 
-                        showbutton = {this.state.newboard.button}
-                        inputcheck = {this.inputCheckHandler} />
+                        showbutton = {this.state.newboard.button} />
                 </Modal> : null}
                 
             </Aux>

@@ -26,11 +26,13 @@ const boards = (props) => {
             <h4> <FontAwesomeIcon icon = {faStar} /> Your Personal Boards</h4>
             <div className = {classes.boards}>
                {showBoards}
-            </div>
-            
-            <div className = {classes.newboard} onClick = {props.createnew} >
+               <div className = {classes.newboard} onClick = {props.createnew} >
                    <p>Create new Board</p>
             </div>
+
+            </div>
+            
+            
         </div>
         
     )

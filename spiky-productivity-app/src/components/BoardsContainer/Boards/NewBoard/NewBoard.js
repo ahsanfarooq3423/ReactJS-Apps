@@ -6,6 +6,7 @@ import { faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 
 
 class NewBoard extends Component {
+
     state = {
         name : '',
         url : 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80'
@@ -14,7 +15,7 @@ class NewBoard extends Component {
 
     getName = (event) => {
         this.setState({name : event.target.value});
-        this.props.inputcheck(event)
+        
     }
 
     clearName = () => {
@@ -90,7 +91,7 @@ class NewBoard extends Component {
             
                     
                     <button 
-                        onClick = {this.clearName} 
+                        onClick = {() => this.props.getinfo(this.state)} 
                         className = {buttonStyles.join(' ')}>Create Board</button>
             
                     </div>
