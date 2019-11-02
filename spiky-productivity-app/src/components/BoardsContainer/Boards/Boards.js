@@ -14,7 +14,11 @@ const boards = (props) => {
         boards.push({name,url})
     }
     let showBoards = boards.map((board, index) => {
-        return <Board key = {index} name = {board.name} url = {board.url} />
+        return <Board
+            click = {() => props.click(board)} 
+            key = {index} 
+            name = {board.name} 
+            url = {board.url} />
     })
 
     return(
@@ -22,9 +26,10 @@ const boards = (props) => {
             <h4> <FontAwesomeIcon icon = {faStar} /> Your Personal Boards</h4>
             <div className = {classes.boards}>
                {showBoards}
-               <div className = {classes.newboard} onClick = {props.createnew} >
+            </div>
+            
+            <div className = {classes.newboard} onClick = {props.createnew} >
                    <p>Create new Board</p>
-               </div>
             </div>
         </div>
         

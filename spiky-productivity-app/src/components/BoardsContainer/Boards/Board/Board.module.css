@@ -14,20 +14,19 @@
     font-weight: bolder;
     opacity: 0.95;
     font: outline;
-    
     cursor: pointer;
 }
 
-.board:hover {
+/* .board:hover {
     opacity: 0.9;
     box-shadow: 1px 3px 3px -2px rgba(0,0,0,0.75);
-    cursor: pointer;
     
-}
+    
+} */
 
 .board p{
     position: relative;
-    z-index: 100;
+    cursor: pointer;
 }
 
 @media (max-width : 760px) {

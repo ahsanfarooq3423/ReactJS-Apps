@@ -4,6 +4,8 @@ import LeftNavigation from '../../components/BoardsContainer/LeftNavigation/Left
 import Boards from '../../components/BoardsContainer/Boards/Boards';
 import NewBoard from '../../components/BoardsContainer/Boards/NewBoard/NewBoard';
 import Modal from '../../components/UI/Modal/Modal';
+import Aux from '../hoc/Aux/Aux';
+import {Route} from 'react-router-dom';
 
 
 class BoardsApp extends Component {
@@ -13,6 +15,45 @@ class BoardsApp extends Component {
             'work' : {
                 name: 'Work',
                 img : 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
+                data : {
+                    lists : {
+                        'project1' : {
+                            items : {
+                                'do the meeting' : {
+                                    description : null
+                                },
+                                'make the call' : {
+                                    description : null
+                                },
+                                'meet the client' : {
+                                    description : null
+                                },
+                                'deploy to server' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'client' : {
+                            items : {
+                                'message about game' : {
+                                    description : null
+                                },
+                                'meet the seniors' : {
+                                    description : null
+                                },
+                                'dashboard' : {
+                                    description : null
+                                },
+                                'build game' : {
+                                    description : null
+                                },
+                                
+                            }
+                        }
+                        
+                    }
+                }
 
             },
             'gym' : {
@@ -55,13 +96,16 @@ class BoardsApp extends Component {
         newboard : {
             show : false,
             button : false
-        }
+        },
+        currentboard : 'work',
+        modal : false
     }
 
     getNewBoardHandler = () => {
+        console.log('clicked')
         let newboard = {...this.state.newboard};
         newboard.show = true;
-        this.setState({newboard : newboard});
+        this.setState({newboard : newboard, modal : true});
     }
 
     getBoardInfo = (info) => {
@@ -80,6 +124,7 @@ class BoardsApp extends Component {
 
         let newboard = {...this.state.newboard};
         newboard.show = false;
+        
 
         this.setState({boards : boards, newboard : newboard});
     }
@@ -103,12 +148,20 @@ class BoardsApp extends Component {
         this.setState({newboard : newboard});
     }
 
+
+    tempBoardFunction = (name)  => {
+        console.log(name);
+    }
+
     render(){
-        return(
-            <div className = {classes.container} >
-                <LeftNavigation/>
-                <Boards boards = {this.state.boards} createnew = {this.getNewBoardHandler} />
-                <Modal
+        let mainpage = (
+            <Aux>
+            <LeftNavigation/>
+                <Boards 
+                    boards = {this.state.boards} 
+                    createnew = {this.getNewBoardHandler}
+                    click = {this.tempBoardFunction} />
+                    {this.state.modal ? <Modal
                     clicked = {this.cancelNewBoard} 
                     show = {this.state.newboard.show} 
                     width = "423px" height = "250px">
@@ -117,7 +170,15 @@ class BoardsApp extends Component {
                         getinfo = {this.getBoardInfo} 
                         showbutton = {this.state.newboard.button}
                         inputcheck = {this.inputCheckHandler} />
-                </Modal>
+                </Modal> : null}
+                
+            </Aux>
+        )
+
+        return(
+            <div className = {classes.container} >
+                <Route path = "/" exact component = {() => mainpage} />
+                
             </div>
         )
     }
