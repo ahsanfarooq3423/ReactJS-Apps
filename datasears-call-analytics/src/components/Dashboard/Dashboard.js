@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
-import Aux from '../../containers/hoc/Aux/Aux';
+import Chart from './Chart/Chart';
 import classes from './Dashboard.module.css';
 
 
 class Dashboard extends Component {
     render(){
         return(
-            <Aux>
+            <div className = {classes.main}>
                 <div className  = {classes.title}>
-                    <h1>Dashboard</h1>
+                    <h3>Dashboard</h3>
                 </div>
-               
-            </Aux>
+
+                <Chart/>
+                
+
+            </div>
         )
     }
 }
