@@ -3,6 +3,7 @@ import classes from './Boards.module.css';
 import Board from './Board/Board';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar} from '@fortawesome/free-solid-svg-icons';
+import {NavLink} from 'react-router-dom';
 
 const boards = (props) => {
     
