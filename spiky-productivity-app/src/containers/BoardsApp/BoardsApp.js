@@ -181,12 +181,16 @@ class BoardsApp extends Component {
 
         return(
             <Aux>
-                <Toolbar homestate = {this.homePageStateHandler} blur = {this.state.fullboard}/>
+                {/* <Toolbar homestate = {this.homePageStateHandler} blur = {this.state.fullboard}/>
                 <Route path = "/" exact component = {() => mainpage} />
                 {this.state.selectboard ?
                     <Route path = {"/boards/" +  this.state.selectboard.name.toLowerCase()} 
                         component = {() => <FullBoard 
-                                            current = {this.state.selectboard}  />} /> : null}
+                                            current = {this.state.selectboard}  />} /> : null} */}
+
+                    <FullBoard current =  { {name: "Work", 
+             url: "https://images.unsplash.com/photo-1517048676732-d6…cHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"}} />
+                                     
                 
             </Aux>
         )

@@ -1,0 +1,55 @@
+.strip{
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+}
+
+
+.name {
+    
+    border-radius: 2px;
+    width: auto;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    height: 10px;
+    margin-left: 1%;
+    padding: 3px;
+    cursor: pointer;
+    padding:10px;
+}
+
+.name:hover  {
+    background-color: rgb(122, 116, 116);
+}
+
+.name p {
+    margin-top: -7px;
+}
+
+.icon {
+    text-align: center;
+    background-color: rgb(122, 116, 116);
+    display: flex;
+    border-radius: 2px;
+    width: 170px;
+    text-align: center;
+    margin-left: 0.3%;
+    padding: 3px;
+    cursor: pointer;  
+    margin-top: 0px; 
+
+}
+.icon:hover {
+    background-color: rgb(175, 172, 172);
+
+}
+
+.icon p {
+    line-height: 0px;
+    margin-top: 11px;
+    margin-left: 7px;
+    margin-bottom: 0px;
+}
+
+

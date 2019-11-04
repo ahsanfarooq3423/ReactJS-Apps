@@ -1,29 +1,31 @@
 import React, {Component} from 'react';
+import Strip from './Strip/Strip';
 import classes from './FullBoard.module.css';
+import List from './List/List';
+
 
 
 
 class FullBoard extends Component {
 
-
+    
     render() {
-     
-
-
- 
-        console.log(this.props.current.url);
         return(
            
             <div className = {classes.main} style = {{backgroundImage: "url(" + this.props.current.url + ")"}}>
-                <h1>{this.props.current.name}</h1>
+                <Strip name = {this.props.current.name}/>
+            
+                <div className = {classes.listContainer}>
+                    <List/>
+                    <List/>
+                   
+                </div>
+            
             </div>
-            
 
             
-            
 
-        )
-        
+        )     
     }
 }
 

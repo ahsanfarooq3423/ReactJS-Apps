@@ -1,11 +1,27 @@
 
+body{
+    background-color: black;
+  }
 
 .main {
-    background-image:  url("https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
     height: 100%;
     position: absolute;
     left: 0;
     width: 100%;
     background-size: cover;
     color: white;
+    
 }
+
+.listContainer{
+    width: 100%;
+    margin: 25px;
+    margin-left: 5px;
+    overflow-x: scroll !important;
+    overflow-y: hidden;
+    white-space: nowrap;
+    max-height: 100%;
+    user-select: none;
+    position: absolute;
+}
+
