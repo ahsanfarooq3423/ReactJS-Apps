@@ -188,8 +188,10 @@ class BoardsApp extends Component {
                         component = {() => <FullBoard 
                                             current = {this.state.selectboard}  />} /> : null} */}
 
-                    <FullBoard current =  { {name: "Work", 
-             url: "https://images.unsplash.com/photo-1517048676732-d6…cHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"}} />
+                    <FullBoard 
+                        current = {{name: "Work", 
+                        url: "https://images.unsplash.com/photo-1517048676732-d6…cHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"}}
+                        board = {this.state.boards['work']} />
                                      
                 
             </Aux>
