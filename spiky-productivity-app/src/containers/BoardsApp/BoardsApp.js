@@ -106,7 +106,8 @@ class BoardsApp extends Component {
             button : true //need to update the functionality later
         },
         currentboard : 'work',
-        modal : false
+        modal : false,
+        fullboard : false
     }
 
     getNewBoardHandler = () => {
@@ -147,11 +148,17 @@ class BoardsApp extends Component {
 
 
     currentBoardHandler = (selectboard)  => {
-        this.setState({selectboard : selectboard});
+        this.setState({selectboard : selectboard, fullboard : true});
+        
     }
 
+    homePageStateHandler = () => {
+        this.setState({fullboard : false}); 
+    }
+
+
+
     render(){
-        console.log(this.state.selectboard);
         let mainpage = (
             <div className = {classes.container} >
             <LeftNavigation/>
@@ -174,11 +181,12 @@ class BoardsApp extends Component {
 
         return(
             <Aux>
-                <Toolbar/>
+                <Toolbar homestate = {this.homePageStateHandler} blur = {this.state.fullboard}/>
                 <Route path = "/" exact component = {() => mainpage} />
                 {this.state.selectboard ?
-                    <Route path = "/boards" 
-                        component = {() => <FullBoard current = {this.state.currentboard}  />} /> : null}
+                    <Route path = {"/boards/" +  this.state.selectboard.name.toLowerCase()} 
+                        component = {() => <FullBoard 
+                                            current = {this.state.selectboard}  />} /> : null}
                 
             </Aux>
         )

@@ -27,6 +27,7 @@
 .board p{
     position: relative;
     cursor: pointer;
+    padding-top: 10px;
 }
 
 @media (max-width : 760px) {

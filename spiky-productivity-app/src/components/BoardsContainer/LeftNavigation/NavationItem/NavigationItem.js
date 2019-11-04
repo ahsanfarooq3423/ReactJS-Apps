@@ -12,9 +12,6 @@ const navigationItem = (props) => {
         styles.push(classes.active);
     }
   
-
-
-
     return (
         
             <div className = {styles.join(" ")}>

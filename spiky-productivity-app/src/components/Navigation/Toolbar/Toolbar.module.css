@@ -8,6 +8,10 @@
     background-color: rgb(94, 135, 224);;
 }
 
+.blur {
+    z-index: -1;
+}
+
 .home {
     margin-top: 4px;
     width: 31px;

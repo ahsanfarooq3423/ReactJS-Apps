@@ -3,7 +3,7 @@ import classes from './Boards.module.css';
 import Board from './Board/Board';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar} from '@fortawesome/free-solid-svg-icons';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const boards = (props) => {
     
@@ -15,11 +15,19 @@ const boards = (props) => {
         boards.push({name,url})
     }
     let showBoards = boards.map((board, index) => {
-        return <Board
+        return (
+            <Link
+            style={{ textDecoration: 'none'}}
+            // activeClassName = {classes.navlink}
+
+            key = {index}
+            to = {"/boards/" + board.name.toLowerCase()}>
+            <Board
             click = {() => props.click(board)} 
-            key = {index} 
             name = {board.name} 
             url = {board.url} />
+              </Link>
+           )
     })
 
     return(
