@@ -4,6 +4,7 @@ import classes from './FullBoard.module.css';
 import List from './List/List';
 import {withRouter} from 'react-router-dom';
 import Aux from '../../../containers/hoc/Aux/Aux';
+import NewList from './List/NewList';
 
 
 
@@ -34,7 +35,14 @@ class FullBoard extends Component {
                                     key = {index} 
                                     items = {this.props.board.data.lists[list]} />
                         })}
+                 
+                        <NewList/>
                     </div>
+
+                
+                        
+             
+                    
 
                     
                     </Aux>
