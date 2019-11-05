@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import BoardsApp from './containers/BoardsApp/BoardsApp' 
+import BoardsApp from './containers/BoardsApp/BoardsApp';
+
 
 
 class App extends Component {

@@ -7,7 +7,7 @@ import FullBoard from '../../components/BoardsContainer/FullBoard/FullBoard';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Modal from '../../components/UI/Modal/Modal';
 import Aux from '../hoc/Aux/Aux';
-import {Route} from 'react-router-dom';
+import {Route, withRouter} from 'react-router-dom';
 
 
 
@@ -397,53 +397,14 @@ class BoardsApp extends Component {
                 }
             },
             'photography' : {
-                name: 'Photograpy',
+                name: 'Photography',
                 img : 'https://images.unsplash.com/photo-1520390138845-fd2d229dd553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80',
-                data : {
-                    lists : {
-                        'project1' : {
-                            items : {
-                                'do the meeting' : {
-                                    description : null
-                                },
-                                'make the call' : {
-                                    description : null
-                                },
-                                'meet the client' : {
-                                    description : null
-                                },
-                                'deploy to server' : {
-                                    description : null
-                                },
-                                
-                            }
-                        },
-                        'client' : {
-                            items : {
-                                'message about game' : {
-                                    description : null
-                                },
-                                'meet the seniors' : {
-                                    description : null
-                                },
-                                'dashboard' : {
-                                    description : null
-                                },
-                                'build game' : {
-                                    description : null
-                                },
-                                
-                            }
-                        }
-                        
-                    }
-                }
             },
 
         },
-        selectboard : null,
+        selectboard : this.props.location.pathname.slice(8,this.props.location.pathname.length +1),
         
-             newboard : {
+        newboard : {
             show : false,
             button : true //need to update the functionality later
         },
@@ -471,6 +432,7 @@ class BoardsApp extends Component {
                 name : name,
                 url : url
             }
+
         }
 
         let newboard = {...this.state.newboard};
@@ -491,7 +453,7 @@ class BoardsApp extends Component {
 
     currentBoardHandler = (selectboard)  => {
         let name = selectboard.name.toLowerCase();
-        console.log(name)
+        //console.log(this.props);
         this.setState({selectboard : name, fullboard : true});
         
     }
@@ -528,19 +490,14 @@ class BoardsApp extends Component {
                 <Toolbar homestate = {this.homePageStateHandler} blur = {this.state.fullboard}/>
                 <Route path = "/" exact component = {() => mainpage} />
                 {this.state.selectboard ?
-                    <Route path = {"/boards/" +  this.state.selectboard.toLowerCase()} 
+                    <Route 
+                        path = {this.props.location.pathname}
                         component = {() => <FullBoard 
                                                 board = {this.state.boards[this.state.selectboard]} />} /> : null}
-
-                    {/* <FullBoard 
-                        current = {{name: "Work", 
-                        url: "https://images.unsplash.com/photo-1517048676732-d6…cHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"}}
-                        board = {this.state.boards['work']} /> */}
-                                     
                 
             </Aux>
         )
     }
 }
 
-export default BoardsApp;
+export default withRouter(BoardsApp);

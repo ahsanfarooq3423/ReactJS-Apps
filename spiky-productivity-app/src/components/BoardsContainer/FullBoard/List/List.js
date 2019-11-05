@@ -5,7 +5,9 @@ import classes from './List.module.css';
 
 class List extends Component {
 
-   
+    changeHandler = () => {
+        console.log('input changed')
+    }
    
     render(){
 
@@ -15,7 +17,11 @@ class List extends Component {
         }
 
 
-        let title = <input type = 'text' value = {this.props.name} className = {classes.titleInput}/>
+        let title = <input
+                        onChange = {this.changeHandler} 
+                        type = 'text' 
+                        value = {this.props.name} 
+                        className = {classes.titleInput}/>
         return(
             <div className = {classes.list}>
                 <div className = {classes.title} >
@@ -24,8 +30,10 @@ class List extends Component {
                 </div>
 
                 <div>
-                    {cards.map(card => {
-                        return <Card card = {card} />
+                    {cards.map((card,index) => {
+                        return <Card 
+                                key = {index}
+                                card = {card} />
                     })}
                 </div>
                 
