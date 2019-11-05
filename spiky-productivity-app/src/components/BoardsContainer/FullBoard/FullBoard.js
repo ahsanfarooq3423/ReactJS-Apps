@@ -18,7 +18,6 @@ class FullBoard extends Component {
         for (let list_name in this.props.board.data.lists){
             lists.push(list_name);
         }
-
      
 
         return(

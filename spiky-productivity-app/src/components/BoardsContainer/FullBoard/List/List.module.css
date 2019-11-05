@@ -1,11 +1,12 @@
 .list {
     display: inline-block;
-    width: 272px;
-    height: 400px;
+    width: 243px;
+    height: auto;
     border-radius: 3px;
-    background-color: white;
+    background-color: #ebecf0;;
     margin-left: 0.7%;
     color: black;
+    padding-bottom: 17px;
 
 }
 
@@ -13,7 +14,6 @@
 .title {
     display: flex;
     width: 95%;
-    
     margin-left: 2%;
     height: 28px;
     margin-top: 4px;
@@ -59,7 +59,7 @@
     border: hidden;
     width: 97%;
     height: 80%;
-    background-color: white;
+    background-color: #ebecf0;;
     padding: 2px;
     padding-left: 8px;   
 }
