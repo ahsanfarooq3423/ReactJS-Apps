@@ -12,7 +12,7 @@ class FullBoard extends Component {
     
     
     render() {
-
+        console.log(this.props.board)
         var lists = [];
         
         for (let list_name in this.props.board.data.lists){
@@ -22,12 +22,10 @@ class FullBoard extends Component {
 
         return(
            
-            <div className = {classes.main} style = {{backgroundImage: "url(" + this.props.current.url + ")"}}>
-                <Strip name = {this.props.current.name}/>
+            <div className = {classes.main} style = {{backgroundImage: "url(" + this.props.board.img + ")"}}>
+                <Strip name = {this.props.board.name}/>
             
                 <div className = {classes.listContainer}>
-                    {/* <List/>
-                    <List/> */}
                     {lists.map((list,index) => {
                         return <List 
                                 name = {list} 

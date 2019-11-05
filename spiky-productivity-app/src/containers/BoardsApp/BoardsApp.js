@@ -62,44 +62,386 @@ class BoardsApp extends Component {
             'gym' : {
                 name: 'GYM',
                 img : 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-
+                data : {
+                    lists : {
+                        'squats' : {
+                            items : {
+                                'watch the video' : {
+                                    description : null
+                                },
+                                '10 kgs additions' : {
+                                    description : null
+                                },
+                                'shoe alignment' : {
+                                    description : null
+                                },
+                                'make 4 reps' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'protien shake' : {
+                            items : {
+                                'research about shake' : {
+                                    description : null
+                                },
+                                'demand for more' : {
+                                    description : null
+                                },
+                                'choclate flavour' : {
+                                    description : null
+                                },
+                                'room for legs' : {
+                                    description : null
+                                },
+                                'Baby boss' : {
+                                    description : null
+                                },
+                                '25gs research' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'bench press' : {
+                            items : {
+                                'research about shake' : {
+                                    description : null
+                                },
+                                'demand for more' : {
+                                    description : null
+                                },
+                                'choclate flavour' : {
+                                    description : null
+                                },
+                                'chest position' : {
+                                    description : null
+                                },
+                                'room for improvement' : {
+                                    description : null
+                                },
+                                'max reps' : {
+                                    description : null
+                                },
+                                'what science says' : {
+                                    description : null
+                                },
+                                'making more hash reps' : {
+                                    description : null
+                                },
+                                'what is true' : {
+                                    description : null
+                                },
+                                'the asap science' : {
+                                    description : null
+                                },
+                                'picture fit' : {
+                                    description : null
+                                },
+                                'stay on the ground' : {
+                                    description : null
+                                }
+                                
+                            }
+                        }
+                        
+                    }
+                }
             },
             'project' : {
                 name: 'Project',
                 img : 'https://images.unsplash.com/photo-1492551557933-34265f7af79e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-
+                data : {
+                    lists : {
+                        'marketing' : {
+                            items : {
+                                'do the marketing' : {
+                                    description : null
+                                },
+                                'make the call' : {
+                                    description : null
+                                },
+                                'come home' : {
+                                    description : null
+                                },
+                                'advertisement' : {
+                                    description : null
+                                },
+                                'advertisement insta' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'facebook ads' : {
+                            items : {
+                                'pay the client' : {
+                                    description : null
+                                },
+                                'age limit' : {
+                                    description : null
+                                },
+                                'target audience' : {
+                                    description : null
+                                },
+                                'analytics' : {
+                                    description : null
+                                },
+                                
+                            }
+                        }
+                        
+                    }
+                }
             },
             'email' : {
                 name: 'Email',
                 img : 'https://images.unsplash.com/photo-1557568192-2fafc8b5bdc9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80',
-
+                data : {
+                    lists : {
+                        'gmail' : {
+                            items : {
+                                'sign Up' : {
+                                    description : null
+                                },
+                                'Ali Baba Edition' : {
+                                    description : null
+                                },
+                                'Juniors meet seniors' : {
+                                    description : null
+                                },
+                                'deploy to server' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        
+                    }
+                }
             },
             'books' : {
                 name: 'Books',
                 img : 'https://images.unsplash.com/photo-1550399105-c4db5fb85c18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80',
-
+                data : {
+                    lists : {
+                        'books to buy' : {
+                            items : {
+                                'mba' : {
+                                    description : null
+                                },
+                                'baby boss' : {
+                                    description : null
+                                },
+                                'the sleep cycle' : {
+                                    description : null
+                                },
+                                'imitation game' : {
+                                    description : null
+                                },
+                                'joker' : {
+                                    description : null
+                                },
+                                'made it to the top' : {
+                                    description : null
+                                },
+                                'biography' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'books to read' : {
+                            items : {
+                                'the unthethered soul' : {
+                                    description : null
+                                },
+                                'The baws' : {
+                                    description : null
+                                },
+                                'da vinci code' : {
+                                    description : null
+                                },
+                                'how fluke works' : {
+                                    description : null
+                                },
+                                
+                            }
+                        }
+                        
+                    }
+                }
             },
             'gallery' : {
                 name: 'Gallery',
                 img : 'https://images.unsplash.com/photo-1482245294234-b3f2f8d5f1a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2030&q=80',
-
+                data : {
+                    lists : {
+                        'Pictures' : {
+                            items : {
+                                'done' : {
+                                    description : null
+                                },
+                                'shaadi picture' : {
+                                    description : null
+                                },
+                                'trip pictures' : {
+                                    description : null
+                                },
+                                'to be edited' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'Documentaries' : {
+                            items : {
+                                'Game of thrones' : {
+                                    description : null
+                                },
+                                'how a guy took 10000 photos' : {
+                                    description : null
+                                },
+                                'the man behind dawk' : {
+                                    description : null
+                                },
+                                'baby boss' : {
+                                    description : null
+                                },
+                                
+                            }
+                        }
+                        
+                    }
+                }
             },
             'pets' : {
                 name: 'Pets',
                 img : 'https://images.unsplash.com/photo-1514984879728-be0aff75a6e8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1576&q=80',
-
+                data : {
+                    lists : {
+                        'dogs' : {
+                            items : {
+                                'wash the dog' : {
+                                    description : null
+                                },
+                                'bring the food' : {
+                                    description : null
+                                },
+                                'the health documentary' : {
+                                    description : null
+                                },
+                                'go for a walk' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'cats' : {
+                            items : {
+                                'WHY CATS CANT BE TRUSTED' : {
+                                    description : null
+                                },
+                                'hate for cats' : {
+                                    description : null
+                                },
+                                'cats are not wild' : {
+                                    description : null
+                                },
+                                'build game' : {
+                                    description : null
+                                },
+                                'talking parrotss' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'parrots' : {
+                            items : {
+                                '10 photos' : {
+                                    description : null
+                                },
+                                'dream views' : {
+                                    description : null
+                                },
+                                'dashboard' : {
+                                    description : null
+                                },
+                                'parrots' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'goats' : {
+                            items : {
+                                'sheep' : {
+                                    description : null
+                                },
+                                'lamb roast' : {
+                                    description : null
+                                },
+                                'bbq' : {
+                                    description : null
+                                },
+                                'beef' : {
+                                    description : null
+                                },
+                                
+                            }
+                        }
+                        
+                    }
+                }
             },
             'photography' : {
                 name: 'Photograpy',
                 img : 'https://images.unsplash.com/photo-1520390138845-fd2d229dd553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2089&q=80',
-
+                data : {
+                    lists : {
+                        'project1' : {
+                            items : {
+                                'do the meeting' : {
+                                    description : null
+                                },
+                                'make the call' : {
+                                    description : null
+                                },
+                                'meet the client' : {
+                                    description : null
+                                },
+                                'deploy to server' : {
+                                    description : null
+                                },
+                                
+                            }
+                        },
+                        'client' : {
+                            items : {
+                                'message about game' : {
+                                    description : null
+                                },
+                                'meet the seniors' : {
+                                    description : null
+                                },
+                                'dashboard' : {
+                                    description : null
+                                },
+                                'build game' : {
+                                    description : null
+                                },
+                                
+                            }
+                        }
+                        
+                    }
+                }
             },
 
         },
-        selectboard : 
-            //temp setting
-            {name: "Work", 
-             url: "https://images.unsplash.com/photo-1517048676732-d6…cHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"},
+        selectboard : null,
         
              newboard : {
             show : false,
@@ -148,7 +490,9 @@ class BoardsApp extends Component {
 
 
     currentBoardHandler = (selectboard)  => {
-        this.setState({selectboard : selectboard, fullboard : true});
+        let name = selectboard.name.toLowerCase();
+        console.log(name)
+        this.setState({selectboard : name, fullboard : true});
         
     }
 
@@ -184,10 +528,9 @@ class BoardsApp extends Component {
                 <Toolbar homestate = {this.homePageStateHandler} blur = {this.state.fullboard}/>
                 <Route path = "/" exact component = {() => mainpage} />
                 {this.state.selectboard ?
-                    <Route path = {"/boards/" +  this.state.selectboard.name.toLowerCase()} 
+                    <Route path = {"/boards/" +  this.state.selectboard.toLowerCase()} 
                         component = {() => <FullBoard 
-                                            current = {this.state.selectboard} 
-                                            board = {this.state.boards['work']} />} /> : null}
+                                                board = {this.state.boards[this.state.selectboard]} />} /> : null}
 
                     {/* <FullBoard 
                         current = {{name: "Work", 
