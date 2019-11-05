@@ -7,7 +7,7 @@ import FullBoard from '../../components/BoardsContainer/FullBoard/FullBoard';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Modal from '../../components/UI/Modal/Modal';
 import Aux from '../hoc/Aux/Aux';
-import {Route, withRouter} from 'react-router-dom';
+import {Route, withRouter, Switch} from 'react-router-dom';
 
 
 
@@ -420,7 +420,6 @@ class BoardsApp extends Component {
     }
 
     getBoardInfo = (info) => {
-        console.log(info);
          let board = info.name;
          let name = board.charAt(0).toUpperCase() + board.slice(1);
          let url = info.url;
@@ -433,6 +432,8 @@ class BoardsApp extends Component {
                 url : url
             }
 
+            boards[board].data = null;
+
         }
 
         let newboard = {...this.state.newboard};
@@ -440,7 +441,6 @@ class BoardsApp extends Component {
         
 
         this.setState({boards : boards, newboard : newboard, modal : false});
-        console.log(this.state.modal)
     }
 
 
@@ -488,12 +488,15 @@ class BoardsApp extends Component {
         return(
             <Aux>
                 <Toolbar homestate = {this.homePageStateHandler} blur = {this.state.fullboard}/>
+                <Switch>
                 <Route path = "/" exact component = {() => mainpage} />
                 {this.state.selectboard ?
                     <Route 
                         path = {this.props.location.pathname}
                         component = {() => <FullBoard 
                                                 board = {this.state.boards[this.state.selectboard]} />} /> : null}
+                
+                </Switch>
                 
             </Aux>
         )

@@ -1,9 +1,8 @@
 
-body{
-    background-color: black;
-  }
+
 
 .main {
+    background-color: cornflowerblue;
     height: 100%;
     position: absolute;
     left: 0;

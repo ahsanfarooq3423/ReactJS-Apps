@@ -3,13 +3,14 @@ import Strip from './Strip/Strip';
 import classes from './FullBoard.module.css';
 import List from './List/List';
 import {withRouter} from 'react-router-dom';
+import Aux from '../../../containers/hoc/Aux/Aux';
 
 
 
 class FullBoard extends Component {
 
-    componentDidMount() {
-       console.log(this.props);
+    componentWillMount() {
+       console.log(this.props.board);
     }
 
     
@@ -17,31 +18,49 @@ class FullBoard extends Component {
     render() {
         var lists = [];
         let show = null;
-        if(this.props.board.data){
-            for (let list_name in this.props.board.data.lists){
-                lists.push(list_name);
-            }
-            show = (
-                <div className = {classes.listContainer}>
-                    {lists.map((list,index) => {
-                        return <List 
-                                name = {list} 
-                                key = {index} 
-                                items = {this.props.board.data.lists[list]} />
-                    })}
-                </div>
-            )
-             
-        }
-        
-           
+        if(this.props.board){
+            if(this.props.board.data){
+                for (let list_name in this.props.board.data.lists){
+                    lists.push(list_name);
+                }
+                show = (
+                    <Aux>
 
-        return(
+                        
+                    <div className = {classes.listContainer}>
+                        {lists.map((list,index) => {
+                            return <List 
+                                    name = {list} 
+                                    key = {index} 
+                                    items = {this.props.board.data.lists[list]} />
+                        })}
+                    </div>
+
+                    
+                    </Aux>
+                )
+                 
+            }
+        }
+        else {
+            show = <h1>The above url not found.</h1>
+        }
+
+        let main = <h1>The above url not found.</h1>;
+        if (this.props.board) {
+            main = (<div className = {classes.main} style = {{backgroundImage: "url(" + this.props.board.img + ")"}}>
+            <Strip name = {this.props.board.name}/>
+            {show}
+        </div>)
             
-        <div className = {classes.main} style = {{backgroundImage: "url(" + this.props.board.img + ")"}}>
-                <Strip name = {this.props.board.name}/>
-                {show}
-            </div>
+        }
+
+        
+ 
+        return(
+            <Aux>
+            {main}
+            </Aux>
         )     
     }
 }
