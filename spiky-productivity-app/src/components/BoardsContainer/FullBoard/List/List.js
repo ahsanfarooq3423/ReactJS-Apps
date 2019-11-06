@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Card from './Card/Card';
 import classes from './List.module.css';
+import NewCard from './Card/NewCard/NewCard';
 
 
 class List extends Component {
@@ -38,6 +39,9 @@ class List extends Component {
                                 key = {index}
                                 card = {card} />
                     })}
+
+                    <NewCard/>
+
                 </div>
                 
             </div>

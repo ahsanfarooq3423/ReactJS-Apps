@@ -28,7 +28,13 @@ class FullBoard extends Component {
         let name = this.state.newlistName;
         //let newboard = {...this.props.board};
         let newboard = JSON.parse(JSON.stringify(this.props.board));
-        newboard.data.lists[name] = null;
+
+        if (name){
+            if (name.length >0) {
+                newboard.data.lists[name] = null;
+            }
+        }
+        
         this.props.newlist(newboard)
     }
 

@@ -463,8 +463,6 @@ class BoardsApp extends Component {
     }
 
     addNewListHandler = (data) => {
-       console.log(data);
-
        let boards = JSON.parse(JSON.stringify(this.state.boards));
        let identifier = data.name.toLowerCase();
        boards[identifier] = data;

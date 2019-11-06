@@ -1,41 +1,49 @@
 .newlist {
+    margin-top: 5px;
     display: inline-block;
-    width: 240px;
+    width: 230px;
     height: 35px;
     line-height: 5px;
     padding-left: 6px;
     font-weight: 500;
-    font-size: 14px;
-    background-color: rgba(255, 255, 255, 0.308);
+    color: rgb(49, 95, 97);
+    font-size: 13.5px;
+    margin-bottom: -20px;
     border-radius: 2px;
     margin-left: 8px;
     cursor: pointer;
     margin-right: 30px;
+    margin-left: 4px;
 }
 
 .inputname {
-    margin-right: 30px;
     display: inline-block;
-    width: 243px;
+    width: 230px;
     height: 64px;
     border-radius: 2px;
     background-color: #ebecf0;
-    margin-left: 8px;
+    margin-left: 4px;
     padding: 3px;
-    cursor: pointer;
+    
+    margin-top: 6px;
     
 }
 
-.inputname input {
-    width: 93%;
-    height: 24px;
-    border: 2px solid rgb(70, 103, 196);
+.inputname .textarea {
+    border-top: 0px;
+    width: 96%;
+    height: 60px;
     border-radius: 3px;
-    margin-left: 3px;
     font-size: 13px;
     font-weight: 500;
     padding-left: 5px;
-    
+    border: none;
+    box-shadow: 0px 1px 1px 0px rgba(0,0,0,0.20);
+}
+
+.inputname .textarea:focus, .submission button {
+    border: none;
+    outline: none;
 }
 
 .inputname input:focus{
@@ -59,6 +67,10 @@
     
 }
 
+.submission button:hover {
+    background-color: rgb(60, 211, 60);
+}
+
 .icon {
     font-size: 20px;
     margin-top: -2px;
@@ -67,7 +79,7 @@
 
 .close {
     margin-top: 10px;
-    margin-left: 55%;
+    margin-left: 3%;
     width: 20px;
     height: 15px;
     color :white;
