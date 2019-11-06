@@ -12,9 +12,12 @@ class List extends Component {
     render(){
 
         let cards = [];
-        for (let card in this.props.items.items){
-            cards.push(card);
+        if (this.props.items){
+            for (let card in this.props.items.items){
+                cards.push(card);
+            }
         }
+        
 
 
         let title = <input

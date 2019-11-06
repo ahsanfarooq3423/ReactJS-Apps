@@ -23,7 +23,7 @@ class NewList extends Component {
                 onChange = {this.props.newlistname}
                 type = 'text' placeholder = 'Enter list title...'></input>   
             <div className = {classes.submission}>
-                <button>Add List</button>
+                <button onClick = {this.props.submit}>Add List</button>
                 <div className = {classes.close} >
                     <FontAwesomeIcon
                         className = {classes.icon}

@@ -13,19 +13,32 @@ class FullBoard extends Component {
 
     state = {
         newlistName : null
+
     }
 
-    componentWillMount() {
-       console.log(this.props.board);
-    }
+    
 
     newlistNameHanlder = (event) => {
-        this.setState({newlistName : event.target.value})
+        let name = event.target.value;
+        this.setState({newlistName : name});
     }
+
+
+    sumbitListHandler = () => {
+        let name = this.state.newlistName;
+        //let newboard = {...this.props.board};
+        let newboard = JSON.parse(JSON.stringify(this.props.board));
+        newboard.data.lists[name] = null;
+        this.props.newlist(newboard)
+    }
+
+
 
     
     
     render() {
+
+
         var lists = [];
         let show = null;
         if(this.props.board){
@@ -45,7 +58,9 @@ class FullBoard extends Component {
                                     items = {this.props.board.data.lists[list]} />
                         })}
                  
-                        <NewList newlistname = {this.newlistNameHanlder}/>
+                        <NewList 
+                            newlistname = {this.newlistNameHanlder}
+                            submit = {this.sumbitListHandler}/>
                     </div>
 
                 
