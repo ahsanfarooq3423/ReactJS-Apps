@@ -19,16 +19,17 @@ class NewCard extends Component {
 
     input = (
         <div className = {classes.inputname}>
-            <textarea 
+            <textarea
+                onChange = {this.props.newcard} 
                 className = {classes.textarea}
                 type = 'textarea' 
                 placeholder = 'Enter a new title for this card'></textarea>   
             <div className = {classes.submission}>
-                <button>Add Card</button>
+                <button 
+                    onClick = {this.props.submitcard} >Add Card</button>
                 <div className = {classes.close} >
                     <FontAwesomeIcon
                         className = {classes.icon}
-                        onClick = {this.stateChangeHandler} 
                         icon = {faWindowClose} />
                 </div>
                 

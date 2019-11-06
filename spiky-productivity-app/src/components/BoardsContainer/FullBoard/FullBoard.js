@@ -12,26 +12,59 @@ class FullBoard extends Component {
 
 
     state = {
-        newlistName : null
+        newlistName : null,
+        newCardName : null
 
     }
 
     
 
     newlistNameHanlder = (event) => {
-        let name = event.target.value;
-        this.setState({newlistName : name});
+        let list_name = event.target.value;
+        this.setState({newlistName : list_name});
+    }
+
+    newCardNameHandler = (event) => {
+        let card_name = event.target.value
+        this.setState({newCardName : card_name});
+        
+    }
+
+    submitCardHanlder = (list) => {
+        
+        let name = this.state.newCardName;
+        let newboard = JSON.parse(JSON.stringify(this.props.board));
+        console.log(newboard);
+        if (name){
+            if (name.length >0) {
+                //console.log(newboard.data.lists[list].items);
+                if (newboard.data.lists[list].items){
+                    newboard.data.lists[list].items[name] = {
+                        description : null
+                    };   
+                }
+                else {
+                    console.log(newboard.data.lists[list].items)
+                    newboard.data.lists[list].items[name] = null;  
+                }
+                 
+            }
+        }
+        this.props.newcard(newboard);
     }
 
 
     sumbitListHandler = () => {
+        
         let name = this.state.newlistName;
         //let newboard = {...this.props.board};
         let newboard = JSON.parse(JSON.stringify(this.props.board));
 
         if (name){
             if (name.length >0) {
-                newboard.data.lists[name] = null;
+                newboard.data.lists[name] = {
+                    items : null
+                }
             }
         }
         
@@ -58,7 +91,9 @@ class FullBoard extends Component {
                         
                     <div className = {classes.listContainer}>
                         {lists.map((list,index) => {
-                            return <List 
+                            return <List
+                                    submitcard = {this.submitCardHanlder}
+                                    newcard = {this.newCardNameHandler}     
                                     name = {list} 
                                     key = {index} 
                                     items = {this.props.board.data.lists[list]} />

@@ -6,6 +6,7 @@ import NewCard from './Card/NewCard/NewCard';
 
 class List extends Component {
 
+
     changeHandler = () => {
         console.log('input changed')
     }
@@ -40,7 +41,9 @@ class List extends Component {
                                 card = {card} />
                     })}
 
-                    <NewCard/>
+                    <NewCard 
+                        submitcard = {() => this.props.submitcard(this.props.name)}
+                        newcard = {this.props.newcard}/>
 
                 </div>
                 

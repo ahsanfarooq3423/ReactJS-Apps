@@ -463,6 +463,22 @@ class BoardsApp extends Component {
     }
 
     addNewListHandler = (data) => {
+       console.log(data);
+       let boards = JSON.parse(JSON.stringify(this.state.boards));
+       let identifier = data.name.toLowerCase();
+       boards[identifier] = data;
+       this.setState({boards : boards});
+    }
+
+    addNewCardHandler = (data) => {
+       console.log(data);
+       let boards = JSON.parse(JSON.stringify(this.state.boards));
+       let identifier = data.name.toLowerCase();
+       boards[identifier] = data;
+       this.setState({boards : boards});
+    }
+
+    updateBoardHandler = (data) => {
        let boards = JSON.parse(JSON.stringify(this.state.boards));
        let identifier = data.name.toLowerCase();
        boards[identifier] = data;
@@ -501,7 +517,8 @@ class BoardsApp extends Component {
                     <Route 
                         path = {this.props.location.pathname}
                         component = {() => <FullBoard
-                                                newlist = {this.addNewListHandler} 
+                                                newcard = {this.updateBoardHandler}
+                                                newlist = {this.updateBoardHandler} 
                                                 board = {this.state.boards[this.state.selectboard]} />} /> : null}
                 
                 </Switch>

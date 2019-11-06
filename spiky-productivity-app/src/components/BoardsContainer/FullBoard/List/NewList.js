@@ -9,7 +9,7 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 class NewList extends Component {
 
     state = {
-        show : false
+        show : true
     }
 
     stateChangeHandler = () => {
