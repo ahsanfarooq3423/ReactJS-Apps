@@ -10,8 +10,17 @@ import NewList from './List/NewList';
 
 class FullBoard extends Component {
 
+
+    state = {
+        newlistName : null
+    }
+
     componentWillMount() {
        console.log(this.props.board);
+    }
+
+    newlistNameHanlder = (event) => {
+        this.setState({newlistName : event.target.value})
     }
 
     
@@ -36,7 +45,7 @@ class FullBoard extends Component {
                                     items = {this.props.board.data.lists[list]} />
                         })}
                  
-                        <NewList/>
+                        <NewList newlistname = {this.newlistNameHanlder}/>
                     </div>
 
                 

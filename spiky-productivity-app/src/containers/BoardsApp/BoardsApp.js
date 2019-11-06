@@ -462,6 +462,10 @@ class BoardsApp extends Component {
         this.setState({fullboard : false}); 
     }
 
+    addNewListHandler = (data) => {
+        console.log(data);
+    }
+
 
 
     render(){
@@ -493,7 +497,8 @@ class BoardsApp extends Component {
                 {this.state.selectboard ?
                     <Route 
                         path = {this.props.location.pathname}
-                        component = {() => <FullBoard 
+                        component = {() => <FullBoard
+                                                newlist = {this.addNewListHandler} 
                                                 board = {this.state.boards[this.state.selectboard]} />} /> : null}
                 
                 </Switch>

@@ -54,5 +54,19 @@
     color: white;
     font-size: 13px;
     
+}
 
+.icon {
+    font-size: 20px;
+    margin-top: -2px;
+    font-weight: 100;
+}
+
+.close {
+    margin-top: 10px;
+    margin-left: 55%;
+    width: 20px;
+    height: 15px;
+    color :white;
+    background-color: black;
 }

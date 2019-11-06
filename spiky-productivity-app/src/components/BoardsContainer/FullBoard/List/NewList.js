@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import classes from './NewList.module.css';
-import Aux from '../../../../containers/hoc/Aux/Aux'
+import Aux from '../../../../containers/hoc/Aux/Aux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -17,10 +19,18 @@ class NewList extends Component {
 
     input = (
         <div className = {classes.inputname}>
-            <input type = 'text' placeholder = 'Enter list title...'></input>   
+            <input 
+                onChange = {this.props.newlistname}
+                type = 'text' placeholder = 'Enter list title...'></input>   
             <div className = {classes.submission}>
                 <button>Add List</button>
-                <p>X</p>
+                <div className = {classes.close} >
+                    <FontAwesomeIcon
+                        className = {classes.icon}
+                        onClick = {this.stateChangeHandler} 
+                        icon = {faWindowClose} />
+                </div>
+                
             </div>
         </div>
     )
