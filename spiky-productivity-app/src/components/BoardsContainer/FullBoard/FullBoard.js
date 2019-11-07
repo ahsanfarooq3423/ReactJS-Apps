@@ -37,7 +37,6 @@ class FullBoard extends Component {
         console.log(newboard);
         if (name){
             if (name.length >0) {
-                //console.log(newboard.data.lists[list].items);
                 if (newboard.data.lists[list].items){
                     newboard.data.lists[list].items[name] = {
                         description : null
@@ -63,11 +62,13 @@ class FullBoard extends Component {
         if (name){
             if (name.length >0) {
                 newboard.data.lists[name] = {
-                    items : null
+                    items : {
+                        
+                    }
                 }
             }
         }
-        
+        console.log(newboard);
         this.props.newlist(newboard)
     }
 

@@ -19,6 +19,8 @@ class List extends Component {
                 cards.push(card);
             }
         }
+
+        
         
 
 
