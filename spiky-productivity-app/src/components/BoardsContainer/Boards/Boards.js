@@ -9,7 +9,7 @@ const boards = (props) => {
     
     const boards = [];
 
-    console.log(props.boards);
+    
 
     for (let key in props.boards) {
         let name = props.boards[key].name;

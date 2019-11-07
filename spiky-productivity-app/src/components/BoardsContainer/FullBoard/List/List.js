@@ -2,10 +2,16 @@ import React, {Component} from 'react';
 import Card from './Card/Card';
 import classes from './List.module.css';
 import NewCard from './Card/NewCard/NewCard';
-
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
 
 class List extends Component {
 
+    options = [
+        'one', 'two', 'three'
+    ]
+
+    defaultOption = this.options[0];
 
     changeHandler = () => {
         console.log('input changed')
@@ -33,7 +39,9 @@ class List extends Component {
             <div className = {classes.list}>
                 <div className = {classes.title} >
                     <div className = {classes.field}>{title}</div>
-                    <div className = {classes.more}><p>...</p></div>
+                    <div className = {classes.more}>
+                        <p>...</p>
+                    </div>
                 </div>
 
                 <div>

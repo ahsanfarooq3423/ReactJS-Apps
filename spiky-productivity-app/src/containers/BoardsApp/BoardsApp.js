@@ -432,7 +432,9 @@ class BoardsApp extends Component {
             }
             boards[board].name = fullname;
             boards[board].data = {
-
+                lists : {
+                    
+                }
             }
             console.log(boards);
 

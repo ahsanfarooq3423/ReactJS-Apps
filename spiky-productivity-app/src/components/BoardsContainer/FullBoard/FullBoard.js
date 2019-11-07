@@ -10,6 +10,7 @@ import Modal from '../../UI/Modal/Modal';
 
 
 
+
 class FullBoard extends Component {
 
 
@@ -152,7 +153,7 @@ class FullBoard extends Component {
         return(
             <Aux>
             {main}
-            <Modal
+            {this.state.confirmation ? <Modal
                 clicked = {this.cancelDeleteHandler}
                 width = '450px'
                 height = '100px'
@@ -161,7 +162,7 @@ class FullBoard extends Component {
                 <Confirmation 
                     deleteboard = {() => this.props.deleteboard(this.props.board)}
                     cancel = {this.cancelDeleteHandler}/>
-            </Modal>
+            </Modal>: null}
             </Aux>
         )     
     }

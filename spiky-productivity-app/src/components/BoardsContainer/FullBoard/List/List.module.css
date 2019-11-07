@@ -1,13 +1,14 @@
 .list {
     display: inline-block;
     width: 243px;
-    height: auto;
+    max-height: 87%;
     border-radius: 3px;
     background-color: #ebecf0;;
     margin-left: 0.7%;
     color: black;
     padding-bottom: 17px;
     vertical-align: top;
+    margin-bottom: 140px;
 }
 
 
@@ -23,7 +24,7 @@
 
 
 .title .field {
-    width: 89%;
+    width: 85%;
     margin-top: 3px;
     height: 30px;
 }
@@ -46,6 +47,7 @@
     margin-top: 9px;
     line-height: 0px;
     margin-left: 6.5px;
+    border: none;
 }
 
 .title .more:hover {
@@ -62,4 +64,8 @@
     background-color: #ebecf0;;
     padding: 2px;
     padding-left: 8px;   
+}
+
+.arrow {
+    display: none;
 }
