@@ -1,0 +1,39 @@
+.confirmation {
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.button {
+    display: flex;
+    margin-left: 22%;
+}
+
+.button button {
+    height: 30px;
+    width: 80px;
+    margin-left: 10px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.danger {
+    background-color: rgb(252, 31, 31);
+}
+
+.danger:hover {
+    background-color: rgb(190, 92, 92) ;
+}
+
+.cool {
+    background-color: rgb(52, 122, 52);
+}
+
+.cool:hover {
+    background-color: rgb(77, 175, 77);
+}
+

@@ -5,6 +5,8 @@ import List from './List/List';
 import {withRouter} from 'react-router-dom';
 import Aux from '../../../containers/hoc/Aux/Aux';
 import NewList from './List/NewList';
+import Confirmation from './Strip/Confirmation/Confirmation';
+import Modal from '../../UI/Modal/Modal';
 
 
 
@@ -13,7 +15,8 @@ class FullBoard extends Component {
 
     state = {
         newlistName : null,
-        newCardName : null
+        newCardName : null,
+        confirmation : false
 
     }
 
@@ -73,6 +76,18 @@ class FullBoard extends Component {
     }
 
 
+    deleteboardHandler = () => {
+        this.setState({confirmation : true});
+        console.log('deleteboard handler called')
+        //this.props.deleteboard(this.props.board)
+    }
+
+
+    cancelDeleteHandler = () => {
+        this.setState({confirmation : false});
+    }
+
+
 
     
     
@@ -123,7 +138,10 @@ class FullBoard extends Component {
         let main = <h1>The above url not found.</h1>;
         if (this.props.board) {
             main = (<div className = {classes.main} style = {{backgroundImage: "url(" + this.props.board.img + ")"}}>
-            <Strip name = {this.props.board.name}/>
+            <Strip
+                
+                delete = {this.deleteboardHandler} 
+                name = {this.props.board.name}/>
             {show}
         </div>)
             
@@ -134,6 +152,16 @@ class FullBoard extends Component {
         return(
             <Aux>
             {main}
+            <Modal
+                clicked = {this.cancelDeleteHandler}
+                width = '450px'
+                height = '100px'
+             show = {this.state.confirmation}
+             >
+                <Confirmation 
+                    deleteboard = {() => this.props.deleteboard(this.props.board)}
+                    cancel = {this.cancelDeleteHandler}/>
+            </Modal>
             </Aux>
         )     
     }

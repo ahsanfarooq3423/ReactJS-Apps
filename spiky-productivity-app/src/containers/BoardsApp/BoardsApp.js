@@ -423,23 +423,25 @@ class BoardsApp extends Component {
          let board = info.name;
          let name = board.charAt(0).toUpperCase() + board.slice(1);
          let url = info.url;
-         let boards = {...this.state.boards};
-       
+         let boards = JSON.parse(JSON.stringify(this.state.boards));
+         let fullname = name.charAt(0).toUpperCase() + name.substring(1); 
         if (info.name.length > 0) {
-            
             boards[board] = {
                 name : name,
-                url : url
+                img : url
             }
+            boards[board].name = fullname;
+            boards[board].data = {
 
-            boards[board].data = null;
+            }
+            console.log(boards);
 
         }
 
         let newboard = {...this.state.newboard};
         newboard.show = false;
         
-
+        console.log(this.state.boards);
         this.setState({boards : boards, newboard : newboard, modal : false});
     }
 
@@ -485,6 +487,14 @@ class BoardsApp extends Component {
        this.setState({boards : boards});
     }
 
+    deleteBoardHandler = (board) => {
+        let boards = JSON.parse(JSON.stringify(this.state.boards));
+        let board_name = board.name.toLowerCase();
+        delete boards[board_name];
+        this.setState({boards : boards});
+        this.props.history.push('/');
+    }
+
 
 
     render(){
@@ -517,12 +527,12 @@ class BoardsApp extends Component {
                     <Route 
                         path = {this.props.location.pathname}
                         component = {() => <FullBoard
+                                                deleteboard = {this.deleteBoardHandler}
                                                 newcard = {this.updateBoardHandler}
                                                 newlist = {this.updateBoardHandler} 
                                                 board = {this.state.boards[this.state.selectboard]} />} /> : null}
                 
                 </Switch>
-                
             </Aux>
         )
     }
