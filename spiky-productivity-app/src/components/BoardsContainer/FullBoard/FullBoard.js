@@ -7,12 +7,31 @@ import Aux from '../../../containers/hoc/Aux/Aux';
 import NewList from './List/NewList';
 import Confirmation from './Strip/Confirmation/Confirmation';
 import Modal from '../../UI/Modal/Modal';
+import axios from 'axios';
+
+import Unsplash from 'unsplash-js';
+
+import fetch from 'node-fetch';
+global.fetch = fetch;
+
+
+const unsplash = new Unsplash({ accessKey: "e4f0158a90e38860116bfe0a110ac38a78672be85962db3dd788ee13d0464d19" });
+
+
+
+
+
+
+
+
+
 
 
 
 
 class FullBoard extends Component {
 
+   
 
     state = {
         newlistName : null,
@@ -21,7 +40,13 @@ class FullBoard extends Component {
 
     }
 
-    
+    componentDidMount () {
+        axios.get('https://api.unsplash.com/search/photos?query=chicago&client_id=e4f0158a90e38860116bfe0a110ac38a78672be85962db3dd788ee13d0464d19')
+            .then(res => {
+                console.log(res)
+            })
+    }
+
 
     newlistNameHanlder = (event) => {
         let list_name = event.target.value;
