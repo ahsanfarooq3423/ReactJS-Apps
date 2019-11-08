@@ -43,9 +43,16 @@ class List extends Component {
         console.log('input changed')
     }
 
+    deleteListHandler = () => {
+        this.props.deletelist(this.props.board,this.props.name);
+        this.setState({actions : false})
+    }
+
     
    
     render(){
+
+        
         
 
         let cards = [];
@@ -54,10 +61,6 @@ class List extends Component {
                 cards.push(card);
             }
         }
-
-        
-        
-
 
         let title = <input
                         onChange = {this.changeHandler} 
@@ -75,7 +78,9 @@ class List extends Component {
                         <div>
                             <div className = {classes.actions}>List Actions</div>
                            
-                            <div className = {classes.delete}>Delete this List...</div>
+                            <div 
+                                onClick = {this.deleteListHandler}
+                                className = {classes.delete}>Delete this List...</div>
                         </div>
                     </div>: null }
                         
@@ -84,7 +89,9 @@ class List extends Component {
 
                 <div>
                     {cards.map((card,index) => {
-                        return <Card 
+                        return <Card
+                                deletecard = {this.props.deletecard}
+                                info = {this.props}
                                 key = {index}
                                 card = {card} />
                     })}

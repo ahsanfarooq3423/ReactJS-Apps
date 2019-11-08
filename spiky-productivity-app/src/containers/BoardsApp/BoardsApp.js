@@ -497,6 +497,21 @@ class BoardsApp extends Component {
         this.props.history.push('/');
     }
 
+    deleteListHandler = (board, list) => {
+        let boards = JSON.parse(JSON.stringify(this.state.boards));
+        delete boards[board.name.toLowerCase()].data.lists[list];
+        this.setState({boards : boards});
+    }
+
+    deleteCardHandler = (board,list,card) => {
+        //console.log(board);
+        //console.log(list);
+        //console.log(card);
+        let boards = JSON.parse(JSON.stringify(this.state.boards));
+        delete boards[board].data.lists[list].items[card];
+        this.setState({boards : boards});
+    }
+
 
 
     render(){
@@ -529,6 +544,8 @@ class BoardsApp extends Component {
                     <Route 
                         path = {this.props.location.pathname}
                         component = {() => <FullBoard
+                                                deletecard = {this.deleteCardHandler}
+                                                deletelist = {this.deleteListHandler}
                                                 deleteboard = {this.deleteBoardHandler}
                                                 newcard = {this.updateBoardHandler}
                                                 newlist = {this.updateBoardHandler} 

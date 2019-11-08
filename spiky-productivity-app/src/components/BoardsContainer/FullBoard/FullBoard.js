@@ -72,7 +72,6 @@ class FullBoard extends Component {
                 }
             }
         }
-        console.log(newboard);
         this.props.newlist(newboard)
     }
 
@@ -88,11 +87,9 @@ class FullBoard extends Component {
         this.setState({confirmation : false});
     }
 
-
-
-    
-    
     render() {
+
+        
 
 
         var lists = [];
@@ -109,6 +106,9 @@ class FullBoard extends Component {
                     <div className = {classes.listContainer}>
                         {lists.map((list,index) => {
                             return <List
+                                    deletecard = {this.props.deletecard}
+                                    deletelist = {this.props.deletelist}
+                                    board = {this.props.board}
                                     submitcard = {this.submitCardHanlder}
                                     newcard = {this.newCardNameHandler}     
                                     name = {list} 
