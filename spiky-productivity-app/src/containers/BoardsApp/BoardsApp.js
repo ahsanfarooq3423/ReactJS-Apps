@@ -3,12 +3,18 @@ import classes from './BoardsApp.module.css';
 import LeftNavigation from '../../components/BoardsContainer/LeftNavigation/LeftNavigation';
 import Boards from '../../components/BoardsContainer/Boards/Boards';
 import NewBoard from '../../components/BoardsContainer/Boards/NewBoard/NewBoard';
-import FullBoard from '../../components/BoardsContainer/FullBoard/FullBoard';
+//import FullBoard from '../../components/BoardsContainer/FullBoard/FullBoard';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Modal from '../../components/UI/Modal/Modal';
 import Aux from '../hoc/Aux/Aux';
 import {Route, withRouter, Switch} from 'react-router-dom';
 
+
+import asyncComponent from '../hoc/asyncComponent';
+
+const AsyncFullBoard = asyncComponent(() => {
+    return import ('../../components/BoardsContainer/FullBoard/FullBoard');
+})
 
 
 class BoardsApp extends Component {
@@ -504,9 +510,6 @@ class BoardsApp extends Component {
     }
 
     deleteCardHandler = (board,list,card) => {
-        //console.log(board);
-        //console.log(list);
-        //console.log(card);
         let boards = JSON.parse(JSON.stringify(this.state.boards));
         delete boards[board].data.lists[list].items[card];
         this.setState({boards : boards});
@@ -543,7 +546,7 @@ class BoardsApp extends Component {
                 {this.state.selectboard ?
                     <Route 
                         path = {this.props.location.pathname}
-                        component = {() => <FullBoard
+                        component = {() => <AsyncFullBoard
                                                 deletecard = {this.deleteCardHandler}
                                                 deletelist = {this.deleteListHandler}
                                                 deleteboard = {this.deleteBoardHandler}

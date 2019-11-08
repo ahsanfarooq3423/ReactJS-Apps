@@ -78,7 +78,6 @@ class FullBoard extends Component {
 
     deleteboardHandler = () => {
         this.setState({confirmation : true});
-        console.log('deleteboard handler called')
         //this.props.deleteboard(this.props.board)
     }
 
@@ -88,9 +87,6 @@ class FullBoard extends Component {
     }
 
     render() {
-
-        
-
 
         var lists = [];
         let show = null;

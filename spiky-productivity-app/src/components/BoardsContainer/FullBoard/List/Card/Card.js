@@ -65,8 +65,6 @@ class Card extends Component {
 
 
                         </div>
-                        
-                        
                     </div>
         )
     }

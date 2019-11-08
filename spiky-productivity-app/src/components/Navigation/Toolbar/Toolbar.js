@@ -22,10 +22,13 @@ const toolbar = (props) => {
             </div>
             </Link>
 
+            <Link to = "/" onClick = {props.homestate}  style={{ textDecoration: 'none' }}>
             <div className = {classes.board}>
                 <FontAwesomeIcon icon = {faSpider} className = {classes.spider}  />
                 <p>Boards</p>
             </div>
+            </Link>
+
 
             <div className = {classes.logo}>
                 <FontAwesomeIcon icon = {faSpider} className = {classes.spider}  />
