@@ -10,6 +10,7 @@ import Aux from '../hoc/Aux/Aux';
 import {Route, withRouter, Switch} from 'react-router-dom';
 
 
+
 import asyncComponent from '../hoc/asyncComponent';
 
 const AsyncFullBoard = asyncComponent(() => {
@@ -515,13 +516,16 @@ class BoardsApp extends Component {
         this.setState({boards : boards});
     }
 
+    
+
 
 
     render(){
         let mainpage = (
             <div className = {classes.container} >
             <LeftNavigation/>
-                <Boards 
+                <Boards
+                    
                     boards = {this.state.boards} 
                     createnew = {this.getNewBoardHandler}
                     click = {this.currentBoardHandler} />
@@ -529,7 +533,7 @@ class BoardsApp extends Component {
                     clicked = {this.cancelNewBoard} 
                     show = {this.state.newboard.show} 
                     width = "423px" height = "250px">
-                    <NewBoard 
+                    <NewBoard
                         close = {this.cancelNewBoard}
                         getinfo = {this.getBoardInfo} 
                         showbutton = {this.state.newboard.button} />

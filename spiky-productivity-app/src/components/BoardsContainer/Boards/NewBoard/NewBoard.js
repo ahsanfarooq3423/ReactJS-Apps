@@ -9,7 +9,9 @@ class NewBoard extends Component {
 
     state = {
         name : '',
-        url : 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80'
+        url : 'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1655&q=80',
+        background_keyword : null,
+        img_urls : []
     }
 
 
@@ -22,7 +24,6 @@ class NewBoard extends Component {
         this.props.getinfo(this.state)  
     }
 
-   
 
     render() {
         let buttonStyles = [];
@@ -93,6 +94,9 @@ class NewBoard extends Component {
                     <button 
                         onClick = {() => this.props.getinfo(this.state)} 
                         className = {buttonStyles.join(' ')}>Create Board</button>
+
+
+                   
             
                     </div>
     

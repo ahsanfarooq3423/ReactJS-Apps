@@ -7,26 +7,6 @@ import Aux from '../../../containers/hoc/Aux/Aux';
 import NewList from './List/NewList';
 import Confirmation from './Strip/Confirmation/Confirmation';
 import Modal from '../../UI/Modal/Modal';
-import axios from 'axios';
-
-import Unsplash from 'unsplash-js';
-
-import fetch from 'node-fetch';
-global.fetch = fetch;
-
-
-const unsplash = new Unsplash({ accessKey: "e4f0158a90e38860116bfe0a110ac38a78672be85962db3dd788ee13d0464d19" });
-
-
-
-
-
-
-
-
-
-
-
 
 
 class FullBoard extends Component {
@@ -40,12 +20,18 @@ class FullBoard extends Component {
 
     }
 
-    componentDidMount () {
-        axios.get('https://api.unsplash.com/search/photos?query=chicago&client_id=e4f0158a90e38860116bfe0a110ac38a78672be85962db3dd788ee13d0464d19')
-            .then(res => {
-                console.log(res)
-            })
-    }
+    // componentDidMount () {
+    //     axios.get('https://api.unsplash.com/search/photos?query=work&client_id=e4f0158a90e38860116bfe0a110ac38a78672be85962db3dd788ee13d0464d19')
+    //         .then(res => {
+    //             var img_array = res.data.results;
+    //             var img_urls = []
+    //             for (var i in img_array){
+    //                 img_urls.push(img_array[i].urls.full)
+    //             }
+
+    //             console.log(img_urls)
+    //         })
+    // }
 
 
     newlistNameHanlder = (event) => {
