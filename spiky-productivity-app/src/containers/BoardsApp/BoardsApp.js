@@ -11,6 +11,7 @@ import {Route, withRouter, Switch} from 'react-router-dom';
 
 
 
+
 import asyncComponent from '../hoc/asyncComponent';
 
 const AsyncFullBoard = asyncComponent(() => {
@@ -419,6 +420,7 @@ class BoardsApp extends Component {
         modal : false,
         fullboard : false
     }
+
 
     getNewBoardHandler = () => {
         let newboard = {...this.state.newboard};
