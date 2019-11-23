@@ -1,0 +1,16 @@
+.contain {
+    display: inline-block;
+    width: 100%;
+    margin: 3%;
+    border: 1px solid #5f6368;
+    border-radius: 5px ;
+    height: 100%;
+    padding: 10px;
+    
+}
+
+.contain h4 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
