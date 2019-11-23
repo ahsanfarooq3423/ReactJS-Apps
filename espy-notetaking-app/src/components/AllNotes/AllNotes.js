@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import classes from './AllNotes.module.css';
 import Note from './Note/Note';
+import NewNote from './NewNote/NewNote';
 
 class AllNotes extends Component {
     state = {
@@ -9,18 +10,22 @@ class AllNotes extends Component {
     }
     render(){
         return(
-            <div className = {classes.main}>
-                <Note text = {this.state.t1} />
-                <Note text = {this.state.t2}/>
-                <Note text = {this.state.t1}/>
-                <Note text = {this.state.t1}/>
-                <Note text = {this.state.t2}/>
-                <Note text = {this.state.t1}/>
-                <Note text = {this.state.t1}/>
-                <Note text = {this.state.t2}/>
-                <Note text = {this.state.t1}/>
-                <Note text = {this.state.t1}/>
+            <div>
+                <NewNote/>
+                <div className = {classes.grid}>
+                    <Note text = {this.state.t1} />
+                    <Note text = {this.state.t2}/>
+                    <Note text = {this.state.t1}/>
+                    <Note text = {this.state.t1}/>
+                    <Note text = {this.state.t2}/>
+                    <Note text = {this.state.t1}/>
+                    <Note text = {this.state.t1}/>
+                    <Note text = {this.state.t2}/>
+                    <Note text = {this.state.t1}/>
+                    <Note text = {this.state.t1}/>
+                </div>
             </div>
+            
         )
     }
 }

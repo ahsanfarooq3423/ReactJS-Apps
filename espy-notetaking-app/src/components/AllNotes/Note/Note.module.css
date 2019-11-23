@@ -2,10 +2,12 @@
     display: inline-block;
     width: 100%;
     margin: 3%;
-    border: 1px solid #5f6368;
+    border: 1.8px solid #cad0d8;
     border-radius: 5px ;
     height: 100%;
     padding: 10px;
+    background-color: teal;
+    color: white;
     
 }
 
