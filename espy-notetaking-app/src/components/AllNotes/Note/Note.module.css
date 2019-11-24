@@ -8,6 +8,8 @@
     padding: 10px;
     background-color: teal;
     color: white;
+    word-wrap: break-word;
+    cursor: pointer;
     
 }
 
@@ -16,10 +18,4 @@
     margin-bottom: 0px;
 }
 
-
-/* @media (max-width : 1000px) {
-    .contain {
-        width: 200%;
-    }
-} */
 

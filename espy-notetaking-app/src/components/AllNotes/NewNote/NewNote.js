@@ -13,6 +13,10 @@ class NewNote extends Component {
         this.setState({fullnote : !bool})
     }
 
+    onDoneClickHandler = () => {
+        this.props.submit()
+        this.setState({fullnote : false})
+    }
 
     render(){
         let show = (
@@ -37,7 +41,7 @@ class NewNote extends Component {
                             onClick = {this.fullnoteToggleHandler}
                             className = {classes.cancel}>Cancel</button>
                         <button 
-                        onClick = {this.props.submit}
+                        onClick = {this.onDoneClickHandler}
                         className = {classes.done}>Done</button>
                     </div>
                 </div>

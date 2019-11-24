@@ -15,7 +15,8 @@ const initialState = {
         
     ],
     currentTitle : '',
-    currentContent : ''
+    currentContent : '',
+
 }
 
 
@@ -37,16 +38,18 @@ const reducer = (state = initialState, action) => {
             }
         
         case 'SUBMIT':
+            
             let newTitle = state.currentTitle
             let newContent = state.currentContent
 
-            return {
-                ...state,
-                notes :  state.notes.concat({title : newTitle, content: newContent, color: 'teal'})
+            if (newTitle.length > 0) {
+                return {
+                    ...state,
+                    notes :  state.notes.concat({title : newTitle, content: newContent, color: 'teal'}),
+                    currentTitle : '',
+                    currentContent : ''
+                }
             }
-
-        
-
 
     }
 

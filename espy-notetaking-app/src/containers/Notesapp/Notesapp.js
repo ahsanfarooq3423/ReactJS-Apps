@@ -1,15 +1,23 @@
 import React, {Component} from 'react';
 import AllNotes from '../../components/AllNotes/AllNotes';
+import EditNote from '../../components/AllNotes/EditNote/EditNote';
+import Modal from '../../components/UI/Modal/Modal';
 import { connect } from 'react-redux';
 
 class NotesApp extends Component {
 
+    getIndexHandler = (index) => {
+        console.log(index)
+        console.log('clickec')
+    }
     
 
     render(){
         return(
             <div>
-                <AllNotes 
+                <Modal show><EditNote input = 'the rock is come' content = 'the rock is coming thats that'/></Modal>
+                <AllNotes
+                    getIndex = {this.getIndexHandler} 
                     title = {this.props.onTitleChange}
                     content = {this.props.onContentChange}
                     submit = {this.props.onSubmit}
@@ -18,6 +26,7 @@ class NotesApp extends Component {
         )
     }
 }
+
 
 
 const mapStateToProps = state => {

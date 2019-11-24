@@ -1,0 +1,43 @@
+.main {
+    background-color: cornflowerblue;
+    margin: auto;
+    border-radius: 5px;
+    width: 50%;
+    height: auto ;
+    box-shadow: 3px 3px 11px -3px rgba(0,0,0,0.75);
+    padding: 10px;
+}
+
+.title {
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    background-color: cornflowerblue;
+    border: none;
+    font-weight: bolder;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white;
+    opacity: 0.6;
+  }
+
+.title:focus {
+    outline: none;
+}
+
+.note {
+    margin-top: 10px;
+    width: 100%;
+    background-color: cornflowerblue;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bolder;
+    height: 80px;
+}
+
+.note:focus {
+    outline: none;
+}
