@@ -10,7 +10,11 @@ class AllNotes extends Component {
     render(){
         return(
             <div>
-                <NewNote/>
+                <NewNote
+                    title = {this.props.title}
+                    content = {this.props.content}
+                    submit = {this.props.submit}
+                    />
                 <div className = {classes.grid}>
                     {this.props.notes.map((note, index) => {
 

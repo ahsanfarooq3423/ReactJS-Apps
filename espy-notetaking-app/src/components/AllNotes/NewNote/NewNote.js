@@ -24,15 +24,21 @@ class NewNote extends Component {
         if (this.state.fullnote) {
             show = (
                 <div className = {classes.full}>
-                    <input className = {classes.title} placeholder = 'Title'></input>
+                    <input 
+                        onChange = {this.props.title}
+                        className = {classes.title} placeholder = 'Title'></input>
                     <br/>
-                    <textarea className = {classes.note} placeholder = 'Take a note...'></textarea>
+                    <textarea 
+                        onChange = {this.props.content}
+                        className = {classes.note} placeholder = 'Take a note...'></textarea>
                     <br/>
                     <div className = {classes.buttons}>
                         <button 
                             onClick = {this.fullnoteToggleHandler}
                             className = {classes.cancel}>Cancel</button>
-                        <button className = {classes.done}>Done</button>
+                        <button 
+                        onClick = {this.props.submit}
+                        className = {classes.done}>Done</button>
                     </div>
                 </div>
             )

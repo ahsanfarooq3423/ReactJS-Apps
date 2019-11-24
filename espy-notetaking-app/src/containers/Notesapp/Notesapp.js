@@ -9,7 +9,11 @@ class NotesApp extends Component {
     render(){
         return(
             <div>
-                <AllNotes notes = {this.props.notes}/>
+                <AllNotes 
+                    title = {this.props.onTitleChange}
+                    content = {this.props.onContentChange}
+                    submit = {this.props.onSubmit}
+                    notes = {this.props.notes}/>
             </div>
         )
     }
@@ -22,4 +26,13 @@ const mapStateToProps = state => {
     }
 }
 
-export default  connect(mapStateToProps)(NotesApp);
+const mapDispatchToProps = dispatch => {
+    return {
+        onTitleChange : (event) =>  dispatch({type : 'TITLE', value : event.target.value}),
+        onContentChange : (event) =>  dispatch({type : 'CONTENT', value : event.target.value}),
+        onSubmit : () => dispatch({type : 'SUBMIT'})
+    }
+}
+
+
+export default  connect(mapStateToProps, mapDispatchToProps)(NotesApp);

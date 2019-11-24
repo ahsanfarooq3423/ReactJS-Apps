@@ -3,5 +3,33 @@
     column-gap: 2.5em;
     margin-top: 10px;
     margin-left: 20px;
+    
 }
+
+
+@media (max-width : 1200px) {
+    .grid {
+        column-count: 4;
+    }
+    
+}
+
+
+@media (max-width : 900px) {
+    .grid {
+        column-count: 2;
+    }
+    
+}
+
+
+@media (max-width : 700px) {
+    .grid {
+        column-count: 1;
+    }
+    
+}
+
+
+
 
