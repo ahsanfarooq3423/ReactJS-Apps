@@ -1,8 +1,106 @@
-.main {
+.small {
     width: 50%;
     border-radius: 5px;
     border: 2px solid silver;
     background-color: teal;
     color: white;
     margin: auto;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
+
+
+.full {
+    width: 50%;
+    border-radius: 5px;
+    border: 2px solid silver;
+    background-color: teal;
+    color: white;
+    margin: auto;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.title {
+    margin-top: 10px;
+    height: 30px;
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    background-color: teal;
+    border: none;
+    font-weight: bolder;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: white;
+    opacity: 0.6;
+  }
+
+.title:focus {
+    outline: none;
+}
+
+.note {
+    margin-top: 10px;
+    width: 100%;
+    background-color: teal;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bolder;
+    height: 80px;
+}
+
+.note:focus {
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: right;
+    margin: 5px;
+
+}
+
+
+.cancel {
+    width: 80px;
+    height: 25px;
+    padding: 5px;
+    color: white;
+    background-color: rgb(207, 76, 76);
+    margin-right: 10px;
+    outline: none;
+    border: none;
+    font: bolder;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.done {
+    width: 80px;
+    height: 25px;
+    padding: 5px;
+    color: white;
+    background-color: rgb(78, 78, 233);
+    margin-right: 10px;
+    border: none;
+    font: bolder;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+
+
+.cancel:hover {
+    background-color: rgb(221, 103, 103);;
+}
+
+
+.done:hover {
+    background-color: rgb(107, 107, 221);
+}
+
+
