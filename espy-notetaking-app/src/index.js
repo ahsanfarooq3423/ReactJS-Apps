@@ -1,16 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import { createStore, combineReducers } from 'redux';
 import {Provider} from 'react-redux';
 
 
 import './index.css';
 import App from './App';
-import reducer from './store/reducer';
+
+import changesReducer from './store/reducers/changes'
+import notesReducer from './store/reducers/notes'
+
+
 import * as serviceWorker from './serviceWorker';
 
+const rootReducer = combineReducers({
+    notes : notesReducer,
+    changes : changesReducer
+})
 
-const store = createStore(reducer);
+
+
+const store = createStore(rootReducer);
 
 ReactDOM.render( <Provider store  = {store}><App /></Provider>, document.getElementById('root'));
 

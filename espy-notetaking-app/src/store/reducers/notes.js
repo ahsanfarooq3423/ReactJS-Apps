@@ -1,3 +1,5 @@
+import * as actionTypes from '../actions';
+
 const initialState = {
     notes : [
         { title : 'Momento mori',
@@ -11,16 +13,9 @@ const initialState = {
         { title : 'Joe Rogan',
           content : 'hello my name is ahsan farooq ahsan farooq is simply dummysdfgsfgsfgsfgext of the printing and typesetting industry. Lorem Ipsum has been the hello my name is ahsan farooq ahsan farooq is simply dummysdfgsfgsfgsfgext of the printing and typesetting industry. Lorem Ipsum has been the',
           color : 'teal'
-        },
+        }
         
-    ],
-    currentTitle : '',
-    currentContent : '',
-
-    index : null,
-
-    changeTitle : '',
-    changeContent : ''
+    ]
 
 }
 
@@ -28,24 +23,10 @@ const initialState = {
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
-        case 'TITLE':
-            let title = action.value
-            return {
-                ...state,
-                currentTitle : title
-            }
         
-        case 'CONTENT':
-            let content = action.value
-            return {
-                ...state,
-                currentContent : content
-            }
-        
-        case 'SUBMIT':
-            
-            let newTitle = state.currentTitle
-            let newContent = state.currentContent
+        case actionTypes.SUBMIT:
+            let newTitle = action.title;
+            let newContent = action.content;
 
             if (newTitle.length > 0) {
                 return {
@@ -55,44 +36,16 @@ const reducer = (state = initialState, action) => {
                     currentContent : ''
                 }
             }
-        
-        case 'INDEX':
-            let index = action.index;
-            let indexedTitle = state.notes[index].title
-            let indexedContent = state.notes[index].content
-            return {
-                ...state,
-                index : index,
-                changeTitle : indexedTitle,
-                changeContent: indexedContent
-            }
-            
 
-
-        case 'CHANGETITLE':
-            let editTitle = action.value;
-            return {
-                ...state,
-                changeTitle : editTitle
-            }
-
-        case 'CHANGECONTENT':
-            let editContent = action.value;
-            return {
-                ...state,
-                changeContent : editContent
-                }
-
-        case 'SUBMITCHANGE':
+        case actionTypes.SUBMITCHANGE:
             let notes = state.notes;
-            notes[state.index] = {title : state.changeTitle , content : state.changeContent}
-
+            notes[action.index] = {title : action.changeTitle , content : action.changeContent}
             return {
                 ...state,
                 notes : notes
             }
 
-        case 'DELETE':
+        case actionTypes.DELETE:
             let copyNotes = state.notes
             let updatedNotes = copyNotes.filter((filter,index) => {
                 return index !== action.index
@@ -102,11 +55,7 @@ const reducer = (state = initialState, action) => {
                 notes : updatedNotes
             }
 
-        
-
     }
-
-    
 
     return state;
 }
