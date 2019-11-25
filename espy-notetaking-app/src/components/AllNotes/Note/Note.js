@@ -7,7 +7,7 @@ import Aux from '../../../containers/hoc/Aux/Aux';
 
 const note = (props) => {
 
-
+    // a single note
 
     return(
         <div className = {classes.main}>

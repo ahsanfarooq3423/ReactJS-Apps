@@ -19,11 +19,11 @@ const initialState = {
 
 }
 
-
+//reducer deals with the updates of the notes array which contains all the notes
 const reducer = (state = initialState, action) => {
 
     switch (action.type) {
-        
+        //submit a newnote to the note array
         case actionTypes.SUBMIT:
             let newTitle = action.title;
             let newContent = action.content;
@@ -31,12 +31,14 @@ const reducer = (state = initialState, action) => {
             if (newTitle.length > 0) {
                 return {
                     ...state,
+                    //updating notes immutably
                     notes :  state.notes.concat({title : newTitle, content: newContent, color: 'teal'}),
                     currentTitle : '',
                     currentContent : ''
                 }
             }
 
+        //submit an existing note with the followed changes
         case actionTypes.SUBMITCHANGE:
             let notes = state.notes;
             notes[action.index] = {title : action.changeTitle , content : action.changeContent}
@@ -45,6 +47,7 @@ const reducer = (state = initialState, action) => {
                 notes : notes
             }
 
+        //delete the clicked existing note
         case actionTypes.DELETE:
             let copyNotes = state.notes
             let updatedNotes = copyNotes.filter((filter,index) => {

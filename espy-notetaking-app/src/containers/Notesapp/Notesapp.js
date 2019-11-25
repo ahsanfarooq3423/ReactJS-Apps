@@ -6,28 +6,27 @@ import { connect } from 'react-redux';
 import * as actionTypes from '../../store/actions';
 
 class NotesApp extends Component {
-
+    
+    //local UI state
     state = {
         showModal : false,
         editIndex : null
     }
 
+    //pass index to the dispatch function and set Local state
     getIndexHandler = (index,notes) => {
         this.props.onGetIndex(index,notes)
         this.setState({showModal: true})
     }
-
+    //hide modal state
     undoModalHanlder = () => {
         this.setState({showModal :false})
     }
-
+    //pass index to the dispatcher
     getDeleteIndexHanlder = (index) => {
-        //console.log(index + ' for delte')
         this.props.onDeleteNote(index);
     }
 
-    
-    
 
     render(){
         return(
@@ -62,7 +61,7 @@ class NotesApp extends Component {
 }
 
 
-
+//setting the store states from reducer
 const mapStateToProps = state => {
     return {
         notes : state.notes.notes,
@@ -74,6 +73,7 @@ const mapStateToProps = state => {
     }
 }
 
+//initializing the store actions from reducer
 const mapDispatchToProps = dispatch => {
     return {
         onTitleChange : (event) =>  dispatch({type : actionTypes.TITLE, value : event.target.value}),

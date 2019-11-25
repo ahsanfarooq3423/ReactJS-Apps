@@ -3,7 +3,8 @@ import classes from './Modal.module.css';
 import Backdrop from '../Backdrop/Backdrop';
 import Aux from '../../../containers/hoc/Aux/Aux';
 
-
+//show a backdrop at the back screen
+//pop up window
 const modal = ( props ) => {
     return (
         <Aux>

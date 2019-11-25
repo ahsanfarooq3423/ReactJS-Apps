@@ -1,4 +1,7 @@
+//importing global actionType 
 import * as actionTypes from '../actions';
+
+
 
 const initialState = {
     
@@ -12,11 +15,13 @@ const initialState = {
 
 }
 
-
+//reducer deals with the storing fields like changeTitle, changeContent
+//also deals with currentTitle and currentContent
 const reducer = (state = initialState, action) => {
 
 
     switch (action.type) {
+        //new note title
         case actionTypes.TITLE:
             let title = action.value
             return {
@@ -25,6 +30,7 @@ const reducer = (state = initialState, action) => {
             }
         
         case actionTypes.CONTENT:
+            //new note content
             let content = action.value
             return {
                 ...state,
@@ -32,7 +38,7 @@ const reducer = (state = initialState, action) => {
             }
         
         case actionTypes.INDEX:
-            console.log(action)
+            //clicked note index
             let index = action.index;
             let indexedTitle = action.notes[index].title
             let indexedContent = action.notes[index].content
@@ -44,6 +50,7 @@ const reducer = (state = initialState, action) => {
             }
 
         case actionTypes.CHANGETITLE:
+            //changed title on existing note
             let editTitle = action.value;
             return {
                 ...state,
@@ -51,6 +58,7 @@ const reducer = (state = initialState, action) => {
             }
 
         case actionTypes.CHANGECONTENT:
+            //change content on existing note
             let editContent = action.value;
             return {
                 ...state,

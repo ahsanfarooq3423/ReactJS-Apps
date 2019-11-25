@@ -1,3 +1,5 @@
+//global action types
+
 export const TITLE = 'TITLE';
 export const CONTENT = 'CONTENT';
 export const SUBMIT = 'SUBMIT';

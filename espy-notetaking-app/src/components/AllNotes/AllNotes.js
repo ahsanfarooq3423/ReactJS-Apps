@@ -3,26 +3,23 @@ import classes from './AllNotes.module.css';
 import Note from './Note/Note';
 import NewNote from './NewNote/NewNote';
 
-class AllNotes extends Component {
-
-   
- 
-    render(){
-        return(
-            <div>
+//component that contains all the notes
+const allnotes = (props) => {
+    return(
+        <div>
                 <NewNote
-                    title = {this.props.title}
-                    content = {this.props.content}
-                    submit = {this.props.submit}
+                    title = {props.title}
+                    content = {props.content}
+                    submit = {props.submit}
                     />
                 <div className = {classes.grid}>
-                    {this.props.notes.map((note, index) => {
+                    {props.notes.map((note, index) => {
 
                         return (
                             <Note
-                                deleteIndex = {() => this.props.deleteIndex(index)}
-                                showModal = {this.props.showModal}
-                                getIndex = {() => this.props.getIndex(index,this.props.notes)} 
+                                deleteIndex = {() => props.deleteIndex(index)}
+                                showModal = {props.showModal}
+                                getIndex = {() => props.getIndex(index,props.notes)} 
                                 key = {index} 
                                 title = {note.title}  
                                 text = {note.content}/>
@@ -30,9 +27,7 @@ class AllNotes extends Component {
                     })}
                 </div>
             </div>
-            
-        )
-    }
+    )
 }
 
-export default AllNotes;
+export default allnotes;
