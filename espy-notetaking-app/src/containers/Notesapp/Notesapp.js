@@ -12,7 +12,8 @@ class NotesApp extends Component {
     }
 
     getIndexHandler = (index) => {
-        this.setState({showModal: true, editIndex : index})
+        this.props.onGetIndex(index)
+        this.setState({showModal: true})
     }
 
     undoModalHanlder = () => {
@@ -28,17 +29,17 @@ class NotesApp extends Component {
                 {this.state.showModal ?
                      <Modal show>
                          <EditNote
+                            input = {this.props.changeTitle}
+                            content = {this.props.changeContent}
                             submitChange =  {() =>this.props.onSubmitChange(this.state.editIndex)}
                             changeTitle = {this.props.onEditTitle}
                             changeContent = {this.props.onEditContent}
                             undoModal = {this.undoModalHanlder}
-                            input = 'the rock is come' 
-                            content = 'the rock is coming thats that'/></Modal>:
+                            /></Modal>:
                 null
                 }
                 
                 <AllNotes
-                
                     getIndex = {this.getIndexHandler} 
                     title = {this.props.onTitleChange}
                     content = {this.props.onContentChange}
@@ -53,7 +54,9 @@ class NotesApp extends Component {
 
 const mapStateToProps = state => {
     return {
-        notes : state.notes
+        notes : state.notes,
+        changeTitle : state.changeTitle,
+        changeContent : state.changeContent
     }
 }
 
@@ -62,6 +65,7 @@ const mapDispatchToProps = dispatch => {
         onTitleChange : (event) =>  dispatch({type : 'TITLE', value : event.target.value}),
         onContentChange : (event) =>  dispatch({type : 'CONTENT', value : event.target.value}),
         onSubmit : () => dispatch({type : 'SUBMIT'}),
+        onGetIndex: (index) => dispatch({type: 'INDEX', index : index}),
         onEditTitle : (event) => dispatch({type: 'CHANGETITLE', value : event.target.value}),
         onEditContent : (event) => dispatch({type: 'CHANGECONTENT', value : event.target.value}),
         onSubmitChange : (index) => dispatch({type : 'SUBMITCHANGE', index: index})

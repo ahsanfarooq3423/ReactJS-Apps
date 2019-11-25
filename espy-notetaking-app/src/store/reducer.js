@@ -17,6 +17,8 @@ const initialState = {
     currentTitle : '',
     currentContent : '',
 
+    index : null,
+
     changeTitle : '',
     changeContent : ''
 
@@ -53,6 +55,19 @@ const reducer = (state = initialState, action) => {
                     currentContent : ''
                 }
             }
+        
+        case 'INDEX':
+            let index = action.index;
+            let indexedTitle = state.notes[index].title
+            let indexedContent = state.notes[index].content
+            return {
+                ...state,
+                index : index,
+                changeTitle : indexedTitle,
+                changeContent: indexedContent
+            }
+            
+
 
         case 'CHANGETITLE':
             let editTitle = action.value;
@@ -69,9 +84,23 @@ const reducer = (state = initialState, action) => {
                 }
 
         case 'SUBMITCHANGE':
-            console.log(state.changeContent);
-            console.log(state.changeTitle)
-            console.log(action.index)
+            
+            //console.log(state.changeContent);
+            //console.log(state.changeTitle)
+            //console.log(state.index)
+            //let notes = state.notes.filter((filter,index) => {
+                //console.log(index !== state.index)
+              //  return index != state.index})
+            //console.log(notes);
+
+            let notes = state.notes;
+            notes[state.index] = {title : state.changeTitle , content : state.changeContent}
+
+            return {
+                ...state,
+                notes : notes
+            }
+            
 
     }
 

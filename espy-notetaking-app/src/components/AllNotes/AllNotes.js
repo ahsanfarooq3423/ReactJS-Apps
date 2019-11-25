@@ -20,7 +20,6 @@ class AllNotes extends Component {
 
                         return (
                             <Note
-                                submitChange = {this.props.submitChange}
                                 showModal = {this.props.showModal}
                                 getIndex = {() => this.props.getIndex(index)} 
                                 key = {index} 
