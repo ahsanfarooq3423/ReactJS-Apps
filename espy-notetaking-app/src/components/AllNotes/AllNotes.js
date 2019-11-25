@@ -5,6 +5,8 @@ import NewNote from './NewNote/NewNote';
 
 class AllNotes extends Component {
 
+   
+ 
     render(){
         return(
             <div>
@@ -18,6 +20,8 @@ class AllNotes extends Component {
 
                         return (
                             <Note
+                                submitChange = {this.props.submitChange}
+                                showModal = {this.props.showModal}
                                 getIndex = {() => this.props.getIndex(index)} 
                                 key = {index} 
                                 title = {note.title}  

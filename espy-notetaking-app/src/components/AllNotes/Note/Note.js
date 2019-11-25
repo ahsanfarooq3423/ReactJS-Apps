@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Note.module.css';
 
 const note = (props) => {
+    
     return(
         <div 
             onClick = {props.getIndex}

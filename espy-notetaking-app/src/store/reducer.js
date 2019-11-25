@@ -17,6 +17,9 @@ const initialState = {
     currentTitle : '',
     currentContent : '',
 
+    changeTitle : '',
+    changeContent : ''
+
 }
 
 
@@ -50,6 +53,25 @@ const reducer = (state = initialState, action) => {
                     currentContent : ''
                 }
             }
+
+        case 'CHANGETITLE':
+            let editTitle = action.value;
+            return {
+                ...state,
+                changeTitle : editTitle
+            }
+
+        case 'CHANGECONTENT':
+            let editContent = action.value;
+            return {
+                ...state,
+                changeContent : editContent
+                }
+
+        case 'SUBMITCHANGE':
+            console.log(state.changeContent);
+            console.log(state.changeTitle)
+            console.log(action.index)
 
     }
 
