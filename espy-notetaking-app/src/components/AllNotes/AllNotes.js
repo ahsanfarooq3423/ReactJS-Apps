@@ -20,6 +20,7 @@ class AllNotes extends Component {
 
                         return (
                             <Note
+                                deleteIndex = {() => this.props.deleteIndex(index)}
                                 showModal = {this.props.showModal}
                                 getIndex = {() => this.props.getIndex(index)} 
                                 key = {index} 

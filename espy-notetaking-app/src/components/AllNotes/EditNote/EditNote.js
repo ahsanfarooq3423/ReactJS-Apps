@@ -9,11 +9,6 @@ class  EditNote extends Component {
         this.props.submitChange()
     }
 
-    componentDidMount = () => {
-        console.log(this.props.input)
-        console.log(this.props.content)
-    }
-
     render(){
         return(
             <div className = {classes.main}>

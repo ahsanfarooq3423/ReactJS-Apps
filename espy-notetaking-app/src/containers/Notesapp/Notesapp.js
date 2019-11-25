@@ -17,7 +17,13 @@ class NotesApp extends Component {
     }
 
     undoModalHanlder = () => {
+        console.log('undo CLIKCED!')
         this.setState({showModal :false})
+    }
+
+    getDeleteIndexHanlder = (index) => {
+        //console.log(index + ' for delte')
+        this.props.onDeleteNote(index);
     }
 
     
@@ -27,7 +33,8 @@ class NotesApp extends Component {
         return(
             <div>
                 {this.state.showModal ?
-                     <Modal show>
+                     <Modal show 
+                            clicked = {this.undoModalHanlder}>
                          <EditNote
                             input = {this.props.changeTitle}
                             content = {this.props.changeContent}
@@ -40,6 +47,7 @@ class NotesApp extends Component {
                 }
                 
                 <AllNotes
+                    deleteIndex = {this.getDeleteIndexHanlder}
                     getIndex = {this.getIndexHandler} 
                     title = {this.props.onTitleChange}
                     content = {this.props.onContentChange}
@@ -68,7 +76,8 @@ const mapDispatchToProps = dispatch => {
         onGetIndex: (index) => dispatch({type: 'INDEX', index : index}),
         onEditTitle : (event) => dispatch({type: 'CHANGETITLE', value : event.target.value}),
         onEditContent : (event) => dispatch({type: 'CHANGECONTENT', value : event.target.value}),
-        onSubmitChange : (index) => dispatch({type : 'SUBMITCHANGE', index: index})
+        onSubmitChange : (index) => dispatch({type : 'SUBMITCHANGE', index: index}),
+        onDeleteNote : (index) => dispatch({type: 'DELETE', index : index})
     }
 }
 

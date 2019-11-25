@@ -84,15 +84,6 @@ const reducer = (state = initialState, action) => {
                 }
 
         case 'SUBMITCHANGE':
-            
-            //console.log(state.changeContent);
-            //console.log(state.changeTitle)
-            //console.log(state.index)
-            //let notes = state.notes.filter((filter,index) => {
-                //console.log(index !== state.index)
-              //  return index != state.index})
-            //console.log(notes);
-
             let notes = state.notes;
             notes[state.index] = {title : state.changeTitle , content : state.changeContent}
 
@@ -100,7 +91,18 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 notes : notes
             }
-            
+
+        case 'DELETE':
+            let copyNotes = state.notes
+            let updatedNotes = copyNotes.filter((filter,index) => {
+                return index !== action.index
+            })
+            return {
+                ...state,
+                notes : updatedNotes
+            }
+
+        
 
     }
 
