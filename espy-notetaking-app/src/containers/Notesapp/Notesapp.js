@@ -54,7 +54,7 @@ class NotesApp extends Component {
                     title = {this.props.onTitleChange}
                     content = {this.props.onContentChange}
                     submit = {() => this.props.onSubmit(this.props.currentContent,this.props.currentTitle)}
-                    notes = {this.props.notes}/>
+                    />
             </div>
         )
     }
