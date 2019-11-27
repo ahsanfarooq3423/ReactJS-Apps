@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions';
+import * as actionTypes from '../actions/actions';
 
 const initialState = {
     notes : [
@@ -27,7 +27,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SUBMIT:
             let newTitle = action.title;
             let newContent = action.content;
-
+            //console.log(action);
             if (newTitle.length > 0) {
                 return {
                     ...state,

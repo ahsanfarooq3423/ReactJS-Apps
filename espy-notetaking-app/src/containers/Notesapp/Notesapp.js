@@ -3,7 +3,10 @@ import AllNotes from '../../components/AllNotes/AllNotes';
 import EditNote from '../../components/AllNotes/EditNote/EditNote';
 import Modal from '../../components/UI/Modal/Modal';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../store/actions';
+import * as actionTypes from '../../store/actions/actions';
+
+
+
 
 class NotesApp extends Component {
     
@@ -53,7 +56,12 @@ class NotesApp extends Component {
                     getIndex = {this.getIndexHandler} 
                     title = {this.props.onTitleChange}
                     content = {this.props.onContentChange}
-                    submit = {() => this.props.onSubmit(this.props.currentContent,this.props.currentTitle)}
+                    submit = {() => 
+                        {
+                            console.log(this.props.currentContent,this.props.currentTitle)
+                            this.props.onSubmit(this.props.currentContent,this.props.currentTitle)
+                        }
+                        }
                     />
             </div>
         )
@@ -63,6 +71,7 @@ class NotesApp extends Component {
 
 //setting the store states from reducer
 const mapStateToProps = state => {
+    console.log(state)
     return {
         notes : state.notes.notes,
         currentTitle : state.changes.currentTitle,
