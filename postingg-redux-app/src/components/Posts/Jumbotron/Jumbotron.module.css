@@ -1,0 +1,152 @@
+body {
+    background: rgb(21, 32, 43);
+}
+
+.jumbotron {
+    width: 80%;
+    margin: auto;
+    background-color: rgb(214, 220, 228);
+    border-radius: 5px;
+    height: 300px
+}
+
+
+.subdiv {
+    margin: auto;
+    width: 90%;
+    border-bottom: 1px solid rgb(153, 152, 152,0.7);
+}
+
+.title {
+    padding-top: 3%;
+    font-size: 50px;
+    margin-bottom: 0px;
+    
+}
+
+.subtitle {
+    font-size: 30px;
+}
+
+.search {
+    width: 19%;
+    background-color: white;
+    display: flex;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid rgb(165, 163, 163, 0.7);
+    outline: none; 
+    font-weight: bolder;
+    margin-bottom: 15px;
+}
+
+@media (max-width : 1200px) {
+    .search {
+        width: 25%;
+    }
+}
+
+@media (max-width: 1090px) {
+
+    .jumbotron{
+        width: 90%;
+    }
+
+    .subdiv {
+        padding-top: 7px;
+    }
+    .title {
+        font-size: 40px;
+    }
+    .subtitle {
+        font-size: 20px;
+    }
+}
+
+@media (max-width : 780px){
+    .jumbotron{
+        width: 90%;
+        height: 300px;
+    }
+    .title {
+        font-size: 34px;
+    }
+    .search {
+        width: 28%;
+    }
+}
+
+
+@media (max-width: 640px) {
+    .jumbotron{
+        width: 90%;
+        height: 240px;
+    }
+    .title {
+        font-size: 30px;
+    }
+    .subtitle {
+        font-size: 17px;
+    }
+    .search {
+        width: 50%;
+    }
+}
+
+@media (max-width: 540px) {
+    .jumbotron{
+        width: 90%;
+        height: 210px;
+    }
+    .title {
+        font-size: 26px;
+    }
+    .subtitle {
+        font-size: 15px;
+    }
+    .search {
+        width: 70%;
+    }
+}
+
+
+
+
+.icon {
+    margin-top: 7px;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.input {
+    margin-left: 5px;
+    font-size: 15px;
+    font-weight: 500;
+    border: 1px solid white;
+    outline: none;
+    width: 84%;
+}
+.search:focus {
+    border: 1px solid rgb(84, 84, 231);
+    box-shadow: -1px 0px 13px -6px rgba(87,77,227,1);
+}
+
+.newpost {
+    margin-top: 2%;
+    margin-right: 5%;
+    text-align: right;
+    font-weight: bolder;
+    color: rgb(69, 85, 230);
+}
+
+
+
+.newpost:hover {
+    cursor: pointer;
+}
+
+
+
+
