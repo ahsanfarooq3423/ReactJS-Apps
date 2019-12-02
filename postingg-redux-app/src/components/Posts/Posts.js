@@ -11,13 +11,13 @@ const posts = (props) => {
            <Jumbrotron/>
            <PostDesc title = "All Posts"/>
 
-            {/* <PostList/>
             <PostList/>
             <PostList/>
             <PostList/>
             <PostList/>
             <PostList/>
-            <PostList/> */}
+            <PostList/>
+            <PostList/>
            
         
            
