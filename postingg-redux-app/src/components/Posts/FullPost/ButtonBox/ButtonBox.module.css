@@ -1,0 +1,39 @@
+.buttonbox {
+    margin-bottom: 30px;
+}
+.edit {
+    cursor: pointer;
+    margin-left: 5px;
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    background-color: rgb(102, 36, 255);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+
+}
+
+.delete {
+    cursor: pointer;
+    margin-left: 5px;
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    background-color: rgb(226, 89, 89);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.edit:hover {
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.25);
+    background-color: rgb(81, 8, 252);
+}
+
+.delete:hover {
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.25);
+    background-color: rgb(247, 21, 21);
+}

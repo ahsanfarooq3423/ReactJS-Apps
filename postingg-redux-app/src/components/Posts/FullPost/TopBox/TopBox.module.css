@@ -1,0 +1,44 @@
+.top {
+    width: 98%;
+    height: 600px;
+
+}
+
+h1 {
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+
+.author {
+    display: flex;
+}
+
+.profile {
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+    border-radius: 200px 200px 200px 200px;
+    background-color: cornflowerblue;
+}
+
+.authorName {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 60px;
+    margin-left: 10px;
+
+}
+
+.date {
+    font-style: oblique;
+    line-height: 65px;
+    margin-left: 20px;
+    color: rgb(10, 10, 10, 0.5);
+}
+
+img {
+    width: 78%;
+    height: auto;
+
+}
+

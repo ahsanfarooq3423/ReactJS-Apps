@@ -11,16 +11,16 @@ const posts = (props) => {
            <Jumbrotron/>
            <PostDesc title = "All Posts"/>
 
+            {/* <PostList/>
             <PostList/>
             <PostList/>
             <PostList/>
             <PostList/>
             <PostList/>
-            <PostList/>
-            <PostList/>
+            <PostList/> */}
            
         
-{/*            
+           
            <div className = {classes.postcard}>
                 <PostCard/>
                 <PostCard/>
@@ -36,7 +36,7 @@ const posts = (props) => {
                 <PostCard/>
                 
                 
-           </div> */}
+           </div>
            
            
         </div>
