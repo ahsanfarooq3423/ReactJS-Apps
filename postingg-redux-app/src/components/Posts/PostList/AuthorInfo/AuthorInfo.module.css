@@ -1,0 +1,22 @@
+.author {
+    height: 40px;
+    padding: 5px;
+    padding-left: 15px;
+    width: 100%;
+    display: flex;
+}
+
+.profileImg {
+    margin-top: 6px;
+    width: 34px;
+    height: 34px;
+    border-radius: 200px 200px 200px 200px;
+    background-color: rebeccapurple;
+}
+
+.authorname {
+    margin-left: 10px;
+    line-height: 43px;
+    font-size: 18px;
+    font-weight: 20px;
+}
