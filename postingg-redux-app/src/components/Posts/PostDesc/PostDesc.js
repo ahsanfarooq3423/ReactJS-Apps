@@ -5,7 +5,14 @@ import { faTh, faList } from '@fortawesome/free-solid-svg-icons';
 
 const postdesc = (props) => {
 
-    const styles = [classes.suboption, classes.active];
+    const gridStyles = [classes.suboption];
+    const listStyles = [classes.suboption];
+    if (props.view === 'grid') {
+        gridStyles.push(classes.active);
+    }
+    if (props.view === 'list') {
+        listStyles.push(classes.active);
+    }
     return(
         <div className = {classes.desc}>
             <div className = {classes.main}>
@@ -13,8 +20,12 @@ const postdesc = (props) => {
             </div>
 
             <div className = {classes.options}>
-                <div className = {styles.join(" ")}><FontAwesomeIcon icon={faTh} /> GRID</div>
-                <div className = {classes.suboption}><FontAwesomeIcon icon={faList} /> LIST</div>
+                <div 
+                    onClick = {props.onGridView} 
+                    className = {gridStyles.join(" ")}><FontAwesomeIcon icon={faTh} /> GRID</div>
+                <div 
+                    onClick = {props.onListView}
+                    className = {listStyles.join(" ")}><FontAwesomeIcon icon={faList} /> LIST</div>
             </div>
 
         </div>

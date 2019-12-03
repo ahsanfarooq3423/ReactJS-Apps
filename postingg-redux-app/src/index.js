@@ -6,10 +6,17 @@ import * as serviceWorker from './serviceWorker';
 
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux'; 
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import postsReducer from './store/reducer/posts';
+import userReducer from './store/reducer/users';
 
-const store = createStore(postsReducer)
+
+const rootReducer = combineReducers({
+    postsState :postsReducer,
+    usersState : userReducer
+})
+
+const store = createStore(rootReducer)
 
 ReactDOM.render(
     <Provider  store = {store}>

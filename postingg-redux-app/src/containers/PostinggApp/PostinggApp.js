@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 
 class PostinggApp extends Component {
 
-    componentDidMount () {
-        console.log(this.props.posts)
+    state = {
+        
     }
 
     render() {
