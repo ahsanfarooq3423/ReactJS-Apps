@@ -68,6 +68,7 @@ const reducer = (state = initialState, action) => {
                 postsView : 'list'
             }
         }
+
         default: return {
             ...state
         }

@@ -1,7 +1,8 @@
 .postcard {
+    display: flex;
+    flex-wrap: wrap;
     padding-top: 20px;
     width: 80%;
     margin: auto;
-    display: flex;
-    flex-wrap: wrap;
+    
 }

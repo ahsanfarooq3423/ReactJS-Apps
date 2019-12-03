@@ -3,7 +3,11 @@ import classes from './PostCard.module.css';
 
 const postcard = (props) => {
     return (
-        <div className = {classes.maincard}>
+        
+        <div className = {classes.maincard}  onClick = {() => {
+            let to = "/fullpost"
+            props.history.push(to)
+        }}>
             <div className = {classes.imgdiv}>
                 <img alt = "landscape" src = {props.src}/>
             </div>

@@ -1,17 +1,17 @@
-import React from 'react';
+import React , {Component} from 'react';
 import Aux from '../../containers/hoc/Aux/Aux';
 import Jumbrotron from './Jumbotron/Jumbotron';
 import PostDesc from './PostDesc/PostDesc';
 import PostCard from './PostCard/PostCard';
 import PostList from './PostList/PostList';
 import * as actionTypes from '../../store/actions/actionTypes';
+import { Link, withRouter} from 'react-router-dom';
 import { connect } from 'react-redux';
+
 import classes from './Posts.module.css';
 
-
-
 const posts = (props) => {
-
+    console.log(props);
     let users = {};
 
     props.posts.map(post => {
@@ -24,25 +24,22 @@ const posts = (props) => {
         return null
     })
 
-    
-
     let show = (
-           
+
            <div className = {classes.postcard}>
-               {props.posts.map(post => {
-                   return <PostCard
+               {props.posts.map(post =>  
+                            <PostCard
+                            {...props}
                             title = {post.title}
                             content = {post.content}
                             src = {post.picUrl}
                             key = {post.postId}
                             author = {users[post.authorId]}  />
-               })}                
+                      )}                
            </div>
     )
 
     if (props.view === 'list') {
-        
-
         show = (
             <Aux>
                 {props.posts.map(post => {
@@ -51,8 +48,7 @@ const posts = (props) => {
                                 content = {post.content}
                                 src = {post.picUrl}
                                 key = {post.postId}
-                                author = {users[post.authorId]}
-                            />
+                                author = {users[post.authorId]} />
                 })}
                
             </Aux>
@@ -61,7 +57,6 @@ const posts = (props) => {
 
     return(
 
-        
         <div className = {classes.container}>
            <Jumbrotron/>
            <PostDesc
@@ -87,7 +82,6 @@ const mapDispatchToProps = dispatch => {
     return {
         onGridView : () => dispatch({type : actionTypes.GRID_VIEW}),
         onListView : () => dispatch({type : actionTypes.LIST_VIEW})
-        
     }
 }
     
