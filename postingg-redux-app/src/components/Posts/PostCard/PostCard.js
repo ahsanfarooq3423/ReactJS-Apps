@@ -12,7 +12,7 @@ const postcard = (props) => {
                 <p className = {classes.title}>{props.title}</p>
                 <div className = {classes.subinfo}>
                     <p className = {classes.sent}>by</p>
-                    <p className = {classes.author}>Ahsan Farooq</p>
+                    <p className = {classes.author}>{props.author}</p>
                 </div>
                 
             </div>

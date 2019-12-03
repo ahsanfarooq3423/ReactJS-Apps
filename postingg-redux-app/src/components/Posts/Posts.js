@@ -4,10 +4,27 @@ import Jumbrotron from './Jumbotron/Jumbotron';
 import PostDesc from './PostDesc/PostDesc';
 import PostCard from './PostCard/PostCard';
 import PostList from './PostList/PostList';
+import * as actionTypes from '../../store/actions/actionTypes';
 import { connect } from 'react-redux';
 import classes from './Posts.module.css';
 
+
+
 const posts = (props) => {
+
+    let users = {};
+
+    props.posts.map(post => {
+        props.users.map(user => {
+            if (post.authorId === user.id){
+                users[post.authorId] = user.name
+            }
+            return null
+        })
+        return null
+    })
+
+    
 
     let show = (
            
@@ -17,12 +34,15 @@ const posts = (props) => {
                             title = {post.title}
                             content = {post.content}
                             src = {post.picUrl}
-                            key = {post.postId}  />
+                            key = {post.postId}
+                            author = {users[post.authorId]}  />
                })}                
            </div>
     )
 
     if (props.view === 'list') {
+        
+
         show = (
             <Aux>
                 {props.posts.map(post => {
@@ -31,15 +51,10 @@ const posts = (props) => {
                                 content = {post.content}
                                 src = {post.picUrl}
                                 key = {post.postId}
+                                author = {users[post.authorId]}
                             />
                 })}
-                {/* <PostList />
-                <PostList/>
-                <PostList/>
-                <PostList/>
-                <PostList/>
-                <PostList/>
-                <PostList/> */}
+               
             </Aux>
         )
     }
@@ -54,7 +69,6 @@ const posts = (props) => {
                 onGridView = {props.onGridView}
                 onListView = {props.onListView} 
                 title = "All Posts"/>
-
             {show}
         </div>
     )
@@ -62,17 +76,17 @@ const posts = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log(state);
     return {
         posts : state.postsState.posts,
-        view : state.postsState.postsView
+        view : state.postsState.postsView,
+        users : state.usersState.users
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGridView : () => dispatch({type : "GRID_VIEW"}),
-        onListView : () => dispatch({type : "LIST_VIEW"})
+        onGridView : () => dispatch({type : actionTypes.GRID_VIEW}),
+        onListView : () => dispatch({type : actionTypes.LIST_VIEW})
         
     }
 }

@@ -1,3 +1,5 @@
+import * as actionTypes from '../actions/actionTypes';
+
 
 const initialState = {
     posts : [
@@ -16,7 +18,7 @@ const initialState = {
             postId : '44de',
             authorId : '87q',
             timestamp: 'Sun Dec 01 2019 21:45:16',
-            picUrl : "https://images.unsplash.com/photo-1558981359-219d6364c9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+            picUrl : "https://images.unsplash.com/photo-1501213391419-2eca7f7e29bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
             
         },
         {
@@ -25,7 +27,7 @@ const initialState = {
             postId : '49ae',
             authorId : '45a',
             timestamp: 'Mon Dec 02 2019 21:55:16',
-            picUrl : "https://images.unsplash.com/photo-1558981359-219d6364c9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+            picUrl : "https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2053&q=80"
             
         },
         {
@@ -34,7 +36,7 @@ const initialState = {
             postId : '23mq',
             authorId : '43v',
             timestamp: 'Tues Dec 03 2019 21:55:16',
-            picUrl : "https://images.unsplash.com/photo-1558981359-219d6364c9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+            picUrl : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQ4TQqbmb9gMJRiff2VTu2nG2_KIa0sdjj91WWtHqe9f4Mbawe"
             
         },
         {
@@ -43,7 +45,7 @@ const initialState = {
             postId : '65hj',
             authorId : '62n',
             timestamp: 'Fri Nov 22 2019 21:55:16',
-            picUrl : "https://images.unsplash.com/photo-1558981359-219d6364c9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
+            picUrl : "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1653&q=80"
             
         },
     ],
@@ -54,13 +56,13 @@ const reducer = (state = initialState, action) => {
 
     switch (action.type) {
 
-        case ('GRID_VIEW') : {
+        case (actionTypes.GRID_VIEW) : {
             return {
                 ...state,
                 postsView : 'grid'
             }
         }
-        case ("LIST_VIEW") : {
+        case (actionTypes.LIST_VIEW) : {
             return {
                 ...state,
                 postsView : 'list'
