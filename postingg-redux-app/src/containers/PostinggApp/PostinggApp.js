@@ -35,11 +35,7 @@ class PostinggApp extends Component {
             
         )
     }
-
-   
 }
-
-
 
 const mapStateToProps = state => {
     return {

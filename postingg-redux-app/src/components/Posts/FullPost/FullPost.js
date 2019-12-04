@@ -9,7 +9,6 @@ import classes from './FullPost.module.css';
 
 const fullpost = (props) => {
 
-    console.log(props)
     return(
         <div className = {classes.container}>
             <TopBox
@@ -17,7 +16,7 @@ const fullpost = (props) => {
                 timeStamp = {props.fullpost.timestamp}
                 title = {props.fullpost.title}
                 src = {props.fullpost.picUrl}/>
-            <ContentBox/>
+            <ContentBox content = {props.fullpost.content}/>
             <ButtonBox/>
         </div>
     )

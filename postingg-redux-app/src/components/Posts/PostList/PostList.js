@@ -4,7 +4,7 @@ import TitleInfo from './TitleInfo/TitleInfo';
 import classes from './PostList.module.css';
 
 const postlist = (props) => {
-    console.log(props)
+
     return (
         <div onClick = {() => {
             props.onViewPost(props.post)

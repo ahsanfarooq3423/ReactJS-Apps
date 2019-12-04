@@ -1,4 +1,4 @@
-import React , {Component} from 'react';
+import React from 'react';
 import Aux from '../../containers/hoc/Aux/Aux';
 import Jumbrotron from './Jumbotron/Jumbotron';
 import PostDesc from './PostDesc/PostDesc';
@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import classes from './Posts.module.css';
 
 const posts = (props) => {
-    console.log(props)
+
     let users = {};
 
     props.posts.map(post => {
