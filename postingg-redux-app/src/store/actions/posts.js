@@ -1,4 +1,5 @@
 import * as actionTypes from './actionTypes';
+import axios from '../../axios';
 
 export const gridView = () => {
     return {
@@ -16,5 +17,25 @@ export const viewPost = (post) => {
     return {
         type : actionTypes.VIEW_POST,
         post : post
+    }
+}
+
+export const setPosts = (posts) => {
+
+    return {
+        type : actionTypes.SET_POSTS,
+        posts : posts
+    }
+}
+
+export const initPosts = (users) => {
+    return dispatch => {
+        axios.get("/posts/-LvGY9IM4t-C3Bf31MPh.json")
+            .then(res => {
+                dispatch(setPosts(res.data))
+            })
+            .catch (err => {
+                console.log(err)
+            })
     }
 }

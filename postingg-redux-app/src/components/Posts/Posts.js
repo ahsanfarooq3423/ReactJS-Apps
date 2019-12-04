@@ -4,28 +4,36 @@ import Jumbrotron from './Jumbotron/Jumbotron';
 import PostDesc from './PostDesc/PostDesc';
 import PostCard from './PostCard/PostCard';
 import PostList from './PostList/PostList';
-import * as actionTypes from '../../store/actions/actionTypes';
-import { withRouter } from 'react-router-dom'
+//import * as actionTypes from '../../store/actions/actionTypes';
+import { withRouter } from 'react-router-dom';
+import * as postsActions from '../../store/actions/index';
 import { connect } from 'react-redux';
-
 import classes from './Posts.module.css';
 
 const posts = (props) => {
 
     let users = {};
-
-    props.posts.map(post => {
-        props.users.map(user => {
-            if (post.authorId === user.id){
-                users[post.authorId] = user.name
-            }
+    if(props.posts) {
+        props.posts.map(post => {
+            props.users.map(user => {
+                if (post.authorId === user.id){
+                    users[post.authorId] = user.name
+                }
+                return null
+            })
             return null
         })
-        return null
-    })
+    }
     
 
     let show = (
+        <div className = {classes.spinner}>
+            <div class={classes.ldsfacebook}><div></div><div></div><div></div></div>
+        </div>
+    )
+    if (props.posts){
+
+    show = (
 
            <div className = {classes.postcard}>
                {props.posts.map(post =>  
@@ -37,10 +45,12 @@ const posts = (props) => {
                             content = {post.content}
                             src = {post.picUrl}
                             key = {post.postId}
-                            author = {props.usersMapping[post.authorId]}  />
+                            author = {users[post.authorId]}
+                              />
                       )}                
            </div>
     )
+}
 
     if (props.view === 'list') {
         show = (
@@ -54,7 +64,8 @@ const posts = (props) => {
                                 content = {post.content}
                                 src = {post.picUrl}
                                 key = {post.postId}
-                                author = {props.usersMapping[post.authorId]} />
+                                author = {users[post.authorId]} 
+                                />
                 })}
                
             </Aux>
@@ -86,9 +97,9 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGridView : () => dispatch({type : actionTypes.GRID_VIEW}),
-        onListView : () => dispatch({type : actionTypes.LIST_VIEW}),
-        onViewPost : (post) => dispatch({type : actionTypes.VIEW_POST, post : post})
+        onGridView : () => dispatch(postsActions.gridView()),
+        onListView : () => dispatch(postsActions.listView()),
+        onViewPost : (post) => dispatch(postsActions.viewPost(post))
     }
 }
     

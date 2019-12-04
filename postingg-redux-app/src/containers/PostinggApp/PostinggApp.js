@@ -4,33 +4,32 @@ import FullPost from '../../components/Posts/FullPost/FullPost';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import axios from '../../axios';
+import * as postActions from '../../store/actions/index';
 
 class PostinggApp extends Component {
 
-    state = {
-        usersMapping : null
-    }
-
      componentWillMount() {
-        let users = [];
-        this.props.posts.map(post => {
-            this.props.users.map(user => {
-                if (post.authorId === user.id){
-                    users[post.authorId] = user.name
-                }
-                return null
+        this.props.onInitPosts();        
+     }
+
+     postContent = () => {
+         axios.get("/posts/-LvGY9IM4t-C3Bf31MPh.json")
+            .then(res => {
+                console.log(res)
             })
-            this.setState({usersMapping: users})
-            return null
-        })
+            .catch (err => {
+                console.log(err)
+            })
      }
 
 
     render() {
         return(
             <div>
-                <Route path = "/" exact component = {() => <Posts usersMapping = {this.state.usersMapping}/>}/>
-                <Route path = "/fullpost" exact component = {() => <FullPost usersMapping = {this.state.usersMapping}/>} />
+                <button onClick = {this.postContent}>sdf</button>
+                <Route path = "/" exact component = {() => <Posts />}/>
+                <Route path = "/fullpost" exact component = {() => <FullPost/>} />
             </div>
             
         )
@@ -45,4 +44,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(PostinggApp));
+const mapDispatchToProps = dispatch => {
+    return {
+        onInitPosts : (users) => dispatch(postActions.initPosts(users))
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(PostinggApp));
