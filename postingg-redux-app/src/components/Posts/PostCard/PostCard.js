@@ -1,10 +1,13 @@
 import React from 'react';
 import classes from './PostCard.module.css';
 
+
 const postcard = (props) => {
+    
     return (
-        
-        <div className = {classes.maincard}  onClick = {() => {
+        <div className = {classes.maincard}
+        onClick = {() => {
+            props.onViewPost(props.post)
             let to = "/fullpost"
             props.history.push(to)
         }}>

@@ -5,13 +5,13 @@ import PostDesc from './PostDesc/PostDesc';
 import PostCard from './PostCard/PostCard';
 import PostList from './PostList/PostList';
 import * as actionTypes from '../../store/actions/actionTypes';
-import { Link, withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 
 import classes from './Posts.module.css';
 
 const posts = (props) => {
-    console.log(props);
+    console.log(props)
     let users = {};
 
     props.posts.map(post => {
@@ -23,18 +23,21 @@ const posts = (props) => {
         })
         return null
     })
+    
 
     let show = (
 
            <div className = {classes.postcard}>
                {props.posts.map(post =>  
                             <PostCard
+                            post = {post}
                             {...props}
+                            onViewPost = {props.onViewPost}
                             title = {post.title}
                             content = {post.content}
                             src = {post.picUrl}
                             key = {post.postId}
-                            author = {users[post.authorId]}  />
+                            author = {props.usersMapping[post.authorId]}  />
                       )}                
            </div>
     )
@@ -44,11 +47,14 @@ const posts = (props) => {
             <Aux>
                 {props.posts.map(post => {
                     return <PostList
+                                onViewPost = {props.onViewPost}
+                                {...props}
+                                post = {post}
                                 title = {post.title}
                                 content = {post.content}
                                 src = {post.picUrl}
                                 key = {post.postId}
-                                author = {users[post.authorId]} />
+                                author = {props.usersMapping[post.authorId]} />
                 })}
                
             </Aux>
@@ -81,9 +87,10 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onGridView : () => dispatch({type : actionTypes.GRID_VIEW}),
-        onListView : () => dispatch({type : actionTypes.LIST_VIEW})
+        onListView : () => dispatch({type : actionTypes.LIST_VIEW}),
+        onViewPost : (post) => dispatch({type : actionTypes.VIEW_POST, post : post})
     }
 }
     
 
-export default connect(mapStateToProps, mapDispatchToProps)(posts);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(posts));
