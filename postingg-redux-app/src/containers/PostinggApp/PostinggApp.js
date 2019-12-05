@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import Posts from '../../components/Posts/Posts';
 import FullPost from '../../components/Posts/FullPost/FullPost';
+import NewPost from '../../components/Posts/NewPost/NewPost';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import axios from '../../axios';
 import * as postActions from '../../store/actions/index';
+
 
 class PostinggApp extends Component {
 
@@ -33,13 +35,15 @@ class PostinggApp extends Component {
     render() {
         return(
             <div>
-                <Route path = "/" exact component = {() => <Posts />}/>
-                <Route path = "/fullpost" exact component = {() => <FullPost/>} />
+               <Route path = "/" exact component = {() => <NewPost />}/>
             </div>
             
         )
     }
 }
+
+ {/* <Route path = "/" exact component = {() => <Posts />}/>
+                <Route path = "/fullpost" exact component = {() => <FullPost/>} /> */}
 
 const mapStateToProps = state => {
     return {
