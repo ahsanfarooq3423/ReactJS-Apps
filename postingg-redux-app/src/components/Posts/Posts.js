@@ -13,7 +13,7 @@ import classes from './Posts.module.css';
 const posts = (props) => {
 
     let users = {};
-    if(props.posts) {
+    if(props.posts && props.users) {
         props.posts.map(post => {
             props.users.map(user => {
                 if (post.authorId === user.id){
@@ -28,7 +28,7 @@ const posts = (props) => {
 
     let show = (
         <div className = {classes.spinner}>
-            <div class={classes.ldsfacebook}><div></div><div></div><div></div></div>
+            <div className={classes.ldsfacebook}><div></div><div></div><div></div></div>
         </div>
     )
     if (props.posts){

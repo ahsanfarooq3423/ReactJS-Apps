@@ -9,25 +9,30 @@ import * as postActions from '../../store/actions/index';
 
 class PostinggApp extends Component {
 
-     componentWillMount() {
-        this.props.onInitPosts();        
+    state = {
+        users : null
+    }
+
+     componentDidMount() {
+        this.props.onInitPosts();
+        //local state method instead on of using the redux but dispathing in redux
+        this.getUsersHandler();
      }
 
-     postContent = () => {
-         axios.get("/posts/-LvGY9IM4t-C3Bf31MPh.json")
-            .then(res => {
-                console.log(res)
-            })
-            .catch (err => {
-                console.log(err)
-            })
-     }
 
+     getUsersHandler = () => {
+        axios.get("/users/-LvGYkKGjz3BNQTsrAPb.json")
+        .then(res => {
+            this.props.onStartUsers(res.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+     }
 
     render() {
         return(
             <div>
-                <button onClick = {this.postContent}>sdf</button>
                 <Route path = "/" exact component = {() => <Posts />}/>
                 <Route path = "/fullpost" exact component = {() => <FullPost/>} />
             </div>
@@ -46,7 +51,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onInitPosts : (users) => dispatch(postActions.initPosts(users))
+        onInitPosts : () => dispatch(postActions.initPosts()),
+        onStartUsers : (users) => dispatch(postActions.startUsers(users))
     }
 }
 

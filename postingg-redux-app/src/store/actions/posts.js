@@ -28,7 +28,8 @@ export const setPosts = (posts) => {
     }
 }
 
-export const initPosts = (users) => {
+
+export const initPosts = () => {
     return dispatch => {
         axios.get("/posts/-LvGY9IM4t-C3Bf31MPh.json")
             .then(res => {

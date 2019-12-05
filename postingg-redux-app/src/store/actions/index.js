@@ -2,5 +2,11 @@ export {
     gridView,
     listView,
     viewPost,
-    initPosts
+    initPosts,
+
 } from './posts';
+
+export {
+    startUsers
+} from './users'
+

@@ -10,7 +10,7 @@ import classes from './FullPost.module.css';
 const fullpost = (props) => {
 
     let users = {};
-    if(props.posts) {
+    if(props.posts && props.users) {
         props.posts.map(post => {
             props.users.map(user => {
                 if (post.authorId === user.id){

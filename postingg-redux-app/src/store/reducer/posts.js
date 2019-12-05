@@ -18,7 +18,6 @@ const initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-
     switch (action.type) {
 
         case (actionTypes.GRID_VIEW) : {
@@ -46,7 +45,6 @@ const reducer = (state = initialState, action) => {
                 posts : action.posts
             }
         }
-
         default: return {
             ...state
         }
