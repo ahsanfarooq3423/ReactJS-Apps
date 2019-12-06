@@ -3,7 +3,8 @@ export {
     listView,
     viewPost,
     initPosts,
-    newPost
+    newPost,
+    submitPost
 } from './posts';
 
 

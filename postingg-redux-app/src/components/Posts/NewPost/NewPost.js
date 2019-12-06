@@ -38,6 +38,11 @@ class NewPost extends  Component {
         this.setState({newPost})
     }
 
+    componentWillMount = () => {
+        this.setState({posts: this.props.posts, users : this.props.users})
+
+    }
+
     render() {
         return(
             <div className = {classes.main}>
@@ -58,9 +63,10 @@ class NewPost extends  Component {
 const mapDispatchToProps = dispatch => {
 
     return {
-        onSubmitNewPost : (post) => dispatch(postActions.newPost(post))
+        onSubmitNewPost : (post) => dispatch(postActions.submitPost(post))
     }
 }
+
 
 
 export default withRouter(connect(null, mapDispatchToProps)(NewPost));

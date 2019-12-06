@@ -42,13 +42,36 @@ export const initPosts = () => {
 }
 
 
-export const newPost = (newPost) => {
+export const newPost = (newPost, posts, users) => {
+    console.log(newPost);
+    console.log(posts);
+    console.log(users);
+    let date = new Date();
+    let stringDate = date.toDateString();
+    newPost.timestamp =  stringDate;  
     
     return {
         type : actionTypes.NEW_POST,
         newPost : newPost
     }
 }
+
+
+
+export const submitPost = (post) => {
+    return dispatch => {
+        axios.post("posts/-LvGY9IM4t-C3Bf31MPh.json", post)
+            .then(res => {
+                console.log(res)
+                dispatch(newPost(post))
+            })
+            .catch( err => {
+                console.log(err)
+            } )
+    }
+}
+
+
 
 
 

@@ -48,14 +48,17 @@ const reducer = (state = initialState, action) => {
             }
         }
 
-        case (actionTypes.NEW_POST): {
-            let newPost = action.newPost;
-            let date = new Date();
-            let stringDate = date.toDateString();
-            newPost.timestamp =  stringDate;  
+        // case (actionTypes.NEW_POST): {
+        //     return {
+        //         ...state,
+        //         newPost : action.newPost
+        //     }
+        // }
+
+        case (actionTypes.SUBMIT_POST): {
             return {
                 ...state,
-                newPost : newPost
+                newPost : action.newPost
             }
         }
         default: return {
