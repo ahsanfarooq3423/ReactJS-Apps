@@ -41,9 +41,14 @@ export const initPosts = () => {
     }
 }
 
-export const newPostTitle = (event) => {
+
+export const newPost = (newPost) => {
+    
     return {
-        type : actionTypes.NEW_TITLE,
-        title : event.target.value
+        type : actionTypes.NEW_POST,
+        newPost : newPost
     }
 }
+
+
+

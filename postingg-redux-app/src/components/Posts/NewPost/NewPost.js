@@ -3,6 +3,7 @@ import NewTitle from './NewTitle/NewTitle';
 import NewContent from './NewContent/NewContent';
 import NewButtons from './NewButtons/NewButtons';
 import {connect} from 'react-redux';
+import { withRouter } from 'react-router'; 
 import * as postActions from '../../../store/actions/index';
 import classes from './NewPost.module.css';
 
@@ -35,7 +36,6 @@ class NewPost extends  Component {
         let content = event.target.value;
         newPost.content = content
         this.setState({newPost})
-        console.log(this.state)
     }
 
     render() {
@@ -44,7 +44,10 @@ class NewPost extends  Component {
             <h1 className = {classes.header}>New Post:</h1>
             <NewTitle titleChange = {this.titleChangeHanlder}/>
             <NewContent contentChange = {this.contentChangeHandler} />
-            <NewButtons/>
+            <NewButtons submitPost = {() =>{
+                let to = "/"
+                this.props.history.push(to)
+                this.props.onSubmitNewPost(this.state.newPost)}}/>
         </div>
         )
     }
@@ -53,10 +56,11 @@ class NewPost extends  Component {
 
 
 const mapDispatchToProps = dispatch => {
+
     return {
-        onTitleChange : (event) => dispatch(postActions.newPostTitle(event))
+        onSubmitNewPost : (post) => dispatch(postActions.newPost(post))
     }
 }
 
 
-export default connect(null, mapDispatchToProps)(NewPost);
+export default withRouter(connect(null, mapDispatchToProps)(NewPost));

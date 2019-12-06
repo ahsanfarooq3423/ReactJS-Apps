@@ -4,7 +4,6 @@ import Jumbrotron from './Jumbotron/Jumbotron';
 import PostDesc from './PostDesc/PostDesc';
 import PostCard from './PostCard/PostCard';
 import PostList from './PostList/PostList';
-//import * as actionTypes from '../../store/actions/actionTypes';
 import { withRouter } from 'react-router-dom';
 import * as postsActions from '../../store/actions/index';
 import { connect } from 'react-redux';

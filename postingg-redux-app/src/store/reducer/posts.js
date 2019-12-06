@@ -14,7 +14,8 @@ const initialState = {
         timestamp: 'Mon Dec 02 2019 21:55:16',
         picUrl : "https://images.unsplash.com/photo-1558981359-219d6364c9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
         
-    }
+    },
+    newPost : null
     
 }
 
@@ -47,13 +48,14 @@ const reducer = (state = initialState, action) => {
             }
         }
 
-        case (actionTypes.NEW_TITLE) : {
-            let newPost = {
-                title : action.title,
-
-            }
+        case (actionTypes.NEW_POST): {
+            let newPost = action.newPost;
+            let date = new Date();
+            let stringDate = date.toDateString();
+            newPost.timestamp =  stringDate;  
             return {
-                ...state
+                ...state,
+                newPost : newPost
             }
         }
         default: return {
