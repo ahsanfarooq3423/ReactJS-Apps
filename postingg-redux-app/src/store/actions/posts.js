@@ -40,3 +40,10 @@ export const initPosts = () => {
             })
     }
 }
+
+export const newPostTitle = (event) => {
+    return {
+        type : actionTypes.NEW_TITLE,
+        title : event.target.value
+    }
+}

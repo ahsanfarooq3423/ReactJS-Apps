@@ -17,7 +17,6 @@ class PostinggApp extends Component {
 
      componentDidMount() {
         this.props.onInitPosts();
-        //local state method instead on of using the redux but dispathing in redux
         this.getUsersHandler();
      }
 
@@ -35,15 +34,16 @@ class PostinggApp extends Component {
     render() {
         return(
             <div>
-               <Route path = "/" exact component = {() => <NewPost />}/>
+               <Route path = "/newpost" exact component = {() => <NewPost />}/>
+               <Route path = "/" exact component = {() => <Posts />}/>
+               <Route path = "/fullpost" exact component = {() => <FullPost/>} /> 
             </div>
             
         )
     }
 }
 
- {/* <Route path = "/" exact component = {() => <Posts />}/>
-                <Route path = "/fullpost" exact component = {() => <FullPost/>} /> */}
+                
 
 const mapStateToProps = state => {
     return {

@@ -3,8 +3,10 @@ export {
     listView,
     viewPost,
     initPosts,
-
+    newPostTitle
 } from './posts';
+
+
 
 export {
     startUsers

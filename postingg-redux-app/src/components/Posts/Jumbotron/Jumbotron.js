@@ -1,10 +1,11 @@
 import React from 'react';
 import classes from './Jumbotron.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { withRouter } from 'react-router-dom';
 import { faBoxes, faSearch } from '@fortawesome/free-solid-svg-icons';
 
 
-const jumbotron = () => {
+const jumbotron = (props) => {
     return(
         <div className = {classes.jumbotron}>
             <div className = {classes.subdiv}>
@@ -16,10 +17,15 @@ const jumbotron = () => {
                 </div>
             </div>
 
-            <p className = {classes.newpost}>+ Contribute a new post!</p>
+            <p 
+                onClick = {() => {
+                    let to = "/newpost"
+                    props.history.push(to)
+                }}
+                className = {classes.newpost}>+ Contribute a new post!</p>
         </div>
     )
     
 }
 
-export default jumbotron
+export default withRouter(jumbotron);

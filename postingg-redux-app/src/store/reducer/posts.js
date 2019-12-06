@@ -15,6 +15,7 @@ const initialState = {
         picUrl : "https://images.unsplash.com/photo-1558981359-219d6364c9c8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
         
     }
+    
 }
 
 const reducer = (state = initialState, action) => {
@@ -45,8 +46,19 @@ const reducer = (state = initialState, action) => {
                 posts : action.posts
             }
         }
+
+        case (actionTypes.NEW_TITLE) : {
+            let newPost = {
+                title : action.title,
+
+            }
+            return {
+                ...state
+            }
+        }
         default: return {
             ...state
+            
         }
         
     }
