@@ -31,9 +31,56 @@ export const setPosts = (posts) => {
 
 export const initPosts = () => {
     return dispatch => {
-        axios.get("/posts/-LvGY9IM4t-C3Bf31MPh.json")
+        axios.get("/posts.json")
             .then(res => {
-                dispatch(setPosts(res.data))
+                    dispatch(setPosts(res.data[Object.keys(res.data)]))
+                
+            })
+            .catch (err => {
+                console.log(err)
+            })
+    }
+}
+
+export const postPosts = (posts) => {
+    return dispatch => {
+        axios.post("/posts.json", posts)
+        .then(res => {
+            console.log(res.data)
+            dispatch(initPosts())
+        })
+    }
+
+        
+    }
+
+
+
+export const deletePosts = (posts) => {
+    return dispatch => {
+        axios.delete("/posts.json")
+            .then(res => {
+                dispatch(postPosts(posts))
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+}
+
+
+
+export const submitPost = (post) => {
+
+    let dateObj  = new Date(); 
+    let date =  dateObj.toString();
+    post.timestamp = date.toString();
+    return dispatch => {
+        axios.get('posts.json')
+            .then(res => {
+                let  posts = res.data[Object.keys(res.data)];
+                posts.push(post)
+                dispatch(deletePosts(posts))
             })
             .catch (err => {
                 console.log(err)
@@ -42,34 +89,7 @@ export const initPosts = () => {
 }
 
 
-export const newPost = (newPost, posts, users) => {
-    console.log(newPost);
-    console.log(posts);
-    console.log(users);
-    let date = new Date();
-    let stringDate = date.toDateString();
-    newPost.timestamp =  stringDate;  
-    
-    return {
-        type : actionTypes.NEW_POST,
-        newPost : newPost
-    }
-}
 
-
-
-export const submitPost = (post) => {
-    return dispatch => {
-        axios.post("posts/-LvGY9IM4t-C3Bf31MPh.json", post)
-            .then(res => {
-                console.log(res)
-                dispatch(newPost(post))
-            })
-            .catch( err => {
-                console.log(err)
-            } )
-    }
-}
 
 
 
