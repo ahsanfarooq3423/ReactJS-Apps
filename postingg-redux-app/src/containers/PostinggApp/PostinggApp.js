@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Posts from '../../components/Posts/Posts';
 import FullPost from '../../components/Posts/FullPost/FullPost';
 import NewPost from '../../components/Posts/NewPost/NewPost';
+import EditPost from '../../components/Posts/EditPost/EditPost';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -34,6 +35,7 @@ class PostinggApp extends Component {
     render() {
         return(
             <div>
+               <Route path = "/editpost" exact component = {() => <EditPost/>}/>
                <Route path = "/newpost" exact component = {() => <NewPost />}/>
                <Route path = "/" exact component = {() => <Posts />}/>
                <Route path = "/fullpost" exact component = {() => <FullPost/>} /> 

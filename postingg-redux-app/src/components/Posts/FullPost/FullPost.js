@@ -30,7 +30,7 @@ const fullpost = (props) => {
                 title = {props.fullpost.title}
                 src = {props.fullpost.picUrl}/>
             <ContentBox content = {props.fullpost.content}/>
-            <ButtonBox/>
+            <ButtonBox {...props}/>
         </div>
     )
 }
