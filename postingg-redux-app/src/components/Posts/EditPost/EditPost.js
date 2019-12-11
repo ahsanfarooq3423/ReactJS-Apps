@@ -44,7 +44,12 @@ class EditPost extends Component {
                 contentChange = {this.contentChangeHandler}
                 content = {this.props.fullpost.content}/>
             <EditButtons
-            
+                discard = {
+                    () => {
+                        let to = "/fullpost"
+                        this.props.history.push(to)
+                    }
+                }
                 savePost = {() =>{
                         let to = "/"
                         this.props.history.push(to)

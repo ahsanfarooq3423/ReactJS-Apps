@@ -38,8 +38,13 @@ class NewPost extends  Component {
         this.setState({newPost})
     }
 
-    componentWillMount = () => {
+   
+    componentDidMount = () => {
         this.setState({posts: this.props.posts, users : this.props.users})
+        let copyState = {...this.state}
+        let newPost = {...copyState.newPost}
+        newPost.postId = Math.random().toString(36).slice(6)
+        this.setState({newPost})
 
     }
 
@@ -57,6 +62,7 @@ class NewPost extends  Component {
                 submitPost = {() =>{
                 let to = "/"
                 this.props.history.push(to)
+                this.props.onUpdateUserPost(this.state.newPost)
                 this.props.onSubmitNewPost(this.state.newPost)}}/>
         </div>
         )
@@ -68,7 +74,8 @@ class NewPost extends  Component {
 const mapDispatchToProps = dispatch => {
 
     return {
-        onSubmitNewPost : (post) => dispatch(postActions.submitPost(post))
+        onSubmitNewPost : (post) => dispatch(postActions.submitPost(post)),
+        onUpdateUserPost : (newPost) => dispatch(postActions.updateUsersPost(newPost))
     }
 }
 

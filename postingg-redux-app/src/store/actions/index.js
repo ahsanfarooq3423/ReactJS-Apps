@@ -11,6 +11,7 @@ export {
 
 
 export {
-    startUsers
+    startUsers,
+    updateUsersPost
 } from './users'
 
