@@ -10,7 +10,9 @@ const buttonbox = (props) => {
                     props.history.push(to)
                 }}
                 className = {classes.edit}>Edit Post</button>
-            <button className = {classes.delete}>Delete Post</button>
+            <button 
+                onClick = {props.delete}
+                className = {classes.delete}>Delete Post</button>
         </div>
     )
 }

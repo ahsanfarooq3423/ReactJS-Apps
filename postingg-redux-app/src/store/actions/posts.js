@@ -126,6 +126,31 @@ export const saveEditPost = (editPost) => {
     }
 }
 
+export const onDeletePost = (posts,deletePost) => {
+    for (let fetchedPost in posts) {
+        if (posts[fetchedPost].postId === deletePost.postId){
+            posts.splice(fetchedPost,1)
+        }
+    }
+    return dispatch => {
+        dispatch(submitEditPosts(posts))
+    }
+}
+
+
+export const deletePost = (deletePost) => {
+    return dispatch => {
+        axios.get('posts.json')
+            .then(res => {
+                let posts = res.data[Object.keys(res.data)];
+                dispatch(onDeletePost(posts,deletePost))
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+}
+
 
 
 

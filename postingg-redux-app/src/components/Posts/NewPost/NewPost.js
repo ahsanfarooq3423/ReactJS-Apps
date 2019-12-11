@@ -49,7 +49,12 @@ class NewPost extends  Component {
             <h1 className = {classes.header}>New Post:</h1>
             <NewTitle titleChange = {this.titleChangeHanlder}/>
             <NewContent contentChange = {this.contentChangeHandler} />
-            <NewButtons submitPost = {() =>{
+            <NewButtons 
+                discardPost = {() => {
+                    let to = "/"
+                    this.props.history.push(to)
+                }}
+                submitPost = {() =>{
                 let to = "/"
                 this.props.history.push(to)
                 this.props.onSubmitNewPost(this.state.newPost)}}/>

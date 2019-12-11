@@ -2,6 +2,7 @@ import React from 'react';
 import TopBox from './TopBox/TopBox';
 import ContentBox from './ContentBox/ContentBox';
 import ButtonBox from './ButtonBox/ButtonBox';
+import * as actionTypes from '../../../store/actions/index';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 import classes from './FullPost.module.css';
@@ -30,7 +31,12 @@ const fullpost = (props) => {
                 title = {props.fullpost.title}
                 src = {props.fullpost.picUrl}/>
             <ContentBox content = {props.fullpost.content}/>
-            <ButtonBox {...props}/>
+            <ButtonBox  
+            delete = {() => {
+                let to = "/"
+                props.history.push(to)
+                props.onDeletePost(props.fullpost)}}
+            {...props}/>
         </div>
     )
 }
@@ -43,5 +49,11 @@ const mapStateToProps = state => {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(fullpost));    
+const mapDispatchToProps = dispatch => {
+    return {
+        onDeletePost : (post) => dispatch(actionTypes.deletePost(post))
+    }
+}
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(fullpost));    
 

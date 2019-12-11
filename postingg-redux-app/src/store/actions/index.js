@@ -4,7 +4,8 @@ export {
     viewPost,
     initPosts,
     submitPost,
-    saveEditPost
+    saveEditPost,
+    deletePost
 } from './posts';
 
 
