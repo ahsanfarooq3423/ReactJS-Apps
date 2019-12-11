@@ -13,7 +13,7 @@ class EditPost extends Component {
         editPost : null
     }
 
-    componentWillMount = () => {
+    componentDidMount = () => {
         this.setState({editPost : this.props.fullpost})
     }
 
@@ -44,8 +44,11 @@ class EditPost extends Component {
                 contentChange = {this.contentChangeHandler}
                 content = {this.props.fullpost.content}/>
             <EditButtons
-                savePost = {() =>this.props.onSavePost(this.state.editPost)}
-                />
+            
+                savePost = {() =>{
+                        let to = "/"
+                        this.props.history.push(to)
+                        this.props.onSavePost(this.state.editPost)} } />
             </div>
         )
     }

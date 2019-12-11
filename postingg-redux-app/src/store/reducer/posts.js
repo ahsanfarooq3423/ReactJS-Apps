@@ -55,11 +55,6 @@ const reducer = (state = initialState, action) => {
             }
         }
 
-        // case (actionTypes.SAVE_EDIT_POST): {
-        //     console.log('In the reducer')
-        //     console.log(action)
-        // }
-
         default: return {
             ...state
             

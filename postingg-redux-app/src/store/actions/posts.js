@@ -46,13 +46,10 @@ export const postPosts = (posts) => {
     return dispatch => {
         axios.post("/posts.json", posts)
         .then(res => {
-            console.log(res.data)
             dispatch(initPosts())
         })
-    }
-
-        
-    }
+    }     
+}
 
 
 
@@ -105,14 +102,10 @@ export const submitEditPosts = (editPosts) => {
 export const getEditPost = (posts,editPost) => {
     for (let fetchedPost in posts) {
         if (posts[fetchedPost].postId === editPost.postId){
-            //console.log('Fethed Post', posts[fetchedPost]);
-            //console.log('Edited Post', editPost)
             posts[fetchedPost] = editPost;
-            //console.log('Are changes got reflected', posts)
         }
     }
     return dispatch => {
-        console.log(posts)
         dispatch(submitEditPosts(posts))
     }
     
