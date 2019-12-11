@@ -6,6 +6,7 @@ const editcontent = (props) => {
         <div className = {classes.main}>
               <h3 className = {classes.title}>Edit Content for the Post:</h3>
               <textarea 
+                onChange = {props.contentChange}
                 className = {classes.textareaInput} defaultValue = {props.content}/>
         </div>
     )

@@ -6,6 +6,7 @@ const edittitle = (props) => {
         <div className = {classes.main}>
             <h3 className = {classes.title}>Edit Title for the Post:</h3>
             <input 
+                onChange = {props.titleChange}
                 className = {classes.titleInput} defaultValue = {props.title}></input>
         </div>
     )

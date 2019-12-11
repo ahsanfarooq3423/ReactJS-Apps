@@ -4,24 +4,32 @@ import EditTitle from './EditTitle/EditTitle';
 import EditContent from './EditContent/EditContent';
 import EditButtons from './EditButtons/EditButtons';
 import {connect} from 'react-redux';
+import * as postActions from '../../../store/actions/index';
 import { withRouter } from 'react-router';
 
 class EditPost extends Component {
 
     state = {
-        newPost : null
+        editPost : null
     }
 
     componentWillMount = () => {
-        this.setState({newPost : this.props.fullpost})
+        this.setState({editPost : this.props.fullpost})
     }
 
     titleChangeHandler = (event) => {
-        console.log(event.target.value)
+        let copyState = {...this.state}
+        let copyPost = {...copyState.editPost}
+        copyPost.title = event.target.value;
+        this.setState({editPost : copyPost})
+        
     }
 
     contentChangeHandler = (event) => {
-        console.log(event.target.value)
+        let copyState = {...this.state}
+        let copyPost = {...copyState.editPost}
+        copyPost.content = event.target.value;
+        this.setState({editPost : copyPost})
     }
 
 
@@ -33,9 +41,11 @@ class EditPost extends Component {
                 titleChange = {this.titleChangeHandler}
                 title = {this.props.fullpost.title}/>
             <EditContent 
-                contentChange = {this.props.contentChange}
+                contentChange = {this.contentChangeHandler}
                 content = {this.props.fullpost.content}/>
-            <EditButtons/>
+            <EditButtons
+                savePost = {() =>this.props.onSavePost(this.state.editPost)}
+                />
             </div>
         )
     }
@@ -50,4 +60,12 @@ const mapStateToProps = state => {
     }
 }
 
-export default  withRouter(connect(mapStateToProps)(EditPost));
+const mapDispatchToProps = dispatch => {
+    return {
+        onSavePost : (editPost) => dispatch(postActions.saveEditPost(editPost))
+    }
+}
+
+
+
+export default  withRouter(connect(mapStateToProps, mapDispatchToProps)(EditPost));

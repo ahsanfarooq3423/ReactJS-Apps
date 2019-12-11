@@ -71,7 +71,6 @@ export const deletePosts = (posts) => {
 
 
 export const submitPost = (post) => {
-
     let dateObj  = new Date(); 
     let date =  dateObj.toString();
     post.timestamp = date.toString();
@@ -81,6 +80,52 @@ export const submitPost = (post) => {
                 let  posts = res.data[Object.keys(res.data)];
                 posts.push(post)
                 dispatch(deletePosts(posts))
+            })
+            .catch (err => {
+                console.log(err)
+            })
+    }
+}
+
+
+export const submitEditPosts = (editPosts) => {
+    return dispatch => {
+        axios.get("/posts.json")
+        .then(res => {
+            dispatch(deletePosts(editPosts))
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+    
+}
+
+
+export const getEditPost = (posts,editPost) => {
+    for (let fetchedPost in posts) {
+        if (posts[fetchedPost].postId === editPost.postId){
+            //console.log('Fethed Post', posts[fetchedPost]);
+            //console.log('Edited Post', editPost)
+            posts[fetchedPost] = editPost;
+            //console.log('Are changes got reflected', posts)
+        }
+    }
+    return dispatch => {
+        console.log(posts)
+        dispatch(submitEditPosts(posts))
+    }
+    
+}
+
+
+
+export const saveEditPost = (editPost) => {
+    return dispatch => {
+        axios.get('posts.json')
+            .then(res => {
+                let posts = res.data[Object.keys(res.data)];
+                dispatch(getEditPost(posts,editPost))
             })
             .catch (err => {
                 console.log(err)

@@ -48,19 +48,18 @@ const reducer = (state = initialState, action) => {
             }
         }
 
-        // case (actionTypes.NEW_POST): {
-        //     return {
-        //         ...state,
-        //         newPost : action.newPost
-        //     }
-        // }
-
         case (actionTypes.SUBMIT_POST): {
             return {
                 ...state,
                 newPost : action.newPost
             }
         }
+
+        // case (actionTypes.SAVE_EDIT_POST): {
+        //     console.log('In the reducer')
+        //     console.log(action)
+        // }
+
         default: return {
             ...state
             
