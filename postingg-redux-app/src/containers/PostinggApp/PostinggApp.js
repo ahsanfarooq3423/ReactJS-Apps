@@ -23,14 +23,15 @@ class PostinggApp extends Component {
 
 
      getUsersHandler = () => {
-        axios.get("/users/-LvGYkKGjz3BNQTsrAPb.json")
+        axios.get("/users.json")
         .then(res => {
-            this.props.onStartUsers(res.data)
+            this.props.onStartUsers(res.data[Object.keys(res.data)])
         })
         .catch(err => {
             console.log(err)
         })
      }
+    
 
     render() {
         return(

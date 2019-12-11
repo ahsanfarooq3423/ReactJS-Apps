@@ -10,7 +10,24 @@ export const startUsers = (users) => {
 }
 
 export const pushUsers = (updatedUsers) => {
-    console.log('Updated Users',updatedUsers)
+    return dispatch => {
+        axios.post('users.json', updatedUsers)
+            .then(res => {
+                console.log(res.data)
+                dispatch(startUsers(updatedUsers))
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    } 
+}
+
+export const deleteOldUsers = (updatedUsers) => {
+    return dispatch => {
+        axios.delete('users.json')
+            .then(res => dispatch(pushUsers(updatedUsers)))
+            .catch(err => console.log(err))
+    }
 }
 
 export const mutateUsers = (authorId, postId,users) => {
@@ -20,11 +37,10 @@ export const mutateUsers = (authorId, postId,users) => {
             if (users[i].id === authorId) {
                 console.log(users[i].id,authorId)
                 users[i].posts.push(postId)
-                dispatch(pushUsers(users))
+                dispatch(deleteOldUsers(users))
             }
         }
     }
-
 }
 
 export const updateUsersPost = (post) => {
