@@ -1,7 +1,11 @@
 import React from 'react';
 import classes from './NavBar.module.css';
+import {withRouter} from 'react-router';
+import {Link} from 'react-router-dom';
 
-const navbar = () => {
+const navbar = (props) => {
+
+
     return(
     <div className  = {classes.mainnav}>
 
@@ -18,10 +22,10 @@ const navbar = () => {
             
             <ul className={classes.menu}>
             <p className = {classes.brandtoggle}>Posting App</p>
-            <a href="#"><li>Home</li></a>
-            <a href="#"><li>All Posts</li></a>
-            <a href="#"><li>Login</li></a>
-            <a href="#"><li>Sign Up</li></a>
+            <Link to = "/"><li>Home</li></Link>
+            <Link to = "/"><li>All Posts</li></Link>
+            <Link to = "/" ><li>Login</li></Link>
+            <Link to = "/"><li>Sign Up</li></Link>
            
             </ul>
         </div>
@@ -34,7 +38,10 @@ const navbar = () => {
             <p className = {classes.brand}>Posting App</p>
             <div className = {classes.leftlinks}>
                 <p>Home</p>
-                <p>All Posts</p>
+                <p onClick = {() => {
+                    let to = "/"
+                    props.history.push(to)
+                }}>All Posts</p>
             </div>
             
         </div>
@@ -47,4 +54,4 @@ const navbar = () => {
     
 }
 
-export default navbar;
+export default withRouter(navbar);

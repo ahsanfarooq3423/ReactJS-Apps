@@ -7,10 +7,6 @@ const contentbox = (props) => {
             <p className = {classes.text}>
             {props.content}
             </p>
-
-           
-
-            
         </div>
     )
 }

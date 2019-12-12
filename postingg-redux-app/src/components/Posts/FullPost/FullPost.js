@@ -1,4 +1,5 @@
 import React from 'react';
+import CommentBox from '../../CommentBox/CommentBox';
 import TopBox from './TopBox/TopBox';
 import ContentBox from './ContentBox/ContentBox';
 import ButtonBox from './ButtonBox/ButtonBox';
@@ -25,6 +26,7 @@ const fullpost = (props) => {
 
     return(
         <div className = {classes.container}>
+            <div className = {classes.leftcontainer}>
             <TopBox
                 author = {users[props.fullpost.authorId]}
                 timeStamp = {props.fullpost.timestamp}
@@ -38,6 +40,13 @@ const fullpost = (props) => {
                 props.onEditPostSaveUsers(props.fullpost)
                 props.onDeletePost(props.fullpost)}}
             {...props}/>
+            </div>
+
+
+           
+                <CommentBox/>
+       
+            
         </div>
     )
 }

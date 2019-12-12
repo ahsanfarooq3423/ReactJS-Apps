@@ -1,6 +1,11 @@
 .container {
     margin: auto;
     margin-top: 30px;
-    width: 95%;
+    width: 97%;
     border-top: 2.4px solid rgb(156, 147, 147);
+    display: flex;
+}
+
+.leftcontainer {
+    width: 80%;
 }
