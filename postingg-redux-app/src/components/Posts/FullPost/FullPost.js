@@ -35,6 +35,7 @@ const fullpost = (props) => {
             delete = {() => {
                 let to = "/"
                 props.history.push(to)
+                props.onEditPostSaveUsers(props.fullpost)
                 props.onDeletePost(props.fullpost)}}
             {...props}/>
         </div>
@@ -51,9 +52,12 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onDeletePost : (post) => dispatch(actionTypes.deletePost(post))
+        onDeletePost : (post) => dispatch(actionTypes.deletePost(post)),
+        onEditPostSaveUsers : (post) => dispatch(actionTypes.updateDeletePostUsers(post)) 
     }
 }
+
+
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(fullpost));    
 

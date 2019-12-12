@@ -13,7 +13,6 @@ export const pushUsers = (updatedUsers) => {
     return dispatch => {
         axios.post('users.json', updatedUsers)
             .then(res => {
-                console.log(res.data)
                 dispatch(startUsers(updatedUsers))
             })
             .catch(err => {
@@ -31,11 +30,9 @@ export const deleteOldUsers = (updatedUsers) => {
 }
 
 export const mutateUsers = (authorId, postId,users) => {
-    console.log('Old Users:',users)
     return dispatch => {
         for (let i in users){
             if (users[i].id === authorId) {
-                console.log(users[i].id,authorId)
                 users[i].posts.push(postId)
                 dispatch(deleteOldUsers(users))
             }
@@ -49,6 +46,36 @@ export const updateUsersPost = (post) => {
             .then(res => {
                 let users = res.data[Object.keys(res.data)];
                 dispatch(mutateUsers(post.authorId, post.postId, users))
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+}
+
+
+
+export const mutateDeletePostUsers = (users, post) => {
+    return dispatch => {
+        for (let i in users){
+            if (users[i].id === post.authorId){
+                let postId = post.postId;
+                let posts = users[i].posts
+                let updatedPosts = posts.filter(id => id !== postId )
+                users[i].posts = updatedPosts;
+                dispatch(deleteOldUsers(users))
+            }
+        }
+    }
+}
+
+
+export const updateDeletePostUsers = (post) => {
+    return dispatch => {
+        axios.get("/users.json")
+            .then(res => {
+                let users = res.data[Object.keys(res.data)];
+                dispatch(mutateDeletePostUsers(users,post));
             })
             .catch(err => {
                 console.log(err)

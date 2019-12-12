@@ -62,7 +62,7 @@ class NewPost extends  Component {
                 submitPost = {() =>{
                 let to = "/"
                 this.props.history.push(to)
-                this.props.onUpdateUserPost(this.state.newPost)
+                this.props.onSubmitNewPostUsers(this.state.newPost)
                 this.props.onSubmitNewPost(this.state.newPost)}}/>
         </div>
         )
@@ -75,7 +75,7 @@ const mapDispatchToProps = dispatch => {
 
     return {
         onSubmitNewPost : (post) => dispatch(postActions.submitPost(post)),
-        onUpdateUserPost : (newPost) => dispatch(postActions.updateUsersPost(newPost))
+        onSubmitNewPostUsers : (post) => dispatch(postActions.updateUsersPost(post))
     }
 }
 
