@@ -54,7 +54,6 @@ export const updateUsersPost = (post) => {
 }
 
 
-
 export const mutateDeletePostUsers = (users, post) => {
     return dispatch => {
         for (let i in users){

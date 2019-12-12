@@ -1,6 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
 
-
 const initialState = {
     posts : null,
     postsView : 'grid',
@@ -57,7 +56,6 @@ const reducer = (state = initialState, action) => {
 
         default: return {
             ...state
-            
         }
         
     }

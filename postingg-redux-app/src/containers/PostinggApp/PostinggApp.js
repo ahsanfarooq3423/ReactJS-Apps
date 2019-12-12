@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import NavBar from '../../components/NavBar/NavBar';
 import Posts from '../../components/Posts/Posts';
 import FullPost from '../../components/Posts/FullPost/FullPost';
 import NewPost from '../../components/Posts/NewPost/NewPost';
@@ -36,6 +37,7 @@ class PostinggApp extends Component {
     render() {
         return(
             <div>
+               <NavBar/>
                <Route path = "/editpost" exact component = {() => <EditPost/>}/>
                <Route path = "/newpost" exact component = {() => <NewPost />}/>
                <Route path = "/" exact component = {() => <Posts />}/>
