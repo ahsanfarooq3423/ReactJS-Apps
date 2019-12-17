@@ -9,8 +9,7 @@ const comment = () => {
                     <div className = {classes.profile}></div>
                     <div className = {classes.name}>Joshua Megan</div>
                 </div>
-
-
+                
                 <div className={classes.dialogbox}>
                     <div className={classes.body}>
                     <span className = {classes.tip}></span>

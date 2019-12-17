@@ -12,9 +12,6 @@ const commentbox = () => {
             <Comment/>
             <Comment/>
             <Comment/>
-
-            
-
         </div>
     )
 }
