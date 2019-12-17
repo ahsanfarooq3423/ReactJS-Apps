@@ -11,8 +11,7 @@ import axios from '../../axios';
 import * as postActions from '../../store/actions/index';
 
 
-import Signup from '../../components/Auth/Signup/Signup';
-
+import AuthForm from '../../components/Auth/FormAuth';
 
 class PostinggApp extends Component {
 
@@ -40,12 +39,13 @@ class PostinggApp extends Component {
     render() {
         return(
             <div>
-                <Signup/>
-               {/* <NavBar/>
+               <NavBar/>
+               <Route path = "/signup" exact component = {() =>  <AuthForm type = "SignUp"/>}/>
+               <Route path = "/login" exact component = {() =>  <AuthForm type = "Login"/>}/>
                <Route path = "/editpost" exact component = {() => <EditPost/>}/>
                <Route path = "/newpost" exact component = {() => <NewPost />}/>
                <Route path = "/" exact component = {() => <Posts />}/>
-               <Route path = "/fullpost" exact component = {() => <FullPost/>} />  */}
+               <Route path = "/fullpost" exact component = {() => <FullPost/>} /> 
             </div>
             
         )

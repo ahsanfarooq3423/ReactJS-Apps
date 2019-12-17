@@ -18,13 +18,14 @@ const input = (props) => {
                     className = {classes.inputElement} 
                     {...props.elementConfig} 
                     value = {props.value}/>
-
+                    break;
         default :
             inputElement = <input
                     onChange = {props.changed} 
                     className = {classes.inputElement} 
                     {...props.elementConfig} 
                     value = {props.value}/>
+                    break;
         }
         
 

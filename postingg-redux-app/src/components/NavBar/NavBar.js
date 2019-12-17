@@ -24,8 +24,8 @@ const navbar = (props) => {
             <p className = {classes.brandtoggle}>Posting App</p>
             <Link to = "/"><li>Home</li></Link>
             <Link to = "/"><li>All Posts</li></Link>
-            <Link to = "/" ><li>Login</li></Link>
-            <Link to = "/"><li>Sign Up</li></Link>
+            <Link to = "/login" ><li>Login</li></Link>
+            <Link to = "/signup"><li>Sign Up</li></Link>
            
             </ul>
         </div>
@@ -46,8 +46,14 @@ const navbar = (props) => {
             
         </div>
        <div className = {classes.rightnav}>
-            <p>Login</p>
-            <p>Sign Up</p>
+            <p onClick = {()=> {
+                let to = "/login"
+                props.history.push(to)
+            }}>Login</p>
+            <p onClick = {()=> {
+                let to = "/signup"
+                props.history.push(to)
+            }}>Sign Up</p>
         </div>
     </div>
     )

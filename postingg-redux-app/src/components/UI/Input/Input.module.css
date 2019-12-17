@@ -23,7 +23,7 @@
 
 .inputElement:focus {
     outline:  none;
-    background-color: rgb(150, 140, 240);
+    background-color: rgb(150, 140, 240,0.3);
 }
 
 
