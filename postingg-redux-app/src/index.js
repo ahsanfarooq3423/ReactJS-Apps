@@ -16,7 +16,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
     postsState :postsReducer,
-    usersState : userReducer
+    usersState : userReducer,
+    authState : authReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers(

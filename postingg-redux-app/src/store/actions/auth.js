@@ -21,7 +21,7 @@ export const authFail = (error) => {
     }
 }
 
-export const auth  = (email, password) => {
+export const auth  = (email, password, isSignup) => {
     
     return dispatch => {
         dispatch(authStart());
@@ -30,7 +30,10 @@ export const auth  = (email, password) => {
             password : password,
             returnSecureToken : true
         }
-        let url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCMQf7r1hmO24rlvpgq3MeAqg8bdXrYkKM";
+        let url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCMQf7r1hmO24rlvpgq3MeAqg8bdXrYkKM"
+        if (isSignup) {
+        url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyCMQf7r1hmO24rlvpgq3MeAqg8bdXrYkKM";
+        }
         axios.post(url, authData)
             .then(response => {
                 console.log(response)
@@ -41,6 +44,13 @@ export const auth  = (email, password) => {
                 dispatch(authFail())
             })
         
+    }
+}
+
+
+export const switchAuth = () => {
+    return {
+        type : actionTypes.SWITCH_AUTH
     }
 }
 

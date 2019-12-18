@@ -3,15 +3,11 @@ import classes from './NavBar.module.css';
 import {withRouter} from 'react-router';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import * as actions from '../../store/actions/index';
 
 const navbar = (props) => {
-
-
     return(
     <div className  = {classes.mainnav}>
-
-        {/* The toggle hamburger for smaller screens */}
         <nav role={classes.navigation}>
         <div className={classes.menuToggle}>
         
@@ -51,10 +47,12 @@ const navbar = (props) => {
             <p onClick = {()=> {
                 let to = "/login"
                 props.history.push(to)
+                props.onSwitch()
             }}>Login</p>
             <p onClick = {()=> {
                 let to = "/signup"
                 props.history.push(to)
+                props.onSwitch()
             }}>Sign Up</p>
         </div>
     </div>
@@ -62,4 +60,11 @@ const navbar = (props) => {
     
 }
 
-export default withRouter(navbar);
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSwitch : () => dispatch(actions.switchAuth())
+    }
+}
+
+export default withRouter(connect(null,mapDispatchToProps)(navbar));

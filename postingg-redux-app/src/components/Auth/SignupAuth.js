@@ -41,8 +41,6 @@ class SignupAuth extends Component {
         formErrors : {password :"", email : "" , name : "" },
         formValid : false,
         formElementsArray : null
-
-
     }
 
     submitFormHandler = (event) => {
@@ -53,7 +51,6 @@ class SignupAuth extends Component {
             formData[formElementIdentifier] = this.state.authForm[formElementIdentifier];
         }
 
-        console.log(formData)
         this.props.onAuth(formData.email.value, formData.password.value)
 
     }
@@ -101,7 +98,8 @@ class SignupAuth extends Component {
                 && this.state.authForm.name.valid});
       }
 
-   
+
+
     render() {
         const formElementsArray = [];
         for (let key in this.state.authForm) {
@@ -136,17 +134,15 @@ class SignupAuth extends Component {
                 </form>
             </div>
         )
-    }
-    
+    } 
 }
+
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth : (email, password) => dispatch(actions.auth(email, password))
+        onAuth : (email, password) => dispatch(actions.auth(email, password, true))
     }
 }
-
-
 
 
 export default connect(null, mapDispatchToProps)(SignupAuth);
