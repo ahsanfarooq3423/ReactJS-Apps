@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import postsReducer from './store/reducer/posts';
 import userReducer from './store/reducer/users';
+import authReducer from './store/reducer/auth';
 import thunk from 'redux-thunk';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

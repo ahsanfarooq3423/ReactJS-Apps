@@ -2,17 +2,19 @@ import React, { Component } from "react";
 import Input from '../UI/Input/Input';
 import FormErrors from './FormErrors';
 import classes from './FormAuth.module.css';
+import * as actions from '../../store/actions/index';
+import {connect} from 'react-redux';
 
 
-class authform extends Component {
+class SignupAuth extends Component {
 
     state = {
         authForm : {
-            name : {
+            password : {
                 elementType : 'input',
                 elementConfig : {
-                    type : 'text',
-                    placeholder : 'Your Name'
+                    type : 'password',
+                    placeholder : 'Your password'
                 },
                 value : '',
                 valid : false
@@ -25,10 +27,20 @@ class authform extends Component {
                 },
                 value : '',
                 valid : false
+            },
+            name : {
+                elementType : 'input',
+                elementConfig : {
+                    type : 'text',
+                    placeholder : 'Your Name'
+                },
+                value : '',
+                valid : false
             }
         },
-        formErrors : {name :"", email : ""  },
-        formValid : false
+        formErrors : {password :"", email : "" , name : "" },
+        formValid : false,
+        formElementsArray : null
 
 
     }
@@ -40,7 +52,9 @@ class authform extends Component {
         for (let formElementIdentifier in this.state.authForm) {
             formData[formElementIdentifier] = this.state.authForm[formElementIdentifier];
         }
-        console.log(formData);
+
+        console.log(formData)
+        this.props.onAuth(formData.email.value, formData.password.value)
 
     }
 
@@ -49,17 +63,15 @@ class authform extends Component {
         let authForm = JSON.parse(JSON.stringify(this.state.authForm));
         authForm[inputIdentifier].value = value;
         this.setState({authForm}, () => { this.validateField(inputIdentifier, value) });
-
-        
     }
 
-    validateField(fieldName, value) {
+    validateField(field, value) {
         let fieldValidationErrors = this.state.formErrors;
-        let nameValid = this.state.authForm[fieldName].value;
-        let emailValid = this.state.authForm[fieldName].value;
-        
+        let passwordValid = this.state.authForm[field].value;
+        let emailValid = this.state.authForm[field].value;
+        let nameValid  = this.state.authForm[field].value;
       
-        switch(fieldName) {
+        switch(field) {
           case 'email':
             emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
             fieldValidationErrors.email = emailValid ? '' : ' is invalid';
@@ -68,38 +80,43 @@ class authform extends Component {
             nameValid = value.length >= 4;
             fieldValidationErrors.name = nameValid ? '': ' is too short';
             break;
+          case 'password':
+            passwordValid = value.length >= 4;
+            fieldValidationErrors.password = passwordValid ? '': ' is too short';
+            break;
           default:
             break;
         }
         let authForm = JSON.parse(JSON.stringify(this.state.authForm));
-        authForm[fieldName].valid = nameValid;
-        authForm[fieldName].valid = emailValid;
+        authForm[field].valid = passwordValid;
+        authForm[field].valid = emailValid;
         this.setState({formErrors: fieldValidationErrors,
                         authForm : authForm
                       }, this.validateForm);
       }
       
       validateForm() {
-        this.setState({formValid: this.state.authForm.name.valid && this.state.authForm.email.valid});
+        this.setState({formValid: this.state.authForm.password.valid 
+                && this.state.authForm.email.valid 
+                && this.state.authForm.name.valid});
       }
 
-
+   
     render() {
         const formElementsArray = [];
         for (let key in this.state.authForm) {
-            formElementsArray.push({
+            formElementsArray.unshift({
                 id : key,
                 config : this.state.authForm[key]
             })
         }
-
+        
+        
         return(
             <div className = {classes.main}>
                 <div className  = {classes.title}>
-                    <h3>{this.props.type}</h3>
-                    {this.props.type.toUpperCase === "SignUp".toUpperCase ? <p>Please fill in this form to create an account!</p> : 
-                    <p>Please fill in this form to Login</p> }
-                    
+                    <h3>Sign Up</h3>
+                    <p>Please fill in this form to create an account!</p> 
                 </div>
                 
                 <FormErrors formErrors={this.state.formErrors} />
@@ -115,7 +132,7 @@ class authform extends Component {
                 <button
                 className = {classes.submit} 
                 disabled={!this.state.formValid}
-                type = "submit">{this.props.type}</button>
+                type = "submit">Sign Up</button>
                 </form>
             </div>
         )
@@ -123,4 +140,13 @@ class authform extends Component {
     
 }
 
-export default authform;
+const mapDispatchToProps = dispatch => {
+    return {
+        onAuth : (email, password) => dispatch(actions.auth(email, password))
+    }
+}
+
+
+
+
+export default connect(null, mapDispatchToProps)(SignupAuth);

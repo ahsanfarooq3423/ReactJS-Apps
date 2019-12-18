@@ -16,3 +16,7 @@ export {
     updateDeletePostUsers
 } from './users'
 
+
+export {
+    auth 
+} from './auth';

@@ -4,14 +4,15 @@ import Posts from '../../components/Posts/Posts';
 import FullPost from '../../components/Posts/FullPost/FullPost';
 import NewPost from '../../components/Posts/NewPost/NewPost';
 import EditPost from '../../components/Posts/EditPost/EditPost';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import axios from '../../axios';
 import * as postActions from '../../store/actions/index';
 
 
-import AuthForm from '../../components/Auth/FormAuth';
+import SignUp from '../../components/Auth/SignupAuth';
+import Login from '../../components/Auth/LoginAuth';
 
 class PostinggApp extends Component {
 
@@ -35,13 +36,16 @@ class PostinggApp extends Component {
         })
      }
     
+     componentDidMount =() => {
+        console.log(this.props)
+    }  
 
     render() {
         return(
             <div>
                <NavBar/>
-               <Route path = "/signup" exact component = {() =>  <AuthForm type = "SignUp"/>}/>
-               <Route path = "/login" exact component = {() =>  <AuthForm type = "Login"/>}/>
+               <Route path = "/signup" exact component = {() => <SignUp/> }/>
+               <Route path = "/login" exact component = {() => <Login/>  }/>
                <Route path = "/editpost" exact component = {() => <EditPost/>}/>
                <Route path = "/newpost" exact component = {() => <NewPost />}/>
                <Route path = "/" exact component = {() => <Posts />}/>
@@ -52,7 +56,7 @@ class PostinggApp extends Component {
     }
 }
 
-                
+        
 
 const mapStateToProps = state => {
     return {
