@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Input from '../UI/Input/Input';
 import FormErrors from './FormErrors';
+import Spinner from '../UI/Spinner/Spinner';
 import classes from './FormAuth.module.css';
 import * as actions from '../../store/actions/index';
+import Aux from '../../containers/hoc/Aux/Aux';
 import {connect} from 'react-redux';
 
 
@@ -102,10 +104,9 @@ class LoginAuth extends Component {
             })
         }
         
-        
-        return(
-            <div className = {classes.main}>
-                <div className  = {classes.title}>
+        let show = (
+            <Aux>
+                 <div className  = {classes.title}>
                     <h3>Login</h3>
                     <p>Please fill in this form to Login</p>  
                 </div>
@@ -125,10 +126,25 @@ class LoginAuth extends Component {
                 disabled={!this.state.formValid}
                 type = "submit">Login</button>
                 </form>
+            </Aux>
+        )
+        if (this.props.loading) {
+            show = <Spinner/>
+        }
+        return(
+            <div className = {classes.main}>
+             {show}
             </div>
         )
     }
     
+}
+
+const mapStateToProps = state => {
+    return {
+        loading : state.authState.loading,
+        error : state.authState.error
+    }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -139,6 +155,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-
-
-export default connect(null, mapDispatchToProps)(LoginAuth);
+export default connect(mapStateToProps, mapDispatchToProps)(LoginAuth);
