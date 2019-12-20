@@ -35,7 +35,8 @@ class PostinggApp extends Component {
             console.log(err)
         })
      }
-    
+
+   
 
     render() {
         return(

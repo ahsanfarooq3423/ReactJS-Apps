@@ -24,6 +24,7 @@ const fullpost = (props) => {
         })
     }
 
+
     return(
         <div className = {classes.container}>
             <div className = {classes.leftcontainer}>

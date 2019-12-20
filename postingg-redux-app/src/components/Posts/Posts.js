@@ -71,6 +71,8 @@ const posts = (props) => {
         )
     }
 
+    
+
     return(
 
         <div className = {classes.container}>

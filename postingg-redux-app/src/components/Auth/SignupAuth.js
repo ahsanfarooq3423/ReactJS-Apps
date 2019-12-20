@@ -53,7 +53,7 @@ class SignupAuth extends Component {
             formData[formElementIdentifier] = this.state.authForm[formElementIdentifier];
         }
 
-        this.props.onAuth(formData.email.value, formData.password.value)
+        this.props.onAuth(formData.email.value, formData.password.value, formData.name.value)
 
     }
 
@@ -62,6 +62,7 @@ class SignupAuth extends Component {
         let authForm = JSON.parse(JSON.stringify(this.state.authForm));
         authForm[inputIdentifier].value = value;
         this.setState({authForm}, () => { this.validateField(inputIdentifier, value) });
+        
     }
 
     validateField(field, value) {
@@ -163,7 +164,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onAuth : (email, password) => dispatch(actions.auth(email, password, true))
+        onAuth : (email, password, name) => dispatch(actions.auth(email, password, true , name))
     }
 }
 

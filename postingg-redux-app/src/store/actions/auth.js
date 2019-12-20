@@ -1,5 +1,6 @@
 import * as actionTypes from './actionTypes';
 import axios from 'axios';
+import postingg_axios from '../../axios';
 
 export const authStart = () => {
     return{
@@ -36,7 +37,57 @@ export const checkAuthTimeout = (expirationTime) => {
     }
 }
 
-export const auth  = (email, password, isSignup) => {
+export const startUsers = (users) => {
+    return {
+        type : actionTypes.START_USERS,
+        users : users
+    }
+}
+
+
+export const updatedUserDB = (updatedUsers) => {
+    return dispatch => {
+        postingg_axios.post('users.json', updatedUsers)
+            .then(res => {
+                dispatch(startUsers())
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+}
+
+export const deleteOldUsers = (updatedUsers) => {
+    return dispatch => {
+        postingg_axios.delete('users.json')
+            .then(res => dispatch(updatedUserDB(updatedUsers)))
+            .catch(err => console.log(err))
+    }
+}
+
+export const getUsersDB = (idToken, name) => {
+    return dispatch => {
+        let newUser = {
+            id : idToken,
+            name : name,
+            posts : []
+        }
+        postingg_axios.get('users.json')
+            .then(res => {
+                let users = res.data[Object.keys(res.data)];
+                users.push(newUser);
+                dispatch(deleteOldUsers(users));
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        
+        
+        
+    }
+}
+
+export const auth  = (email, password, isSignup, name) => {
     
     return dispatch => {
         dispatch(authStart());
@@ -54,6 +105,8 @@ export const auth  = (email, password, isSignup) => {
                 console.log(response)
                 dispatch(authSuccess(response.data.idToken, response.data.localId))
                 dispatch(checkAuthTimeout(response.data.expiresIn))
+                dispatch(getUsersDB(response.data.localId, name ))
+
             })
             .catch(err => {
                 console.log(err)

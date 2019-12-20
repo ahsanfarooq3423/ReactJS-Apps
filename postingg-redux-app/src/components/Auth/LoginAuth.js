@@ -58,7 +58,6 @@ class LoginAuth extends Component {
         let authForm = JSON.parse(JSON.stringify(this.state.authForm));
         authForm[inputIdentifier].value = value;
         this.setState({authForm}, () => { this.validateField(inputIdentifier, value) });
-
         
     }
 
