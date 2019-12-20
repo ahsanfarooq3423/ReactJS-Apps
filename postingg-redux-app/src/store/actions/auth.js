@@ -81,9 +81,7 @@ export const getUsersDB = (idToken, name) => {
             .catch(err => {
                 console.log(err)
             })
-        
-        
-        
+
     }
 }
 
@@ -102,7 +100,6 @@ export const auth  = (email, password, isSignup, name) => {
         }
         axios.post(url, authData)
             .then(response => {
-                console.log(response)
                 dispatch(authSuccess(response.data.idToken, response.data.localId))
                 dispatch(checkAuthTimeout(response.data.expiresIn))
                 dispatch(getUsersDB(response.data.localId, name ))

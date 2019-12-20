@@ -1,11 +1,13 @@
 import React from 'react';
 import classes from './NavBar.module.css';
+import Aux from '../../containers/hoc/Aux/Aux';
 import {withRouter} from 'react-router';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
 
 const navbar = (props) => {
+
     return(
     <div className  = {classes.mainnav}>
         <nav role={classes.navigation}>
@@ -22,8 +24,12 @@ const navbar = (props) => {
             <p className = {classes.brandtoggle}>Posting App</p>
             <Link to = "/"><li>Home</li></Link>
             <Link to = "/"><li>All Posts</li></Link>
-            <Link to = "/login" ><li>Login</li></Link>
-            <Link to = "/signup"><li>Sign Up</li></Link>
+            {!props.isAuth ?
+            <Aux>
+                <Link to = "/login" ><li>Login</li></Link>
+                <Link to = "/signup"><li>Sign Up</li></Link>
+            </Aux> 
+             : null}
            
             </ul>
         </div>
@@ -43,7 +49,7 @@ const navbar = (props) => {
             </div>
             
         </div>
-       <div className = {classes.rightnav}>
+        {!props.isAuth ? <div className = {classes.rightnav}>
             <p onClick = {()=> {
                 let to = "/login"
                 props.history.push(to)
@@ -54,7 +60,8 @@ const navbar = (props) => {
                 props.history.push(to)
                 props.onSwitch()
             }}>Sign Up</p>
-        </div>
+        </div> : null }
+       
     </div>
     )
     

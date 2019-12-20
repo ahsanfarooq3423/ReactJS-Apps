@@ -7,6 +7,7 @@ const initialState = {
 const reducer = (state = initialState, action) => {
         switch (action.type) {
           case (actionTypes.START_USERS):
+            
             return {
               ...state,
               users : action.users

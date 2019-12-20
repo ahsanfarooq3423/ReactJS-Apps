@@ -24,6 +24,7 @@ const posts = (props) => {
         })
     }
     
+    
 
     let show = (
         <div className = {classes.spinner}>
@@ -44,7 +45,7 @@ const posts = (props) => {
                             content = {post.content}
                             src = {post.picUrl}
                             key = {post.postId}
-                            author = {users[post.authorId]}
+                            author = {post.authorName}
                               />
                       )}                
            </div>
@@ -63,7 +64,7 @@ const posts = (props) => {
                                 content = {post.content}
                                 src = {post.picUrl}
                                 key = {post.postId}
-                                author = {users[post.authorId]} 
+                                author = {post.authorName} 
                                 />
                 })}
                
@@ -71,7 +72,6 @@ const posts = (props) => {
         )
     }
 
-    
 
     return(
 

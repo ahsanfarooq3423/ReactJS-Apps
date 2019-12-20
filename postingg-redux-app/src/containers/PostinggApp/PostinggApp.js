@@ -4,6 +4,8 @@ import Posts from '../../components/Posts/Posts';
 import FullPost from '../../components/Posts/FullPost/FullPost';
 import NewPost from '../../components/Posts/NewPost/NewPost';
 import EditPost from '../../components/Posts/EditPost/EditPost';
+import SignUp from '../../components/Auth/SignupAuth';
+import Login from '../../components/Auth/LoginAuth';
 import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -11,8 +13,6 @@ import axios from '../../axios';
 import * as postActions from '../../store/actions/index';
 
 
-import SignUp from '../../components/Auth/SignupAuth';
-import Login from '../../components/Auth/LoginAuth';
 
 class PostinggApp extends Component {
 
@@ -36,12 +36,13 @@ class PostinggApp extends Component {
         })
      }
 
-   
+     
+    
 
     render() {
         return(
             <div>
-               <NavBar/>
+               <NavBar isAuth = {this.props.isAuthenticated}/>
                <Route path = "/signup" exact component = {() => <SignUp/> }/>
                <Route path = "/login" exact component = {() => <Login/>  }/>
                <Route path = "/editpost" exact component = {() => <EditPost/>}/>
@@ -60,7 +61,8 @@ const mapStateToProps = state => {
     return {
         posts : state.postsState.posts,
         view : state.postsState.postsView,
-        users : state.usersState.users
+        users : state.usersState.users,
+        isAuthenticated : state.authState.token !== null
     }
 }
 

@@ -29,7 +29,7 @@ const fullpost = (props) => {
         <div className = {classes.container}>
             <div className = {classes.leftcontainer}>
             <TopBox
-                author = {users[props.fullpost.authorId]}
+                author = {props.fullpost.authorName}
                 timeStamp = {props.fullpost.timestamp}
                 title = {props.fullpost.title}
                 src = {props.fullpost.picUrl}/>
@@ -42,9 +42,6 @@ const fullpost = (props) => {
                 props.onDeletePost(props.fullpost)}}
             {...props}/>
             </div>
-
-
-           
                 <CommentBox/>
        
             
