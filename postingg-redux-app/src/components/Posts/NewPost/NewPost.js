@@ -73,11 +73,7 @@ class NewPost extends  Component {
                 this.props.history.push(to)
                 this.props.onSubmitNewPostUsers(this.state.newPost)
                 this.props.onSubmitNewPost(this.state.newPost)}}/>
-            </Aux>: 
-            <Aux>
-                <FlashMessage duration = {5000}>You need to be logged in first</FlashMessage>
-                <Redirect to = "/login" />
-            </Aux>
+            </Aux>: null
             }
             
         </div>
