@@ -70,7 +70,7 @@ export const getUsersDB = (idToken, name) => {
         let newUser = {
             id : idToken,
             name : name,
-            posts : []
+            posts : [1]
         }
         postingg_axios.get('users.json')
             .then(res => {

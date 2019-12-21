@@ -21,6 +21,7 @@ class NewPost extends  Component {
             content : null,
             postId : '48ju',
             authorId : 'Sh3msDE5meN5nBX3SrPjizfyyuI2',
+            authorName : null,
             timestamp : null,
             picUrl : "https://images.unsplash.com/photo-1566640241039-2443899336c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80"
         }
@@ -46,12 +47,30 @@ class NewPost extends  Component {
 
    
     componentDidMount = () => {
-        console.log(this.props.currentUser)
+        let userName = null;
+        if (this.props.isAuthenticated){
+            
+            for (let i in this.props.users) {
+                if (this.props.users[i].id === this.props.auth.userId){
+                    userName = this.props.users[i].name
+                } 
+            }
+            userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+            
+        }
+
         this.setState({posts: this.props.posts, users : this.props.users})
         let copyState = {...this.state}
         let newPost = {...copyState.newPost}
         newPost.postId = Math.random().toString(36).slice(6)
+        newPost.authorName = userName
+        newPost.authorId = this.props.currentUser.userId
         this.setState({newPost})
+
+        
+
+
+        
 
     }
 
@@ -99,7 +118,9 @@ class NewPost extends  Component {
 
 const mapStateToProps = state => {
     return {
+        users : state.usersState.users,
         currentUser : state.authState,
+        auth : state.authState,
         isAuthenticated : state.authState.token !== null
     }
 }

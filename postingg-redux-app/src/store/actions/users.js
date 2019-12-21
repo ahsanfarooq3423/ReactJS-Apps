@@ -27,7 +27,10 @@ export const pushUsers = (updatedUsers) => {
 export const deleteOldUsers = (updatedUsers) => {
     return dispatch => {
         axios.delete('users.json')
-            .then(res => dispatch(pushUsers(updatedUsers)))
+            .then(res => {
+                console.log(res.data)
+                dispatch(pushUsers(updatedUsers))    
+            })
             .catch(err => console.log(err))
     }
 }
@@ -36,12 +39,22 @@ export const mutateUsers = (authorId, postId,users) => {
     return dispatch => {
         for (let i in users){
             if (users[i].id === authorId) {
-                users[i].posts.push(postId)
-                dispatch(deleteOldUsers(users))
+                    if (users[i].posts) {
+                        users[i].posts.push(postId)
+                    }
+                    else {
+                        users[i]['posts'] = [];
+                        users[i]['posts'].push(postId)
+                    }
+
+                    dispatch(deleteOldUsers(users))
+                }
+                
+                
             }
         }
     }
-}
+
 
 export const updateUsersPost = (post) => {
     return dispatch => {
