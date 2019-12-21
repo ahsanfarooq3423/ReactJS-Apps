@@ -102,7 +102,10 @@ export const auth  = (email, password, isSignup, name) => {
             .then(response => {
                 dispatch(authSuccess(response.data.idToken, response.data.localId))
                 dispatch(checkAuthTimeout(response.data.expiresIn))
-                dispatch(getUsersDB(response.data.localId, name ))
+                if (isSignup){
+                    dispatch(getUsersDB(response.data.localId, name ))
+                }
+                
 
             })
             .catch(err => {

@@ -5,6 +5,7 @@ import Spinner from '../UI/Spinner/Spinner';
 import Aux from '../../containers/hoc/Aux/Aux'
 import classes from './FormAuth.module.css';
 import * as actions from '../../store/actions/index';
+import {withRouter} from 'react-router';
 import {connect} from 'react-redux';
 
 
@@ -53,6 +54,7 @@ class SignupAuth extends Component {
             formData[formElementIdentifier] = this.state.authForm[formElementIdentifier];
         }
 
+        this.props.history.push("/")
         this.props.onAuth(formData.email.value, formData.password.value, formData.name.value)
 
     }
@@ -169,4 +171,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignupAuth);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SignupAuth));

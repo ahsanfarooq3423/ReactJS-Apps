@@ -4,9 +4,21 @@ import Aux from '../../containers/hoc/Aux/Aux';
 import {withRouter} from 'react-router';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import AuthorInfo from '../Posts/PostList/AuthorInfo/AuthorInfo';
 import * as actions from '../../store/actions/index';
 
 const navbar = (props) => {
+    let userName = null;
+    if (props.isAuthenticated){
+        
+        for (let i in props.users) {
+            if (props.users[i].id === props.auth.userId){
+                userName = props.users[i].name
+            } 
+        }
+        userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+    }
+
 
     return(
     <div className  = {classes.mainnav}>
@@ -29,7 +41,7 @@ const navbar = (props) => {
                 <Link to = "/login" ><li>Login</li></Link>
                 <Link to = "/signup"><li>Sign Up</li></Link>
             </Aux> 
-             : null}
+             : <AuthorInfo  author = "Ali Baba"/>}
            
             </ul>
         </div>
@@ -60,7 +72,10 @@ const navbar = (props) => {
                 props.history.push(to)
                 props.onSwitch()
             }}>Sign Up</p>
-        </div> : null }
+        </div> :<div className = {classes.profile}> 
+                     <AuthorInfo  author = {userName}/>
+                </div>
+         }
        
     </div>
     )
@@ -68,10 +83,18 @@ const navbar = (props) => {
 }
 
 
+const mapStateToProps = state => {
+    return {
+        users : state.usersState.users,
+        auth : state.authState,
+        isAuthenticated : state.authState.token !== null
+    }
+}
+
 const mapDispatchToProps = dispatch => {
     return {
         onSwitch : () => dispatch(actions.switchAuth())
     }
 }
 
-export default withRouter(connect(null,mapDispatchToProps)(navbar));
+export default withRouter(connect(mapStateToProps ,mapDispatchToProps)(navbar));

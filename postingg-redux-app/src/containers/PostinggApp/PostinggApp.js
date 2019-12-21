@@ -17,12 +17,15 @@ import * as postActions from '../../store/actions/index';
 class PostinggApp extends Component {
 
     state = {
-        users : null
+        users : null,
+        userName : null
     }
 
      componentDidMount() {
         this.props.onInitPosts();
         this.getUsersHandler();
+        
+
      }
 
 
@@ -62,7 +65,8 @@ const mapStateToProps = state => {
         posts : state.postsState.posts,
         view : state.postsState.postsView,
         users : state.usersState.users,
-        isAuthenticated : state.authState.token !== null
+        isAuthenticated : state.authState.token !== null,
+        userId : state.authState.userId
     }
 }
 

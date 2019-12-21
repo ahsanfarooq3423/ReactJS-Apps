@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import NewTitle from './NewTitle/NewTitle';
 import NewContent from './NewContent/NewContent';
 import NewButtons from './NewButtons/NewButtons';
-import FlashMessage from 'react-flash-message';
+import Modal from '../../UI/Modal/Modal';
+import Login from '../../Auth/LoginAuth';
+import Signup from '../../Auth/SignupAuth';
 import Aux from '../../../containers/hoc/Aux/Aux'
 import {connect} from 'react-redux';
 import { withRouter, Redirect } from 'react-router'; 
@@ -51,10 +53,24 @@ class NewPost extends  Component {
         newPost.postId = Math.random().toString(36).slice(6)
         this.setState({newPost})
 
+    }
 
+    redirectToPostsHandler = () => {
+        this.props.history.push("/")
     }
 
     render() {
+        let auth = (
+            <div>
+                <h1>Please Login of SignUp to continue...</h1>
+                <div className = {classes.auth}>
+                    <Login/>
+                    <Signup/>
+                </div>
+            </div>
+           
+        )
+
         return(
             <div className = {classes.main}>
                 
@@ -73,7 +89,7 @@ class NewPost extends  Component {
                 this.props.history.push(to)
                 this.props.onSubmitNewPostUsers(this.state.newPost)
                 this.props.onSubmitNewPost(this.state.newPost)}}/>
-            </Aux>: null
+            </Aux>: <Modal show  close = {this.redirectToPostsHandler}> {auth} </Modal>
             }
             
         </div>

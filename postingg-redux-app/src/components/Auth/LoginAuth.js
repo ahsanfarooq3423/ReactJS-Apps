@@ -6,6 +6,7 @@ import classes from './FormAuth.module.css';
 import * as actions from '../../store/actions/index';
 import Aux from '../../containers/hoc/Aux/Aux';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
 
 
 class LoginAuth extends Component {
@@ -48,7 +49,7 @@ class LoginAuth extends Component {
         }
 
         
-
+        this.props.history.push("/")
         this.props.onAuth(formData.email.value, formData.password.value)
         
     }
@@ -154,4 +155,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginAuth);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LoginAuth));

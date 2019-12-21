@@ -5,9 +5,12 @@ import axios from '../../axios';
 export const startUsers = (users) => {
     return {
         type : actionTypes.START_USERS,
-        users : users
+        users : users,
+        currentUser : null
     }
 }
+
+
 
 export const pushUsers = (updatedUsers) => {
     return dispatch => {

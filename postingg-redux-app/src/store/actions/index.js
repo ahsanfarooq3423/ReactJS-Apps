@@ -19,5 +19,5 @@ export {
 
 export {
     auth,
-    switchAuth
+    switchAuth   
 } from './auth';
