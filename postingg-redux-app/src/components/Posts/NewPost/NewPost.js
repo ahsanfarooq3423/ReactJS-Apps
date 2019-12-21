@@ -7,7 +7,7 @@ import Login from '../../Auth/LoginAuth';
 import Signup from '../../Auth/SignupAuth';
 import Aux from '../../../containers/hoc/Aux/Aux'
 import {connect} from 'react-redux';
-import { withRouter, Redirect } from 'react-router'; 
+import { withRouter } from 'react-router'; 
 import * as postActions from '../../../store/actions/index';
 import classes from './NewPost.module.css';
 
@@ -66,11 +66,6 @@ class NewPost extends  Component {
         newPost.authorName = userName
         newPost.authorId = this.props.currentUser.userId
         this.setState({newPost})
-
-        
-
-
-        
 
     }
 

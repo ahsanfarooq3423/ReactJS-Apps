@@ -44,7 +44,8 @@ const reducer = (state = initialState, action) =>{
         case (actionTypes.AUTH_LOGOUT):
             return {
                 ...state,
-                token : null
+                token : null,
+                userId :null 
             }
         default: return {
             ...state

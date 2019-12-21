@@ -20,8 +20,13 @@
 }
 
 .profile {
-    margin-left: 60%;
+    margin-left: 55%;
+    display: flex;
+}
 
+.profile p {
+  line-height: 45px;
+  padding-left: 8px;
 }
 
 .mainnav p {

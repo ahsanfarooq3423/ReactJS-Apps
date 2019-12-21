@@ -6,7 +6,7 @@ import NewPost from '../../components/Posts/NewPost/NewPost';
 import EditPost from '../../components/Posts/EditPost/EditPost';
 import SignUp from '../../components/Auth/SignupAuth';
 import Login from '../../components/Auth/LoginAuth';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import axios from '../../axios';

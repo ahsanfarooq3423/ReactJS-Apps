@@ -41,7 +41,12 @@ const navbar = (props) => {
                 <Link to = "/login" ><li>Login</li></Link>
                 <Link to = "/signup"><li>Sign Up</li></Link>
             </Aux> 
-             : <AuthorInfo  author = "Ali Baba"/>}
+             :
+             <Aux>
+                <AuthorInfo  author = {userName}/>
+                <p>Logout</p>
+             </Aux>
+            }
            
             </ul>
         </div>
@@ -74,6 +79,7 @@ const navbar = (props) => {
             }}>Sign Up</p>
         </div> :<div className = {classes.profile}> 
                      <AuthorInfo  author = {userName}/>
+                     <p onClick = { props.onLogout}>Logout</p>
                 </div>
          }
        
@@ -93,7 +99,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSwitch : () => dispatch(actions.switchAuth())
+        onSwitch : () => dispatch(actions.switchAuth()),
+        onLogout : () => dispatch(actions.logout())
     }
 }
 
