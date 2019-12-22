@@ -10,13 +10,16 @@ import * as actions from '../../store/actions/index';
 const navbar = (props) => {
     let userName = null;
     if (props.isAuthenticated){
-        
-        for (let i in props.users) {
-            if (props.users[i].id === props.auth.userId){
-                userName = props.users[i].name
-            } 
+        if (props.users){
+            for (let i in props.users) {
+            
+                if (props.users[i].id === props.auth.userId){
+                    userName = props.users[i].name
+                } 
+            }
+            userName = userName.charAt(0).toUpperCase() + userName.slice(1);
         }
-        userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+
     }
 
 
@@ -58,7 +61,10 @@ const navbar = (props) => {
         <div className = {classes.leftnav}>
             <p className = {classes.brand}>Posting App</p>
             <div className = {classes.leftlinks}>
-                <p>Home</p>
+                <p onClick = {() => {
+                    let to = "/"
+                    props.history.push(to)
+                }}>Home</p>
                 <p onClick = {() => {
                     let to = "/"
                     props.history.push(to)

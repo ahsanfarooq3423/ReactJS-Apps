@@ -24,6 +24,7 @@ export const authFail = (error) => {
 }
 
 export const logout = () => {
+    localStorage.removeItem('token')
     return {
         type : actionTypes.AUTH_LOGOUT
     }
@@ -100,6 +101,8 @@ export const auth  = (email, password, isSignup, name) => {
         }
         axios.post(url, authData)
             .then(response => {
+                localStorage.setItem("token", response.data.idToken)
+                localStorage.setItem("userId",response.data.localId)
                 dispatch(authSuccess(response.data.idToken, response.data.localId))
                 dispatch(checkAuthTimeout(response.data.expiresIn))
                 if (isSignup){
@@ -120,6 +123,19 @@ export const auth  = (email, password, isSignup, name) => {
 export const switchAuth = () => {
     return {
         type : actionTypes.SWITCH_AUTH
+    }
+}
+
+export const authCheckState = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        const userId = localStorage.getItem("userId")
+        if (!token) {
+            console.log('in no token')
+            dispatch(logout())
+        } else {
+            dispatch(authSuccess(token, userId))
+        }
     }
 }
 
