@@ -47,11 +47,9 @@ class LoginAuth extends Component {
         for (let formElementIdentifier in this.state.authForm) {
             formData[formElementIdentifier] = this.state.authForm[formElementIdentifier];
         }
-
         
-        this.props.history.push("/")
         this.props.onAuth(formData.email.value, formData.password.value)
-        
+        this.props.history.push("/")
     }
 
     inputChangeHanlder = (event, inputIdentifier) => {
@@ -143,7 +141,8 @@ class LoginAuth extends Component {
 const mapStateToProps = state => {
     return {
         loading : state.authState.loading,
-        error : state.authState.error
+        error : state.authState.error,
+        isAuthenticated : state.authState.token !== null
     }
 }
 

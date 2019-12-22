@@ -3,14 +3,12 @@ import axios from '../../axios';
 
 
 export const startUsers = (users) => {
-    
     return {
         type : actionTypes.START_USERS,
         users : users,
         currentUser : null
     }
 }
-
 
 
 export const pushUsers = (updatedUsers) => {

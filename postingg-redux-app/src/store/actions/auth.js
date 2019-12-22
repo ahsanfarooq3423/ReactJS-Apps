@@ -50,7 +50,7 @@ export const updatedUserDB = (updatedUsers) => {
     return dispatch => {
         postingg_axios.post('users.json', updatedUsers)
             .then(res => {
-                dispatch(startUsers())
+                dispatch(startUsers(updatedUsers))
             })
             .catch(err => {
                 console.log(err)
@@ -70,11 +70,11 @@ export const getUsersDB = (idToken, name) => {
     return dispatch => {
         let newUser = {
             id : idToken,
-            name : name,
-            posts : [1]
+            name : name
         }
         postingg_axios.get('users.json')
             .then(res => {
+
                 let users = res.data[Object.keys(res.data)];
                 users.push(newUser);
                 dispatch(deleteOldUsers(users));
@@ -87,9 +87,10 @@ export const getUsersDB = (idToken, name) => {
 }
 
 export const auth  = (email, password, isSignup, name) => {
-    
+
     return dispatch => {
         dispatch(authStart());
+        
         const authData = {
             email : email,
             password : password,
@@ -101,18 +102,15 @@ export const auth  = (email, password, isSignup, name) => {
         }
         axios.post(url, authData)
             .then(response => {
-                localStorage.setItem("token", response.data.idToken)
-                localStorage.setItem("userId",response.data.localId)
-                dispatch(authSuccess(response.data.idToken, response.data.localId))
-                dispatch(checkAuthTimeout(response.data.expiresIn))
                 if (isSignup){
                     dispatch(getUsersDB(response.data.localId, name ))
                 }
-                
-
+                localStorage.setItem("token", response.data.idToken)
+                localStorage.setItem("userId",response.data.localId)
+                dispatch(authSuccess(response.data.idToken, response.data.localId))
+                dispatch(checkAuthTimeout(response.data.expiresIn))  
             })
             .catch(err => {
-                console.log(err)
                 dispatch(authFail(err.response.data.error))
             })
         

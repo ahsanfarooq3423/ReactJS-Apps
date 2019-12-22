@@ -49,7 +49,6 @@ class PostinggApp extends Component {
                <Route path = "/" exact component = {() => <Posts />}/>
                <Route path = "/fullpost" exact component = {() => <FullPost/>} /> 
                <Route path = "/newpost" exact component = {() => <NewPost />}/>
-
             </Switch>
         )
         if (this.props.isAuthenticated) {
