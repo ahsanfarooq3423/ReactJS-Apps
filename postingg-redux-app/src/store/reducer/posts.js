@@ -1,4 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
+import {updateObject} from '../utility';
 
 const initialState = {
     posts : null,
@@ -18,42 +19,35 @@ const initialState = {
     
 }
 
+const gridView = (state) => {
+    return updateObject(state, {postView : 'grid'})
+}
+
+const listView = (state) => {
+    return updateObject(state, {postView : 'list'})
+}
+
+const viewPost = (state, action) => {
+    return updateObject(state, {viewPost : action.post})
+}
+
+const setPosts = (state, action) => {
+    return updateObject(state, {posts : action.posts})
+}
+
+const submitPost = (state, action) => {
+    return updateObject(state, {newPost : action.newPost})
+}
+
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case (actionTypes.GRID_VIEW) : {
-            return {
-                ...state,
-                postsView : 'grid'
-            }
-        }
-        case (actionTypes.LIST_VIEW) : {
-            return {
-                ...state,
-                postsView : 'list'
-            }
-        }
-        case (actionTypes.VIEW_POST): {
-            return{
-                ...state,
-                viewPost : action.post
-            }
-        }
-
-        case (actionTypes.SET_POSTS): {
-            return {
-                ...state,
-                posts : action.posts
-            }
-        }
-
-        case (actionTypes.SUBMIT_POST): {
-            return {
-                ...state,
-                newPost : action.newPost
-            }
-        }
-
+        case (actionTypes.GRID_VIEW) : return gridView(state)
+        case (actionTypes.LIST_VIEW) : return listView(state)
+        case (actionTypes.VIEW_POST): return viewPost(state, action)
+        case (actionTypes.SET_POSTS):  return setPosts(state, action)
+        case (actionTypes.SUBMIT_POST): return submitPost(state, action)
         default: return {
             ...state
         }
