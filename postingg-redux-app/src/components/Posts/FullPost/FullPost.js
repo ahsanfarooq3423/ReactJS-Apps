@@ -34,7 +34,10 @@ const fullpost = (props) => {
                 title = {props.fullpost.title}
                 src = {props.fullpost.picUrl}/>
             <ContentBox content = {props.fullpost.content}/>
-            <ButtonBox  
+            <ButtonBox
+            auth = {props.isAuthenticated}
+            currentUser = {props.currentUser}  
+            author = {props.fullpost.authorName}
             delete = {() => {
                 let to = "/"
                 props.history.push(to)
@@ -53,7 +56,9 @@ const mapStateToProps = state => {
     return {
         posts : state.postsState.posts,
         users : state.usersState.users,
-        fullpost : state.postsState.viewPost
+        fullpost : state.postsState.viewPost,
+        isAuthenticated : state.authState.token !== null,
+        currentUser : state.authState.currentUser
     }
 }
 

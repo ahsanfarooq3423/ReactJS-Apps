@@ -20,11 +20,11 @@ const initialState = {
 }
 
 const gridView = (state) => {
-    return updateObject(state, {postView : 'grid'})
+    return updateObject(state, {postsView : 'grid'})
 }
 
 const listView = (state) => {
-    return updateObject(state, {postView : 'list'})
+    return updateObject(state, {postsView : 'list'})
 }
 
 const viewPost = (state, action) => {

@@ -40,7 +40,31 @@
     }
 }
 
+@media (max-width : 600px) {
+    .maincard {
+        width: 65%;
+        height: 300px;
+        margin: 10px;
+        margin-left: 20%;
+    }
+}
+@media (max-width : 520px) {
+    .maincard {
+        width: 75%;
+        height: 280px;
+        margin: 10px;
+        margin-left: 10%;
+    }
+}
 
+@media (max-width : 420px) {
+    .maincard {
+        width: 85%;
+        height: 280px;
+        margin: 10px;
+        margin-left: 5%;
+    }
+}
 
 .maincard:hover {
     box-shadow: -1px 7px 14px -8px rgba(0,0,0,0.75);

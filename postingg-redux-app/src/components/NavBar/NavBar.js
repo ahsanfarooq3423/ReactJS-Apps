@@ -22,8 +22,6 @@ const navbar = (props) => {
             else {
                 userName = props.currentUser
             }
-            
-
         }
     }
 
@@ -55,7 +53,6 @@ const navbar = (props) => {
                 <p>Logout</p>
              </Aux>
             }
-           
             </ul>
         </div>
         </nav>
