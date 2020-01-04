@@ -12,7 +12,7 @@ import axios from '../../axios';
 import * as postActions from '../../store/actions/index';
 
 
-
+    
 class PostinggApp extends Component {
 
     state = {

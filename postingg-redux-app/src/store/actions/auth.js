@@ -2,9 +2,10 @@ import * as actionTypes from './actionTypes';
 import axios from 'axios';
 import postingg_axios from '../../axios';
 
-export const authStart = () => {
+export const authStart = (name) => {
     return{
-        type : actionTypes.AUTH_START
+        type : actionTypes.AUTH_START,
+        name : name
     }
 }
 
@@ -86,11 +87,12 @@ export const getUsersDB = (idToken, name) => {
     }
 }
 
-export const auth  = (email, password, isSignup, name) => {
 
+
+export const auth  = (email, password, isSignup, name) => {
     return dispatch => {
-        dispatch(authStart());
-        
+        dispatch(authStart(name));
+
         const authData = {
             email : email,
             password : password,

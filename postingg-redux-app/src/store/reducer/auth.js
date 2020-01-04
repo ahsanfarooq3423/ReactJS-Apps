@@ -6,7 +6,8 @@ const initialState = {
     userId : null,
     error : null,
     loading : null,
-    signup : true
+    signup : true,
+    currentUser : null
 }
 
 const authStart = (state) => {
@@ -34,12 +35,13 @@ const authLogout = (state) => {
 const reducer = (state = initialState, action) =>{
 
     switch(action.type) {
-
+       
         case (actionTypes.AUTH_START): 
             return{
                 ...state,
                 error : null,
-                loading : true
+                loading : true,
+                currentUser : action.name
             }
 
         case (actionTypes.AUTH_SUCCESS): 

@@ -10,6 +10,7 @@ export const SAVE_EDIT_POST = "SAVE_EDIT_POST";
 
 //actionTypes for users
 export const START_USERS = 'START_USERS';
+export const TEMP_CURRENT_USER = 'TEMP_CURRENT_USER';
 
 
 
@@ -19,6 +20,7 @@ export const AUTH_SUCCESS = "AUTH_SUCCESS"
 export const AUTH_FAIL  = "AUTH_FAIL"
 export const SWITCH_AUTH = "SWITCH_AUTH";
 export const AUTH_LOGOUT = "AUTH_LOGOUT";
+
 
 
 

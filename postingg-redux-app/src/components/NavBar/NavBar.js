@@ -11,14 +11,18 @@ const navbar = (props) => {
     let userName = null;
     if (props.isAuthenticated){
         if (props.users){
-            console.log(props.users)
             for (let i in props.users) {
                 if (props.users[i].id === props.auth.userId){
                     userName = props.users[i].name
-                } 
+                }  
             }
-            console.log(userName)
-            userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+            if (userName) {
+                userName = userName.charAt(0).toUpperCase() + userName.slice(1);
+            }
+            else {
+                userName = props.currentUser
+            }
+            
 
         }
     }
@@ -100,7 +104,8 @@ const mapStateToProps = state => {
     return {
         users : state.usersState.users,
         auth : state.authState,
-        isAuthenticated : state.authState.token !== null
+        isAuthenticated : state.authState.token !== null,
+        currentUser : state.authState.currentUser
     }
 }
 
