@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Box from './Title/Box';
 import './App.css';
 import Cities from './Components/Cities';
-import { tsPropertySignature, throwStatement } from '@babel/types';
 
 
 //getting the Pakistan Cities data from the json file
@@ -62,7 +61,6 @@ class App extends Component {
 
   render(){
     return (
-      //final content of the app
       <div className="App">
         <Box/>
         <Heading/>

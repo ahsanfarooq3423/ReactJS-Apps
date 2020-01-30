@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
 import NavBar from '../../components/NavBar/NavBar';
 import Posts from '../../components/Posts/Posts';
-import FullPost from '../../components/Posts/FullPost/FullPost';
-import NewPost from '../../components/Posts/NewPost/NewPost';
-import EditPost from '../../components/Posts/EditPost/EditPost';
 import SignUp from '../../components/Auth/SignupAuth';
 import Login from '../../components/Auth/LoginAuth';
 import { connect } from 'react-redux';

@@ -11,10 +11,6 @@ const jumbotron = (props) => {
             <div className = {classes.subdiv}>
                 <p className = {classes.title}> <FontAwesomeIcon icon={faBoxes} /> Welcome to the Postingg App!</p>
                 <p className = {classes.subtitle}>Postingg is a platform to share your posts with the world!!!</p>
-                <div className = {classes.search}>
-                <input className = {classes.input} placeholder = 'Search Posts'/>
-                <FontAwesomeIcon className = {classes.icon} icon={faSearch}/>
-                </div>
             </div>
 
             <p 

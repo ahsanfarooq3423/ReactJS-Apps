@@ -10,7 +10,6 @@ export const startUsers = (users) => {
     }
 }
 
-
 export const pushUsers = (updatedUsers) => {
     return dispatch => {
         axios.post('users.json', updatedUsers)
