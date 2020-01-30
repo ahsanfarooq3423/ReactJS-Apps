@@ -1,0 +1,4 @@
+.screenContainer {
+    display: flex;
+    flex-wrap: wrap;
+}

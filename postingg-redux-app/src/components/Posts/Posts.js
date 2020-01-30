@@ -12,10 +12,10 @@ import classes from './Posts.module.css';
 const posts = (props) => {
 
     let users = {};
-    if(props.posts && props.users) {
+    if (props.posts && props.users) {
         props.posts.map(post => {
             props.users.map(user => {
-                if (post.authorId === user.id){
+                if (post.authorId === user.id) {
                     users[post.authorId] = user.name
                 }
                 return null
@@ -23,86 +23,86 @@ const posts = (props) => {
             return null
         })
     }
-    
-    
+
+
 
     let show = (
-        <div className = {classes.spinner}>
+        <div className={classes.spinner}>
             <div className={classes.ldsfacebook}><div></div><div></div><div></div></div>
         </div>
     )
-    if (props.posts){
+    if (props.posts) {
 
-    show = (
+        show = (
 
-           <div className = {classes.postcard}>
-               {props.posts.map(post =>  
-                            <PostCard
-                            post = {post}
-                            {...props}
-                            onViewPost = {props.onViewPost}
-                            title = {post.title}
-                            content = {post.content}
-                            src = {post.picUrl}
-                            key = {post.postId}
-                            author = {post.authorName}
-                              />
-                      )}                
-           </div>
-    )
-}
+            <div className={classes.postcard}>
+                {props.posts.map(post =>
+                    <PostCard
+                        post={post}
+                        {...props}
+                        onViewPost={props.onViewPost}
+                        title={post.title}
+                        content={post.content}
+                        src={post.picUrl}
+                        key={post.postId}
+                        author={post.authorName}
+                    />
+                )}
+            </div>
+        )
+    }
 
     if (props.view === 'list') {
         show = (
             <Aux>
                 {props.posts.map(post => {
                     return <PostList
-                                onViewPost = {props.onViewPost}
-                                {...props}
-                                post = {post}
-                                title = {post.title}
-                                content = {post.content}
-                                src = {post.picUrl}
-                                key = {post.postId}
-                                author = {post.authorName} 
-                                />
+                        onViewPost={props.onViewPost}
+                        {...props}
+                        post={post}
+                        title={post.title}
+                        content={post.content}
+                        src={post.picUrl}
+                        key={post.postId}
+                        author={post.authorName}
+                    />
                 })}
-               
+
             </Aux>
         )
     }
 
 
-    return(
+    return (
 
-        <div className = {classes.container}>
-           <Jumbrotron/>
-           <PostDesc
-                view = {props.view} 
-                onGridView = {props.onGridView}
-                onListView = {props.onListView} 
-                title = "All Posts"/>
+        <div className={classes.container}>
+            <Jumbrotron />
+            <PostDesc
+                view={props.view}
+                onGridView={props.onGridView}
+                onListView={props.onListView}
+                title="All Posts" />
             {show}
         </div>
     )
-   
+
 }
 
 const mapStateToProps = state => {
     return {
-        posts : state.postsState.posts,
-        view : state.postsState.postsView,
-        users : state.usersState.users
+        posts: state.postsState.posts,
+        view: state.postsState.postsView,
+        users: state.usersState.users
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onGridView : () => dispatch(postsActions.gridView()),
-        onListView : () => dispatch(postsActions.listView()),
-        onViewPost : (post) => dispatch(postsActions.viewPost(post))
+        onGridView: () => dispatch(postsActions.gridView()),
+        onListView: () => dispatch(postsActions.listView()),
+        onViewPost: (post) => dispatch(postsActions.viewPost(post))
     }
 }
-    
+
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(posts));
