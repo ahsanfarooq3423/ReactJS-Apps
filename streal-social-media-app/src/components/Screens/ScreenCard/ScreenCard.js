@@ -4,11 +4,11 @@ import { Skeleton, Switch, List, Avatar, Icon } from 'antd';
 import classes from './ScreenCart.module.css';
 
 const listData = [];
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 9; i++) {
   listData.push({
     href: 'http://ant.design',
     title: `ant design part ${i}`,
-    avatar: 'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png',
+    avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80',
     description:
       'Ant Design, a design language for background applications, is refined by Ant UED Team.',
     content:
@@ -34,10 +34,9 @@ class ScreenCard extends React.Component {
 
   render() {
     const { loading } = this.state;
-    console.log(this.state)
     return (
       <div>
-        <Switch checked={!loading} onChange={this.onChange} />
+        {/* <Switch checked={!loading} onChange={this.onChange} /> */}
 
         <List
           itemLayout="vertical"
