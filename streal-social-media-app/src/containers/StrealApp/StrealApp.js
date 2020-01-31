@@ -9,8 +9,8 @@ class StrealApp extends Component {
         return(
             <div>
                 <div className = {classes.screenContainer}>
-                    <Screens/>
                     <User/>
+                    <Screens/>
                 </div>
             </div>
         )

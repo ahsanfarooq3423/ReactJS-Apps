@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
+import ScreenCard from './ScreenCard/ScreenCard';
+import classes from './Screens.module.css';
 
 const screens = () => {
     return(
-        <div>
-            <h3>Screen 1</h3>
-            <h3>Screen 1</h3>
-            <h3>Screen 1</h3>
-            <h3>Screen 1</h3>
+        <div className = {classes.main}>
+            <ScreenCard/>
         </div>
     )
 }
