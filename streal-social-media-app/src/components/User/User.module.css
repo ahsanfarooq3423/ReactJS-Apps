@@ -1,18 +1,65 @@
 .mainCard {
+    vertical-align: top;
+    display: inline-block;
     margin: 50px;
     margin-left: 20px;
     margin-right: -20px;
-    border: 2px solid black;
+    border-radius: 5px;
+    height: 280px;
     width: 20%;
-    height: 300px;
-    box-shadow: -2px 1px 6px 0px rgba(0,0,0,0.58);
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.40);
+}
+
+
+@media (max-width : 1100px) {
+    .mainCard {
+        width: 30%;
+    }
+}
+
+@media (max-width : 800px) {
+    .mainCard {
+        display: block;
+        margin: auto;
+        width: 50%;
+        height: 300px;
+    }
+}
+
+.height {
+    height: 350px;
+}
+
+.profile {
+    margin-top: 3%;
+    margin-left: 26%;
 }
 
 .avatar {
-    max-height: 80%;
-    max-width: 80%;
-    border-radius: 50%;
+    max-height: 65%;
+    max-width: 65%;
+    border-radius: 200px 200px 200px 200px;
 }
+
+.pencilIcon {
+    position: absolute;
+    width: 5%;
+    margin-left: 12%;
+    margin-top: -3%;
+    padding: 5px;
+    text-align: right;
+}
+
+.pencilIcon:hover {
+    color : rgb(86, 86, 233);
+    cursor : pointer;
+}
+
+
+
+
+
+
 
 
 

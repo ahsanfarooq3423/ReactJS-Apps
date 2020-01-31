@@ -9,6 +9,7 @@ import * as postsActions from '../../store/actions/index';
 import { connect } from 'react-redux';
 import classes from './Posts.module.css';
 
+
 const posts = (props) => {
 
     let users = {};

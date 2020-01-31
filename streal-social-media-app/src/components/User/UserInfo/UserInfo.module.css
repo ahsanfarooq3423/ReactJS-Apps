@@ -1,0 +1,44 @@
+.info {
+    margin: auto;
+    text-align: center;
+}
+
+p {
+    margin-top: 8px;
+}
+
+.username {
+    font-size: 25px;
+    font-weight : 3000;
+    color: rgb(79, 79, 243);
+    margin-bottom: 5px;
+}
+
+.username:hover {
+    cursor: pointer;
+}
+
+.bio {
+    font-size: 13px;
+}
+
+.location {
+    font-size: 15px;
+    margin-bottom: 4px;
+}
+
+.website {
+    color: rgb(79, 79, 243);
+    font-size: 13px;
+
+}
+
+.website:hover {
+    cursor: pointer;  
+}
+
+
+
+
+
+

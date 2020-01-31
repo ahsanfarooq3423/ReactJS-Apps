@@ -1,4 +1,6 @@
 .main {
+    display: inline-block;
     width: 60%;
-    margin-left: 8%;
+    margin-left: 5%;
 }
+
