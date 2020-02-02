@@ -1,6 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import * as screenActions from '../../../store/actions/index';
 import { Modal } from 'antd';
+import { Input } from 'antd';
+const { TextArea } = Input; 
+
 
 
 const inputScreen = props => {
@@ -10,7 +14,7 @@ const inputScreen = props => {
             visible={props.visible}
             onOk={props.onSetFalse}
             onCancel={props.onSetFalse}>
-            <h1> Hello From the Modal</h1>
+            <TextArea rows={4} />   
         </Modal>
     )
 }
@@ -24,8 +28,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSetFalse: () => dispatch({ type: 'INPUT_FALSE' }),
-        onSetTrue: () => dispatch({ type: 'INPUT_TRUE' })
+        onSetFalse: () => dispatch(screenActions.inputTrue()),
+        onSetTrue: () => dispatch(screenActions.inputFalse())
     }
 }
 

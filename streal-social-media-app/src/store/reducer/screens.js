@@ -1,3 +1,5 @@
+import * as actionTypes from '../actions/actionTypes';
+
 
 const initialState = {
     visible: false
@@ -6,12 +8,12 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'INPUT_TRUE':
+        case actionTypes.INPUT_TRUE:
             return {
                 ...state,
                 visible: true
             }
-        case 'INPUT_FALSE':
+        case actionTypes.INPUT_FALSE:
             return {
                 ...state,
                 visible: false

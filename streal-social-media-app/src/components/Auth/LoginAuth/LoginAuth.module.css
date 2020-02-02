@@ -1,0 +1,10 @@
+
+.main{
+    width: 30%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.button:disabled {
+    cursor: not-allowed;
+}

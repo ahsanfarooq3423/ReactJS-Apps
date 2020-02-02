@@ -1,0 +1,7 @@
+.invalid p:first-letter {
+    text-transform:capitalize;
+}
+
+.invalid {
+    color: red
+}

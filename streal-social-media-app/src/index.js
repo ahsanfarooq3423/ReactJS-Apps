@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import screenReducer from './store/reducer/screen';
+import screenReducer from './store/reducer/screens';
 
 const store = createStore(screenReducer);
 
