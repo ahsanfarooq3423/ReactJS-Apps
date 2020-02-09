@@ -14,6 +14,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 username : action.username
             }
+        case actionTypes.AUTH_SUCCESS:
+            return {
+                ...state,
+                token : action.userToken,
+                userId : action.userId
+            }
         default:
             return state;    
     }

@@ -55,9 +55,7 @@ class LoginAuth extends Component {
                 usernameValid = value.length > 7;
                 fieldValidationErrors.username = usernameValid ? '' : ' should be greater than 7 characters';
             case 'email':
-                console.log('email case')
                 emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-                console.log('email case', emailValid)
                 fieldValidationErrors.email = emailValid ? '' : ' is invalid';
                 break;
             case 'password':

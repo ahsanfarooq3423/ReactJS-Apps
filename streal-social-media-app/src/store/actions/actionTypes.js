@@ -4,3 +4,6 @@ export const INPUT_FALSE = 'INPUT_FALSE';
 
 //AUTH action types
 export const AUTH_START = 'AUTH_START';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+
+
