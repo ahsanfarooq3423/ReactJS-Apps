@@ -25,7 +25,7 @@ class User extends Component {
         return (
             <div className= {styles.join(' ')}>
                 <div className={classes.profile}>
-                    <img className={classes.avatar} src='https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80' />
+                    <img className={classes.avatar} src='https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80' alt = 'image not found' />
                 </div>
 
                 <div className={classes.pencilIcon}>

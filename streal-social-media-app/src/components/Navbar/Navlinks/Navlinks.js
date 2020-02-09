@@ -3,13 +3,16 @@ import classes from './Navlinks.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPollH, faPlus, faUserPlus, faUser } from '@fortawesome/free-solid-svg-icons';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const navlinks = props => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand className={classes.navbrand} href="#home"> <FontAwesomeIcon icon={faPollH} /> Streal</Navbar.Brand>
+            <Navbar.Brand className={classes.navbrand} href="#home">
+                <Link to="/" class={classes.link}><FontAwesomeIcon icon={faPollH} /> Streal</Link>
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
@@ -23,10 +26,8 @@ const navlinks = props => {
                     </NavDropdown>
                 </Nav>
                 <Nav>
-                    <Nav.Link href="#deets"><FontAwesomeIcon icon={faUser} /> Log In</Nav.Link>
-                    <Nav.Link eventKey={2} href="#memes">
-                        <FontAwesomeIcon icon={faUserPlus} /> Sign Up
-            </Nav.Link>
+                    <Nav.Link><Link to="/login" class={classes.link}><FontAwesomeIcon icon={faUser} />Log In</Link></Nav.Link>
+                    <Nav.Link eventKey={2}><Link to="/signup" class={classes.link}><FontAwesomeIcon icon={faUserPlus} />  Sign Up </Link></Nav.Link>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
