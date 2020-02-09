@@ -8,8 +8,6 @@ import { Switch, Route } from 'react-router-dom';
 
 
 class StrealApp extends Component {
-
-
     render() {
         return (
             <Fragment>
@@ -18,7 +16,6 @@ class StrealApp extends Component {
                     <Route path="/" exact component={() => <Fragment><User/><Screens/></Fragment>} />
                     <Route path="/login" exact component={() => <LoginAuth />} />
                     <Route path="/signup" exact component={() => <SignUpAuth />} />
-
                 </Switch>
             </Fragment>
         )

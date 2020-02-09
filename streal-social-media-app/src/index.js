@@ -6,11 +6,25 @@ import { BrowserRouter } from 'react-router-dom';
 
 import * as serviceWorker from './serviceWorker';
 
-import { createStore } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
-import screenReducer from './store/reducer/screens';
+import thunk from 'redux-thunk';
 
-const store = createStore(screenReducer);
+
+
+import screenReducer from './store/reducer/screens';
+import authReducer from './store/reducer/auth';
+
+const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
+
+const rootReducer = combineReducers({
+    screensState : screenReducer,
+    authState : authReducer
+})
+
+const store = createStore(rootReducer, composeEnhancers(
+    applyMiddleware(thunk)
+    ));
 
 ReactDOM.render(
     <Provider  store = {store}>

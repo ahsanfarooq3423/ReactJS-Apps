@@ -4,6 +4,11 @@ import { Form, Button } from 'react-bootstrap';
 import FormErrors from '../FormErrors';
 import classes from './SignUpAuth.module.css';
 
+import {withRouter} from 'react-router';
+
+import * as actions from '../../../store/actions/index';
+import {connect} from 'react-redux';
+
 
 class LoginAuth extends Component {
 
@@ -25,6 +30,17 @@ class LoginAuth extends Component {
         formErrors: { username: "", password: "", email: "" },
         formValid: false,
         formElementsArray: null
+    }
+
+    submitFormHandler = (event) => {
+        event.preventDefault();
+        const formData = {};
+        for (let formElementIdentifier in this.state.authForm) {
+            formData[formElementIdentifier] = this.state.authForm[formElementIdentifier];
+        }
+
+        this.props.history.push('/');
+        this.props.onSignup(formData.username.value, formData.email.value, formData.password.value);
     }
 
     validateField(field, value) {
@@ -62,16 +78,10 @@ class LoginAuth extends Component {
     }
 
     validateForm() {
-        console.log(this.state.authForm.password.valid)
-        console.log(this.state.authForm.email.valid)
         this.setState({
             formValid: this.state.authForm.password.valid
                 && this.state.authForm.email.valid 
         });
-    }
-
-    temp = () => {
-        console.log('CHANGED');
     }
 
     inputChangeHanlder = (event, inputIdentifier) => {
@@ -84,7 +94,6 @@ class LoginAuth extends Component {
     render() {
         return (
             <div className={classes.main}>
-                <h1>{this.state.formValid.toString()}</h1>
                 <h3>SignUp:</h3>
                 <FormErrors formErrors={this.state.formErrors} />
                 <Form>
@@ -123,7 +132,7 @@ class LoginAuth extends Component {
                     </Form.Group>
                 </Form>
                 <Button
-                    onClick={this.temp}
+                    onClick={this.submitFormHandler}
                     disabled={!this.state.formValid}
                     className={classes.button}
                     variant="primary" type="submit">
@@ -134,4 +143,12 @@ class LoginAuth extends Component {
     }
 }
 
-export default LoginAuth;
+
+const mapDispatchToProps = dispatch => {
+    return {
+        onSignup : (username, email, password) => dispatch(actions.auth(username, email, password, true))
+    }
+}
+
+
+export default withRouter(connect(null, mapDispatchToProps)(LoginAuth));

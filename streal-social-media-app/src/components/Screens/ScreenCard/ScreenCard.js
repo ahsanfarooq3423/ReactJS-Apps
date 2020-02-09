@@ -1,6 +1,6 @@
 import React from 'react';
 import "antd/dist/antd.css";
-import { Skeleton, Switch, List, Avatar, Icon } from 'antd';
+import { Skeleton, List, Avatar, Icon } from 'antd';
 import classes from './ScreenCart.module.css';
 
 const listData = [];

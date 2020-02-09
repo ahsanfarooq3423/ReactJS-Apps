@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const navlinks = props => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-            <Navbar.Brand className={classes.navbrand} href="#home">
+            <Navbar.Brand className={classes.navbrand}>
                 <Link to="/" class={classes.link}><FontAwesomeIcon icon={faPollH} /> Streal</Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
