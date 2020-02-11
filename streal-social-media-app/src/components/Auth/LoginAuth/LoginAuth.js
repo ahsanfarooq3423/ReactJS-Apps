@@ -4,6 +4,9 @@ import { Form, Button } from 'react-bootstrap';
 import FormErrors from '../FormErrors';
 import classes from './LoginAuth.module.css';
 
+import {connect} from 'react-redux';
+import * as actions from '../../../store/actions/index';
+
 
 class LoginAuth extends Component {
 
@@ -58,8 +61,16 @@ class LoginAuth extends Component {
 
     }
 
-    temp = () => {
-        console.log('CHANGED');
+    onLoginHanlder = (event) => {
+        event.preventDefault();
+        const formData = {};
+        for (let formElementIdentifier in this.state.authForm) {
+            formData[formElementIdentifier] = this.state.authForm[formElementIdentifier];
+        }
+
+        // this.props.history.push('/');
+        this.props.onLogin(formData.email.value, formData.password.value);
+
     }
 
     inputChangeHanlder = (event, inputIdentifier) => {
@@ -98,7 +109,7 @@ class LoginAuth extends Component {
                     </Form.Group>
                 </Form>
                 <Button
-                    onClick={this.temp}
+                    onClick={this.onLoginHanlder}
                     disabled={!this.state.formValid}
                     className={classes.button}
                     variant="primary" type="submit">
@@ -109,4 +120,11 @@ class LoginAuth extends Component {
     }
 }
 
-export default LoginAuth;
+const mapDispatchToProps = dispatch => {
+    return {
+        onLogin : (email, password) => dispatch(actions.auth(null ,email, password, false))
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(LoginAuth);

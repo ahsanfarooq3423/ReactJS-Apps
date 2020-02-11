@@ -21,7 +21,7 @@ const inputScreen = props => {
 
 const mapStateToProps = state => {
     return {
-        visible: state.visible
+        visible: state.screensState.visible
     }
 }
 

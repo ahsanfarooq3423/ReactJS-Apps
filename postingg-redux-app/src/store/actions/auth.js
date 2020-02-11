@@ -83,7 +83,6 @@ export const getUsersDB = (idToken, name) => {
             .catch(err => {
                 console.log(err)
             })
-
     }
 }
 

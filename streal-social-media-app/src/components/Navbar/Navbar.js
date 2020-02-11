@@ -18,8 +18,8 @@ const navbar = props => {
 
 const mapStateToProps = state => {
     return {
-        visible : state.visible,
-        message: state.message
+        visible : state.screensState.visible,
+        message: state.screensState.message
     }
 }
 

@@ -2,7 +2,10 @@ import * as actionTypes from '../actions/actionTypes';
 
 
 const initialState = {
-    visible: false
+    visible: false,
+    screens : [],
+    loading : false,
+    screenPosted : false
 }
 
 
