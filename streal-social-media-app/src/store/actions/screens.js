@@ -1,6 +1,5 @@
 import * as actionTypes from './actionTypes';
 import streal_axios from '../../axios';
-import axios from 'axios';
 
 const timeFormatter = date => {
     var seconds = Math.floor((new Date() - date) / 1000);
@@ -56,11 +55,6 @@ export const inputFalse = () => {
     }
 }
 
-export const screenPosted = () => {
-    return {
-        type : actionTypes.SCREEN_POSTED
-    }
-}
 
 export const loadingBeforePosted = bool => {
     return {
@@ -69,8 +63,44 @@ export const loadingBeforePosted = bool => {
     }
 }
 
+export const setScreens = (screens) => {
+    console.log(screens)
+    return {
+        type : actionTypes.SET_SCREENS,
+        screens : screens
+    }
+}
+
+export const initScreens = () => {
+    return dispatch => {
+        streal_axios.get('/posts.json')
+            .then(res => {
+                dispatch(setScreens(res.data[Object.keys(res.data)]))
+            })
+            .catch(err => console.log(err))
+    }
+}
+
+export const postScreens = (screens) => {
+    return dispatch => {
+        streal_axios.post('/posts.json', screens)
+            .then(res => {
+                dispatch(initScreens())
+            })
+            .catch(err => console.log(err))
+    }
+}
 
 
+export const deleteScreens = (screens) => {
+    return dispatch => {
+        streal_axios.delete('/posts.json')
+            .then(res => {
+                dispatch(postScreens(screens))
+            })
+            .catch(err => console.log(err))
+    }
+}
 
 export const postScreen = (screenContent, userId) => {
     const dateSeconds = Date.now()
@@ -88,7 +118,6 @@ export const postScreen = (screenContent, userId) => {
         streal_axios.post('posts.json', screenList) 
             .then(response => {
                 dispatch(loadingBeforePosted(false))
-                dispatch(screenPosted())
             })
             .catch(err => console.log(err))
     }
