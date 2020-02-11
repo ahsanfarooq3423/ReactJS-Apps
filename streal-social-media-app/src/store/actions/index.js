@@ -1,6 +1,7 @@
 export {
     inputTrue,
-    inputFalse
+    inputFalse,
+    postScreen
 }
     from './screens'
 
