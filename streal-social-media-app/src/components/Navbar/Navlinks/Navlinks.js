@@ -16,6 +16,8 @@ const navlinks = props => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
+                    {props.isAuth ?
+                    <React.Fragment>
                     <Nav.Link onClick={props.showModal} ><FontAwesomeIcon icon={faPlus} />New Screen</Nav.Link>
                     <NavDropdown title="Notifications" id="collasible-nav-dropdown">
                         <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -24,6 +26,8 @@ const navlinks = props => {
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
                     </NavDropdown>
+                    </React.Fragment> : null}
+                    
                 </Nav>
                 <Nav>
                     <Nav.Link><Link to="/login" class={classes.link}><FontAwesomeIcon icon={faUser} />Log In</Link></Nav.Link>

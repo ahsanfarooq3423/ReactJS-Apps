@@ -10,7 +10,7 @@ import InputScreen from '../Screens/InputScreen/InputScreen';
 const navbar = props => {
     return (
         <Fragment>
-            <NavLinks showModal={props.onShowInputScreen} />
+            <NavLinks showModal={props.onShowInputScreen} isAuth = {props.isAuthenticated} />
             <InputScreen />
         </Fragment>
     )
@@ -19,7 +19,9 @@ const navbar = props => {
 const mapStateToProps = state => {
     return {
         visible : state.screensState.visible,
-        message: state.screensState.message
+        message: state.screensState.message,
+        isAuthenticated : state.authState.token !== null
+
     }
 }
 

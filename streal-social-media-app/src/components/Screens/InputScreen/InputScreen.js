@@ -23,10 +23,12 @@ class InputScreen extends React.Component {
 
 
     submitScreenHandler = () => {
+        let content = this.state.screenContent;
         if (this.state.screenContent.length < 5) {
             return this.showAlert()
         }
 
+        this.props.onPostScreen(content,this.props.loggedUserId)
     }
 
     componentDidMount() {
@@ -59,7 +61,9 @@ class InputScreen extends React.Component {
 const mapStateToProps = state => {
     return {
         visible: state.screensState.visible,
-        loggedUser : state.authState
+        isAuthenticated : state.authState.token !== null,
+        loggedUserId : state.authState.userId
+
     }
 }
 
@@ -68,7 +72,7 @@ const mapDispatchToProps = dispatch => {
     return {
         onSetFalse: () => dispatch(screenActions.inputTrue()),
         onSetTrue: () => dispatch(screenActions.inputFalse()),
-        onPostScreen : () => dispatch(screenActions.postScreen())
+        onPostScreen : (content, userId) => dispatch(screenActions.postScreen(content, userId))
     }
 }
 

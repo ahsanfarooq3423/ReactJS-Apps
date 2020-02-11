@@ -8,6 +8,7 @@ export {
 
 
 export {
-    auth
+    auth,
+    authCheckState
 }
 from './auth';

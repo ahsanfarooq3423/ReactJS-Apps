@@ -1,5 +1,48 @@
 import * as actionTypes from './actionTypes';
-import axios from '../../axios';
+import streal_axios from '../../axios';
+import axios from 'axios';
+
+const timeFormatter = date => {
+    var seconds = Math.floor((new Date() - date) / 1000);
+
+    var interval = Math.floor(seconds / 31536000);
+  
+    if (interval > 1) {
+      return interval + " years";
+    }
+    interval = Math.floor(seconds / 2592000);
+    if (interval > 1) {
+      return interval + " months";
+    }
+    interval = Math.floor(seconds / 86400);
+    if (interval > 1) {
+      return interval + " days";
+    }
+    interval = Math.floor(seconds / 3600);
+    if (interval > 1) {
+      return interval + " hours";
+    }
+    interval = Math.floor(seconds / 60);
+    if (interval > 1) {
+      return interval + " minutes";
+    }
+    return Math.floor(seconds) + " seconds";
+}
+
+// console.log(aDay)
+
+// var d = Date.now();
+// console.log(d)
+
+// d = 1581430475105
+
+// let e = Date.now() - d
+// console.log(e)
+
+// e = 44281
+
+// console.log(timeSince(new Date(Date.now()-e)));
+
 
 export const inputTrue = () => {
     return{
@@ -27,34 +70,26 @@ export const loadingBeforePosted = bool => {
 }
 
 
+
+
 export const postScreen = (screenContent, userId) => {
+    const dateSeconds = Date.now()
     return dispatch => {
         dispatch(loadingBeforePosted(true))
         const screen = {
             screenContent : screenContent,
             userId : userId,
-            likes : 0
+            likes : 0,
+            dateSeconds : dateSeconds
         }
     
         const screenList = [];
-        screenList.append(screen);
-        axios.post('/posts', screenList)
+        screenList.push(screen);
+        streal_axios.post('posts.json', screenList) 
             .then(response => {
                 dispatch(loadingBeforePosted(false))
                 dispatch(screenPosted())
             })
-        // axios.get('/posts')
-        //     .then(response => {
-        //         const screensList = response.data
-        //         return screensList.append(screen)
-        //     })
-        //     .then(screenList => {
-        //         return axios.post('/posts', screenList)
-        //     })
-        //     .then(response => {
-        //         console.log(response)
-        //     })
-        //     .catch(err => console.log(err))
+            .catch(err => console.log(err))
     }
 } 
-

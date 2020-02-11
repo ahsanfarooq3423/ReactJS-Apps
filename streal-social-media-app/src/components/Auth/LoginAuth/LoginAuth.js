@@ -4,6 +4,9 @@ import { Form, Button } from 'react-bootstrap';
 import FormErrors from '../FormErrors';
 import classes from './LoginAuth.module.css';
 
+import {withRouter} from 'react-router';
+
+
 import {connect} from 'react-redux';
 import * as actions from '../../../store/actions/index';
 
@@ -68,7 +71,7 @@ class LoginAuth extends Component {
             formData[formElementIdentifier] = this.state.authForm[formElementIdentifier];
         }
 
-        // this.props.history.push('/');
+        this.props.history.push('/');
         this.props.onLogin(formData.email.value, formData.password.value);
 
     }
@@ -127,4 +130,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(null, mapDispatchToProps)(LoginAuth);
+export default withRouter(connect(null, mapDispatchToProps)(LoginAuth));

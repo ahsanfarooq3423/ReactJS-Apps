@@ -7,5 +7,6 @@ export const LOADING_POSTED = 'LOADING_POSTED';
 //AUTH action types
 export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const LOGOUT = 'LOGOUT';
 
 

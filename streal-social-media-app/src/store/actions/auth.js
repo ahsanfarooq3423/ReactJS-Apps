@@ -16,6 +16,15 @@ export const authSuccess = (userToken, userId) => {
     }
 }
 
+export const logout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+
+    return {
+        type : actionTypes.LOGOUT
+    }
+}
+
 
 export const auth = (username, email, password, isSignup) => {
     return dispatch => {
@@ -33,9 +42,24 @@ export const auth = (username, email, password, isSignup) => {
 
         axios.post(url, authData)
             .then(response => {
+                localStorage.setItem("token", response.data.idToken)
+                localStorage.setItem("userId",response.data.localId)
                 dispatch(authSuccess(response.data.idToken, response.data.localId))
             })
             .catch(err => console.log(err))
+    }
+}
+
+export const authCheckState = () => {
+    return dispatch => {
+        const token = localStorage.getItem('token');
+        const userId = localStorage.getItem("userId");
+
+        if (!token) {
+            dispatch(logout())
+        } else {
+            dispatch(authSuccess(token , userId))
+        }
     }
 }
 
