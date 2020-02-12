@@ -42,7 +42,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SET_USERNAME:
             return {
                 ...state,
-                
+                username : action.name
             }
         default:
             return state;    

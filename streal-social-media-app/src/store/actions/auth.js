@@ -137,10 +137,10 @@ export const authCheckState = () => {
 }
 
 export const setUserNameOnStart = userDoc => {
-    console.log(userDoc)
+    const fetchedName = userDoc.name
     return {
         type : actionTypes.SET_USERNAME,
-        name : 'Jonny'
+        name : fetchedName
     }
 }
 

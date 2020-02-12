@@ -115,10 +115,20 @@ export const postScreen = (screenContent, userId) => {
         streal_axios.get('posts.json') 
             .then(res => {
                 dispatch(loadingBeforePosted(false))
-                
-                let  screens = res.data[Object.keys(res.data)];
-                screens.push(screen)
-                dispatch(deleteScreens(screens))
+                if (res.data) {
+                    let  screens = res.data[Object.keys(res.data)];
+                    screens.push(screen)
+                    dispatch(deleteScreens(screens))
+                } else {
+                    console.log('in the else statement----')
+                    const screens = [];
+                    screens.push(screen);
+                    streal_axios.post('posts.json', screens)
+                        .then(response => {
+                            return
+                        })
+                        .catch(err => console.log(err))
+                }
 
             })
             .catch(err => console.log(err))

@@ -13,7 +13,7 @@ class StrealApp extends Component {
 
         componentDidMount() {
             this.props.onAppStart()
-            // this.props.getUserNameOnStart()
+            this.props.getUserNameOnStart()
 
         }
 
