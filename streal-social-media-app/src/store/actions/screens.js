@@ -112,12 +112,14 @@ export const postScreen = (screenContent, userId) => {
             likes : 0,
             dateSeconds : dateSeconds
         }
-    
-        const screenList = [];
-        screenList.push(screen);
-        streal_axios.post('posts.json', screenList) 
-            .then(response => {
+        streal_axios.get('posts.json') 
+            .then(res => {
                 dispatch(loadingBeforePosted(false))
+                
+                let  screens = res.data[Object.keys(res.data)];
+                screens.push(screen)
+                dispatch(deleteScreens(screens))
+
             })
             .catch(err => console.log(err))
     }

@@ -10,5 +10,8 @@ export const SET_SCREENS = 'SET_SCREENS';
 export const AUTH_START = 'AUTH_START';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
 export const LOGOUT = 'LOGOUT';
+export const SET_USERS = 'SET_USERS';
+export const SET_USERNAME = 'SET_USERNAME';
+export const NO_USERNAME = 'NO_USERNAME';
 
 

@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const navlinks = props => {
+    console.log(props)
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand className={classes.navbrand}>
@@ -17,21 +18,25 @@ const navlinks = props => {
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     {props.isAuth ?
-                    <React.Fragment>
-                    <Nav.Link onClick={props.showModal} ><FontAwesomeIcon icon={faPlus} />New Screen</Nav.Link>
-                    <NavDropdown title="Notifications" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                        <NavDropdown.Divider />
-                        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-                    </NavDropdown>
-                    </React.Fragment> : null}
-                    
+                        <React.Fragment>
+                            <Nav.Link onClick={props.showModal} ><FontAwesomeIcon icon={faPlus} />New Screen</Nav.Link>
+                            <NavDropdown title="Notifications" id="collasible-nav-dropdown">
+                                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                <NavDropdown.Divider />
+                                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                            </NavDropdown>
+                        </React.Fragment> : null}
+
                 </Nav>
                 <Nav>
-                    <Nav.Link><Link to="/login" class={classes.link}><FontAwesomeIcon icon={faUser} />Log In</Link></Nav.Link>
-                    <Nav.Link eventKey={2}><Link to="/signup" class={classes.link}><FontAwesomeIcon icon={faUserPlus} />  Sign Up </Link></Nav.Link>
+                    {!props.isAuth ?
+                        <React.Fragment>
+                        <Nav.Link><Link to="/login" class={classes.link}><FontAwesomeIcon icon={faUser} />Log In</Link></Nav.Link>
+                        <Nav.Link eventKey={2}><Link to="/signup" class={classes.link}><FontAwesomeIcon icon={faUserPlus} />  Sign Up </Link></Nav.Link></React.Fragment> :
+                        <Nav.Link><FontAwesomeIcon icon={faUser} />Logout</Nav.Link>
+                    }
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
