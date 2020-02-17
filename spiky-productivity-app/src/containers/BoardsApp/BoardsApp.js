@@ -518,7 +518,22 @@ class BoardsApp extends Component {
         this.setState({boards : boards});
     }
 
-    
+
+    updatedCardHandler = (board,list,card, newInfo) => {
+        
+        let boards = JSON.parse(JSON.stringify(this.state.boards));
+        delete boards[board].data.lists[list].items[card];
+
+        boards[board].data.lists[list].items[newInfo] = {
+            description : null
+        }
+
+        // boards[board].data.lists[list].items[card] = 
+
+        console.log(boards[board].data.lists[list].items[card]);
+        console.log(boards)
+        this.setState({boards : boards});
+    }
 
 
 
@@ -553,6 +568,7 @@ class BoardsApp extends Component {
                     <Route 
                         path = {this.props.location.pathname}
                         component = {() => <AsyncFullBoard
+                                                updateCard = {this.updatedCardHandler}
                                                 deletecard = {this.deleteCardHandler}
                                                 deletelist = {this.deleteListHandler}
                                                 deleteboard = {this.deleteBoardHandler}

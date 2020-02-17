@@ -64,18 +64,37 @@ export const loadingBeforePosted = bool => {
 }
 
 export const setScreens = (screens) => {
-    console.log(screens)
     return {
         type : actionTypes.SET_SCREENS,
         screens : screens
     }
 }
 
+export const screensWithUsers = (screens) => {
+    return dispatch => {
+    streal_axios.get('/users.json')
+        .then(response => {
+            const usersArray = response.data[Object.keys(response.data)]
+            const final_Array = screens.map(screen => {
+                const indexedValue = usersArray.findIndex(user => {
+                    return user.userId === screen.userId
+                })
+                screen.userName = usersArray[indexedValue].name;
+                // console.log(screen)
+                return screen
+            })
+            // console.log(final_Array)
+            dispatch(setScreens(final_Array))
+        
+        })
+}}
+
 export const initScreens = () => {
     return dispatch => {
         streal_axios.get('/posts.json')
             .then(res => {
-                dispatch(setScreens(res.data[Object.keys(res.data)]))
+                // dispatch(setScreens(res.data[Object.keys(res.data)]))
+                dispatch(screensWithUsers(res.data[Object.keys(res.data)]))
             })
             .catch(err => console.log(err))
     }
@@ -125,7 +144,7 @@ export const postScreen = (screenContent, userId) => {
                     screens.push(screen);
                     streal_axios.post('posts.json', screens)
                         .then(response => {
-                            return
+                            return;
                         })
                         .catch(err => console.log(err))
                 }
@@ -134,3 +153,6 @@ export const postScreen = (screenContent, userId) => {
             .catch(err => console.log(err))
     }
 } 
+
+
+

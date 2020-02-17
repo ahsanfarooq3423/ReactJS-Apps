@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const navlinks = props => {
-    console.log(props)
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Navbar.Brand className={classes.navbrand}>
@@ -35,7 +34,7 @@ const navlinks = props => {
                         <React.Fragment>
                         <Nav.Link><Link to="/login" class={classes.link}><FontAwesomeIcon icon={faUser} />Log In</Link></Nav.Link>
                         <Nav.Link eventKey={2}><Link to="/signup" class={classes.link}><FontAwesomeIcon icon={faUserPlus} />  Sign Up </Link></Nav.Link></React.Fragment> :
-                        <Nav.Link><FontAwesomeIcon icon={faUser} />Logout</Nav.Link>
+                        <Nav.Link onClick = {props.logout}><FontAwesomeIcon icon={faUser}/>Logout</Nav.Link>
                     }
                 </Nav>
             </Navbar.Collapse>

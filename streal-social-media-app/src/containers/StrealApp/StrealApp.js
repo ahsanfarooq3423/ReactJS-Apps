@@ -14,6 +14,7 @@ class StrealApp extends Component {
         componentDidMount() {
             this.props.onAppStart()
             this.props.getUserNameOnStart()
+            this.props.initScreenOnStart()
 
         }
 
@@ -34,7 +35,8 @@ class StrealApp extends Component {
 const mapDispatchToProps = dispatch => {
     return {
         onAppStart : () => dispatch(actions.authCheckState()),
-        getUserNameOnStart : () => dispatch(actions.getUserNameOnStart())
+        getUserNameOnStart : () => dispatch(actions.getUserNameOnStart()),
+        initScreenOnStart : () => dispatch(actions.initScreens())
     }
 }
 

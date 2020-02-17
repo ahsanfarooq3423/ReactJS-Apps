@@ -113,6 +113,7 @@ class FullBoard extends Component {
                     <div className = {classes.listContainer}>
                         {lists.map((list,index) => {
                             return <List
+                                    updateCard = {this.props.updateCard}
                                     deletecard = {this.props.deletecard}
                                     deletelist = {this.props.deletelist}
                                     board = {this.props.board}

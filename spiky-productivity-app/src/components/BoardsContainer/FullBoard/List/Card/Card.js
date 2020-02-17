@@ -7,7 +7,9 @@ import ReactDOM from 'react-dom';
 class Card extends Component {
 
     state  = {
-        actions : false
+        actions : false,
+        edit : false,
+        value : ''
     }
 
     cardActionHandler = () => {
@@ -34,6 +36,12 @@ class Card extends Component {
         }
     }
 
+    value = event => {
+        const value = event.target.value;
+        console.log(value)
+        this.setState({value : value})
+    }
+
 
     deleteCardHandler = () => {
         let list_name = this.props.info.name;
@@ -44,6 +52,18 @@ class Card extends Component {
     }
 
 
+    updateCartHanlder = () => {
+        this.setState({edit : true})
+        let list_name = this.props.info.name;
+        let board_name = this.props.info.board.name.toLowerCase();
+        let card_name = this.props.card;
+        this.setState({actions : false});
+        //this.props.updateCartHanlder(board_name,list_name,card_name, 'random');
+        const value = this.state.value;
+        console.log(value)
+        this.props.updateCard(board_name, list_name, card_name, value);
+    }
+ 
 
     render(){
         return(
@@ -60,7 +80,12 @@ class Card extends Component {
                                <div 
                                onClick = {this.deleteCardHandler}
                                className = {classes.delete}>Delete this Card...</div>
+
+                            <div 
+                               onClick = {this.updateCartHanlder}
+                               className = {classes.delete}>Update this Card...</div>
                            </div>
+                          {this.state.actions ? <div><input onChange = {this.value}></input></div> : null} 
                    </div> : null } 
 
 

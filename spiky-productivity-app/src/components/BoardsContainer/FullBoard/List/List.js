@@ -48,12 +48,13 @@ class List extends Component {
         this.setState({actions : false})
     }
 
+    updateListHanlder = () => {
+
+    }
+
     
    
     render(){
-
-        
-        
 
         let cards = [];
         if (this.props.items){
@@ -81,7 +82,14 @@ class List extends Component {
                             <div 
                                 onClick = {this.deleteListHandler}
                                 className = {classes.delete}>Delete this List...</div>
+
+
+                            <div 
+                                onClick = {this.updateListHanlder}
+                                className = {classes.delete}>Update the List...</div>  
                         </div>
+
+                        
                     </div>: null }
                         
                     </div>
@@ -90,6 +98,7 @@ class List extends Component {
                 <div>
                     {cards.map((card,index) => {
                         return <Card
+                                updateCard = {this.props.updateCard}
                                 deletecard = {this.props.deletecard}
                                 info = {this.props}
                                 key = {index}

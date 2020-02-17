@@ -155,23 +155,17 @@ export const getUserNameOnStart = () => {
     return dispatch => {
         const token = localStorage.getItem('token');
         const userId = localStorage.getItem("userId");
-        console.log('THE USERNAME LEAGUE HAS BEEN FIRED HUHU')
-        console.log(userId)
         if (userId && token) {
-            console.log('IN THE IF BLOCK')
             streal_axios.get('/users.json')
                 .then(res => {
 
                     let  users = res.data[Object.keys(res.data)]
-                    console.log(users)
                     const userDoc = users.find(singleUser => {
                         return singleUser.userId === userId
                     })
-                    console.log(userDoc)
                     dispatch(setUserNameOnStart(userDoc))
                 })
         } else {
-            console.log('in the else block')
             dispatch(setNoUserOnStart())
         }
     }

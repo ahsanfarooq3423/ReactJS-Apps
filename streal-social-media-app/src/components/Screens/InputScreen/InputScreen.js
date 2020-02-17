@@ -29,10 +29,7 @@ class InputScreen extends React.Component {
         }
 
         this.props.onPostScreen(content,this.props.loggedUserId)
-    }
-
-    componentDidMount() {
-        console.log(this.props.loggedUser)
+        this.props.onSetFalse()
     }
 
     showAlert = () => {
