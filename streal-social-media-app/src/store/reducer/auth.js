@@ -5,6 +5,7 @@ const initialState = {
     token : null,
     userId : null,
     username : 'Jonnathan',
+    userData : null,
     users : []
 }
 
@@ -42,7 +43,9 @@ const reducer = (state = initialState, action) => {
         case actionTypes.SET_USERNAME:
             return {
                 ...state,
-                username : action.name
+                username : action.name,
+                userData : action.userData
+
             }
         default:
             return state;    

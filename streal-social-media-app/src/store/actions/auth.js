@@ -29,8 +29,6 @@ export const logout = () => {
 
 //
 export const setUsers = (users) => {
-    console.log('you got it')
-    console.log(users)
     return {
         type : actionTypes.SET_USERS,
         users : users
@@ -80,8 +78,6 @@ export const addNewUser = (user) => {
             .catch(err => console.log(err))
     }
 }
-
-//
 
 
 export const auth = (username, email, password, isSignup) => {
@@ -137,10 +133,10 @@ export const authCheckState = () => {
 }
 
 export const setUserNameOnStart = userDoc => {
-    const fetchedName = userDoc.name
     return {
         type : actionTypes.SET_USERNAME,
-        name : fetchedName
+        name : userDoc.name,
+        userData : userDoc
     }
 }
 
@@ -158,19 +154,16 @@ export const getUserNameOnStart = () => {
         if (userId && token) {
             streal_axios.get('/users.json')
                 .then(res => {
-
                     let  users = res.data[Object.keys(res.data)]
-                    const userDoc = users.find(singleUser => {
-                        return singleUser.userId === userId
-                    })
+                    const userDoc = users.find(singleUser => singleUser.userId === userId)
                     dispatch(setUserNameOnStart(userDoc))
                 })
         } else {
             dispatch(setNoUserOnStart())
         }
     }
-
-
 }
+
+
 
 

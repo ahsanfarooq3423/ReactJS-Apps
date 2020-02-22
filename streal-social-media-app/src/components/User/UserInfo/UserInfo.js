@@ -1,31 +1,37 @@
 import React, { Fragment } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt, faMapMarkedAlt, faLink, faCalendarWeek } from '@fortawesome/free-solid-svg-icons';
-
 import classes from './UserInfo.module.css';
 import rootClasses from '../User.module.css';
+import Skeleton from './Skeleton';
+
+
+import UserInfo from './EditUserInfo/EditUserInfo';
 
 const userinfo = props => {
-
+    
     return (
-        <div className={classes.info}>
-            <p className={classes.username}>Pub Guy</p>
+        <Fragment>
+        { props.userData ? <div className={classes.info}>
+            {false ?<Fragment>
+            <p className={classes.username}>{props.userData.name}</p>
 
-            {props.showInfo ?
+            {props.infoState ?
                 <Fragment>
-                    <p className={classes.bio}>Hello I am New Here</p>
-                    <p className={classes.location}><FontAwesomeIcon icon={faMapMarkedAlt} /> London UK</p>
+                    <p className={classes.bio}>{props.userData.bio}</p>
+                    <p className={classes.location}><FontAwesomeIcon icon={faMapMarkedAlt} /> {props.userData.location}</p>
                     <a href='https://www.google.com'
                         className={classes.website}>
-                        <FontAwesomeIcon icon={faLink} /> www.pubguy.com</a></Fragment> : null}
+                        <FontAwesomeIcon icon={faLink} />{props.userData.website}</a></Fragment> : null}
 
 
-            <p className={classes.join}><FontAwesomeIcon icon={faCalendarWeek} /> Joined Marched 2019</p>
-
+            <p className={classes.join}><FontAwesomeIcon icon={faCalendarWeek} />{props.userData.dateSeconds}</p>
+            </Fragment>: <UserInfo/>}
             <div className={rootClasses.pencilIcon}>
                 <FontAwesomeIcon icon={faPencilAlt} />
             </div>
-        </div>
+        </div> : <Skeleton showInfo = {props.showInfo}/>}
+        </Fragment>
     )
 }
 

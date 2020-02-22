@@ -1,7 +1,6 @@
 import React from 'react';
 import ScreenCard from './ScreenCard/ScreenCard';
 import classes from './Screens.module.css';
-import {connect} from 'react-redux';
 
 const screens = props => {
 

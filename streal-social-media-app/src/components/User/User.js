@@ -3,21 +3,34 @@ import UserInfo from './UserInfo/UserInfo';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import classes from './User.module.css';
+import {connect} from 'react-redux';
 
 
 class User extends Component {
 
     state = {
-        infoState : true
+        infoState : false,
+        userData : null
     }
+
 
     setInfoHanlder = ()  => {
         this.setState(prevState => !prevState)
     }
 
+
+    componentWillReceiveProps(props) {
+        const userData = props.userData;
+        if (userData.bio === "" || userData.website === "" || userData.location === ""){
+            this.setState({infoState : false})
+        } else {
+            this.setState({infoState : true})
+        }
+        this.setState({userData})
+    }
+
     render() {
         const styles = [classes.mainCard];
-
         if (this.state.infoState) {
             styles.push(classes.height)
         }
@@ -25,17 +38,26 @@ class User extends Component {
         return (
             <div className= {styles.join(' ')}>
                 <div className={classes.profile}>
-                    <img className={classes.avatar} src='https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80' />
+                    <img className={classes.avatar} 
+                    src='https://images.unsplash.com/photo-1537815749002-de6a533c64db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1145&q=80' />
                 </div>
 
                 <div className={classes.pencilIcon}>
                     <FontAwesomeIcon icon={faPencilAlt} />
                 </div>
-                <UserInfo showInfo = {this.state.infoState} setShowInfo = {this.setInfoHanlder} />
+                <UserInfo userData = {this.state.userData} 
+                        showInfo = {this.state.infoState} 
+                        setShowInfo = {this.setInfoHanlder} />
             </div>
         )
     }
 }
 
+const mapStateToProps = state => {
+    return {
+      userData: state.authState.userData
+    }
+  }
 
-export default User;
+
+export default connect(mapStateToProps)(User);

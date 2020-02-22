@@ -15,7 +15,6 @@ class StrealApp extends Component {
             this.props.onAppStart()
             this.props.getUserNameOnStart()
             this.props.initScreenOnStart()
-
         }
 
         render() {

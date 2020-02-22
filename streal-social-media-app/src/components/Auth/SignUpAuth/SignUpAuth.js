@@ -38,7 +38,7 @@ class LoginAuth extends Component {
         for (let formElementIdentifier in this.state.authForm) {
             formData[formElementIdentifier] = this.state.authForm[formElementIdentifier];
         }
-
+        this.props.initScreenOnStart()
         this.props.history.push('/');
         this.props.onSignup(formData.username.value, formData.email.value, formData.password.value);
     }
@@ -145,7 +145,8 @@ class LoginAuth extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSignup : (username, email, password) => dispatch(actions.auth(username, email, password, true))
+        onSignup : (username, email, password) => dispatch(actions.auth(username, email, password, true)),
+        initScreenOnStart : () => dispatch(actions.initScreens())
     }
 }
 

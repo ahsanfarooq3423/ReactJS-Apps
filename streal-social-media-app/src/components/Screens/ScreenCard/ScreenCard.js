@@ -36,7 +36,6 @@ class ScreenCard extends React.Component {
   };
 
   componentDidMount() {
-    console.log('mount called')
     if (this.props.screens.length === 0) {
       this.setState({ loading: true })
     }
@@ -44,7 +43,6 @@ class ScreenCard extends React.Component {
 
 
   componentDidUpdate(prevProps, prevState) {
-    console.log('updated called')
     if (prevState.listData === this.state.listData) {
       const listData = this.props.screens.map(screen => {
         return {
