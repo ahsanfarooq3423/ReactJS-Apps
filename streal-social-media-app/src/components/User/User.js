@@ -10,7 +10,8 @@ class User extends Component {
 
     state = {
         infoState : false,
-        userData : null
+        userData : null,
+        editState : true
     }
 
 
@@ -19,20 +20,44 @@ class User extends Component {
     }
 
 
-    componentWillReceiveProps(props) {
+
+    static getDerivedStateFromProps(props, state) {
         const userData = props.userData;
-        if (userData.bio === "" || userData.website === "" || userData.location === ""){
-            this.setState({infoState : false})
-        } else {
-            this.setState({infoState : true})
+        if (userData){
+            if (userData.bio === "" || userData.website === "" || userData.location === ""){
+                return {
+                    infoState : false,
+                    userData : userData
+                }
+            } else {
+                return {
+                    infoState : true,
+                    userData : userData
+                }
+            }
         }
-        this.setState({userData})
+    }
+
+    showEditHandler = () => {
+        this.setState({editState : true})
+    }
+
+    doneEditHanlder = () => {
+        this.setState({editState : false})
+    }
+
+    getEditedInfo = event => {
+        event.preventDefault()
     }
 
     render() {
         const styles = [classes.mainCard];
         if (this.state.infoState) {
             styles.push(classes.height)
+        }
+
+        if (this.state.editState){
+            styles.push(classes.editHeight);
         }
 
         return (
@@ -45,9 +70,13 @@ class User extends Component {
                 <div className={classes.pencilIcon}>
                     <FontAwesomeIcon icon={faPencilAlt} />
                 </div>
-                <UserInfo userData = {this.state.userData} 
-                        showInfo = {this.state.infoState} 
-                        setShowInfo = {this.setInfoHanlder} />
+                <UserInfo
+                        getinfo = {this.getEditedInfo}
+                        showedit = {this.showEditHandler}
+                        doneedit = {this.doneEditHanlder}
+                        showEditState = {this.state.editState}
+                        userData = {this.state.userData} 
+                        showInfo = {this.state.infoState} />
             </div>
         )
     }

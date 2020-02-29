@@ -4,16 +4,13 @@ import { faPencilAlt, faMapMarkedAlt, faLink, faCalendarWeek } from '@fortawesom
 import classes from './UserInfo.module.css';
 import rootClasses from '../User.module.css';
 import Skeleton from './Skeleton';
-
-
-import UserInfo from './EditUserInfo/EditUserInfo';
+import EditUserInfo from './EditUserInfo/EditUserInfo';
 
 const userinfo = props => {
-    
     return (
         <Fragment>
         { props.userData ? <div className={classes.info}>
-            {false ?<Fragment>
+            {!props.showEditState ?<Fragment>
             <p className={classes.username}>{props.userData.name}</p>
 
             {props.infoState ?
@@ -23,14 +20,16 @@ const userinfo = props => {
                     <a href='https://www.google.com'
                         className={classes.website}>
                         <FontAwesomeIcon icon={faLink} />{props.userData.website}</a></Fragment> : null}
-
-
             <p className={classes.join}><FontAwesomeIcon icon={faCalendarWeek} />{props.userData.dateSeconds}</p>
-            </Fragment>: <UserInfo/>}
-            <div className={rootClasses.pencilIcon}>
+            </Fragment>: <EditUserInfo 
+                            getinfo = {props.getinfo}
+                            userData = {props.userData} 
+                            doneedit = {props.doneedit}/>}
+            
+            {!props.showEditState ?<div className={rootClasses.pencilIcon} onClick = {props.showedit}>
                 <FontAwesomeIcon icon={faPencilAlt} />
-            </div>
-        </div> : <Skeleton showInfo = {props.showInfo}/>}
+            </div>: null}
+        </div> : <Skeleton showInfo = {props.showInfo}/>} 
         </Fragment>
     )
 }
