@@ -51,6 +51,7 @@ class Edituserinfo extends Component {
             return this.setState({ error: 'Name cannot be empty' })
         } 
         this.props.onUpdateInfo(this.state);
+        this.props.saveedit()
     }
 
 

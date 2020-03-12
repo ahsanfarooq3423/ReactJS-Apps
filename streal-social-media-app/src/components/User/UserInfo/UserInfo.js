@@ -7,6 +7,7 @@ import Skeleton from './Skeleton';
 import EditUserInfo from './EditUserInfo/EditUserInfo';
 
 const userinfo = props => {
+    console.log(props.userData)
     return (
         <Fragment>
         { props.userData ? <div className={classes.info}>
@@ -23,7 +24,8 @@ const userinfo = props => {
             <p className={classes.join}><FontAwesomeIcon icon={faCalendarWeek} />{props.userData.dateSeconds}</p>
             </Fragment>: <EditUserInfo 
                             getinfo = {props.getinfo}
-                            userData = {props.userData} 
+                            userData = {props.userData}
+                            saveedit = {props.saveedit} 
                             doneedit = {props.doneedit}/>}
             
             {!props.showEditState ?<div className={rootClasses.pencilIcon} onClick = {props.showedit}>

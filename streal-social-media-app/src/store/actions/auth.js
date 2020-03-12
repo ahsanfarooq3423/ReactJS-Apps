@@ -52,11 +52,12 @@ export const setUsers = (users) => {
 
 export const initUsers = () => {
     return dispatch => {
-        dispatch(loadingFalse())
         streal_axios.get('/users.json')
             .then(res => {
                 dispatch(actions.initScreens())
                 dispatch(setUsers(res.data[Object.keys(res.data)]))
+                dispatch(getUserNameOnStart())
+                dispatch(loadingFalse())
             })
             .catch(err => console.log(err))
     }
