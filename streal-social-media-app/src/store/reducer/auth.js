@@ -6,7 +6,8 @@ const initialState = {
     userId : null,
     username : 'Jonnathan',
     userData : null,
-    users : []
+    users : [],
+    loading : false
 }
 
 const reducer = (state = initialState, action) => {
@@ -46,6 +47,11 @@ const reducer = (state = initialState, action) => {
                 username : action.name,
                 userData : action.userData
 
+            }
+        case actionTypes.LOADING_TRUE : 
+            return {
+                ...state,
+                loading : true
             }
         default:
             return state;    

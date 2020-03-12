@@ -12,6 +12,8 @@ export {
     auth,
     authCheckState,
     getUserNameOnStart,
-    logout
+    logout,
+    updateUserInfo
 }
 from './auth';
+

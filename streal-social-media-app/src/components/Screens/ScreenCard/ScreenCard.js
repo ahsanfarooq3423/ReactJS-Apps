@@ -42,6 +42,7 @@ class ScreenCard extends React.Component {
   }
 
 
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.listData === this.state.listData) {
       const listData = this.props.screens.map(screen => {
@@ -62,7 +63,6 @@ class ScreenCard extends React.Component {
     return (
       <div>
         {/* <Switch checked={!loading} onChange={this.onChange} /> */}
-
         <List
           itemLayout="vertical"
           size="large"

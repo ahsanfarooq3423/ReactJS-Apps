@@ -2,17 +2,22 @@ import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
 import classes from './EditUserInfo.module.css';
 import Button from '@material-ui/core/Button';
-import Alert from '@material-ui/core/Alert';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Alert from 'react-bootstrap/Alert';
+import {connect} from 'react-redux';
+import * as actions from '../../../../store/actions/index';
 
 
 
 class Edituserinfo extends Component {
 
     state = {
+        userId : null,
         name: null,
         bio: null,
         location: null,
-        website: null
+        website: null,
+        error : null
     }
 
     nameChangeHanlder = e => {
@@ -31,42 +36,52 @@ class Edituserinfo extends Component {
         this.setState({ website: e.target.value })
     }
 
+    
+    componentDidMount() {
+        const { userId ,name, bio, location, website } = this.props.userData;
+        this.setState({ userId, name, bio, location, website })
+    }
+    
+    errorNullHandler = () => {
+        this.setState({error : null})
+    }
+    
     onEditSaveHandler = () => {
-        console.log(this.state)
-        if (this.state.name.trim() === ""){
-            
-        }
+        if (this.state.name.trim() === "") {
+            return this.setState({ error: 'Name cannot be empty' })
+        } 
+        this.props.onUpdateInfo(this.state);
     }
 
-    componentDidMount() {
-        const {name, bio, location, website} = this.props.userData;
-        this.setState({name,bio,location,website})
-    }
+
 
     render() {
         return (
             <React.Fragment>
                 <form id="submit-edit" className={classes.root} noValidate autoComplete="off">
-                    <Alert severity="error">This is an error alert — check it out!</Alert>
+                    {this.state.error ?<Alert
+                                    onClose = {this.errorNullHandler} 
+                                    variant="danger" 
+                                    dismissible>{this.state.error}</Alert>: null}
                     <TextField
                         id="standard-basic"
                         label="Name"
-                        onChange = {this.nameChangeHanlder}
+                        onChange={this.nameChangeHanlder}
                         defaultValue={this.props.userData.name} />
                     <TextField
                         id="standard-basic"
                         label="Bio"
-                        onChange = {this.bioChangeHandler}
+                        onChange={this.bioChangeHandler}
                         defaultValue={this.props.userData.bio} />
                     <TextField
                         id="standard-basic"
                         label="Location"
-                        onChange = {this.locationChangeHandler}
+                        onChange={this.locationChangeHandler}
                         defaultValue={this.props.userData.location} />
                     <TextField
                         id="standard-basic"
                         label="Website"
-                        onChange = {this.websiteChangeHandler}
+                        onChange={this.websiteChangeHandler}
                         defaultValue={this.props.userData.website} />
                     <div className={classes.layout}>
                         <div className={classes.button}>
@@ -90,4 +105,12 @@ class Edituserinfo extends Component {
     }
 }
 
-export default Edituserinfo;
+const mapDispatchToProps = dispatch => {
+    return  {
+        onUpdateInfo : (userData) => dispatch(actions.updateUserInfo(userData)),
+        onInitScreens : () => dispatch(actions.initScreens())
+    }
+}
+
+
+export default connect(null, mapDispatchToProps)(Edituserinfo);

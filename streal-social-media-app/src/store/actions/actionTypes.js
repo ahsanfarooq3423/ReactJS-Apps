@@ -13,5 +13,6 @@ export const LOGOUT = 'LOGOUT';
 export const SET_USERS = 'SET_USERS';
 export const SET_USERNAME = 'SET_USERNAME';
 export const NO_USERNAME = 'NO_USERNAME';
-
+export const LOADING_TRUE = "LOADING_TRUE";
+export const LOADING_FALSE = "LOADING_FALSE"
 

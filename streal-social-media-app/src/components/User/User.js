@@ -20,7 +20,6 @@ class User extends Component {
     }
 
 
-
     static getDerivedStateFromProps(props, state) {
         const userData = props.userData;
         if (userData){

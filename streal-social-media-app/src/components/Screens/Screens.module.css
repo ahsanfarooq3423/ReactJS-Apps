@@ -4,3 +4,13 @@
     margin-left: 5%;
 }
 
+.spinner {
+    margin-top: 30%;
+    margin-left: 45%;
+}
+
+@media (max-width : 700px){
+    .spinner {
+        margin-left: 55%;
+    }
+}

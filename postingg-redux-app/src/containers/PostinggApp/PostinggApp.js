@@ -47,8 +47,6 @@ class PostinggApp extends Component {
         })
      }
 
-     
-    
 
     render() {
         let routes = (
