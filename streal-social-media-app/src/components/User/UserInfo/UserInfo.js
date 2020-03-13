@@ -7,7 +7,6 @@ import Skeleton from './Skeleton';
 import EditUserInfo from './EditUserInfo/EditUserInfo';
 
 const userinfo = props => {
-    console.log(props.userData)
     return (
         <Fragment>
         { props.userData ? <div className={classes.info}>

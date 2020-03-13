@@ -49,7 +49,6 @@ export const setUsers = (users) => {
     }
 }
 
-
 export const initUsers = () => {
     return dispatch => {
         streal_axios.get('/users.json')
@@ -207,7 +206,4 @@ export const updateUserInfo = (userData) => {
         }
     }
 }
-
-
-
 
