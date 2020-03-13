@@ -1,12 +1,10 @@
-import React, {useState} from 'react';
-import './App.css';
+import React from 'react';
+import AusrApp from './container/AusrApp/AusrApp';
 
 function App() {
-  let [title,setTitle] = useState('default title'); 
-
   return (
-    <div className="App">
-      
+    <div>
+      <AusrApp/>
     </div>
   );
 }
