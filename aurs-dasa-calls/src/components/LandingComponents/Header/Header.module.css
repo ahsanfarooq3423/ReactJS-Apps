@@ -1,6 +1,5 @@
 .main {
     background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1602&q=80');
-    background-position: 20% 0%;
     opacity: 0.95;
     background-attachment: fixed;
     width: 100%;
@@ -14,10 +13,61 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-shadow: 2px 1px 5px rgba(225,229,213,0.66);
 }
 
 .title {
+    margin-top: 5%;
     display: inline-block;
     font-size: 5rem;
     margin-bottom: 0px;
 }
+
+.button_layout {
+    margin-top: 1.5%;
+    display: flex;
+}
+
+.button {
+    height: 50px;
+    margin-left: 20px;
+}
+
+.b_text {
+    display: inline-block;
+    font-size: 15px;
+}
+
+
+
+.phone_icon {
+    margin-top: 2%;
+    font-size: 30px;
+    color: cornsilk;
+}
+
+.footnote {
+    font-size: 30px;
+}
+
+.register_button {
+    display: flex;
+    width: 10%;
+    border: 2px solid white;
+    justify-content: center;
+}
+
+
+.register_button:hover {
+    background: rgb(32, 134, 165);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+

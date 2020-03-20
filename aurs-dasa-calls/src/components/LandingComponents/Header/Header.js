@@ -1,5 +1,9 @@
 import React from 'react';
 import classes from './Header.module.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVideo, faChartBar, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 const header = () => {
     return (
@@ -8,10 +12,18 @@ const header = () => {
                 <h1 className = {classes.title}>AUSR - DASA </h1>
                 <h2 className = {classes.subtitle}>Automatic Urdu Speech Recognition -
                  Data Analytics and Sentiment Analysis</h2>
-                
-                 <button>See Demo</button>
-                 <button>Go to DashBoard</button>
+                <div className = {classes.button_layout}>
+                <Button className = {classes.button} variant="dark" size="lg">
+                     <FontAwesomeIcon icon = {faVideo} /> <p className = {classes.b_text}>See the Demo</p></Button>
+                     <Button className = {classes.button} variant="warning" size="lg">
+                     <FontAwesomeIcon icon = {faChartBar} /> <p className = {classes.b_text} >Go to DashBoard</p></Button>
+                </div>
+                <FontAwesomeIcon className = {classes.phone_icon} icon = {faPhone} />
+                <p className = {classes.footnote}>The intelligent solution for your call centers</p>
 
+                <div className = {classes.register_button}>
+                    <span>REGISTER HERE</span>
+                </div>
             </div>
         </div>
     )
