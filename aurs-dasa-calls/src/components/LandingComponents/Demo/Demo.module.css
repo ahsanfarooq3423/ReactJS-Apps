@@ -1,0 +1,19 @@
+.main_demo {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1 {
+    font-size: 40px;
+}
+
+.demo_span {
+    font-weight: bolder;
+}
+
+.video_content {
+    margin-top: 2%;
+    margin-bottom: 4%;
+}

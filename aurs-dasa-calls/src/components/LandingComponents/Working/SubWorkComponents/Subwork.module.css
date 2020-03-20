@@ -1,0 +1,19 @@
+.main_left {
+    padding: 100px;
+    display: flex;
+}
+
+.text {
+    padding: 0 30px;
+    width: 70%;
+}
+
+
+
+.image {
+    max-width: 20%;
+    max-height: 20%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+

@@ -1,10 +1,10 @@
 import React from 'react';
-import Header from '../../components/LandingComponents/Header/Header';
+import Landing from '../LandingPage/Landing';
 
 const aursapp = () => {
     return (
         <div>
-            <Header/>
+            <Landing/>
         </div>
     )
 }
