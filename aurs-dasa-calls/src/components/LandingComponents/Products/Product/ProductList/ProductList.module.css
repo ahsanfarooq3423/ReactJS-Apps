@@ -1,0 +1,14 @@
+
+ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-position: inside;
+    text-align: center;
+    margin-bottom: 20px;    
+  }
+
+li {
+    font-size: 14px;
+    font-weight: bolder;
+    padding: 5px;
+}
