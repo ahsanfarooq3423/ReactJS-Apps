@@ -1,6 +1,7 @@
-.main_left {
+.main {
     padding: 100px;
     display: flex;
+    margin-top: -100px;
 }
 
 .text {
@@ -8,12 +9,16 @@
     width: 70%;
 }
 
-
+.content {
+    font-size: 17px;
+}
 
 .image {
-    max-width: 20%;
-    max-height: 20%;
+    max-width: 24%;
+    max-height: 24%;
     margin-left: 10%;
     margin-right: 10%;
 }
+
+
 

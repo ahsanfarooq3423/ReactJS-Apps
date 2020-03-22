@@ -1,0 +1,16 @@
+.main {
+    text-align: center;
+}
+
+
+.strong {
+    font-weight: bolder;
+}
+
+.grid {
+    padding: 100px;
+    padding-top: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}

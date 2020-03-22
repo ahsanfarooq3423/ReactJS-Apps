@@ -1,0 +1,25 @@
+.main{
+    width: 25%;
+    min-height: 100%;
+    border-radius: 4px;
+    border: 1px solid darkgrey;
+    background-color: rgb(235, 232, 232);
+    margin: 15px;
+}
+
+.image {
+    max-width: 74%;
+    max-height: 74%;
+}
+
+.button {
+    width: 70%;
+    height: 40px;
+    border-radius: 50px;
+    outline: none;
+    background-color: rgb(51, 51, 146);
+    color: white;
+    font-size: 15px;
+    font-weight: bolder;
+}
+
