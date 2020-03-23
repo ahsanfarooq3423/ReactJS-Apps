@@ -17,7 +17,7 @@
 }
 
 .sub_div:hover {
-    background-color: lightblue;
+    background-color: rgb(129, 168, 180);
 }
 
 .selected {
@@ -26,7 +26,7 @@
 }
 
 .text {
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bolder;
     line-height: 14px;
     margin-left: 1%;

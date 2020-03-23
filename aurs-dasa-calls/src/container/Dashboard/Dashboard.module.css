@@ -5,5 +5,7 @@
 .left_container {
     height: 100vh;
     flex: 3.3;
-    background-color: rgb(236, 235, 235);
+    background-color: rgb(239, 239, 247);
+    padding: 2%;
+
 }
