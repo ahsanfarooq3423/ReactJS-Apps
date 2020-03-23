@@ -1,0 +1,41 @@
+.main {
+    padding: 20px;
+    font: bolder;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    padding-top: 0px;
+}
+
+
+
+.sub_div {
+    width: 80%;
+    height: 50px;
+    border-radius: 40px 40px 40px 40px;
+    transition: background-color 0.8s ease;
+}
+
+.sub_div:hover {
+    background-color: lightblue;
+}
+
+.selected {
+    background-color: rgb(0, 183, 255);
+    
+}
+
+.text {
+    font-size: 13px;
+    font-weight: bolder;
+    line-height: 14px;
+    margin-left: 1%;
+}
+/* 
+.selected {
+    
+} */
+
+.icon {
+    font-size: 15px;
+}

@@ -1,0 +1,15 @@
+.main {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    margin-bottom: 2%;
+}
+
+.image {
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 50%;
+    margin-bottom: 3%;
+}

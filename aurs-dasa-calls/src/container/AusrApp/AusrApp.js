@@ -1,10 +1,12 @@
 import React from 'react';
 import Landing from '../LandingPage/Landing';
+import Dashboard from '../Dashboard/Dashboard';
 
 const aursapp = () => {
     return (
         <div>
-            <Landing/>
+            {/* <Landing/> */}
+            <Dashboard/>
         </div>
     )
 }
