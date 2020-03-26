@@ -1,3 +1,18 @@
 .main {
-    width: 100%;
+    display: flex;
+    background-color: white;
+    align-items: center;
+
+    border: 1px solid rgb(194, 192, 192,0.6);
+    border-radius: 5px;
+}
+
+.button {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.play_icon {
+    max-width: 100px;
+    max-height: 100px;
 }

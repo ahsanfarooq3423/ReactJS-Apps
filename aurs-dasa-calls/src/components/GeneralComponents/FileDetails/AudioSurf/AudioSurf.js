@@ -3,6 +3,11 @@ import { peaks } from './Peaks';
 import WaveSurfer from 'wavesurfer';
 import classes from './AudioSurf.module.css';
 
+import PlayIcon from '../../../../images/sound/play.png';
+import PauseIcon from '../../../../images/sound/pause.png';
+
+
+
 // .ebee
 class FileSurfer extends React.Component {
   componentDidMount() {
@@ -21,25 +26,25 @@ class FileSurfer extends React.Component {
     });
 
     this.wavesurfer.load(aud, peaks);
-    console.log(peaks.length);
-
   }
 
   playIt = () => {
     this.wavesurfer.playPause();
   };
 
-  // 472, 780, +
-
   render() {
     return (
       <div className = {classes.main}>
-        <button onClick={this.playIt}>Play</button>
+        <div className = {classes.button} onClick={this.playIt}>
+            <img className = {classes.play_icon} src = {PlayIcon}/>
+        </div>
+
         <div
-            className = {classes.wave}
-        //   style={{ border: '1px solid grey', width: 150, height: 80 }}
+          style={{ marginTop : '30px', marginLeft : '10px' , marginBottom : '-80px', width: 700, height: 190 }}
           id="waveform"
         />
+
+        
         <audio
           id="song"
           src="https://reelcrafter-east.s3.amazonaws.com/aux/test.m4a"

@@ -1,14 +1,17 @@
 import React from 'react';
 import classes from './FileDetails.module.css';
 
-import AudioSurf from './AudioSurf/AudioSurf';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button } from 'react-bootstrap';
 
+import AudioSurf from './AudioSurf/AudioSurf';
+
 function filedetails(props) {
     return (
         <div className={classes.main} >
+            
+        
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
                     <Card.Title>File Name : props.data.fileName </Card.Title>
@@ -20,10 +23,10 @@ function filedetails(props) {
 
                 </Card.Body>
             </Card>
-            
-
+            <div className = {classes.second_div}>
             <AudioSurf/>
-
+            </div>
+           
         </div>
     )
 }
