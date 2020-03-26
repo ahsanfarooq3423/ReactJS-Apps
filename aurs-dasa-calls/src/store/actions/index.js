@@ -1,0 +1,3 @@
+export {
+    setSentiment
+} from './sentiment';

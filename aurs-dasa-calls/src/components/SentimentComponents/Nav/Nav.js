@@ -5,13 +5,11 @@ import { Nav } from 'react-bootstrap';
 const styles  = {
     activeLink : {
         backgroundColor : '#363970',
-        color : 'white',
-        fontWeight : 'bolder'
+        color : 'white'
     },
     main : {
         width : '100%',
         color : 'black',
-        fontWeight : 'bolder',
         marginTop : '20px'
     }
 }
