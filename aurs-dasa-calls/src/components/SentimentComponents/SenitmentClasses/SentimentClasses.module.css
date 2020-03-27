@@ -1,0 +1,42 @@
+.main {
+    margin-top: 6%;
+    display: flex;
+    justify-content: center;
+    border: 3px solid gainsboro;
+    border-radius: 5px;
+}
+
+.alert {
+    margin: 2%;
+    flex: 2;
+}
+
+.image {
+    flex: 1;
+    width: 30%;
+    height: 50%;
+    border: 3px solid black;
+    text-align: center;
+    margin: 20px;
+    border-radius: 5px;
+    padding-top: 2%;
+    cursor: pointer;
+}
+
+img {
+    max-height: 25%;
+    max-width: 25%;
+}
+
+h1 {
+    padding: 3%;
+}
+
+p {
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+.image:hover {
+    background-color: rgb(202, 205, 233)
+}

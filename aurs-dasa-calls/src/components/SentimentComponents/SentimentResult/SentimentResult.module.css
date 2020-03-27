@@ -1,0 +1,27 @@
+.main {
+    margin-top: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid gainsboro;
+    border-radius: 5px;
+}
+
+
+.image {
+    width: 30%;
+    height: 50%;
+    border: 2px solid black;
+    text-align: center;
+    margin: 20px;
+    border-radius: 5px;
+    padding-top: 2%;
+    cursor: pointer;
+}
+
+
+
+img {
+    max-height: 25%;
+    max-width: 25%;
+}

@@ -3,6 +3,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
 }
 
+.sentiment_button {
+    margin-top: 3%;
+}
