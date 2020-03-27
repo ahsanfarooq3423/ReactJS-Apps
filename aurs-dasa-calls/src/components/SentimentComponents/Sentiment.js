@@ -9,7 +9,7 @@ const sentiment = () => {
     return (
         <div className = {classes.main}>   
             <Nav/>
-            <LiveSentiment/>
+            {/* <LiveSentiment/> */}
         </div>
     )
 }

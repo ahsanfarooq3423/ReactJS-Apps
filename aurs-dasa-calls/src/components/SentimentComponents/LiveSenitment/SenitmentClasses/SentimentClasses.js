@@ -1,7 +1,10 @@
 import React, { useState, useRef } from 'react';
 import classes from './SentimentClasses.module.css';
-import angryImage from '../../../images/sentiment/angry.png';
-import calmImage from '../../../images/sentiment/calm.png';
+
+
+import angryImage from '../../../../images/sentiment/angry.png';
+import calmImage from '../../../../images/sentiment/calm.png';
+
 import { Overlay, Popover, Alert } from 'react-bootstrap';
 
 const SentimentClasses = () => {

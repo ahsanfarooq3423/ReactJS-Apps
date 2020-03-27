@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import AudioPicker from '../../GeneralComponents/AudioPicker/AudioPicker';
 import FileDetails from '../../GeneralComponents/FileDetails/FileDetails';
-import SentimentClasses from '../SenitmentClasses/SentimentClasses';
-import SentimentResult from '../SentimentResult/SentimentResult';
+import SentimentClasses from './SenitmentClasses/SentimentClasses';
+import SentimentResult from './SentimentResult/SentimentResult';
+import Spinner from '../../UI/Spinner/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Alert } from 'react-bootstrap';
 import classes from './LiveSentiment.module.css';
@@ -13,15 +14,15 @@ import * as actions from '../../../store/actions/index';
 
 const Livesentiment = (props) => {
     const [show, setShow] = useState(false);
-    const [result, setResult] = useState(false);
 
     const [buttonContent, setButtonContent] = useState('Check Sentiment');
 
+
     useEffect(() => {
-        if (result) {
+        if (props.sentimentState.resultStatus) {
             setButtonContent('Check for Another Call')
         }
-    },[result])
+    }, [props.sentimentState.resultStatus, props.sentimentState.loading])
 
 
     const setFileHanlder = fileData => {
@@ -30,10 +31,17 @@ const Livesentiment = (props) => {
 
 
     const checkSentimentHandler = () => {
-        if (!props.audioState.fileStatus) {
+        if (props.audioState.fileStatus) {
+            props.onCheckSentiment()
+        } else {
             setShow(true)
-            setResult(true)
         }
+    }
+
+    const checkAnotherCallHanlder = () => {
+        setButtonContent('Check Sentiment')
+        props.onResetSentiment();
+        props.onResetFile();
 
     }
 
@@ -45,23 +53,23 @@ const Livesentiment = (props) => {
 
     return (
         <div className={classes.main}>
-            {/* <FileDetails/> */}
-            {/* {props.sentimentState.fileData ? <FileDetails data = {props.sentimentState.fileData}/> : null} */}
             {show ? <Alert style={{ marginTop: '3%' }} variant="danger" onClose={() => setShow(false)} dismissible>
                 <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
                 <p>
                     No Audio File Was Revieved, Please select and Audio Call first and then check the sentiment.
         </p>
-            </Alert> : !props.audioState.fileStatus ? <AudioPicker setFile={setFileHanlder} /> : <FileDetails />}
+            </Alert> : !props.audioState.fileStatus ? <AudioPicker setFile={setFileHanlder} /> : <FileDetails 
+            data = {props.sentimentState} 
+            discard = {checkAnotherCallHanlder} />}
 
             <Button
-                onClick={checkSentimentHandler}
+                onClick={!props.sentimentState.resultStatus ? checkSentimentHandler :  checkAnotherCallHanlder}
                 className={sentiment_button_class.join(' ')}
                 variant="warning" size="lg">{buttonContent}
             </Button>
 
-            { result ?   <SentimentResult sentiment='angry' /> : <SentimentClasses/>  }
-           
+
+            {props.sentimentState.loading ? <Spinner/> : props.sentimentState.resultStatus ? <SentimentResult/> :<SentimentClasses/> }
         </div>
     )
 }
@@ -75,7 +83,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onSetFile: (fileData) => dispatch(actions.setSentiment(fileData))
+        onSetFile: (fileData) => dispatch(actions.setSentiment(fileData)),
+        onCheckSentiment : () => dispatch(actions.checkSentiment()),
+        onResetSentiment : () => dispatch(actions.resetSentimentResult()),
+        onResetFile : () => dispatch(actions.resetFileStatus())
     }
 }
 

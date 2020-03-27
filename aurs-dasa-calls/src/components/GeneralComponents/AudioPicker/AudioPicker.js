@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, {  useState, useEffect } from 'react';
 import classes from './AudioPicker.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileAudio } from '@fortawesome/free-solid-svg-icons';

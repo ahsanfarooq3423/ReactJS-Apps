@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import LeftDrawer from '../../components/LeftDrawer/LeftDrawer';
 import Sentiment from '../../components/SentimentComponents/Sentiment';
 import classes from './Dashboard.module.css';

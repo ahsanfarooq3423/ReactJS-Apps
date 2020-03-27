@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import classes from './SentimentResult.module.css';
-import angryImage from '../../../images/sentiment/angry.png';
-import calmImage from '../../../images/sentiment/calm.png';
+import angryImage from '../../../../images/sentiment/angry.png';
+import calmImage from '../../../../images/sentiment/calm.png';
 
 import { Alert } from 'react-bootstrap';
 

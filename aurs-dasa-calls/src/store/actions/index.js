@@ -1,9 +1,12 @@
 export {
-    setSentiment
+    setSentiment,
+    checkSentiment,
+    resetSentimentResult
 } from './sentiment';
 
 
 
 export {
-    setFileStatus 
+    setFileStatus,
+    resetFileStatus
 } from './audio';

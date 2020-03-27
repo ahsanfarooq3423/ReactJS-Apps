@@ -12,6 +12,11 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 fileStatus : true
             }
+        case (actionTypes.RESET_FILE_STATUS):
+            return {
+                ...state,
+                fileStatus : false
+            }
         default : 
             return {
                 ...state

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import AusrApp from './container/AusrApp/AusrApp';
 
 function App() {

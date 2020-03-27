@@ -1,21 +1,43 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    setup : 'this is the setup',
-    fileData : null,
-    fileSetStatus : false
+    fileData: null,
+    fileSetStatus: false,
+    loading: false,
+    result : null,
+    resultStatus : false
 }
 
 
 const reducer = (state = initialState, action) => {
-    switch(action.type) {
-        case (actionTypes.SET_SENTIMENT_FILE): 
+    switch (action.type) {
+        case (actionTypes.SET_SENTIMENT_FILE):
             return {
                 ...state,
-                fileData : action.fileData,
-                fileSetStatus : true
+                fileData: action.fileData,
+                fileSetStatus: true
             }
-        default : 
+        case (actionTypes.SENTIMENT_LOADING):
+            return {
+                ...state,
+                loading: action.value
+            }
+        case (actionTypes.SET_RESULT_SENTIMENT):
+            return {
+                ...state,
+                result : action.result,
+                resultStatus : true
+            }
+        case (actionTypes.RESET_SENTIMENT) : 
+            return {
+                ...state,
+                fileData : null,
+                fileSetStatus : false,
+                loading : false,
+                result : null,
+                resultStatus : false
+            }
+        default:
             return {
                 ...state
             }
