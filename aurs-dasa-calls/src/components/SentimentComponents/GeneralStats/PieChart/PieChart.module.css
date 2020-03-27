@@ -1,15 +1,10 @@
 .main {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.sub_div {
+.badges {
     display: flex;
-
+    margin-top: 10%;
 }
-
-.bottom_div {
-    display: flex;
-}
-
-

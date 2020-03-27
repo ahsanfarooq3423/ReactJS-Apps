@@ -5,7 +5,12 @@ const initialState = {
     fileSetStatus: false,
     loading: false,
     result : null,
-    resultStatus : false
+    resultStatus : false,
+
+    totalCalls : 345,
+    angryCalls : 65,
+    calmCalls  : 280
+
 }
 
 
