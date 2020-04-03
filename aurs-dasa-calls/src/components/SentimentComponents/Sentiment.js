@@ -1,5 +1,5 @@
 import React from 'react';
-import Nav from './Nav/Nav';
+import Nav from './SentimentNav/SentimentNav';
 
 import classes from './Sentiment.module.css';
 import { Switch, Route } from 'react-router-dom';

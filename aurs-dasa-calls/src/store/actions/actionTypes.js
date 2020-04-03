@@ -6,8 +6,18 @@ export const RESET_SENTIMENT = 'RESET_SENTIMENT';
 export const SET_SENTIMENT_HISTORY = 'SET_SENTIMENT_HISTORY';
 
 
+// Speech to Text Action Types 
+export const SET_SPEECH_FILE = 'SET_SPEECH_FILE';
+export const SPEECH_LOADING = 'SPEECH_LOADING';
+export const SET_RESULT_SPEECH = 'SET_RESULT_SPEECH';
+export const RESET_SPEECH_TEXT = 'RESET_SPEECH_TEXT';
+
+
 
 //AUDIO FILE STATUS
 export const SET_FILE_STATUS = 'SET_FILE_STATUS';
 export const RESET_FILE_STATUS = 'RESET_FILE_STATUS';
+
+
+
 

@@ -101,7 +101,7 @@ export const getSentimentHistory = () => {
         setTimeout(() => {
             dispatch(setSentimentHistory(rows))
             dispatch(sentimentLoading(false))
-        },2300)
+        },1500)
 
     }
 }

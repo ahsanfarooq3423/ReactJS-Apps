@@ -13,7 +13,7 @@ function filedetails(props) {
         <div className={classes.main} >
             <Card style={{ width: '18rem' }}>
                 <Card.Body>
-                    <Card.Title>File Name : {props.data.fileData.fileName} </Card.Title>
+                    <Card.Title>File Name :  {props.data.fileData.fileName} </Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">File Type : {props.data.fileData.fileType}</Card.Subtitle>
                     <Card.Text>
                         File Size {props.data.fileData.fileSize} MB

@@ -1,0 +1,12 @@
+.main {
+    width: 50%;
+    border: 2px solid rgb(181, 178, 214);
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    padding: 1%;
+}
+
+.main p {
+    font-size: 20px
+}

@@ -1,6 +1,9 @@
 import React from 'react';
 import LeftDrawer from '../../components/LeftDrawer/LeftDrawer';
+
 import Sentiment from '../../components/SentimentComponents/Sentiment';
+import SpeechText from '../../components/SpeechTextComponents/SpeechText';
+
 import classes from './Dashboard.module.css';
 
 const dashboard = () => {
@@ -9,7 +12,8 @@ const dashboard = () => {
             <LeftDrawer/>
             <div className = {classes.left_container}>
                 <h3 className = {classes.title}>Dashboard : Sentiment Analysis</h3>
-                <Sentiment/>
+                {/* <Sentiment/> */}
+                <SpeechText/>
             </div>
         </div>
     )

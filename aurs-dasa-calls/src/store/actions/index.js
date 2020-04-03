@@ -6,6 +6,12 @@ export {
 } from './sentiment';
 
 
+export {
+    setSpeechTextFile,
+    checkSpeechText,
+    resetSpeechText
+} from './speech';
+
 
 export {
     setFileStatus,
