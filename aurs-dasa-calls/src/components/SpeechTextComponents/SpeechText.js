@@ -5,6 +5,8 @@ import classes from './SpeechText.module.css';
 import { Switch, Route } from 'react-router-dom';
 
 import LiveSpeech from './LiveSpeechText/LiveSpeechText';
+import GeneralInfo from './GeneralInfo/GeneralInfo';
+import CallsHistory from './CallsHistory/CallsHistory';
 
 
 
@@ -16,7 +18,9 @@ const SpeechText = (props) => {
 
             <Switch>
                 {/* <Route path = '/speech/live' exact component = {() => <LiveSentiment/> } /> */}
-                <LiveSpeech/>
+                {/* <LiveSpeech/> */}
+                {/* <GeneralInfo/> */}
+                <CallsHistory/>
             </Switch>
         </div>
     )

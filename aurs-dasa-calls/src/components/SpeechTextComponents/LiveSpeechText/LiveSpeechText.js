@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import classes from './LiveSpeechText.module.css';
 import AudioPicker from '../../GeneralComponents/AudioPicker/AudioPicker';
 import FileDetails from '../../GeneralComponents/FileDetails/FileDetails';
@@ -19,6 +19,13 @@ const LiveSpeech = (props) => {
     const setFileHanlder = fileData => {
         props.onSetFile(fileData);
     }
+
+
+    useEffect(() => {
+        if (props.speechState.resultStatus) {
+            setButtonContent('Convert Audio To Text for Another Call')
+        }
+    }, [props.speechState.resultStatus, props.speechState.loading])
 
     const checkAnotherCallHanlder = () => {
         setButtonContent('Covert Audio Call to Text');
@@ -58,9 +65,8 @@ const LiveSpeech = (props) => {
                 <img src={micImage} alt='mic' />
                 <p>{buttonContent}</p>
             </div>
-
-            {!props.speechState.loading ? <SpeechResult /> : <Spinner />} : null }
-
+            {props.speechState.loading ? <Spinner/> : props.speechState.resultStatus ? 
+                                        <SpeechResult result = {props.speechState.result}/> :null }
         </div>
     )
 }

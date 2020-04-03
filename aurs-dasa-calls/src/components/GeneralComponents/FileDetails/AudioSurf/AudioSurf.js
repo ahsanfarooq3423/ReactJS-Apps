@@ -6,10 +6,15 @@ import classes from './AudioSurf.module.css';
 import PlayIcon from '../../../../images/sound/play.png';
 import PauseIcon from '../../../../images/sound/pause.png';
 
-
+import randomCall from '../../../../audio/0001.wav';
 
 // .ebee
 class FileSurfer extends React.Component {
+  
+  state = {
+    play : false
+  }
+
   componentDidMount() {
     const aud = document.querySelector('#song');
 
@@ -28,15 +33,21 @@ class FileSurfer extends React.Component {
     this.wavesurfer.load(aud, peaks);
   }
 
+
+
   playIt = () => {
     this.wavesurfer.playPause();
+    let bool = this.state.play
+    this.setState({play : !bool});
   };
+
+
 
   render() {
     return (
       <div className = {classes.main}>
         <div className = {classes.button} onClick={this.playIt}>
-            <img className = {classes.play_icon} src = {PlayIcon}/>
+            <img className = {classes.play_icon} src = {this.state.play ? PauseIcon : PlayIcon}/>
         </div>
 
         <div
@@ -46,8 +57,12 @@ class FileSurfer extends React.Component {
 
         
         <audio
+          onEnded = {() => {
+            this.setState({play : false})
+          }}
           id="song"
-          src="https://reelcrafter-east.s3.amazonaws.com/aux/test.m4a"
+          // src="https://reelcrafter-east.s3.amazonaws.com/aux/test.m4a"
+          src = {randomCall}
         />
       </div>
     );

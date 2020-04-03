@@ -11,7 +11,7 @@ const dashboard = () => {
         <div className = {classes.main}>
             <LeftDrawer/>
             <div className = {classes.left_container}>
-                <h3 className = {classes.title}>Dashboard : Sentiment Analysis</h3>
+                <h3 className = {classes.title}>Dashboard : Speech To Text</h3>
                 {/* <Sentiment/> */}
                 <SpeechText/>
             </div>

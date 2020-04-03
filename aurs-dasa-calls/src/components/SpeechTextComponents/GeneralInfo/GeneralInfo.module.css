@@ -1,0 +1,15 @@
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub_div {
+    display: flex;
+
+}
+
+.bottom_div {
+   margin-top: 3%;
+}
+
+

@@ -5,7 +5,11 @@ const initialState = {
     fileStatus: false,
     loading: false,
     result: null,
-    resultStatus: false
+    resultStatus: false,
+
+    errorRate : 60,
+    totalCalls : 290,
+    dataSet : 'TPL'
 }
 
 
