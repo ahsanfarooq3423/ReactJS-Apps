@@ -4,8 +4,11 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import { BrowserRouter } from 'react-router-dom';
+
+
 import { Provider } from 'react-redux';
-import { createStore, combineReducers , compose, applyMiddleware } from 'redux';
+import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 
 //REDUCERS
 import sentimentReducer from './store/reducer/sentiment';
@@ -19,9 +22,9 @@ const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX
 
 
 const rootReducer = combineReducers({
-    speechState : speechReducer,
-    sentimentState : sentimentReducer,
-    audioState : audioReducer
+    speechState: speechReducer,
+    sentimentState: sentimentReducer,
+    audioState: audioReducer
 })
 
 
@@ -30,8 +33,10 @@ const store = createStore(rootReducer, composeEnhancers(
 ));
 
 ReactDOM.render(
-    <Provider store = {store}>
-        <App />
+    <Provider store={store}>
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
     </Provider>
     , document.getElementById('root'));
 

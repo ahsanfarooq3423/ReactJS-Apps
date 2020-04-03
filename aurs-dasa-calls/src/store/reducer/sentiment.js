@@ -9,7 +9,9 @@ const initialState = {
 
     totalCalls : 345,
     angryCalls : 65,
-    calmCalls  : 280
+    calmCalls  : 280,
+
+    sentimentHistory : null
 
 }
 
@@ -41,6 +43,11 @@ const reducer = (state = initialState, action) => {
                 loading : false,
                 result : null,
                 resultStatus : false
+            }
+        case (actionTypes.SET_SENTIMENT_HISTORY) : 
+            return {
+                ...state,
+                sentimentHistory : action.data
             }
         default:
             return {

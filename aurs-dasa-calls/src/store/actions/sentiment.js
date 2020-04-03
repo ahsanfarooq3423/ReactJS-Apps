@@ -1,5 +1,50 @@
 import * as actionTypes from './actionTypes';
 
+const rows = [
+    {
+        name : 'Audio_Call_TPL_1',
+        sentiment : 'Angry',
+        date : '23-March-2020',
+        size : '4.1 MB',
+        length : '2:20 minutes'
+    },
+    {
+        name : 'Audio_Call_TPL_1',
+        sentiment : 'Angry',
+        date : '23-March-2020',
+        size : '4.1 MB',
+        length : '2:20 minutes'
+    },
+    {
+        name : 'Audio_Call_TPL_1',
+        sentiment : 'Angry',
+        date : '23-March-2020',
+        size : '4.1 MB',
+        length : '2:20 minutes'
+    },
+    {
+        name : 'Audio_Call_TPL_1',
+        sentiment : 'Angry',
+        date : '23-March-2020',
+        size : '4.1 MB',
+        length : '2:20 minutes'
+    },
+    {
+        name : 'Audio_Call_TPL_1',
+        sentiment : 'Angry',
+        date : '23-March-2020',
+        size : '4.1 MB',
+        length : '2:20 minutes'
+    },
+    {
+        name : 'Audio_Call_TPL_1',
+        sentiment : 'Angry',
+        date : '23-March-2020',
+        size : '4.1 MB',
+        length : '2:20 minutes'
+    },
+]
+
 export const setSentiment = (fileData) => {
     return {
         type : actionTypes.SET_SENTIMENT_FILE,
@@ -39,3 +84,26 @@ export const checkSentiment  = () => {
         }, 4000);
     }
 }
+
+export const setSentimentHistory = (data) => {
+    return {
+        type : actionTypes.SET_SENTIMENT_HISTORY,
+        data : data
+    }
+}
+
+
+export const getSentimentHistory = () => {
+    return dispatch => {
+        dispatch(sentimentLoading(true))
+
+        //here goes the api call to the server for the sentiment
+        setTimeout(() => {
+            dispatch(setSentimentHistory(rows))
+            dispatch(sentimentLoading(false))
+        },2300)
+
+    }
+}
+
+

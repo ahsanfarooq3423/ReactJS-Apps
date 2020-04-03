@@ -1,7 +1,8 @@
 export {
     setSentiment,
     checkSentiment,
-    resetSentimentResult
+    resetSentimentResult,
+    getSentimentHistory
 } from './sentiment';
 
 

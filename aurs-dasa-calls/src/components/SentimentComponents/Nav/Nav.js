@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav } from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router';
+import * as actions from '../../../store/actions/index';
+
 
 const styles  = {
     activeLink : {
@@ -14,25 +18,36 @@ const styles  = {
     }
 }
 
-function NavBar() {
+function NavBar(props) {
+
+    console.log(props)
+
     const [link1, setLink1] = useState(styles.activeLink);
     const [link2, setLink2] = useState({});
     const [link3, setLink3] = useState({});
 
+    let to;
 
     const linkHandler = (num) => {
         if (num === 1) {
             setLink1(styles.activeLink)
             setLink2({})
             setLink3({})
+            to = "/sentiment/live"
+            props.history.push(to)
         } else if (num === 2) {
             setLink1({})
             setLink2(styles.activeLink)
             setLink3({})
+            to = "/sentiment/stats"
+            props.history.push(to)
         } else if (num === 3) {
             setLink1({})
             setLink2({})
             setLink3(styles.activeLink)
+            props.onSentimentHistory()
+            to = "/sentiment/history"
+            props.history.push(to)
         }
     }
 
@@ -58,4 +73,10 @@ function NavBar() {
     )
 }
 
-export default NavBar;
+const mapDispatchToProps = dispatch => {
+    return {
+        onSentimentHistory : () => dispatch(actions.getSentimentHistory())
+    }
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(NavBar));
