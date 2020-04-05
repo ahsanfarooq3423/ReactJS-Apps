@@ -1,11 +1,21 @@
 import * as actionTypes from './actionTypes';
 
+export const setFileType = (value) => {
+    return {
+        type : actionTypes.SET_FILE_TYPE,
+        value : value
+    }
+}
+
+
 export const setProblemFile = (fileData) => {
     return {
         type : actionTypes.SET_PROBLEM_FILE,
         fileData : fileData
     }
 }
+
+
 
 export const resetProblemFile  = () => {
     return {
@@ -35,8 +45,8 @@ export const checkProblemResult  = () => {
         
         //here goes the api call to the server for the sentiment
         setTimeout(() => {
-            dispatch(problemLoading(false))
             dispatch(problemResult('Need to Change the Location of the Car'))
+            dispatch(problemLoading(false))
         }, 2000);
     }
 }

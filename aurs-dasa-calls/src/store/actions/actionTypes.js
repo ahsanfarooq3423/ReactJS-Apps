@@ -14,10 +14,12 @@ export const RESET_SPEECH_TEXT = 'RESET_SPEECH_TEXT';
 
 
 // Problem Identification Action Types
+export const SET_FILE_TYPE  = 'SET_FILE_TYPE';
 export const RESET_PROBLEM_FILE = 'RESET_PROBLEM_FILE';
 export const SET_PROBLEM_FILE = 'SET_PROBLEM_FILE';
 export const PROBLEM_LOADING = 'PROBLEM_LOADING';
 export const PROBLEM_RESULT  = 'PROBLEM_RESULT';
+
 
 
 //AUDIO FILE STATUS

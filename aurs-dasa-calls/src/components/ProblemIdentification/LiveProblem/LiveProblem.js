@@ -7,7 +7,10 @@ import Spinner from '../../UI/Spinner/Spinner';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Alert, Form, Button } from 'react-bootstrap';
+import { Alert, Form } from 'react-bootstrap';
+
+
+import Button from '@material-ui/core/Button';
 
 
 import identifyImage from '../../../images/problem/identify.jpg';
@@ -15,9 +18,12 @@ import identifyImage from '../../../images/problem/identify.jpg';
 const LiveProblem = (props) => {
     const [show, setShow] = useState(false);
     const [buttonContent, setButtonContent] = useState('Identify Problem in the Call');
+    const [callText, setCallText] = useState(null);
+    const [textButtonStatus, setTextButtonStatus] = useState(true);
 
     const setFileHanlder = fileData => {
         props.onSetFile(fileData);
+        props.onSetFileType('audio')
     }
 
 
@@ -41,6 +47,24 @@ const LiveProblem = (props) => {
         }
     }
 
+    const textChangeHandler = (event) => {
+        setCallText(event.target.value)
+        if (callText) {
+            if (callText.split(" ").length > 20) {
+                setTextButtonStatus(false)
+            }
+        }
+        
+    }
+
+    const saveTextHandler = () => {
+        if (callText.split(" ").length < 20) {
+            setTextButtonStatus(true);
+        }
+        props.onSetFileType('text')
+        props.onSetFile(callText)
+    }
+
     let problem_button_class = [];
 
     if (!props.problemState.fileStatus) {
@@ -56,14 +80,19 @@ const LiveProblem = (props) => {
                     and Audio Call or Enter some call text first and then
                     identify the problem.
         </p>
-            </Alert> : !props.problemState.fileStatus ?
+            </Alert> : !props.problemState.fileStatus  ?
                     <div className={classes.input_container}>
                         <AudioPicker setFile={setFileHanlder} />
-                        <div className = {classes.text_file}>
+                        <div className={classes.text_file}>
                             <Form.Group controlId="exampleForm.ControlTextarea1">
-                                <Form.Control className = {classes.textArea} as="textarea" rows="4" />
-                                <Form.Label style = {{marginTop : '3%'}}>Enter the Urdu Audio Text </Form.Label>
-                                <Button style = {{marginLeft : '5%'}} variant = "secondary">Save</Button>
+                                <Form.Control
+                                    onChange = {textChangeHandler} 
+                                    className={classes.textArea} as="textarea" rows="4" />
+                                <Form.Label style={{ marginTop: '3%' }}>Enter the Urdu Audio Text </Form.Label>
+                                <Button
+                                disabled = {textButtonStatus} 
+                                onClick = {saveTextHandler}
+                                style={{ marginLeft: '5%' }} variant="contained" color="primary">Save</Button>
                             </Form.Group>
                         </div>
                     </div>
@@ -80,6 +109,8 @@ const LiveProblem = (props) => {
             </div>
             {/* {props.speechState.loading ? <Spinner/> : props.speechState.resultStatus ? 
                                         <SpeechResult result = {props.speechState.result}/> :null } */}
+
+            {props.problemState.loading ? <Spinner/> : null}
         </div>
     )
 }
@@ -93,14 +124,9 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-    // return {
-    //     onSetFile: (fileData) => dispatch(actions.setSpeechTextFile(fileData)),
-    //     onResetSpeechText: () => dispatch(actions.resetSpeechText()),
-    //     onSpeechToText: () => dispatch(actions.checkSpeechText()),
-    //     onResetFile: () => dispatch(actions.resetFileStatus())
-    // }
 
     return {
+        onSetFileType : (value) => dispatch(actions.setFileType(value)),
         onSetFile: (fileData) => dispatch(actions.setProblemFile(fileData)),
         onResetProblemFile: () => dispatch(actions.resetProblemFile()),
         onCheckProblem: () => dispatch(actions.checkProblemResult()),

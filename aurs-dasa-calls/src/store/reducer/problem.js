@@ -3,6 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     fileData: null,
+    fileType : null,
     fileStatus: false,
     loading: false,
     result : null,
@@ -12,6 +13,11 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case (actionTypes.SET_FILE_TYPE):
+            return {
+                ...state,
+                fileType : action.value
+            }
         case (actionTypes.SET_PROBLEM_FILE):
             return {
                 ...state,
@@ -29,6 +35,7 @@ const reducer = (state = initialState, action) => {
             }
         case (actionTypes.PROBLEM_LOADING): {
             return {
+                ...state,
                 loading: action.value
             }
         }

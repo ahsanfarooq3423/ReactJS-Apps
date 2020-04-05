@@ -14,6 +14,7 @@ export {
 
 
 export {
+    setFileType,
     setProblemFile,
     resetProblemFile,
     checkProblemResult
