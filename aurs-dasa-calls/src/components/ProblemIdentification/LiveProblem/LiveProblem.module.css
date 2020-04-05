@@ -1,0 +1,48 @@
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.text_file {
+    margin: 2%;
+    width: 50%;
+    
+}
+
+.textArea {
+    box-shadow: 1px 0px 4px -1px rgba(0,0,0,0.61);
+}
+
+.input_container {
+    display: flex;
+    width: inherit;
+    justify-content: space-around;
+    
+}
+
+.problem_button {
+    margin-top: 8%;
+}
+
+.spinner_container {
+    margin-top: 6%;
+}
+
+.mic {
+    transition: all 0.1s ease-in;
+    cursor: pointer;
+    width: 23%;
+    margin-left: -100px;
+    margin-top: 0%;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mic:hover {
+    width: 25%;
+}

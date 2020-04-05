@@ -17,10 +17,13 @@ const SpeechText = (props) => {
             <Nav/>  
 
             <Switch>
-                {/* <Route path = '/speech/live' exact component = {() => <LiveSentiment/> } /> */}
+                <Route path = '/speech/live' exact component = {() => <LiveSpeech/> } />
+                <Route path = '/speech/stats' exact component = {() => <GeneralInfo/> } />
+                <Route path = '/speech/history' exact component = {() => <CallsHistory/> } />
+
                 {/* <LiveSpeech/> */}
                 {/* <GeneralInfo/> */}
-                <CallsHistory/>
+                {/* <CallsHistory/> */}
             </Switch>
         </div>
     )

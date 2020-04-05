@@ -14,6 +14,16 @@ export {
 
 
 export {
+    setProblemFile,
+    resetProblemFile,
+    checkProblemResult
+} from './problem';
+
+
+export {
     setFileStatus,
     resetFileStatus
 } from './audio';
+
+
+

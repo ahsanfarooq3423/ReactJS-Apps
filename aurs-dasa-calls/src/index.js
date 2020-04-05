@@ -14,6 +14,8 @@ import { createStore, combineReducers, compose, applyMiddleware } from 'redux';
 import sentimentReducer from './store/reducer/sentiment';
 import speechReducer from './store/reducer/speech';
 import audioReducer from './store/reducer/audio';
+import problemReducer from './store/reducer/problem';
+
 
 import thunk from 'redux-thunk';
 
@@ -24,7 +26,8 @@ const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX
 const rootReducer = combineReducers({
     speechState: speechReducer,
     sentimentState: sentimentReducer,
-    audioState: audioReducer
+    audioState: audioReducer,
+    problemState : problemReducer
 })
 
 
