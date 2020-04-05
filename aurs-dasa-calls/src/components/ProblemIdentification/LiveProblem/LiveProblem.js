@@ -3,6 +3,8 @@ import classes from './LiveProblem.module.css';
 import AudioPicker from '../../GeneralComponents/AudioPicker/AudioPicker';
 import FileDetails from '../../GeneralComponents/FileDetails/FileDetails';
 
+import ShowText from './ShowText/ShowText';
+
 import Spinner from '../../UI/Spinner/Spinner';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
@@ -50,11 +52,11 @@ const LiveProblem = (props) => {
     const textChangeHandler = (event) => {
         setCallText(event.target.value)
         if (callText) {
-            if (callText.split(" ").length > 20) {
+            if (callText.split(" ").length > 10) {
                 setTextButtonStatus(false)
             }
         }
-        
+
     }
 
     const saveTextHandler = () => {
@@ -63,6 +65,12 @@ const LiveProblem = (props) => {
         }
         props.onSetFileType('text')
         props.onSetFile(callText)
+    }
+
+    const discardTextHanlder = () => {
+        setCallText(null);
+        checkAnotherCallHanlder();
+        setTextButtonStatus(true)
     }
 
     let problem_button_class = [];
@@ -80,25 +88,29 @@ const LiveProblem = (props) => {
                     and Audio Call or Enter some call text first and then
                     identify the problem.
         </p>
-            </Alert> : !props.problemState.fileStatus  ?
+            </Alert> : !props.problemState.fileStatus ?
                     <div className={classes.input_container}>
                         <AudioPicker setFile={setFileHanlder} />
                         <div className={classes.text_file}>
                             <Form.Group controlId="exampleForm.ControlTextarea1">
                                 <Form.Control
-                                    onChange = {textChangeHandler} 
+                                    onPaste = {textChangeHandler}
+                                    onChange={textChangeHandler}
                                     className={classes.textArea} as="textarea" rows="4" />
                                 <Form.Label style={{ marginTop: '3%' }}>Enter the Urdu Audio Text </Form.Label>
                                 <Button
-                                disabled = {textButtonStatus} 
-                                onClick = {saveTextHandler}
-                                style={{ marginLeft: '5%' }} variant="contained" color="primary">Save</Button>
+                                    disabled={textButtonStatus}
+                                    onClick={saveTextHandler}
+                                    style={{ marginLeft: '5%' }} variant="contained" color="primary">Save</Button>
                             </Form.Group>
                         </div>
                     </div>
-                    : <FileDetails
+                    : props.problemState.fileType === 'audio' ? <FileDetails
                         data={props.problemState}
-                        discard={checkAnotherCallHanlder} />}
+                        discard={checkAnotherCallHanlder} /> : 
+                        <ShowText 
+                        discard={discardTextHanlder}
+                        result = {props.problemState.fileData}/> }
 
             <div
                 onClick={!props.problemState.resultStatus ? identifyProblemHanlder : checkAnotherCallHanlder}
@@ -110,7 +122,7 @@ const LiveProblem = (props) => {
             {/* {props.speechState.loading ? <Spinner/> : props.speechState.resultStatus ? 
                                         <SpeechResult result = {props.speechState.result}/> :null } */}
 
-            {props.problemState.loading ? <Spinner/> : null}
+            {props.problemState.loading ? <Spinner /> : null}
         </div>
     )
 }
@@ -124,9 +136,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => {
-
     return {
-        onSetFileType : (value) => dispatch(actions.setFileType(value)),
+        onSetFileType: (value) => dispatch(actions.setFileType(value)),
         onSetFile: (fileData) => dispatch(actions.setProblemFile(fileData)),
         onResetProblemFile: () => dispatch(actions.resetProblemFile()),
         onCheckProblem: () => dispatch(actions.checkProblemResult()),

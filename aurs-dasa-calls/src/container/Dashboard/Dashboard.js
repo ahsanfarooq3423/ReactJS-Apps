@@ -19,7 +19,18 @@ const dashboard = () => {
                 <h3 className={classes.title}>Dashboard : Speech To Text</h3>
                 {/* <Sentiment/> */}
                 {/* <SpeechText /> */}
-                <ProblemIdentification/>
+                {/* <ProblemIdentification/> */}
+
+
+                <Switch>
+                <Route path = '/speech/'  component = {() => <SpeechText/> } />
+                <Route path = '/sentiment/'  component = {() => <Sentiment/> } />
+                <Route path = '/problem/'  component = {() => <ProblemIdentification/> } />
+
+                {/* <LiveSpeech/> */}
+                {/* <GeneralInfo/> */}
+                {/* <CallsHistory/> */}
+            </Switch>
             </div>
         </div>
     )

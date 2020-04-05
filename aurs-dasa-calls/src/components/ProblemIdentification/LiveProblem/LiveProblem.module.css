@@ -35,7 +35,7 @@
     transition: all 0.1s ease-in;
     cursor: pointer;
     width: 23%;
-    margin-left: -100px;
+
     margin-top: 0%;
     display: flex;
     flex-direction: column;
