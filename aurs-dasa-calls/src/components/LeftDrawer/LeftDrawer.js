@@ -16,8 +16,8 @@ const leftdrawer = () => {
             <p className = {classes.subtitle}>MODELS</p>
 
             <div className = {classes.subselectors}>
-                <SubSelector  name = 'calls to text'/>
-                <SubSelector selected name = 'sentiment analysis'/>
+                <SubSelector selected name = 'calls to text'/>
+                <SubSelector  name = 'sentiment analysis'/>
                 <SubSelector name = 'data analytics'/>
                 <SubSelector name = 'problem identification'/>
 

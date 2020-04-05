@@ -9,8 +9,13 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import IconButton from '@material-ui/core/IconButton';
 import PlayArrow from '@material-ui/icons/PlayArrow';
+import PauseIcon from '@material-ui/icons/Pause';
 
 import Modal from './Modal';
+
+import call_audio from '../../../../audio/0001.wav';
+var audio = new Audio(call_audio);
+
 
 
 const StyledTableCell = withStyles((theme) => ({
@@ -86,6 +91,23 @@ export default function CustomizedTables() {
     const [modalShow, setModalShow] = useState(false);
     const [callIndex, setCallIndex] = useState(0);
 
+    const [playingIndex, setPlayingIndex] = useState(null);
+
+    const playSound = (index) => {
+        if(audio.paused){
+            setPlayingIndex(index);
+            audio.play();
+          } else {
+            setPlayingIndex(null);
+            audio.pause();
+          }
+          audio.onended = function(){
+            setPlayingIndex(null)
+          };
+    }
+
+
+
     return (
         <React.Fragment>
 
@@ -124,7 +146,7 @@ export default function CustomizedTables() {
                                 <StyledTableCell align="left">{row.length}</StyledTableCell>
                                 <StyledTableCell component="th" scope="row">
                                     <IconButton aria-label="play">
-                                        <PlayArrow />
+                                        {playingIndex === index ? <PauseIcon onClick = {() => playSound(index)}/>: <PlayArrow onClick = {() => playSound(index)} /> }
                                     </IconButton>
                                 </StyledTableCell>
                             </StyledTableRow>
