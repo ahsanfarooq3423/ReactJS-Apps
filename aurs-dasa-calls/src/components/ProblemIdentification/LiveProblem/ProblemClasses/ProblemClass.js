@@ -2,7 +2,6 @@ import React from 'react';
 import classes from './ProblemClass.module.css';
 
 const ProblemClass = (props) => {
-    console.log(props)
     return (
         <div className={classes.Toast}>
             <main className={classes.Toast__message}>

@@ -5,7 +5,8 @@ import classes from './Statbox.module.css';
 const style = {
     width: '20rem',
     borderRadius: '12px ',
-    cursor : 'pointer'
+    cursor : 'pointer',
+    height : '99%'
 }
 
 const Statbox = props => {
@@ -14,7 +15,9 @@ const Statbox = props => {
         <Card style={style}>
             <Card.Body>
                 <Card.Subtitle className="mb-1 text-muted">{props.data.title}</Card.Subtitle>
-                <img className = "float-right" src = {props.data.image}/>
+                {props.data.image ? <img  
+                    className = "float-right" 
+                    src = {props.data.image}/>: null}
                 <Card.Title className="mb-3" style = {{fontSize : '40px'}}>{props.data.subtitle}</Card.Title>
                 <Card.Text className="text-muted">
                    {props.data.content}

@@ -1,0 +1,18 @@
+
+.sub_div1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.sub_div1 h3 {
+    padding: 2%;
+    align-self: center;
+}
+
+.sub_div2 {
+    display: flex;
+    flex-wrap: wrap;
+
+}

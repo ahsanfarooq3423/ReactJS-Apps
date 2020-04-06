@@ -4,11 +4,10 @@ import Nav from './ProblemNav/Nav';
 import classes from './ProblemIdentification.module.css';
 import { Switch, Route } from 'react-router-dom';
 
-// import LiveSpeech from './LiveSpeechText/LiveSpeechText';
-// import GeneralInfo from './GeneralInfo/GeneralInfo';
-// import CallsHistory from './CallsHistory/CallsHistory';
+
 
 import LiveProblem from './LiveProblem/LiveProblem';
+import ProblemsInfo from './ProblemsInfo/ProblemsInfo';
 
 const ProblemIdentification = (props) => {
     return (
@@ -19,11 +18,10 @@ const ProblemIdentification = (props) => {
                  <Route path = '/speech/stats' exact component = {() => <GeneralInfo/> } /> 
                <Route path = '/speech/history' exact component = {() => <CallsHistory/> } /> */}
 
-                {/* <LiveSpeech/> */}
-                {/* <GeneralInfo/> */}
-                {/* <CallsHistory/> */}
 
-               <LiveProblem/>
+               {/* <LiveProblem/> */}
+
+               <ProblemsInfo/>
                
             </Switch>
         </div>

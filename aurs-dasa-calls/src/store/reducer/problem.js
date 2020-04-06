@@ -3,36 +3,52 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     fileData: null,
-    fileType : null,
+    fileType: null,
     fileStatus: false,
     loading: false,
-    result : null,
-    resultStatus : false,
+    result: null,
+    resultStatus: false,
 
-    problemClasses : [
+    totalCalls : 222,
+
+    problemClasses: [
         {
-          category: "Car has stopped running"
+            category: "Problem :  Car has stopped running",
+            id: 0,
+            number: 34
         },
         {
-          category: "Need to Activate the Car for Other Location (Out of City) etc."
+            category: "Problem : Need to Activate the Car for Other Location (Out of City) etc.",
+            id: 1,
+            number: 43
         },
         {
-          category: "Receiving Critical Alarms from the Car"
+            category: "Problem : Receiving Critical Alarms from the Car",
+            id: 3,
+            number: 45
         },
         {
-          category: "Need to Know the Location of the Car"
+            category: "Problem : Need to Know the Location of the Car",
+            id: 4,
+            number: 12
         },
         {
-          category: "Need the Passport Code for TPL Trakker Mobile App"
+            category: "Problem : Need the Passport Code for TPL Trakker Mobile App",
+            id: 5,
+            number: 65
+
         },
         {
-            category: "Battery Drainage Issue"
+            category: "Problem : Battery Drainage Issue",
+            id: 6,
+            number: 23
+
         }
-      ],
+    ],
 
-      dataset : 'TPL Tracker Data Set'
+    dataset: 'TPL Tracker Data Set'
 
-    
+
 }
 
 
@@ -41,7 +57,7 @@ const reducer = (state = initialState, action) => {
         case (actionTypes.SET_FILE_TYPE):
             return {
                 ...state,
-                fileType : action.value
+                fileType: action.value
             }
         case (actionTypes.SET_PROBLEM_FILE):
             return {
@@ -64,7 +80,7 @@ const reducer = (state = initialState, action) => {
                 loading: action.value
             }
         }
-        case (actionTypes.PROBLEM_RESULT) : {
+        case (actionTypes.PROBLEM_RESULT): {
             return {
                 ...state,
                 result: action.result,

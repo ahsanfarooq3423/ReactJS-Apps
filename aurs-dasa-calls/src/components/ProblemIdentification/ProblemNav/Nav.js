@@ -21,6 +21,7 @@ function NavBar(props) {
     const [link1, setLink1] = useState({});
     const [link2, setLink2] = useState({});
     const [link3, setLink3] = useState({});
+    const [link4, setLink4] = useState({});
     let to;
     // let path = props.location.pathname;
     let path = '/problem/live';
@@ -29,37 +30,56 @@ function NavBar(props) {
             setLink1(styles.activeLink)
             setLink2({})
             setLink3({})
+            setLink4({})
+        }
+        else if (path === '/problem/info') {
+            setLink1({})
+            setLink2(styles.activeLink)
+            setLink3({})
+            setLink4({})
         }
         else if (path === '/problem/stats') {
-            setLink2(styles.activeLink)
             setLink1({})
-            setLink3({})
+            setLink2({})
+            setLink3(styles.activeLink)
+            setLink4({})
         }
         else if (path === '/problem/history') {
             setLink1({})
             setLink2({})
-            setLink3(styles.activeLink)
+            setLink3({})
+            setLink4(styles.activeLink)
         }
     }, [path])
-    // [props.location.pathname])
 
     const linkHandler = (path) => {
         if (path === '/problem/live') {
             setLink1(styles.activeLink)
             setLink2({})
             setLink3({})
+            setLink4({})
             to = "/problem/live"
             props.history.push(to)
-        } else if (path === '/problem/stats') {
+        } else if (path === '/problem/info') {
             setLink1({})
             setLink2(styles.activeLink)
             setLink3({})
-            to = "/problem/stats"
+            setLink4({})
+            to = "/problem/info"
             props.history.push(to)
-        } else if (path === '/problem/history') {
+        } else if (path === '/problem/stats') {
             setLink1({})
             setLink2({})
             setLink3(styles.activeLink)
+            setLink4({})
+            to = "/problem/stats"
+            props.history.push(to)
+        }
+        else if (path === '/problem/history') {
+            setLink1({})
+            setLink2({})
+            setLink3({})
+            setLink4(styles.activeLink)
             to = "/problem/history"
             props.history.push(to)
         }
@@ -74,13 +94,19 @@ function NavBar(props) {
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/problem/stats')}
-                    style={link2} eventKey="link-2">Problems Stats</Nav.Link>
+                    onClick={linkHandler.bind(this, '/problem/info')}
+                    style={link2} eventKey="link-2">Problems Info</Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link
+                    onClick={linkHandler.bind(this, '/problem/stats')}
+                    style={link3} eventKey="link-3">Problems Stats</Nav.Link>
+            </Nav.Item>
+
+            <Nav.Item>
+                <Nav.Link
                     onClick={linkHandler.bind(this, '/problem/history')}
-                    style={link3} eventKey="link-3">Problems History</Nav.Link>
+                    style={link4} eventKey="link-w">Problems History</Nav.Link>
             </Nav.Item>
 
         </Nav>
