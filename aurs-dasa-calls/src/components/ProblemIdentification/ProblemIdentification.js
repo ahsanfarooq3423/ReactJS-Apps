@@ -8,6 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import LiveProblem from './LiveProblem/LiveProblem';
 import ProblemsInfo from './ProblemsInfo/ProblemsInfo';
+import GeneralStats from './GeneralStats/GeneralStats';
 
 const ProblemIdentification = (props) => {
     return (
@@ -21,8 +22,8 @@ const ProblemIdentification = (props) => {
 
                {/* <LiveProblem/> */}
 
-               <ProblemsInfo/>
-               
+               {/* <ProblemsInfo/> */}
+               <GeneralStats/>
             </Switch>
         </div>
     )
