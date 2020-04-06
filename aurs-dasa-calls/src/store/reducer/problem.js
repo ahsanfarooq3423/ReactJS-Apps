@@ -8,6 +8,31 @@ const initialState = {
     loading: false,
     result : null,
     resultStatus : false,
+
+    problemClasses : [
+        {
+          category: "Car has stopped running"
+        },
+        {
+          category: "Need to Activate the Car for Other Location (Out of City) etc."
+        },
+        {
+          category: "Receiving Critical Alarms from the Car"
+        },
+        {
+          category: "Need to Know the Location of the Car"
+        },
+        {
+          category: "Need the Passport Code for TPL Trakker Mobile App"
+        },
+        {
+            category: "Battery Drainage Issue"
+        }
+      ],
+
+      dataset : 'TPL Tracker Data Set'
+
+    
 }
 
 

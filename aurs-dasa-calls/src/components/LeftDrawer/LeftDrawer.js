@@ -11,7 +11,6 @@ import classes from './LeftDrawer.module.css';
 
 
 const leftdrawer = (props) => {
-    console.log(props)
     return (
         <div className={classes.main}>
             <User />

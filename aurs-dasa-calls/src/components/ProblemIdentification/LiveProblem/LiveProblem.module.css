@@ -46,3 +46,8 @@
 .mic:hover {
     width: 25%;
 }
+
+.toasts {
+    display: flex;
+    flex-wrap: wrap;
+}

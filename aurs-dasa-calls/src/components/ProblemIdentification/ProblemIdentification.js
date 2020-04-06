@@ -8,10 +8,9 @@ import { Switch, Route } from 'react-router-dom';
 // import GeneralInfo from './GeneralInfo/GeneralInfo';
 // import CallsHistory from './CallsHistory/CallsHistory';
 
-import ProblemIdentification from './LiveProblem/LiveProblem';
+import LiveProblem from './LiveProblem/LiveProblem';
 
-
-const SpeechText = (props) => {
+const ProblemIdentification = (props) => {
     return (
         <div className = {classes.main}> 
             <Nav/>  
@@ -24,11 +23,11 @@ const SpeechText = (props) => {
                 {/* <GeneralInfo/> */}
                 {/* <CallsHistory/> */}
 
-               <ProblemIdentification/>
-
+               <LiveProblem/>
+               
             </Switch>
         </div>
     )
 }
 
-export default SpeechText;
+export default ProblemIdentification;

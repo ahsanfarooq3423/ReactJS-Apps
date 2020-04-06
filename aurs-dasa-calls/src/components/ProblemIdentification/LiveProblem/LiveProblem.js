@@ -5,6 +5,9 @@ import FileDetails from '../../GeneralComponents/FileDetails/FileDetails';
 
 import ShowText from './ShowText/ShowText';
 
+import ProblemContainer from './ProblemClasses/ProblemContainer';
+import ProblemResult from './ProblemResult/ProblemResult';
+
 import Spinner from '../../UI/Spinner/Spinner';
 import { connect } from 'react-redux';
 import * as actions from '../../../store/actions/index';
@@ -114,15 +117,20 @@ const LiveProblem = (props) => {
 
             <div
                 onClick={!props.problemState.resultStatus ? identifyProblemHanlder : checkAnotherCallHanlder}
-                // onClick={false ? convertSpeechToTextHandler :  checkAnotherCallHanlder}
                 className={classes.mic}>
                 <img src={identifyImage} alt='mic' />
                 <p>{buttonContent}</p>
             </div>
-            {/* {props.speechState.loading ? <Spinner/> : props.speechState.resultStatus ? 
-                                        <SpeechResult result = {props.speechState.result}/> :null } */}
-
-            {props.problemState.loading ? <Spinner /> : null}
+            {props.problemState.loading ? <Spinner /> : 
+            <React.Fragment>
+            {props.problemState.resultStatus ? <ProblemResult 
+                category = {props.problemState.result} 
+                dataset = {props.problemState.dataset}/> : 
+                <ProblemContainer 
+                dataset = {props.problemState.dataset}
+                problemState = {props.problemState}  />}
+            </React.Fragment>
+        }
         </div>
     )
 }
