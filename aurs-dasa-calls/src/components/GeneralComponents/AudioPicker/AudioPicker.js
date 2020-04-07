@@ -19,10 +19,13 @@ function AudioPicker(props) {
 
 
     const fileUploadHanlder = event => {
-        setFile(event.target.files[0]);
-        setFileName(event.target.files[0].name)
-        setFileSize(event.target.files[0].size / 1000000);
-        setFileType(event.target.files[0].type);
+        if (event.target.files[0]) {
+            setFile(event.target.files[0]);
+            setFileName(event.target.files[0].name)
+            setFileSize(event.target.files[0].size / 1000000);
+            setFileType(event.target.files[0].type);
+        }
+        
     }
 
 

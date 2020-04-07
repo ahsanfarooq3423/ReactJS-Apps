@@ -22,68 +22,45 @@ function NavBar(props) {
 
     const [link1, setLink1] = useState({});
     const [link2, setLink2] = useState({});
-    const [link3, setLink3] = useState({});
     let to;
     let path = props.location.pathname;
     useEffect(() => {
-        if (path === '/dashboard/sentiment/live') {
+        if (path === '/dashboard/analytics/freq') {
             setLink1(styles.activeLink)
             setLink2({})
-            setLink3({})
         }
-        else if (path === '/dashboard/sentiment/stats') {
+        else if (path === '/dashboard/analytics/ngram') {
             setLink2(styles.activeLink)
             setLink1({})
-            setLink3({})
-        }
-        else if (path === '/dashboard/sentiment/history') {
-            setLink1({})
-            setLink2({})
-            setLink3(styles.activeLink)
         }
     }, [props.location.pathname])
 
     const linkHandler = (path) => {
-        if (path === '/dashboard/sentiment/live') {
+        if (path === '/dashboard/analytics/freq') {
             setLink1(styles.activeLink)
             setLink2({})
-            setLink3({})
-            to = "/dashboard/sentiment/live"
+            to = "/dashboard/analytics/freq"
             props.history.push(to)
-        } else if (path === '/dashboard/sentiment/stats') {
+        } else if (path === '/dashboard/analytics/ngram') {
             setLink1({})
             setLink2(styles.activeLink)
-            setLink3({})
-            to = "/dashboard/sentiment/stats"
+            to = "/dashboard/analytics/ngram"
             props.history.push(to)
-        } else if (path === '/dashboard/sentiment/history') {
-            setLink1({})
-            setLink2({})
-            setLink3(styles.activeLink)
-            props.onSentimentHistory()
-            to = "/dashboard/sentiment/history"
-            props.history.push(to)
-        }
+        } 
     }
 
     return (
         <Nav style={styles.main} justify variant="tabs" defaultActiveKey="link-4">
             <Nav.Item  >
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/dashboard/sentiment/live')}
-                    style={link1} eventKey="link-1">Check Live Sentiment</Nav.Link>
+                    onClick={linkHandler.bind(this, '/dashboard/analytics/freq')}
+                    style={link1} eventKey="link-1">Most Occuring Words (Frequency)</Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/dashboard/sentiment/stats')}
-                    style={link2} eventKey="link-2">General Stats</Nav.Link>
+                    onClick={linkHandler.bind(this, '/dashboard/analytics/ngram')}
+                    style={link2} eventKey="link-2">N- Gram Model </Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-                <Nav.Link
-                    onClick={linkHandler.bind(this, '/dashboard/sentiment/history')}
-                    style={link3} eventKey="link-3">Sentiment History</Nav.Link>
-            </Nav.Item>
-
         </Nav>
     )
 }

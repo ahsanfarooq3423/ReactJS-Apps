@@ -81,7 +81,7 @@ export const checkSentiment  = () => {
         setTimeout(() => {
             dispatch(sentimentResult('calm'))
             dispatch(sentimentLoading(false))
-        }, 4000);
+        }, 1500);
     }
 }
 
@@ -101,7 +101,7 @@ export const getSentimentHistory = () => {
         setTimeout(() => {
             dispatch(setSentimentHistory(rows))
             dispatch(sentimentLoading(false))
-        },1500)
+        },1200)
 
     }
 }

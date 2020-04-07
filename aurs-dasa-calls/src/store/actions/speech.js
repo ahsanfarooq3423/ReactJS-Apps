@@ -37,6 +37,6 @@ export const checkSpeechText  = () => {
         setTimeout(() => {
             dispatch(speechResult('ٹھیس اس احسن فاروقٹھیس اس احسن فاروق ٹھیس اس احسن فاروق ٹھیس اس'))
             dispatch(speechLoading(false))
-        }, 2000);
+        }, 15000);
     }
 }

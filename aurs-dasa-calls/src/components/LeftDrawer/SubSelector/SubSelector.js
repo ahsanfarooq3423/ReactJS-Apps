@@ -2,6 +2,8 @@ import React from 'react';
 import classes from './SubSelector.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeadset, faSmile, faChartBar, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import {connect} from 'react-redux';
+import * as actions from '../../../store/actions/index';
 
 const mainselector = props => {
     let icon;
@@ -21,8 +23,13 @@ const mainselector = props => {
         styles.push(classes.selected)
     }
 
+    const clickHandler = () => {
+        props.click()
+        props.onFileReset()
+    }
+
     return (
-        <div className={classes.main}>
+        <div onClick = {clickHandler} className={classes.main}>
             <div className = {styles.join(' ')}>
                 <FontAwesomeIcon icon={icon} className={classes.icon} />
                 <p className={classes.text}>{props.name.toUpperCase()}</p>
@@ -32,6 +39,12 @@ const mainselector = props => {
 
 
 
+const mapDispatchToProps = dispatch => {
+    return {
+        onFileReset: () => dispatch(actions.resetFileStatus())
+    }
+}
 
 
-export default mainselector;
+
+export default connect(null, mapDispatchToProps)(mainselector);

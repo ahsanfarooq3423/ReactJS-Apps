@@ -16,15 +16,10 @@ const sentiment = (props) => {
             <Nav/>  
 
             <Switch>
-                <Route path = '/sentiment/live' exact component = {() => <LiveSentiment/> } />
-                <Route path = '/sentiment/stats' exact component = {() => <GeneralStats/> } />
-                <Route path = '/sentiment/history' exact component = {() => <SenitmentHistory/> } />
+                <Route path = '/dashboard/sentiment/live' exact component = {() => <LiveSentiment/> } />
+                <Route path = '/dashboard/sentiment/stats' exact component = {() => <GeneralStats/> } />
+                <Route path = '/dashboard/sentiment/history' exact component = {() => <SenitmentHistory/> } />
             </Switch>
-
-            
-            {/* <LiveSentiment/> */}
-            {/* <GeneralStats/> */}
-            {/* <SenitmentHistory/> */}
         </div>
     )
 }

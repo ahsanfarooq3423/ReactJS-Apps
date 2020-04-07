@@ -95,7 +95,7 @@ export const checkProblemResult  = () => {
         setTimeout(() => {
             dispatch(problemResult('Need to Change the Location of the Car'))
             dispatch(problemLoading(false))
-        }, 2000);
+        }, 1200);
     }
 }
 
@@ -116,7 +116,7 @@ export const getProblemHistory = () => {
         setTimeout(() => {
             dispatch(setProblemHistory(rows))
             dispatch(problemLoading(false))
-        },1500)
+        },1200)
 
     }
 }

@@ -26,17 +26,17 @@ function NavBar(props) {
     let to;
     let path = props.location.pathname;
     useEffect(() => {
-        if (path === '/speech/live') {
+        if (path === '/dashboard/speech/live') {
             setLink1(styles.activeLink)
             setLink2({})
             setLink3({})
         }
-        else if (path === '/speech/stats') {
+        else if (path === '/dashboard/speech/stats') {
             setLink2(styles.activeLink)
             setLink1({})
             setLink3({})
         }
-        else if (path === '/speech/history') {
+        else if (path === '/dashboard/speech/history') {
             setLink1({})
             setLink2({})
             setLink3(styles.activeLink)
@@ -44,24 +44,23 @@ function NavBar(props) {
     }, [props.location.pathname])
 
     const linkHandler = (path) => {
-        if (path === '/speech/live') {
+        if (path === '/dashboard/speech/live') {
             setLink1(styles.activeLink)
             setLink2({})
             setLink3({})
-            to = "/speech/live"
+            to = "/dashboard/speech/live"
             props.history.push(to)
-        } else if (path === '/speech/stats') {
+        } else if (path === '/dashboard/speech/stats') {
             setLink1({})
             setLink2(styles.activeLink)
             setLink3({})
-            to = "/speech/stats"
+            to = "/dashboard/speech/stats"
             props.history.push(to)
-        } else if (path === '/speech/history') {
+        } else if (path === '/dashboard/speech/history') {
             setLink1({})
             setLink2({})
             setLink3(styles.activeLink)
-            // props.onSentimentHistory()
-            to = "/speech/history"
+            to = "/dashboard/speech/history"
             props.history.push(to)
         }
     }
@@ -70,17 +69,17 @@ function NavBar(props) {
         <Nav style={styles.main} justify variant="tabs" defaultActiveKey="link-4">
             <Nav.Item  >
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/speech/live')}
+                    onClick={linkHandler.bind(this, '/dashboard/speech/live')}
                     style={link1} eventKey="link-1">Convert Urdu Call to Text</Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/speech/stats')}
+                    onClick={linkHandler.bind(this, '/dashboard/speech/stats')}
                     style={link2} eventKey="link-2">General Information</Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/speech/history')}
+                    onClick={linkHandler.bind(this, '/dashboard/speech/history')}
                     style={link3} eventKey="link-3">Calls History</Nav.Link>
             </Nav.Item>
 

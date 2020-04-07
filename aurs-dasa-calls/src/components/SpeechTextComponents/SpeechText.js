@@ -17,13 +17,9 @@ const SpeechText = (props) => {
             <Nav/>  
 
             <Switch>
-                <Route path = '/speech/live' exact component = {() => <LiveSpeech/> } />
-                <Route path = '/speech/stats' exact component = {() => <GeneralInfo/> } />
-                <Route path = '/speech/history' exact component = {() => <CallsHistory/> } />
-
-                {/* <LiveSpeech/> */}
-                {/* <GeneralInfo/> */}
-                {/* <CallsHistory/> */}
+                <Route path = '/dashboard/speech/live' exact component = {() => <LiveSpeech/> } />
+                <Route path = '/dashboard/speech/stats' exact component = {() => <GeneralInfo/> } />
+                <Route path = '/dashboard/speech/history' exact component = {() => <CallsHistory/> } />
             </Switch>
         </div>
     )

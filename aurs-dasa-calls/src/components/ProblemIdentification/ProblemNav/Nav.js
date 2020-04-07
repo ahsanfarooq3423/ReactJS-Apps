@@ -25,29 +25,28 @@ function NavBar(props) {
     const [link3, setLink3] = useState({});
     const [link4, setLink4] = useState({});
     let to;
-    // let path = props.location.pathname;
-    let path = '/problem/live';
+    let path = props.location.pathname;
     useEffect(() => {
         props.onProblemHistory()
-        if (path === '/problem/live') {
+        if (path === '/dashboard/problem/live') {
             setLink1(styles.activeLink)
             setLink2({})
             setLink3({})
             setLink4({})
         }
-        else if (path === '/problem/info') {
+        else if (path === '/dashboard/problem/info') {
             setLink1({})
             setLink2(styles.activeLink)
             setLink3({})
             setLink4({})
         }
-        else if (path === '/problem/stats') {
+        else if (path === '/dashboard/problem/stats') {
             setLink1({})
             setLink2({})
             setLink3(styles.activeLink)
             setLink4({})
         }
-        else if (path === '/problem/history') {
+        else if (path === '/dashboard/problem/history') {
             setLink1({})
             setLink2({})
             setLink3({})
@@ -56,60 +55,60 @@ function NavBar(props) {
     }, [path])
 
     const linkHandler = (path) => {
-        if (path === '/problem/live') {
+        if (path === '/dashboard/problem/live') {
             setLink1(styles.activeLink)
             setLink2({})
             setLink3({})
             setLink4({})
-            to = "/problem/live"
+            to = "/dashboard/problem/live"
             props.history.push(to)
-        } else if (path === '/problem/info') {
+        } else if (path === '/dashboard/problem/info') {
             setLink1({})
             setLink2(styles.activeLink)
             setLink3({})
             setLink4({})
-            to = "/problem/info"
+            to = "/dashboard/problem/info"
             props.history.push(to)
-        } else if (path === '/problem/stats') {
+        } else if (path === '/dashboard/problem/stats') {
             setLink1({})
             setLink2({})
             setLink3(styles.activeLink)
             setLink4({})
-            to = "/problem/stats"
+            to = "/dashboard/problem/stats"
             props.history.push(to)
         }
-        else if (path === '/problem/history') {
+        else if (path === '/dashboard/problem/history') {
             setLink1({})
             setLink2({})
             setLink3({})
             setLink4(styles.activeLink)
             props.onProblemHistory()
-            to = "/problem/history"
+            to = "/dashboard/problem/history"
             props.history.push(to)
         }
     }
 
     return (
-        <Nav style={styles.main} justify variant="tabs" defaultActiveKey="link-4">
+        <Nav style={styles.main} justify variant="tabs" defaultActiveKey="link-5">
             <Nav.Item  >
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/problem/live')}
+                    onClick={linkHandler.bind(this, '/dashboard/problem/live')}
                     style={link1} eventKey="link-1">Identify Problem in the Call</Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/problem/info')}
+                    onClick={linkHandler.bind(this, '/dashboard/problem/info')}
                     style={link2} eventKey="link-2">Problems Info</Nav.Link>
             </Nav.Item>
             <Nav.Item>
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/problem/stats')}
+                    onClick={linkHandler.bind(this, '/dashboard/problem/stats')}
                     style={link3} eventKey="link-3">Problems Stats</Nav.Link>
             </Nav.Item>
 
             <Nav.Item>
                 <Nav.Link
-                    onClick={linkHandler.bind(this, '/problem/history')}
+                    onClick={linkHandler.bind(this, '/dashboard/problem/history')}
                     style={link4} eventKey="link-w">Problems History</Nav.Link>
             </Nav.Item>
 

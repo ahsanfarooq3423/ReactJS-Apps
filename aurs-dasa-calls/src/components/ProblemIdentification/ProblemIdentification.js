@@ -14,10 +14,10 @@ const ProblemIdentification = (props) => {
         <div className = {classes.main}> 
             <Nav/>  
             <Switch>
-                <Route path = '/problem/live' exact component = {() => <LiveProblem/> } /> 
-                 <Route path = '/problem/info' exact component = {() => <GeneralStats/> } /> 
-                 <Route path = '/problem/stats' exact component = {() => <ProblemsInfo/> } /> 
-               <Route path = '/problem/history' exact component = {() => <ProblemHistory/> } />
+                <Route path = '/dashboard/problem/live' exact component = {() => <LiveProblem/> } /> 
+                 <Route path = '/dashboard/problem/info' exact component = {() => <GeneralStats/> } /> 
+                 <Route path = '/dashboard/problem/stats' exact component = {() => <ProblemsInfo/> } /> 
+               <Route path = '/dashboard/problem/history' exact component = {() => <ProblemHistory/> } />
             </Switch>
         </div>
     )

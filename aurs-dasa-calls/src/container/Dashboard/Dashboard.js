@@ -7,6 +7,8 @@ import { Switch, Route } from 'react-router-dom';
 import Sentiment from '../../components/SentimentComponents/Sentiment';
 import SpeechText from '../../components/SpeechTextComponents/SpeechText';
 import ProblemIdentification from '../../components/ProblemIdentification/ProblemIdentification';
+import Analytics from '../../components/AnalyticsComponents/Analytics';
+
 
 
 import classes from './Dashboard.module.css';
@@ -16,20 +18,13 @@ const dashboard = () => {
         <div className={classes.main}>
             <LeftDrawer />
             <div className={classes.left_container}>
-                <h3 className={classes.title}>Dashboard : Speech To Text</h3>
-                {/* <Sentiment/> */}
-                {/* <SpeechText /> */}
-                {/* <ProblemIdentification/> */}
-
-
+                <h3 className={classes.title}>Dashboard </h3>
                 <Switch>
-                <Route path = '/speech/'  component = {() => <SpeechText/> } />
-                <Route path = '/sentiment/'  component = {() => <Sentiment/> } />
-                <Route path = '/problem/'  component = {() => <ProblemIdentification/> } />
+                <Route path = '/dashboard/speech/'  component = {() => <SpeechText/> } />
+                <Route path = '/dashboard/sentiment/'  component = {() => <Sentiment/> } />
+                <Route path = '/dashboard/problem/'  component = {() => <ProblemIdentification/> } />
+                <Route path = '/dashboard/analytics/'  component = {() => <Analytics/> } />
 
-                {/* <LiveSpeech/> */}
-                {/* <GeneralInfo/> */}
-                {/* <CallsHistory/> */}
             </Switch>
             </div>
         </div>

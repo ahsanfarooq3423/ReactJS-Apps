@@ -60,7 +60,6 @@ const LiveSpeech = (props) => {
 
             <div
                 onClick={!props.speechState.resultStatus ? convertSpeechToTextHandler : checkAnotherCallHanlder}
-                // onClick={false ? convertSpeechToTextHandler :  checkAnotherCallHanlder}
                 className={classes.mic}>
                 <img src={micImage} alt='mic' />
                 <p>{buttonContent}</p>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import User from './User/User';
 import MainSelector from './MainSelector/MainSelector';
 import SubSelector from './SubSelector/SubSelector';
@@ -10,46 +10,77 @@ import classes from './LeftDrawer.module.css';
 
 
 
-const leftdrawer = (props) => {
+const Leftdrawer = (props) => {
+    let path = props.location.pathname;
+
+    let [active, setActive] = useState([false, false, false, false])
+
+    const activeLinkHandler = (i) => {
+        active = active.map((element, index) => {
+            if (i === index) {
+                return true
+            } else {
+                return false
+            }
+        })
+        setActive(active)
+    }
+
+    useEffect(() => {
+        if (path === '/dashboard/speech/live') {
+            setActive([true, false, false, false])
+        } else if (path === '/dashboard/sentiment/live') {
+            setActive([false, true, false, false])
+        } else if (path === '/dashboard/analytics/freq') {
+            setActive([false, false, true, false])
+        } else if (path === '/dashboard/problem/live') {
+            setActive([false, false, false, true])
+        }
+    }, [props.location.pathname])
+
+
+
     return (
         <div className={classes.main}>
             <User />
-            <MainSelector name='dashboard' selected />
+            <Link style={{ textDecoration: 'none', color: 'white' }} to='/dashboard/speech/live'>
+                <MainSelector name='dashboard' selected />
+            </Link>
+            <Link style={{ textDecoration: 'none', color: 'white' }} to='/home'>
             <MainSelector name='home' />
+            </Link>
             <div className={classes.break}> </div>
             <p className={classes.subtitle}>MODELS</p>
 
             <div className={classes.subselectors}>
-                <Link style={{ textDecoration: 'none', color: 'white' }} to='/speech/live'>
-                    <SubSelector selected name='calls to text' />
+                <Link style={{ textDecoration: 'none', color: 'white' }} to='/dashboard/speech/live'>
+                    <SubSelector
+                        click={activeLinkHandler.bind(this, 0)}
+                        selected={active[0]} name='calls to text' />
                 </Link>
 
-                <Link style={{ textDecoration: 'none', color: 'white' }} to='/sentiment/live'>
-                    <SubSelector name='sentiment analysis' />
-                </Link>
-
-
-                <Link style={{ textDecoration: 'none', color: 'white' }} to='/data/live'>
-                    <SubSelector name='data analytics' />
-                </Link>
-
-                <Link style={{ textDecoration: 'none', color: 'white' }} to='/problem/live'>
-                    <SubSelector name='problem identification' />
+                <Link style={{ textDecoration: 'none', color: 'white' }} to='/dashboard/sentiment/live'>
+                    <SubSelector
+                        click={activeLinkHandler.bind(this, 1)}
+                        selected={active[1]} name='sentiment analysis' />
                 </Link>
 
 
-                {/* <SubSelector
-                    name='sentiment analysis' />
-                <SubSelector
-                    // onClick = {() => props.history.push('/speech/live')}
-                    name='data analytics' />
-                <SubSelector
-                    onClick={() => props.history.push('/problem/live')}
-                    name='problem identification' /> */}
+                <Link style={{ textDecoration: 'none', color: 'white' }} to='/dashboard/analytics/freq'>
+                    <SubSelector
+                        click={activeLinkHandler.bind(this, 2)}
+                        selected={active[2]} name='data analytics' />
+                </Link>
+
+                <Link style={{ textDecoration: 'none', color: 'white' }} to='/dashboard/problem/live'>
+                    <SubSelector
+                        click={activeLinkHandler.bind(this, 3)}
+                        selected={active[3]} name='problem identification' />
+                </Link>
 
             </div>
         </div>
     )
 }
 
-export default withRouter(leftdrawer);
+export default withRouter(Leftdrawer);
