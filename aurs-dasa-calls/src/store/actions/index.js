@@ -21,6 +21,10 @@ export {
     getProblemHistory
 } from './problem';
 
+export {
+    getFreqCount
+} from './analytics';
+
 
 export {
     setFileStatus,
