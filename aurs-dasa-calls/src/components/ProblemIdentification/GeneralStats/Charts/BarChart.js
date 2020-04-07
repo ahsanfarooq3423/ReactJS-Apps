@@ -58,7 +58,7 @@ class GroupBar extends PureComponent {
             {this.props.problemClasses.map(problem =>
               <ListGroup.Item key={problem.id}> # {problem.id + 1} {problem.category}</ListGroup.Item>)}
           </ListGroup>
-          {this.state.chart === 'Piechart' ? <BarChart
+          {this.state.chart === 'Barchart' ? <BarChart
             width={880}
             height={500}
             data={data}

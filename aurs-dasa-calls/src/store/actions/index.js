@@ -17,7 +17,8 @@ export {
     setFileType,
     setProblemFile,
     resetProblemFile,
-    checkProblemResult
+    checkProblemResult,
+    getProblemHistory
 } from './problem';
 
 

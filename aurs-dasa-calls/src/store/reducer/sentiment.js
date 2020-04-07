@@ -11,7 +11,10 @@ const initialState = {
     angryCalls : 65,
     calmCalls  : 280,
 
-    sentimentHistory : null
+    sentimentHistory : null,
+
+    
+
 
 }
 

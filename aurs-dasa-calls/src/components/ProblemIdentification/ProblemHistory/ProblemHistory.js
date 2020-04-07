@@ -2,14 +2,14 @@ import React from 'react';
 import HistoryTable from '../../GeneralComponents/HistoryTable/HistoryTable';
 import Spinner from '../../UI/Spinner/Spinner';
 import {connect} from 'react-redux';
-import classes from './SentimentHistory.module.css';
+import classes from './ProblemHistory.module.css';
 
-const SentimentHistory = (props) => {
+const ProblemHistory = (props) => {
     return (
         <div className = {classes.main}>
             {!props.loading ? <HistoryTable 
-                        data = {props.sentimentHistory}
-                        type = 'Sentiment'
+                        data = {props.problemsHistory}
+                        type = 'Problem (Issue)'
                         /> : <div className = {classes.spinner}><Spinner/> </div> }
         </div>
     )
@@ -18,9 +18,11 @@ const SentimentHistory = (props) => {
 
 const mapStateToProps = state => {
     return {
-        loading : state.sentimentState.loading,
-        sentimentHistory : state.sentimentState.sentimentHistory
+        loading : state.problemState.loading,
+        problemsHistory : state.problemState.problemsHistory
     }
 }
 
-export default connect(mapStateToProps, null)(SentimentHistory);
+
+
+export default connect(mapStateToProps, null)(ProblemHistory);

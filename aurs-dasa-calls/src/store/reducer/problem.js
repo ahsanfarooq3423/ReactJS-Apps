@@ -9,7 +9,7 @@ const initialState = {
     result: null,
     resultStatus: false,
 
-    totalCalls : 222,
+    totalCalls: 222,
 
     problemClasses: [
         {
@@ -46,7 +46,9 @@ const initialState = {
         }
     ],
 
-    dataset: 'TPL Tracker Data Set'
+    dataset: 'TPL Tracker Data Set',
+
+    problemsHistory : null
 
 
 }
@@ -87,6 +89,11 @@ const reducer = (state = initialState, action) => {
                 resultStatus: true
             }
         }
+        case (actionTypes.SET_PROBLEMS_HISTORY):
+            return {
+                ...state,
+                problemsHistory: action.data
+            }
         default:
             return {
                 ...state

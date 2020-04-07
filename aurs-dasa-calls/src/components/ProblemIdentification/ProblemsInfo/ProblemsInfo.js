@@ -39,10 +39,6 @@ class GeneralInfo extends Component {
         this.setState({ problemStats })
     }
 
-    temphandler = () => {
-        console.log(this.state)
-    }
-
 
 
     data = {
@@ -73,7 +69,7 @@ class GeneralInfo extends Component {
             <div className={classes.main}>
 
                 <div className={classes.sub_div1}>
-                    <h3 onClick={this.temphandler}>General Numbers :</h3>
+                    <h3>General Numbers :</h3>
                     <Statbox data={this.data.totalCalls} />
                 </div>
                 <hr style={{ margin: '0px' }} />

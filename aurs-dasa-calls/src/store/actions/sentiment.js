@@ -3,42 +3,42 @@ import * as actionTypes from './actionTypes';
 const rows = [
     {
         name : 'Audio_Call_TPL_1',
-        sentiment : 'Angry',
+        value : 'Angry',
         date : '23-March-2020',
         size : '4.1 MB',
         length : '2:20 minutes'
     },
     {
         name : 'Audio_Call_TPL_1',
-        sentiment : 'Angry',
+        value : 'Angry',
         date : '23-March-2020',
         size : '4.1 MB',
         length : '2:20 minutes'
     },
     {
         name : 'Audio_Call_TPL_1',
-        sentiment : 'Angry',
+        value : 'Angry',
         date : '23-March-2020',
         size : '4.1 MB',
         length : '2:20 minutes'
     },
     {
         name : 'Audio_Call_TPL_1',
-        sentiment : 'Angry',
+        value : 'Angry',
         date : '23-March-2020',
         size : '4.1 MB',
         length : '2:20 minutes'
     },
     {
         name : 'Audio_Call_TPL_1',
-        sentiment : 'Angry',
+        value : 'Angry',
         date : '23-March-2020',
         size : '4.1 MB',
         length : '2:20 minutes'
     },
     {
         name : 'Audio_Call_TPL_1',
-        sentiment : 'Angry',
+        value : 'Angry',
         date : '23-March-2020',
         size : '4.1 MB',
         length : '2:20 minutes'

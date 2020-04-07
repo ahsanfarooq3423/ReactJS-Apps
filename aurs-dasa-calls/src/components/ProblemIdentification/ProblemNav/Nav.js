@@ -4,6 +4,8 @@ import { Nav } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 
+import * as actions from '../../../store/actions/index';
+
 
 const styles = {
     activeLink: {
@@ -26,6 +28,7 @@ function NavBar(props) {
     // let path = props.location.pathname;
     let path = '/problem/live';
     useEffect(() => {
+        props.onProblemHistory()
         if (path === '/problem/live') {
             setLink1(styles.activeLink)
             setLink2({})
@@ -80,6 +83,7 @@ function NavBar(props) {
             setLink2({})
             setLink3({})
             setLink4(styles.activeLink)
+            props.onProblemHistory()
             to = "/problem/history"
             props.history.push(to)
         }
@@ -113,5 +117,11 @@ function NavBar(props) {
     )
 }
 
+const mapDispatchToProps = dispatch => {
+    return {
+        onProblemHistory: () => dispatch(actions.getProblemHistory())
+    }
+}
 
-export default withRouter(connect(null, null)(NavBar));
+
+export default withRouter(connect(null, mapDispatchToProps)(NavBar));
