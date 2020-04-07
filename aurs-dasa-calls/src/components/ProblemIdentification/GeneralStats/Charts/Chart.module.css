@@ -1,0 +1,20 @@
+.main {
+    margin-top: 2%;
+    text-align: center;
+}
+
+.bar_main { 
+    width: 100%;
+    display: flex;
+    margin: 2%;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pie_main {
+    margin-top: 2%;
+}

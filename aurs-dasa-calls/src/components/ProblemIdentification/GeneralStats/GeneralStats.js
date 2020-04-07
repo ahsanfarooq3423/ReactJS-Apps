@@ -1,16 +1,23 @@
 import React from 'react';
 import classes from './GeneralStats.module.css';
+import {connect} from 'react-redux';
 
 import GroupBar from './Charts/BarChart';
-// import PieChart from './Charts/PieChart';
+
 
 
 const GeneralStats = (props) => {
     return (
         <div>
-            <GroupBar/>
+            <GroupBar {...props}/>
         </div>
     )
 }
 
-export default GeneralStats;
+const mapStateToProps = state => {
+    return {
+        problemClasses: state.problemState.problemClasses
+    }
+}
+
+export default connect(mapStateToProps)(GeneralStats);

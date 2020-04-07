@@ -24,23 +24,23 @@ const initialState = {
         },
         {
             category: "Problem : Receiving Critical Alarms from the Car",
-            id: 3,
+            id: 2,
             number: 45
         },
         {
             category: "Problem : Need to Know the Location of the Car",
-            id: 4,
+            id: 3,
             number: 12
         },
         {
             category: "Problem : Need the Passport Code for TPL Trakker Mobile App",
-            id: 5,
+            id: 4,
             number: 65
 
         },
         {
             category: "Problem : Battery Drainage Issue",
-            id: 6,
+            id: 5,
             number: 23
 
         }
