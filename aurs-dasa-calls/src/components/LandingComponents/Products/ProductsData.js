@@ -10,25 +10,29 @@ const data = [
         title : 'Urdu Speech Recognition',
         intro : 'Convert the Urdu noisy calls to urdu text with an api end point',
         list : ['Fast and Efficient', 'High Accuracy', 'Uses Famous Kaldi Module'],
-        image : SR
+        image : SR,
+        path : '/dashboard/speech/live'
     },
     {
         title : 'Sentiment Analysis',
         intro : 'Tell the Customer Sentiments like Happy, Angry, Upset',
         list : ['Based on tonality', 'Cutting Edge Machine Learning', 'Acoustic Model'],
-        image : SA
+        image : SA,
+        path : '/dashboard/sentiment/live'
     },
     {
         title : 'Data Analytics',
         intro : 'Some basic kind of Data analytics on the text ',
         list : ['NLTK Library', 'Frequency Counter',  'N-Gram Model'],
-        image : DA
+        image : DA,
+        path : '/dashboard/analytics/freq'
     },
     {
         title : 'Problem Identification Model',
         intro : 'The algorithm tells the issue faced by the customer by classification',
         list : ['Based on Probabilistic Models', 'Models with different Accuracies', 'Highly Data Dependent'],
-        image : PI
+        image : PI,
+        path : '/dashboard/problem/live'
     }
 ]
 

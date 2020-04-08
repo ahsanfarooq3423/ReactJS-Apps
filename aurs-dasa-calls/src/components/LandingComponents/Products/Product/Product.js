@@ -6,8 +6,12 @@ import ProductList from './ProductList/ProductList';
 
 
 const product = props => {
+
+    const routerHandler = () => {
+        props.history.push(props.data.path)
+    }
     return (
-        <div className={classes.main}>
+        <div onClick = {routerHandler}  className={classes.main}>
             <img className={classes.image} src={props.data.image} alt="Data Analytics" />
     <p className = {classes.title}>{props.data.title}</p>
             <hr />
