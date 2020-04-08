@@ -27,13 +27,14 @@ const Leftdrawer = (props) => {
     }
 
     useEffect(() => {
-        if (path === '/dashboard/speech/live') {
+        let path_arr = path.split('/');
+        if (path_arr[2] === 'speech') {
             setActive([true, false, false, false])
-        } else if (path === '/dashboard/sentiment/live') {
+        } else if (path_arr[2] === 'sentiment') {
             setActive([false, true, false, false])
-        } else if (path === '/dashboard/analytics/freq') {
+        } else if (path_arr[2] === 'analytics') {
             setActive([false, false, true, false])
-        } else if (path === '/dashboard/problem/live') {
+        } else if (path_arr[2] === 'problem') {
             setActive([false, false, false, true])
         }
     }, [props.location.pathname])

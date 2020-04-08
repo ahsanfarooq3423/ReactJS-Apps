@@ -18,7 +18,6 @@ const dashboard = () => {
         <div className={classes.main}>
             <LeftDrawer />
             <div className={classes.left_container}>
-                <h3 className={classes.title}>Dashboard </h3>
                 <Switch>
                 <Route path = '/dashboard/speech/'  component = {() => <SpeechText/> } />
                 <Route path = '/dashboard/sentiment/'  component = {() => <Sentiment/> } />
