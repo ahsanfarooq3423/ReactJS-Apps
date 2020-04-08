@@ -13,7 +13,12 @@ const reducer = (state = initialState, action) => {
         case (actionTypes.SET_FREQ_COUNT):
             return {
                 ...state,
-                freqCount: action.freqCount
+                freqCount: action.data
+            }
+        case (actionTypes.SET_NGRAM_COUNT):
+            return {
+                ...state,
+                nGramCount : action.data
             }
         case (actionTypes.RESOURCE_LOADING): {
             return {

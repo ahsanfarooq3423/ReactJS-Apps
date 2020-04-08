@@ -1,6 +1,6 @@
 import * as actionTypes from './actionTypes';
 
-const data = [['گاڑی', 364],
+const freqData = [['گاڑی', 364],
 ['ٹریکر', 126],
 ['لوکیشن', 114],
 ['حافظ', 95],
@@ -32,6 +32,27 @@ const data = [['گاڑی', 364],
 ['کرنے', 51]
 ]
 
+const nGramData = [[['تھینک', 'یو'], 62],
+[['پی', 'ایل'], 50],
+[['بہت', 'شکریہ'], 45],
+[['اللہ', 'حافظ'], 44],
+[['الله', 'حافظ'], 39],
+[['ٹی', 'پی'], 38],
+[['کال', 'کرنے'], 36],
+[['کرنٹ', 'لوکیشن'], 36],
+[['پاس', 'ورڈ'], 36],
+[['میرے', 'پاس'], 30],
+[['گاڑی', 'اگنیشن'], 27],
+[['ایل', 'ٹریکر'], 27],
+[['اپنا', 'خیال'], 27],
+[['اگنیشن', 'آف'], 24],
+[['اگنیشن', 'آن'], 24],
+[['کتنے', 'بجے'], 24],
+[['لنک', 'روڈ'], 24],
+[['شکریہ', 'اپنا'], 21],
+[['خیال', 'رکھیے'], 21],
+[['کرنے', 'شکریہ'], 18]]
+
 export const setFileStatus = () => {
     return {
         type : actionTypes.SET_FILE_STATUS
@@ -59,7 +80,28 @@ export const getFreqCount = () => {
 
         //here goes the api call to the server for the sentiment
         setTimeout(() => {
-            dispatch(setFreqCount(data))
+            dispatch(setFreqCount(freqData))
+            dispatch(resourceLoading(false))
+        },1200)
+
+    }
+}
+
+
+export const setNgramCount = (data) => {
+    return {
+        type : actionTypes.SET_NGRAM_COUNT,
+        data : data
+    }
+}
+
+export const getNgramCount = () => {
+    return dispatch => {
+        dispatch(resourceLoading(true))
+
+        //here goes the api call to the server for the sentiment
+        setTimeout(() => {
+            dispatch(setNgramCount(nGramData))
             dispatch(resourceLoading(false))
         },1200)
 

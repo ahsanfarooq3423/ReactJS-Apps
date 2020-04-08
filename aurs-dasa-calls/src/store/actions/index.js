@@ -22,7 +22,8 @@ export {
 } from './problem';
 
 export {
-    getFreqCount
+    getFreqCount,
+    getNgramCount
 } from './analytics';
 
 

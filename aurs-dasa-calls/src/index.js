@@ -15,6 +15,8 @@ import sentimentReducer from './store/reducer/sentiment';
 import speechReducer from './store/reducer/speech';
 import audioReducer from './store/reducer/audio';
 import problemReducer from './store/reducer/problem';
+import analyticsReducer from './store/reducer/analytics';
+
 
 
 import thunk from 'redux-thunk';
@@ -27,7 +29,8 @@ const rootReducer = combineReducers({
     speechState: speechReducer,
     sentimentState: sentimentReducer,
     audioState: audioReducer,
-    problemState : problemReducer
+    problemState : problemReducer,
+    analyticsState : analyticsReducer
 })
 
 
