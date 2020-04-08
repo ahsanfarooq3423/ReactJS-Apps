@@ -23,7 +23,6 @@ const dashboard = () => {
                 <Route path = '/dashboard/sentiment/'  component = {() => <Sentiment/> } />
                 <Route path = '/dashboard/problem/'  component = {() => <ProblemIdentification/> } />
                 <Route path = '/dashboard/analytics/'  component = {() => <Analytics/> } />
-
             </Switch>
             </div>
         </div>
